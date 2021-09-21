@@ -2,3 +2,6 @@
 %project=chibi-api
 
 init 2021-09-20T15:17:19Z Florentin <marechalflorentin@gmail.com> # Initialisation de la base
+constraint 2021-09-21T11:52:47Z leo <leopold.deconinck@gmail.com> # Ajout des contraintes SQL
+add_constraints 2021-09-21T12:37:28Z leo <leopold.deconinck@gmail.com> # Ajout des contraintes aux champs
+seeding_product 2021-09-21T12:57:52Z leo <leopold.deconinck@gmail.com> # Integration de données pour les produits

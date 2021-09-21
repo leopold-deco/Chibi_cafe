@@ -45,8 +45,8 @@ CREATE TABLE "product" (
     "name" TEXT NOT NULL,
     "picture" TEXT,
     "description" TEXT,
-    "price_without_taxes" INT NOT NULL,
-    "taxes" INT NOT NULL,
+    "price_without_taxes" FLOAT,
+    "taxe" FLOAT DEFAULT 5.5,
     "stock" INT,
     "category_id" INT REFERENCES "category"(id)
 );

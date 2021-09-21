@@ -1,6 +1,7 @@
 import './App.css';
 import AppHeader from '../AppHeader';
 import { Route, Switch } from 'react-router-dom';
+import Home from '../Home';
 
 function App() {
   return (

@@ -5,7 +5,7 @@ import Home from '../Home';
 import Cart from '../Cart';
 import Contact from '../Contact';
 import Menu from '../Menu';
-import Profil from '../Profil';
+import Profile from '../Profile';
 import Store from '../Store';
 import Footer from '../Footer';
 import Error from '../error';
@@ -13,6 +13,8 @@ import Custom from "../Store/Custom";
 import Decorated from "../Store/Decorated";
 import Message from "../Store/Message";
 import Paint from "../Store/Paint";
+import Informations from '../Profile/Informations';
+import Orders from '../Profile/Orders';
 
 
 function App() {
@@ -30,7 +32,13 @@ function App() {
           <Store />
         </Route>
         <Route path="/compte" exact>
-          <Profil />
+          <Profile />
+        </Route>
+        <Route path="/compte/informations" exact>
+          <Informations />
+        </Route>
+        <Route path="/compte/commandes" exact>
+          <Orders />
         </Route>
         <Route path="/panier" exact>
           <Cart />

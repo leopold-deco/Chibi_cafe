@@ -1,7 +1,10 @@
+import NavBar from "./NavBar";
+
 function AppHeader() {
     return (
       <div >
-          test
+          <h1> Chibi</h1>
+            <NavBar />
       </div>
     );
   }

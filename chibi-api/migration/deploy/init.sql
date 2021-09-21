@@ -51,15 +51,15 @@ CREATE TABLE "product" (
     "category_id" INT REFERENCES "category"(id)
 );
 
-CREATE TABLE "ingredient" (
-    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "name" TEXT NOT NULL UNIQUE
-);
+-- CREATE TABLE "ingredient" (
+--     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+--     "name" TEXT NOT NULL UNIQUE
+-- );
 
-CREATE TABLE "product_has_ingredient" (
-    "product_id" INT REFERENCES "product"(id),
-    "ingredient_id" INT REFERENCES "ingredient"(id)
-);
+-- CREATE TABLE "product_has_ingredient" (
+--     "product_id" INT REFERENCES "product"(id),
+--     "ingredient_id" INT REFERENCES "ingredient"(id)
+-- );
 
 CREATE TABLE "order_has_product" (
     "order_id" INT REFERENCES "order"(id),

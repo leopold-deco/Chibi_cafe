@@ -2,6 +2,6 @@
 
 BEGIN;
 
-TRUNCATE product, category RESTART IDENTITY;
+TRUNCATE product, category RESTART IDENTITY CASCADE;
 
 COMMIT;

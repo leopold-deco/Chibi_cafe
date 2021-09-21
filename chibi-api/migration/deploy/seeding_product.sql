@@ -3,17 +3,17 @@
 BEGIN;
 
 INSERT INTO category ("name", "picture") VALUES 
-('Café', 'https://www.coca-cola-france.fr/content/dam/one/fr/fr/section/banniere-desktop-coca.jpg'),
-('Thés et Infusions', 'https://www.coca-cola-france.fr/content/dam/one/fr/fr/section/banniere-desktop-coca.jpg'),
-('Soft', 'https://www.coca-cola-france.fr/content/dam/one/fr/fr/section/banniere-desktop-coca.jpg'),
-('bubbles tea', 'https://www.coca-cola-france.fr/content/dam/one/fr/fr/section/banniere-desktop-coca.jpg'),
-('Sablés décorés', 'https://www.coca-cola-france.fr/content/dam/one/fr/fr/section/banniere-desktop-coca.jpg'),
-('Sablés à peindre', 'https://www.coca-cola-france.fr/content/dam/one/fr/fr/section/banniere-desktop-coca.jpg'),
-('Sablés messages', 'https://www.coca-cola-france.fr/content/dam/one/fr/fr/section/banniere-desktop-coca.jpg'),
-('Sablés personnalisés', 'https://www.coca-cola-france.fr/content/dam/one/fr/fr/section/banniere-desktop-coca.jpg'),
-('Gâteaux', 'https://www.coca-cola-france.fr/content/dam/one/fr/fr/section/banniere-desktop-coca.jpg'),
-('Cornet de Crêpes', 'https://www.coca-cola-france.fr/content/dam/one/fr/fr/section/banniere-desktop-coca.jpg'),
-('Glaces', 'https://www.coca-cola-france.fr/content/dam/one/fr/fr/section/banniere-desktop-coca.jpg');
+('Café', ''),
+('Thés et Infusions', ''),
+('Soft', ''),
+('bubbles tea', ''),
+('Sablés décorés', ''),
+('Sablés à peindre', ''),
+('Sablés messages', ''),
+('Sablés personnalisés', ''),
+('Gâteaux', ''),
+('Cornet de Crêpes', ''),
+('Glaces', '');
 
 INSERT INTO product ("number", "Type_of_product", "name", "picture", "description", "price_without_taxes", "taxe", "stock", "category_id") VALUES 
 ('CAF_1', FALSE, 'Espresso', '', '', NULL, NULL, NULL, 1),

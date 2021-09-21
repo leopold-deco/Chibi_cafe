@@ -13,7 +13,7 @@ ALTER TABLE "order"
     ALTER COLUMN "total_without_taxes" TYPE "strict_posint";
 
 -- ALTER TABLE "category"
-    -- ALTER COLUMN "picture" TYPE "url";
+--     ALTER COLUMN "picture" TYPE "url";
 
 ALTER TABLE "product"
     -- ALTER COLUMN "picture" TYPE "url",

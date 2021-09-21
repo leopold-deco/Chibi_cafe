@@ -10,9 +10,9 @@ SELECT * FROM "category" WHERE false;
 
 SELECT * FROM "product" WHERE false;
 
-SELECT * FROM "ingredient" WHERE false;
+-- SELECT * FROM "ingredient" WHERE false;
 
-SELECT * FROM "product_has_ingredient" WHERE false;
+-- SELECT * FROM "product_has_ingredient" WHERE false;
 
 SELECT * FROM "order_has_product" WHERE false;
 

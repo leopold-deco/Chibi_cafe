@@ -31,7 +31,7 @@ CREATE DOMAIN "zip_code" AS TEXT CHECK(
 
 -- CREATE DOMAIN "url" AS TEXT CHECK(
 
---     VALUE ~ '[-a-zA-Z0-9@:%._\+~#=]{0,256}\.[a-zA-Z0-9()]{0,255}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?'
+--     VALUE ~ '[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?'
 
 -- );
 

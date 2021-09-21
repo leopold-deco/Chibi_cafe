@@ -3,13 +3,13 @@
 BEGIN;
 
 ALTER TABLE "product"
-    ALTER COLUMN "picture" TYPE TEXT,
+    -- ALTER COLUMN "picture" TYPE TEXT,
     ALTER COLUMN "price_without_taxes" TYPE INT,
     ALTER COLUMN "taxe" TYPE INT,
     ALTER COLUMN "stock" TYPE INT;
 
-ALTER TABLE "category"
-    ALTER COLUMN "picture" TYPE TEXT;
+-- ALTER TABLE "category"
+--     ALTER COLUMN "picture" TYPE TEXT;
 
 ALTER TABLE "order"
     ALTER COLUMN "delivery_postal_code" TYPE TEXT,

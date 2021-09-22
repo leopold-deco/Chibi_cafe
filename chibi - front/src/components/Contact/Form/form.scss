@@ -1,29 +1,59 @@
 .form {
     display: flex;
     flex-direction: column;
-    margin-bottom: 200px;
-    font-size: 25px;
+    margin: 10px 50px;
+    padding: 20px 20px;
+    font-size: 22px;
     
 
     &__title {
         color:rgb(226, 85, 132);
         font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+    }
 
+    &__lastname {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__firstname {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__email {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__phone {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
-    &__input {
-    margin-top: 5px;
-    padding: 10px 5px 10px 30px;
-    border: 1px solid #c9c9c9; 
-    outline-color: rgb(226, 85, 132);
-    border-radius: 5px;
-    }
 }
 
 label {
     color: rgb(226, 85, 132);
     font-weight: bold;
-    margin-top: 5px;
+    margin: 0 auto;
 }
+
+input {
+    margin-top: 5px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #c9c9c9; 
+    outline-color: rgb(226, 85, 132);
+    border-radius: 5px;
+    width: 500px;
+    height: 50px;
+}
+
 
 

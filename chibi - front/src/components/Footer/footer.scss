@@ -1,13 +1,13 @@
 .footer {
     display: flex;
     justify-content: space-around;
-    align-items: flex-end;
-    margin-bottom: 20px;
-
+    align-items: center;
+    border: 1px solid #c9c9c9;
+    background-color: #f398d52f;
+    padding: 10px;
 
     &__image {
         display: flex;
-        
         
         &-facebook {
             width: 30px;

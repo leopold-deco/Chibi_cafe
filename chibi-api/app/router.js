@@ -11,12 +11,20 @@ router.get('/product/:id', productController.findOne);
 router.post('/product/:id', productController.create);
 router.patch('/product/:id', productController.update);
 // User
-router.get('/account', userController.findOne);
-router.patch('/account', userController.update);
+router.get('/account/:id', userController.findOne);
+
+router.patch('/account/:id', userController.update);
+
 router.post('/login', userController.login);
 router.post('/SignUp', userController.create);
+
+router.delete('/account/:id', userController.delete);
 
 // Category - Test
 
 router.get('/category', categoryController.findAll)
+
+// Order
+
+
 module.exports = router;

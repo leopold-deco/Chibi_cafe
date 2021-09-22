@@ -15,7 +15,7 @@ const userController = {
     update: async (request, response) => {
         try {
             const updateUser = new User(request.body); 
-            await updateUser.update();
+            await updateUser.update(request.params.id);
             response.json(updateUser);            
         }catch(error) {
             response.status(500).send(error.message);   
@@ -70,12 +70,20 @@ const userController = {
             RETURN CONNEXION
             */
             const userInfo = request.body;
-            const result = await User.Check(userInfo.mail);
+            const result = await User.check(userInfo.mail);
             if(!result) console.log(`Email ou mot de passe incorrect`);
             const isTrue = bcrypt.compareSync(userInfo.password, result.password);
             if(isTrue) console.log(`Connexion validé`);
             else console.log('Email ou mot de passe incorrect');
         } catch(error) {
+            response.status(500).send(error.message);
+        }
+    },
+
+    delete: async (request, response) => {
+        try {
+            await User.delete(request.params.id);
+        } catch (error) {
             response.status(500).send(error.message);
         }
     }

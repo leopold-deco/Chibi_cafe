@@ -12,7 +12,6 @@ GET {{host}}/category
 
 ### LOGIN
 
-
 POST {{host}}/SignUp
 Content-Type: application/json
 
@@ -34,7 +33,6 @@ Content-Type: application/json
 
 ### LOGIN
 
-
 POST {{host}}/login
 Content-Type: application/json
 
@@ -42,3 +40,29 @@ Content-Type: application/json
     "mail": "abc@fde.fr",
     "password": "Chibi1234"
 }
+
+### FIND USER
+
+GET {{host}}/account/1
+
+
+### UPDATE USER
+
+
+PATCH {{host}}/account/1
+Content-Type: application/json
+
+{
+    "mail": "abc@fae.fr",
+    "first_name": "Pierre",
+    "last_name": "Marc",
+    "gender": true,
+    "day": "22",
+    "month": "02",
+    "year": "1782",
+    "phone_number": "0678412578",
+    "street_number": "14",
+    "name_of_the_road": "Rue des abres",
+    "postal_code": "06450",
+    "city": "Bordeaux"
+} 

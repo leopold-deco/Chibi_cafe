@@ -1,7 +1,12 @@
 import "./cart.scss";
 import CartItem from "./cartItem";
+import { connect } from "react-redux";
 
 const Cart = (props) => {
+
+  console.log(props.underprice)
+
+
     return (
       <div className="container" >
                     <div className="cart">
@@ -24,14 +29,16 @@ const Cart = (props) => {
                                   Sous total
                               </div>
                             </div>                 
-                         <CartItem />
+                            {props.cartItemCount ? props.cartItems.map(cart => (
+                                <CartItem {...cart} key={cart.id} />
+                            )) : <h1 className="cart__body__none">Votre Panier est vide</h1> }
                         </div>
                       <div className="cart__ender">
                         <div className="cart__ender__header">
                             Total TTC
                         </div>
                         <div className="cart__ender__price">
-                                    Total price: <b>10€</b>
+                                    Total price: <b>{`${props.totalPrice} €`}</b>
                         </div>
                         <div className="cart__ender__footer">
                           <button type="button" className="cart__ender__btn">
@@ -43,6 +50,21 @@ const Cart = (props) => {
                     </div>
       </div>
     );
-  }
+  };
+
+  const mapStateToProps = state => {
+
+    console.log(state, 'state has changed');
+
+    return {
+        cartItems: state.shop.cart,
+        cartItemCount: state.shop.cart.reduce((count, curItem) => {
+            return count + curItem.quantity;
+        }, 0),
+        totalPrice: state.shop.cart.reduce((count, curItem) => {
+            return count + (curItem.prix * curItem.quantity);
+        }, 0),
+    }
+}
   
-export default Cart;
+export default connect(mapStateToProps, null) (Cart);

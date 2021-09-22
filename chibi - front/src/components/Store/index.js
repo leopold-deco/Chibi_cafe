@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 
-function Store() {
+import './store.scss';
+
+const Store = () => {
+
     return (
-      <div >
+      <div className="container">
           <Link to="/boutique/custom">personnalisables</Link>
           <Link to="/boutique/peindre">à peindre</Link>
-          <Link to="/boutique/message">Message</Link>
-          <Link to="/boutique/decores">decores</Link>
+          <Link className="container__message" to="/boutique/message">Sablés Message</Link>
+          <Link className="container__decores" to="/boutique/decores">Sablés Décorés</Link>
 
       </div>
     );

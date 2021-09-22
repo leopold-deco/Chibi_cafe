@@ -20,13 +20,12 @@ const SignUp = () => (
         <input type="email" name="mail" id="mail" placeholder="Entrez votre email" required />
         <input type="password" name="password" id="password" placeholder="Entrez votre mot de passe" required />
         <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmez votre mot de passe" required />
-        <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmez votre mot de passe" required />
         <input type="date" id="birthday_date" name="birthday_date" required />
-        <input type="tel" id="phone_number" name="phone_number" required />
-        <input type="number" id="street_number" name="street_number" required />
-        <input type="text" id="name_of_the_road" name="name_of_the_road" required />
-        <input type="text" id="postal_code" name="postal_code" pattern="[0-9]{5}" required />
-        <input type="text" id="city" name="city" required />
+        <input type="tel" id="phone_number" name="phone_number" placeholder="Entrez votre numéro de mobile" required />
+        <input type="number" id="street_number" name="street_number" placeholder="Entrez votre numéro de rue" required />
+        <input type="text" id="name_of_the_road" name="name_of_the_road" placeholder="Entrez votre nom de rue" required />
+        <input type="text" id="postal_code" name="postal_code" pattern="[0-9]{5}" placeholder="Entrez votre code postal" required />
+        <input type="text" id="city" name="city" placeholder="Entrez votre ville" required />
 
         <button>S'inscrire</button>
     </Form>

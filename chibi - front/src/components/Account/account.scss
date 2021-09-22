@@ -1,0 +1,11 @@
+.auth {
+    display: flex;
+    height: calc(100vh - 60px);
+    align-items: center;
+
+    &-container {
+        flex-basis: 50%;
+        
+    }
+}
+

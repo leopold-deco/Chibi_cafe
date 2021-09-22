@@ -2,6 +2,7 @@ import SignUp from './SignUp';
 import Login from './Login';
 import Informations from './Informations';
 import Orders from './Orders';
+import './account.scss';
 
 function Account() {
   const user = true;
@@ -9,8 +10,12 @@ function Account() {
       <div>
         {user? 
           <div className="auth">
-            <SignUp />
-            <Login /> 
+            <div className="auth-container">
+              <SignUp />
+            </div>
+            <div className="auth-container">
+              <Login /> 
+            </div>
           </div> :
           <div className="account">
             <Informations />
@@ -19,6 +24,6 @@ function Account() {
         }
       </div>
     );
-  }
+}
   
 export default Account;

@@ -8,7 +8,22 @@ const Cart = (props) => {
                         <div className="cart__header">
                             Votre Panier :
                         </div>
+                        <div className="cart__content">
                         <div className="cart__body">
+                        <div className="cart__body__legend">
+                              <div className="cart__body__designation">
+                                Désignation
+                              </div>
+                              <div className="cart__body__unitPrice">
+                                  Prix unitaire
+                              </div>
+                              <div className="cart__body__quantity">
+                                  Quantité
+                              </div>
+                              <div className="cart__body__underPricer">
+                                  Sous total
+                              </div>
+                            </div>                 
                          <CartItem />
                         </div>
                       <div className="cart__ender">
@@ -23,6 +38,7 @@ const Cart = (props) => {
                             Poursuivre la commande
                           </button>
                         </div>
+                      </div>
                       </div>
                     </div>
       </div>

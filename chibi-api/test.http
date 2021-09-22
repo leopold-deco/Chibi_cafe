@@ -2,7 +2,30 @@
 
 ### GET PRODUCT
 
-{{host}}/products
+GET {{host}}/products
 
 ### GET CATEGORY
-{{host}}/category
+GET {{host}}/category
+
+
+### POST USER (/login)
+
+POST {{host}}/SignUp
+Content-Type: application/json
+
+{
+    "mail": "abc@fde.fr",
+    "password": "Chibi1234",
+    "first_name": "ALbert",
+    "last_name": "Jean",
+    "gender": "Homme",
+    "day": "14",
+    "month": "02",
+    "year": "1782",
+    "phone_number": "0678412578",
+    "street_number": "2 bis",
+    "name_of_the_road": "Rue des lilas",
+    "postal_code": "06450",
+    "city": "Paris"
+}   
+

@@ -11,7 +11,7 @@ CREATE TABLE "user" (
     "gender" BOOLEAN NOT NULL,
     "birthday_date" TEXT NOT NULL,
     "phone_number" TEXT NOT NULL,
-    "roles" TEXT NOT NULL,
+    "roles" BOOLEAN NOT NULL DEFAULT FALSE,
     "street_number" TEXT NOT NULL,
     "name_of_the_road" TEXT NOT NULL,
     "postal_code" TEXT NOT NULL,

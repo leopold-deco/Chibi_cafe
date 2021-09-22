@@ -1,6 +1,7 @@
 import './signup.scss';
 import Form from '../Form';
 import Input from '../Input';
+import Button from '../Button';
 
 const SignUp = () => (
     <Form>
@@ -32,7 +33,7 @@ const SignUp = () => (
             <Input type="text" id="city" name="city" placeholder="Ville" required />
         </div>
 
-        <button>S'inscrire</button>
+        <Button>S'inscrire</Button>
     </Form>
 );
 

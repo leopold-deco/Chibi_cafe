@@ -1,7 +1,8 @@
 import './signup.scss';
+import Form from '../Form';
 
 const SignUp = () => (
-    <form className='signup'>
+    <Form>
         <h2>Inscription</h2>
         <div>
             <div>
@@ -28,7 +29,7 @@ const SignUp = () => (
         <input type="text" id="city" name="city" required />
 
         <button>S'inscrire</button>
-    </form>
+    </Form>
 );
 
 export default SignUp;

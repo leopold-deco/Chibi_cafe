@@ -16,11 +16,6 @@ const Login = () => {
         dispatch(setUserField(value, name));
     };
 
-    // const handleLogin = () => {
-    //     console.log('il faut se logger');
-    //     dispatch(login());
-    // };
-
     return (
         <Form handleLogin={() => dispatch(login())}>
             <h2>Connexion</h2>

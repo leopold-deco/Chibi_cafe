@@ -9,9 +9,8 @@ const axiosInstance = axios.create({
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOGIN: {
-
         const { user: { mail, password } } = store.getState();
-        console.log("mid", mail,password )
+
         axiosInstance.post(
           '/login',
           {

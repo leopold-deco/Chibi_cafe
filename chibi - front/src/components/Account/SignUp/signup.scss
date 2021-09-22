@@ -1,0 +1,23 @@
+.gender {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    border: none;
+}
+
+.address {
+    display: flex;
+
+    & input:first-child {
+        width: 20%;
+        margin-right: 0.5rem;
+    }
+
+    & input:last-child {
+        flex: 1;
+    }
+}

@@ -4,7 +4,7 @@ import Form from '../Form';
 const SignUp = () => (
     <Form>
         <h2>Inscription</h2>
-        <div>
+        <div className="gender">
             <div>
                 <input type="radio" name="gender" id="genderFemale" required />
                 <label for="genderFemale">Madame</label>
@@ -22,8 +22,10 @@ const SignUp = () => (
         <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmez votre mot de passe" required />
         <input type="date" id="birthday_date" name="birthday_date" required />
         <input type="tel" id="phone_number" name="phone_number" placeholder="Entrez votre numéro de mobile" required />
-        <input type="number" id="street_number" name="street_number" placeholder="Entrez votre numéro de rue" required />
-        <input type="text" id="name_of_the_road" name="name_of_the_road" placeholder="Entrez votre nom de rue" required />
+        <div className="address">
+            <input type="number" id="street_number" name="street_number" placeholder="Entrez votre numéro de rue" required />
+            <input type="text" id="name_of_the_road" name="name_of_the_road" placeholder="Entrez votre nom de rue" required />
+        </div>
         <input type="text" id="postal_code" name="postal_code" pattern="[0-9]{5}" placeholder="Entrez votre code postal" required />
         <input type="text" id="city" name="city" placeholder="Entrez votre ville" required />
 

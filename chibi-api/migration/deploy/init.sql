@@ -41,7 +41,7 @@ CREATE TABLE "category" (
 CREATE TABLE "product" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "number" TEXT NOT NULL UNIQUE,
-    "Type_of_product" BOOLEAN NOT NULL,
+    "type_of_product" BOOLEAN NOT NULL,
     "name" TEXT NOT NULL,
     "picture" TEXT,
     "description" TEXT,

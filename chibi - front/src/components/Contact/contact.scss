@@ -1,35 +1,23 @@
-.form {
-    display: flex;
-    justify-content: center;
-    margin: 50px;
+.contact {
+    background-image: url(../../assets/crepe-contact.jpg);
+    background-size: cover;
+    height: 100vh;
+    position: relative;
     
+    &__container {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
 
-    &__left {
         display: flex;
-        width: 500px;
-        margin: 25px;
-        &-infos {
-            
-            
-            &--adresse {
-                margin-bottom: 20px;
-            }
-            
-            &--img {
-                width: 550px;
-                height: 420px;
-            }
-        }
-    }
-
-    &__right {
-        display: flex;
+        justify-content: center;
         align-items: center;
-        width: 500px;
-
-        &-message {
-            display: flex;
-            flex-direction: column;
-        }
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+        border-radius: 20px;
+        opacity: 0.8;
+        padding: 20px;
     }
 }

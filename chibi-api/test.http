@@ -18,7 +18,7 @@ Content-Type: application/json
     "password": "Chibi1234",
     "first_name": "ALbert",
     "last_name": "Jean",
-    "gender": "Homme",
+    "gender": true,
     "day": "14",
     "month": "02",
     "year": "1782",

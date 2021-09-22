@@ -13,7 +13,7 @@ router.patch('/product/:id', productController.update);
 // User
 router.get('/account', userController.findOne);
 router.patch('/account', userController.update);
-router.post('/SignUp', userController.create)
+router.post('/SignUp', userController.create);
 
 // Category - Test
 

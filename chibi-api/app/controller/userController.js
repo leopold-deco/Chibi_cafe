@@ -28,16 +28,13 @@ const userController = {
             // GESTION DU MOT DE PASSE
 
             const userPassword = request.body.password
-            console.log("Mot de passe:", userPassword)
             const salt = bcrypt.genSaltSync(saltRounds);
             const hashedPassword = bcrypt.hashSync(userPassword, salt);
-            console.log("Mot de passe crypté:", hashedPassword)
             
             // FORMATAGE DATE DE NAISSANCE
 
             const {day, month, year} = request.body;
             const birthdayDate = `${day}/${month}/${year}`;
-            console.log("date de naissance", birthdayDate);
             
             const result = request.body;
 
@@ -45,15 +42,15 @@ const userController = {
 
             const userInfo = {
                 mail: result.mail,
-                hashedPassword,
-                firstName: result.first_name,
-                lastName: result.last_name,
+                password: hashedPassword,
+                first_name: result.first_name,
+                last_name: result.last_name,
                 gender: result.gender,
-                birthdayDate,
-                phoneNumber: result.phone_number,
-                streetNumber: result.street_number,
-                nameOfTheRoad: result.name_of_the_road,
-                postalCode: result.postal_code,
+                birthday_date: birthdayDate,
+                phone_number: result.phone_number,
+                street_number: result.street_number,
+                name_of_the_road: result.name_of_the_road,
+                postal_code: result.postal_code,
                 city: result.city
             }
 

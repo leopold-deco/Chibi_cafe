@@ -10,7 +10,7 @@ CREATE DOMAIN "mail" AS TEXT CHECK(
 
 CREATE DOMAIN "password" AS TEXT CHECK(
     
-    VALUE ~ '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$'
+    VALUE ~ '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$'
 
 );
 

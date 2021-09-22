@@ -12,9 +12,8 @@ const CartItem = ({ id, nom, prix, quantity}) => {
 
 
     const [itemQuantity, setItemQuantity] = useState(quantity);
-    const [underPrice, setUnderPrice] = useState(prix)
-    
 
+    
 
     const removeItem = () => {
         dispatch(removeProductToCart(id));
@@ -32,14 +31,12 @@ const CartItem = ({ id, nom, prix, quantity}) => {
         if(type === 'inc' && value < 20) {
             setItemQuantity(itemQuantity + 1);
             dispatch(incrementCartQuantity(id));
-            setUnderPrice(prix * value)
         }
 
 
         if(type === 'desc' && value > 1) {
             setItemQuantity(itemQuantity - 1);
             dispatch(decrementCartQuantity(id));
-            setUnderPrice(prix * value)
         }
 
     };
@@ -68,7 +65,7 @@ const CartItem = ({ id, nom, prix, quantity}) => {
                     </div>
                     <div className="card__underPrice">
                         <div className="card__underPrice__div">
-                            <h6><strong>{`${underPrice} €`}</strong></h6>
+                            <h6><strong>{`${prix * itemQuantity} €`}</strong></h6>
                         </div>
                     </div>
                 <div className="card__suppr">

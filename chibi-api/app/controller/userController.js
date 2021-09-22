@@ -59,8 +59,26 @@ const userController = {
         } catch (error) {
             response.status(500).send(error.message);
         }
-    }
+    },
 
+    login: async (request, response) => {
+        try {
+            /*
+            RECUPERER LES DONNES DU FORMULAIRE (email + mdp)
+            CHECK BDD si email existe si non -> email ou mdp incorrect
+            COMPARE MDP REQUEST ET HASH BDD -> si non email ou mdp incorrect
+            RETURN CONNEXION
+            */
+            const userInfo = request.body;
+            const result = await User.Check(userInfo.mail);
+            if(!result) console.log(`Email ou mot de passe incorrect`);
+            const isTrue = bcrypt.compareSync(userInfo.password, result.password);
+            if(isTrue) console.log(`Connexion validé`);
+            else console.log('Email ou mot de passe incorrect');
+        } catch(error) {
+            response.status(500).send(error.message);
+        }
+    }
 }
 
 module.exports = userController;

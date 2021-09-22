@@ -12,9 +12,9 @@ class User {
         try {
             const {rows} = await db.query('SELECT * FROM "user" WHERE id=$1', [id]);
             if(rows[0]) {
-                return new Product(rows[0]);
+                return new User(rows[0]);
             }
-            console.log('Aucuns produit trouvé avec cet id');
+            console.log('Aucuns utilisateur trouvé avec cet id');
         }catch(error) {
             console.log(error);
         }
@@ -35,6 +35,17 @@ class User {
             console.log(error);
         }
     }
+
+    static async Check(mail) {
+        try {
+            const {rows} = await db.query('SELECT "mail", "password" FROM "user" WHERE mail=$1', [mail]);
+            if(rows[0]) {
+                return new User(rows[0]);
+            }
+        }catch(error) {
+            console.log(error);
+        }
+    }  
 }
 
 module.exports = User;

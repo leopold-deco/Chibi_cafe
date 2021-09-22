@@ -10,6 +10,9 @@ GET {{host}}/category
 
 ### POST USER (/login)
 
+### LOGIN
+
+
 POST {{host}}/SignUp
 Content-Type: application/json
 
@@ -29,3 +32,13 @@ Content-Type: application/json
     "city": "Paris"
 }   
 
+### LOGIN
+
+
+POST {{host}}/login
+Content-Type: application/json
+
+{
+    "mail": "abc@fde.fr",
+    "password": "Chibi1234"
+}

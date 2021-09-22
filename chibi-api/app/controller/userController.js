@@ -18,7 +18,8 @@ const userController = {
         }catch(error) {
             response.status(500).send(error.message);   
         }
-    }
+    },
+    
 }
 
 module.exports = userController;

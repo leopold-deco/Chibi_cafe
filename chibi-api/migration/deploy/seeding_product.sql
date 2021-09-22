@@ -2,20 +2,20 @@
 
 BEGIN;
 
-INSERT INTO category ("name", "picture") VALUES 
-('Café', ''),
-('Thés et Infusions', ''),
-('Soft', ''),
-('bubbles tea', ''),
-('Sablés décorés', ''),
-('Sablés à peindre', ''),
-('Sablés messages', ''),
-('Sablés personnalisés', ''),
-('Gâteaux', ''),
-('Cornet de Crêpes', ''),
-('Glaces', '');
+INSERT INTO category ("category_name", "category_picture", "state") VALUES 
+('Café', '', FALSE),
+('Thés et Infusions', '', FALSE),
+('Soft', '', FALSE),
+('bubbles tea', '', FALSE),
+('Sablés décorés', '', TRUE),
+('Sablés à peindre', '', TRUE),
+('Sablés messages', '', TRUE),
+('Sablés personnalisés', '', TRUE),
+('Gâteaux', '', TRUE),
+('Cornet de Crêpes', '', TRUE),
+('Glaces', '', TRUE);
 
-INSERT INTO product ("number", "Type_of_product", "name", "picture", "description", "price_without_taxes", "taxe", "stock", "category_id") VALUES 
+INSERT INTO product ("number", "type_of_product", "product_name", "product_picture", "description", "price_without_taxes", "taxe", "stock", "category_id") VALUES 
 ('CAF_1', FALSE, 'Espresso', '', '', NULL, NULL, NULL, 1),
 ('CAF_2', FALSE, 'Double Espresso', '', '', NULL, NULL, NULL, 1),
 ('CAF_3', FALSE, 'Americano', '', '', NULL, NULL, NULL, 1),

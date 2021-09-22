@@ -34,16 +34,17 @@ CREATE TABLE "order" (
 
 CREATE TABLE "category" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "name" TEXT NOT NULL UNIQUE,
-    "picture" TEXT
+    "category_name" TEXT NOT NULL UNIQUE,
+    "category_picture" TEXT,
+    "state" BOOLEAN NOT NULL
 );
 
 CREATE TABLE "product" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "number" TEXT NOT NULL UNIQUE,
     "type_of_product" BOOLEAN NOT NULL,
-    "name" TEXT NOT NULL,
-    "picture" TEXT,
+    "product_name" TEXT NOT NULL,
+    "product_picture" TEXT,
     "description" TEXT,
     "price_without_taxes" FLOAT,
     "taxe" FLOAT DEFAULT 5.5,

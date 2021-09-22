@@ -9,11 +9,11 @@ const SignUp = () => (
         <div className="gender">
             <div>
                 <Input type="radio" name="gender" id="genderFemale" required />
-                <label for="genderFemale">Madame</label>
+                <label htmlFor="genderFemale">Madame</label>
             </div>
             <div>
                 <input type="radio" name="gender" id="genderMale" required />
-                <label for="genderMale">Monsieur</label>
+                <label htmlFor="genderMale">Monsieur</label>
             </div>
         </div>
 

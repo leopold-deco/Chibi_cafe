@@ -1,0 +1,35 @@
+.form {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    
+
+    &__left {
+        display: flex;
+        width: 500px;
+        margin: 25px;
+        &-infos {
+            
+            
+            &--adresse {
+                margin-bottom: 20px;
+            }
+            
+            &--img {
+                width: 550px;
+                height: 420px;
+            }
+        }
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        width: 500px;
+
+        &-message {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

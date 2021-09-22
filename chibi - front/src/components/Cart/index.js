@@ -52,7 +52,7 @@ const Cart = (props) => {
     );
   };
 
-  const mapStateToProps = state => {
+  const mapStateToProps = (state) => {
 
     console.log(state, 'state has changed');
 

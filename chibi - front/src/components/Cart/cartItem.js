@@ -1,5 +1,4 @@
 import {useState} from 'react';
-import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { decrementCartQuantity, incrementCartQuantity, removeProductToCart} from "../../actions";
 
@@ -8,7 +7,7 @@ import { decrementCartQuantity, incrementCartQuantity, removeProductToCart} from
 const CartItem = ({ id, nom, prix, quantity}) => {
 
     const dispatch = useDispatch();
-
+    console.log(quantity)
 
 
     const [itemQuantity, setItemQuantity] = useState(quantity);
@@ -19,10 +18,7 @@ const CartItem = ({ id, nom, prix, quantity}) => {
         dispatch(removeProductToCart(id));
     };
 
-    const handleChange = (e) => {
-        console.log('rien')
-      };
-
+   
       const incrementOrDecrement = (e, type) => {
         const value = itemQuantity;
         console.log(type, value);
@@ -34,9 +30,12 @@ const CartItem = ({ id, nom, prix, quantity}) => {
         }
 
 
-        if(type === 'desc' && value > 1) {
+        if(type === 'desc' ) {
             setItemQuantity(itemQuantity - 1);
             dispatch(decrementCartQuantity(id));
+            if(value <= 1 ){
+                dispatch(removeProductToCart(id));
+            }
         }
 
     };
@@ -54,11 +53,9 @@ const CartItem = ({ id, nom, prix, quantity}) => {
                         <input
                             onClick={(e) => {incrementOrDecrement(e, 'inc')}}
                             type="button" value="+" className="plus" />
-                            <input
-                                onChange={handleChange}
-                                type="number" step="1" max="20" min="1" value={itemQuantity} title="Qty"
-                                   className="qty"
-                                   size="4" />
+                            <div className="card__quantity__count">
+                            {itemQuantity}
+                            </div>
                                 <input
                                     onClick={(e) => {incrementOrDecrement(e, 'desc')}}
                                     type="button" value="-" className="minus" />
@@ -79,4 +76,5 @@ const CartItem = ({ id, nom, prix, quantity}) => {
     );
 };
 
-export default connect()(CartItem);
+
+export default CartItem;

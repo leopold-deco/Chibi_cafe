@@ -32,6 +32,16 @@
     padding: 0.5rem;
     align-items: center;
     justify-content: center;
+
+    &__quantity{
+        display: flex;
+
+        &__count{
+            border: solid 1px black;
+            padding:  0.2rem 1rem;
+            
+        }
+    }
 }
 
 .cart__ender{

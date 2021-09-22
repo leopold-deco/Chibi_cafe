@@ -22,7 +22,7 @@ const Login = () => {
     // };
 
     return (
-        <Form onSubmit={() => dispatch(login())}>
+        <Form handleLogin={() => dispatch(login())}>
             <h2>Connexion</h2>
             <Input 
                 type="email" 

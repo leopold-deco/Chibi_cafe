@@ -1,8 +1,9 @@
 @use '../../styles/vars';
+@font-face { font-family: CandyFul; src: url('../../assets/Candyful\ -\ Free\ Trial.ttf'); } 
 
 body {
   height: 100vh;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Nova Round', cursive;
   background: vars.$primary-linear;
   background-repeat: no-repeat;
   background-size: cover;
@@ -10,6 +11,21 @@ body {
 
 h1, h2, h3 {
   font-weight: normal;
+}
+
+h1 {
+  font-family: CandyFul, sans-serif;
+  font-size: 4rem;
+  color: aliceblue;
+  text-shadow: 4px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
 }
 
 img {

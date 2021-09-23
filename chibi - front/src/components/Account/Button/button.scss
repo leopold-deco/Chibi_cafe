@@ -1,0 +1,19 @@
+.button {
+    margin-top: 1rem;
+    padding: 1.20rem;
+    border-radius: 0.75rem;
+    border: none;
+    background-color: #f1c984;
+}
+
+.button:hover {
+    animation: jump 0.4s ease-in-out infinite alternate;
+}
+@keyframes jump {
+    0% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(5px);
+    }
+}

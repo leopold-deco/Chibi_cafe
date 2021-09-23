@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+
+    &__message{
+        background-color: grey;
+    }
+
+    &__decores{
+        background-color: beige;
+    }
+}
+

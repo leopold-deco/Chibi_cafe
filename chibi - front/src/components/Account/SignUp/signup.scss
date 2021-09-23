@@ -1,0 +1,30 @@
+.gender {
+    display: flex;
+    justify-content: center;
+}
+
+.address {
+    display: flex;
+
+    & input:first-child {
+        width: 27%;
+        margin-right: 0.5rem;
+    }
+
+    & input:last-child {
+        flex: 1;
+    }
+}
+
+.city {
+    display: flex;
+
+    & input:first-child {
+        width: 27%;
+        margin-right: 0.5rem;
+    }
+
+    & input:last-child {
+        flex: 1;
+    }
+}

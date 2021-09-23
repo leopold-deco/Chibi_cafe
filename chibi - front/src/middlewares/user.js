@@ -3,7 +3,7 @@ import axios from 'axios';
 import { connectUser, LOGIN, LOGOUT } from '../actions/user';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'http://localhost:8080',
 });
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -19,9 +19,9 @@ const userMiddleware = (store) => (next) => (action) => {
           },
         ).then(
           (response) => {
-            store.dispatch(connectUser(response.data));
-
-            axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
+            // store.dispatch(connectUser(response.data));
+            console.log(response);
+            // axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
           },
         ).catch(
           () => console.log('error'),

@@ -1,5 +1,17 @@
-.App {
-  text-align: center;
+@use '../../styles/vars';
+
+body {
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: vars.$primary-linear;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+h1, h2, h3 {
+  font-weight: normal;
+}
 
+img {
+  max-width: 100%;
+}

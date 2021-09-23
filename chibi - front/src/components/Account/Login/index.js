@@ -1,7 +1,7 @@
 import './login.scss';
 import Form from '../Form';
-import Button from '../Button';
-import Input from '../Input';
+import Button from '../../Button';
+import Input from '../../Input';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { login, logout, setUserField } from '../../../actions/user';
@@ -21,7 +21,7 @@ const Login = () => {
             <h2>Connexion</h2>
             <Input 
                 type="email" 
-                name="mail" 
+                name="email" 
                 id="loginMail" 
                 placeholder="Email" 
                 value={email} 

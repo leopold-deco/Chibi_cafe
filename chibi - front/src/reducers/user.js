@@ -2,7 +2,7 @@ import { CONNECT_USER, LOGOUT, SET_USER_FIELD } from '../actions/user';
 
 export const initialState = {
   logged: false,   // à voir avec le back
-  mail: '',
+  email: '',
   password: '',
   pseudo: null,
   first_name: null,

@@ -1,7 +1,7 @@
 import './signup.scss';
 import Form from '../Form';
-import Input from '../Input';
-import Button from '../Button';
+import Input from '../../Input';
+import Button from '../../Button';
 
 const SignUp = () => (
     <Form>
@@ -19,7 +19,7 @@ const SignUp = () => (
 
         <Input type="text" name="first_name" id="first_name" placeholder="Prénom" required />
         <Input type="text" name="last_name" id="last_name" placeholder="Nom" required />
-        <Input type="email" name="mail" id="mail" placeholder="Email" required />
+        <Input type="email" name="email" id="email" placeholder="Email" required />
         <Input type="password" name="password" id="password" placeholder="Mot de passe" required />
         <Input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmer mot de passe" required />
         <Input type="date" id="birthday_date" name="birthday_date" required />

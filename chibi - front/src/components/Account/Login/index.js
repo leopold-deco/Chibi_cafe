@@ -4,7 +4,7 @@ import Button from '../../Button';
 import Input from '../../Input';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { login, logout, setUserField } from '../../../actions/user';
+import { login, setUserField } from '../../../actions/user';
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const Login = () => {
     };
 
     return (
-        <Form handleLogin={() => dispatch(login())}>
+        <Form handleSubmit={() => dispatch(login())}>
             <h2>Connexion</h2>
             <Input 
                 type="email" 

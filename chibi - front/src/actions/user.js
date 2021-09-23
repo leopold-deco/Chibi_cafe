@@ -33,3 +33,11 @@ export const logout = () => (
     type: LOGOUT,
   }
 );
+
+export const SIGNUP = 'SIGNUP';
+
+export const signup = () => (
+  {
+    type: SIGNUP,
+  }
+);

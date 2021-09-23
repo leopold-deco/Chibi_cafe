@@ -9,7 +9,7 @@ const Input = ({ type, id, name, placeholder, value, handleChange }) => {
             id={id} 
             name={name} 
             placeholder={placeholder} 
-            value={value} 
+            value={value || ''} 
             onChange={(event) => handleChange(event.target.value, name)}
             required 
         />

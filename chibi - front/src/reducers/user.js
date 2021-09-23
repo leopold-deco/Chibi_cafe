@@ -1,12 +1,13 @@
-import { CONNECT_USER, LOGOUT, SET_USER_FIELD } from '../actions/user';
+import { CONNECT_USER, LOGOUT, SET_USER_FIELD, SIGNUP } from '../actions/user';
 
 export const initialState = {
   logged: false,
   mail: '',
   password: '',
-  pseudo: null,
+  passwordConfirm: '',
   first_name: null,
   last_name: null,
+  gender: null,
   birthday_date: null,
   phone_number: null,
   street_number: null,
@@ -29,10 +30,15 @@ const reducer = (state = initialState, action = {}) => {
         pseudo: action.data.pseudo,
         token: action.data.token,
         logged: action.data.logged,
-        email: '',
-        password: '',
       };
     case LOGOUT:
+      return {
+        ...state,
+        pseudo: null,
+        logged: false,
+        token: null,
+      };
+    case SIGNUP:
       return {
         ...state,
         pseudo: null,

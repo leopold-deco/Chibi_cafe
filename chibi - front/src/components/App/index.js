@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './App.scss';
 import AppHeader from '../AppHeader';
 import { Route, Switch } from 'react-router-dom';
@@ -17,7 +18,9 @@ import Informations from '../Account/Informations';
 import Orders from '../Account/Orders';
 
 
+
 function App() {
+
   return (
     <div className="App">
       <AppHeader />

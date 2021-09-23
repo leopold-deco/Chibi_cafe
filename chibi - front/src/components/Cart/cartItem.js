@@ -1,14 +1,15 @@
 import {useState} from 'react';
 import { useDispatch } from 'react-redux';
-import { decrementCartQuantity, incrementCartQuantity, removeProductToCart} from "../../actions";
+import { calculPrice } from '../../pipes/calculPrice';
+import { decrementCartQuantity, incrementCartQuantity, removeProductToCart} from "../../actions/shop";
 
 
 
-const CartItem = ({ id, nom, prix, quantity}) => {
+const CartItem = ({ id, product_name, price_without_taxes, taxe, quantity}) => {
 
     const dispatch = useDispatch();
-    console.log(quantity)
-
+    
+    const price = calculPrice(price_without_taxes, taxe)
 
     const [itemQuantity, setItemQuantity] = useState(quantity);
 
@@ -44,10 +45,10 @@ const CartItem = ({ id, nom, prix, quantity}) => {
     return (
         <div className="card">
             <div className="card__content">
-                <h4 className="card__content__title"><strong>{nom}</strong></h4>
+                <h4 className="card__content__title"><strong>{product_name}</strong></h4>
             </div>
             <div className="card__priceUnit">
-                    <h6><strong>{`${prix} €`}</strong></h6>
+                    <h6><strong>{`${price} €`}</strong></h6>
                 </div>
                 <div className="card__quantity">
                         <input
@@ -62,7 +63,7 @@ const CartItem = ({ id, nom, prix, quantity}) => {
                     </div>
                     <div className="card__underPrice">
                         <div className="card__underPrice__div">
-                            <h6><strong>{`${prix * itemQuantity} €`}</strong></h6>
+                            <h6><strong>{`${price * itemQuantity} €`}</strong></h6>
                         </div>
                     </div>
                 <div className="card__suppr">

@@ -1,13 +1,13 @@
 import {
+    SAVE_ARTICLES,
     ADD_PRODUCT_TO_CART,
     DECREMENT_CART_ITEM_QUANTITY,
     INCREMENT_CART_ITEM_QUANTITY,
     REMOVE_PRODUCT_FROM_CART
-} from '../actions';
-import datas from "../datas/datas";
+} from '../actions/shop';
 
 const initialState = {
-    products: datas,
+    products: [],
     cart: []
 };
 
@@ -17,6 +17,11 @@ const shopReducer = (state = initialState, action ) => {
     let updatedItemIndex;
 
     switch (action.type) {
+        case SAVE_ARTICLES:
+            return {
+                ...state,
+                products: action.articles.filter(product => product.type_of_product === true),
+            };
         case INCREMENT_CART_ITEM_QUANTITY:
             updatedCart = [...state.cart];
             updatedItemIndex = updatedCart.findIndex(

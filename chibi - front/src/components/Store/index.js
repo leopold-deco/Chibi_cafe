@@ -1,15 +1,31 @@
-import { Link } from "react-router-dom";
+/* eslint-disable react-hooks/exhaustive-deps */
+// import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import ProductCard from "./ProductCard";
+import { fetchArticles } from "../../actions/shop";
 
 import './store.scss';
 
 const Store = () => {
 
+  const products = useSelector((state) => state.shop.products)
+
+  console.log(products)
+
+  const dispatch = useDispatch();
+  useEffect(
+    () => {
+      dispatch(fetchArticles());
+    },
+    [],
+  );
+
     return (
       <div className="container">
-          <Link to="/boutique/custom">personnalisables</Link>
-          <Link to="/boutique/peindre">à peindre</Link>
-          <Link className="container__message" to="/boutique/message">Sablés Message</Link>
-          <Link className="container__decores" to="/boutique/decores">Sablés Décorés</Link>
+          {products.map((product) => (
+            <ProductCard key={product.id} {...product} product={product} />
+          ))}
 
       </div>
     );

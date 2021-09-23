@@ -1,5 +1,6 @@
 import "./cart.scss";
 import CartItem from "./cartItem";
+import { calculPrice } from "../../pipes/calculPrice";
 import { connect } from "react-redux";
 
 const Cart = (props) => {
@@ -62,7 +63,7 @@ const Cart = (props) => {
             return count + curItem.quantity;
         }, 0),
         totalPrice: state.shop.cart.reduce((count, curItem) => {
-            return count + (curItem.prix * curItem.quantity);
+            return count + (calculPrice(curItem.price_without_taxes, curItem.taxe) * curItem.quantity);
         }, 0),
     }
 }

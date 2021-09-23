@@ -1,6 +1,6 @@
 import sables from '../../../datas/datas'
 import { useDispatch } from 'react-redux';
-import { addProductToCart } from '../../../actions';
+import { addProductToCart } from '../../../actions/shop';
 
 function Decorated() {
   const sablesMessage = sables[1]

@@ -22,6 +22,7 @@ PREMIERE PAGE PANIER -> RIEN
 PAGE DE LIVRAISON -> STOCK LE CHOIX DE LA LIVRAISON sans l'envoyer en bdd (dans un object detailDelivery)
 PAGE DE PAIEMENT -> RIEN
 RETOUR CONFIRMATION DE PAIEMENT -> PRENDRE LES INFOS DU PANIER (id des produits, montant du panier, quantité de produits)
+INSERT EN BDD 
 RETURNING ID
 await fetch('blabla/order/${returning}')
 

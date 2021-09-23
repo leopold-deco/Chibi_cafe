@@ -41,7 +41,7 @@ const userController = {
             // CREATION DE L'OBJECT UTILISATEUR
 
             const userInfo = {
-                mail: result.mail,
+                mail: result.email,
                 password: hashedPassword,
                 first_name: result.first_name,
                 last_name: result.last_name,

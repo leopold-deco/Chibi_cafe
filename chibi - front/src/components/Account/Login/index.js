@@ -9,8 +9,7 @@ import { login, logout, setUserField } from '../../../actions/user';
 const Login = () => {
     const dispatch = useDispatch();
 
-    const email = useSelector((state) => state.user.email);
-    const password = useSelector((state) => state.user.password);
+    const { email, password } = useSelector((state) => state.user);
 
     const handleChange = (value, name) => {
         dispatch(setUserField(value, name));
@@ -35,7 +34,7 @@ const Login = () => {
                 value={password} 
                 handleChange={handleChange}
             />
-            <Button>S'inscrire</Button>
+            <Button>Se connecter</Button>
         </Form>
     );
 };

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { connectUser, LOGIN, LOGOUT } from '../actions/user';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'https://chibi-api.herokuapp.com',
 });
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -19,8 +19,8 @@ const userMiddleware = (store) => (next) => (action) => {
           },
         ).then(
           (response) => {
+            console.log(response)
             //store.dispatch(connectUser(response.data));
-
             //axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
           },
         ).catch(

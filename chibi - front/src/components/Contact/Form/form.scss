@@ -1,60 +1,49 @@
 @use '../../../styles/vars';
 
-.form-contact {
-    box-shadow: vars.$box-shadow;
-    background: vars.$tertiary-color;
-    padding: 3rem;
+.form__contact {
     display: flex;
     flex-direction: column;
+    box-shadow: vars.$box-shadow;
+    box-shadow: vars.$box-shadow;
+    background: vars.$tertiary-color;
+    margin: auto;
+    padding: 3rem;
     gap: 0.5rem;
     border-radius: 0.5rem;
-    
 
     &__title {
         color:rgb(226, 85, 132);
         font-weight: bold;
         text-align: center;
-        margin-bottom: 10px;
+        margin-bottom: 0.6rem;
     }
 
-    &__lastname {
+    &__label {
+        color: rgb(226, 85, 132);
+        font-weight: bold;
+        margin: 0 auto;
+    }
+
+    &__input {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
-    &__firstname {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    &__email {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    &__phone {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
 }
 
-label {
-    color: rgb(226, 85, 132);
-    font-weight: bold;
-    margin: 0 auto;
-}
 
 .message {
     display: flex;
     flex-direction: column;
-    margin: 10px auto;
+    margin: 2rem auto;
     padding: 20px 20px;
     font-size: 22px;
+
+    &__label {
+        text-align: center;
+        color: rgb(226, 85, 132);
+        font-weight: bold;
+    }
 
     &__text {
         margin-top: 5px;

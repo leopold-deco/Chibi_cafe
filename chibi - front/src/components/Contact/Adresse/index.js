@@ -15,7 +15,7 @@ const Adresse = () => (
         <p className="adresse__p">0123456789</p>
 
         <h3 className="adresse__email">Email</h3>
-        <p className="adresse__p">contact@chibi.com</p>
+        <p className="adresse__p">chibi.cafe.13@gmail.com</p>
 
         <img className="adresse__img" src={localisation} />
 

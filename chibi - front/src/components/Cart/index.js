@@ -38,7 +38,7 @@ const Cart = (props) => {
                             Total TTC
                         </div>
                         <div className="cart__ender__price">
-                                    Total price: <b>{`${props.totalPrice} €`}</b>
+                           <b>{`${props.totalPrice} €`}</b>
                         </div>
                         <div className="cart__ender__footer">
                           <button type="button" className="cart__ender__btn">

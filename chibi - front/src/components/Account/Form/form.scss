@@ -1,6 +1,9 @@
+@use '../../../styles/vars';
+
 .form {
     width: calc(50% - 0.75rem);
-    background-image: linear-gradient(-225deg,#fde6bf  0%, #cbeff8 100%);
+    box-shadow: vars.$box-shadow;
+    background: vars.$tertiary-color;
     margin: auto;
     padding: 3rem;
     display: flex;

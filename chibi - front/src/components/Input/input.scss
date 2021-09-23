@@ -1,0 +1,7 @@
+@use '../../styles/vars';
+
+.input {
+    padding: vars.$halfGutter;
+    border-radius: vars.$border-radius;
+    border: vars.$border; 
+}

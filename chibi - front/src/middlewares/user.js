@@ -3,25 +3,25 @@ import axios from 'axios';
 import { connectUser, LOGIN, LOGOUT } from '../actions/user';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'http://localhost:8080',
 });
 
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOGIN: {
-        const { user: { mail, password } } = store.getState();
+        const { user: { email, password } } = store.getState();
 
         axiosInstance.post(
           '/login',
           {
-            mail,
+            email,
             password,
           },
         ).then(
           (response) => {
-            store.dispatch(connectUser(response.data));
+            //store.dispatch(connectUser(response.data));
 
-            axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
+            //axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
           },
         ).catch(
           () => console.log('error'),
@@ -29,6 +29,10 @@ const userMiddleware = (store) => (next) => (action) => {
         next(action);
         break;
     }
+    case LOGOUT:
+      delete axiosInstance.defaults.headers.common.Authorization;
+      next(action);
+      break;
     default:
       next(action);
   }

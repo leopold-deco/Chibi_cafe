@@ -4,7 +4,6 @@ import Input from '../../Input';
 import Button from '../../Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup, setUserField } from '../../../actions/user';
-import { useState } from 'react';
 
 const SignUp = () => {
     const dispatch = useDispatch();

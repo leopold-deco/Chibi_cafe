@@ -1,4 +1,4 @@
-import { CONNECT_USER, LOGOUT, SET_USER_FIELD, SIGNUP } from '../actions/user';
+import { CONNECT_USER, LOGOUT, SET_USER_FIELD, REGISTER_USER } from '../actions/user';
 
 export const initialState = {
   logged: false,
@@ -38,12 +38,9 @@ const reducer = (state = initialState, action = {}) => {
         logged: false,
         token: null,
       };
-    case SIGNUP:
+    case REGISTER_USER:
       return {
         ...state,
-        pseudo: null,
-        logged: false,
-        token: null,
       };
     default:
       return state;

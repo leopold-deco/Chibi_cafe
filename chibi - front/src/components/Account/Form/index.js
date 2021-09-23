@@ -8,7 +8,7 @@ const Form = ({ children, handleSubmit }) => {
     }
 
     return (
-        <form className='form' onSubmit={handleLoginSignup}>
+        <form className='form__auth' onSubmit={handleLoginSignup}>
             {children}
         </form>
     )

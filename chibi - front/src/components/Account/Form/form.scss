@@ -1,6 +1,6 @@
 @use '../../../styles/vars';
 
-.form {
+.form__auth {
     width: calc(50% - 0.75rem);
     box-shadow: vars.$box-shadow;
     background: vars.$tertiary-color;

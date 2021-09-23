@@ -10,7 +10,7 @@ class OrderHasProduct {
 
     async create() {
         try {
-            await db.query('INSERT INTO "order_has_product" ("order_id", "user_id", "quantity") VALUES ($1, $2, $3)', [this.order_id, this.product_id, this.quantity]);
+            await db.query('INSERT INTO "order_has_product" ("order_id", "product_id", "quantity") VALUES ($1, $2, $3)', [this.order_id, this.product_id, this.quantity]);
         } catch(error) {
             console.log(error);
         }

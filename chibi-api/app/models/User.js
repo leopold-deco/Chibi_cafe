@@ -22,7 +22,7 @@ class User {
     
     async update(id) {
         try {
-            await db.query('UPDATE "user" SET "mail"=$1, "first_name"=$2, "last_name"=$3, "gender"=$4, "birthday_date"=$5, "phone_number"=$6, "street_number"=$7, "name_of_the_road"=$8, "postal_code"=$9, "city"=$10 WHERE "id"=$11;', [this.mail, this.first_name, this.last_name, this.gender, this.birthday_date, this.phone_number, this.street_number, this.name_of_the_road, this.postal_code, this.city, this.id]);
+            await db.query('UPDATE "user", SET "mail"=$1, "first_name"=$2, "last_name"=$3, "gender"=$4, "birthday_date"=$5, "phone_number"=$6, "street_number"=$7, "name_of_the_road"=$8, "postal_code"=$9, "city"=$10 WHERE "id"=$11;', [this.mail, this.first_name, this.last_name, this.gender, this.birthday_date, this.phone_number, this.street_number, this.name_of_the_road, this.postal_code, this.city, this.id]);
         }catch(error) {
             console.log(error);   
         }
@@ -51,6 +51,14 @@ class User {
         try {
             await db.query('DELETE FROM user WHERE id=$1', [id]);
         } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async updatePassword(password, mail) {
+        try {
+            await db.query('UPDATE user SET "password"=$1 WHERE email=$2', [password, mail]);
+        } catch(error) {
             console.log(error);
         }
     }

@@ -15,6 +15,7 @@ router.patch('/product/:id', productController.update);
 router.get('/account/:id', userController.findOne);
 
 router.patch('/account/:id', userController.update);
+router.patch('/newPassword', userController.updatePassword);
 
 router.post('/login', userController.login);
 router.post('/SignUp', userController.create);

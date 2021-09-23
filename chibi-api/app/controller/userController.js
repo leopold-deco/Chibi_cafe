@@ -1,5 +1,6 @@
 const User = require('../models/User')
 const bcrypt = require('bcrypt');
+const { response } = require('express');
 const saltRounds = 10;
 
 const userController = {
@@ -24,19 +25,19 @@ const userController = {
 
     create: async (request, response) => {
         try {
+            
+            const result = request.body;
 
             // GESTION DU MOT DE PASSE
 
-            const userPassword = request.body.password
+            const userPassword = result.password
             const salt = bcrypt.genSaltSync(saltRounds);
             const hashedPassword = bcrypt.hashSync(userPassword, salt);
             
             // FORMATAGE DATE DE NAISSANCE
 
-            const {day, month, year} = request.body;
+            const {day, month, year} = result;
             const birthdayDate = `${day}/${month}/${year}`;
-            
-            const result = request.body;
 
             // CREATION DE L'OBJECT UTILISATEUR
 
@@ -56,6 +57,7 @@ const userController = {
 
             const newUser = new User(userInfo);
             await newUser.create();
+            console.log('User créé');
         } catch (error) {
             response.status(500).send(error.message);
         }
@@ -86,7 +88,49 @@ const userController = {
         } catch (error) {
             response.status(500).send(error.message);
         }
+    },
+
+    updatePassword: async (request, response) => {
+        try {
+            
+            const userInfo = request.body;
+            
+            /*
+            email
+            actualPassword
+            newPassword1
+            newPassword2
+            */
+            const result = await User.check(userInfo.email);
+            
+            const isTrue = bcrypt.compareSync(userInfo.actualPassword, result.password);
+            if(!isTrue) console.log(`Mot de passe incorrect`);
+            
+            if(userInfo.newPassword1 !== userInfo.newPassword2) console.log('Veuillez rentrer des mots de passes identiques');
+
+            // GESTION DU MOT DE PASSE
+            
+            const userPassword = userInfo.newPassword1;
+            const salt = bcrypt.genSaltSync(saltRounds);
+            const hashedPassword = bcrypt.hashSync(userPassword, salt);
+            console.log("sorti gestion mdp");
+            const newPassword = new User(hashedPassword, result.mail);
+            await newPassword.updatePassword();
+            // response.json('Mot de passe changé'); 
+            console.log('mot de passe changé');
+        } catch(error) {
+            response.status(500).send(error.message);
+        }
     }
+    /*
+    RECUPERER LE MOT DE PASSE ACTUEL POUR VERIFIER L'UTILISATEUR - OK -
+
+    RECUPERER LE NOUVEAU MOT DE PASSE + (voir si password1 = password 2)
+
+    RECRYPTER LE NOUVEAU MDP
+    INSERER LE NOUVEAU MDP
+    TOUT REINSERER
+    */
 }
 
 module.exports = userController;

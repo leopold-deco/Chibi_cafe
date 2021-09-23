@@ -1,9 +1,13 @@
-.form {
+@use '../../../styles/vars';
+
+.form-contact {
+    box-shadow: vars.$box-shadow;
+    background: vars.$tertiary-color;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
-    margin: 10px 50px;
-    padding: 20px 20px;
-    font-size: 22px;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
     
 
     &__title {
@@ -23,16 +27,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        
-        &-input {
-            margin-top: 5px;
-            padding: 10px 10px 10px 10px;
-            border: 1px solid #c9c9c9; 
-            outline-color: rgb(226, 85, 132);
-            border-radius: 5px;
-            width: 500px;
-            height: 50px;
-        }
     }
 
     &__email {
@@ -55,6 +49,25 @@ label {
     margin: 0 auto;
 }
 
+.message {
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    padding: 20px 20px;
+    font-size: 22px;
+
+    &__text {
+        margin-top: 5px;
+        padding: 10px;
+        background-color: #f8f8f8;
+        border: 2px solid rgb(226, 85, 132);
+        outline: none;
+        border-radius: 5px;
+        resize: none;
+        font-size: .8rem;
+        letter-spacing: 1px;
+    }
+}
 
 
 

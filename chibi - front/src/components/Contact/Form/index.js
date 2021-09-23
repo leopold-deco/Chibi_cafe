@@ -1,3 +1,6 @@
+import Button from '../../Button';
+import Input from '../../Input';
+
 import emailjs from 'emailjs-com';
 
 import { useState } from 'react';
@@ -5,43 +8,59 @@ import { useState } from 'react';
 import './form.scss';
 
 const Form = () => {
-    const [name, setName] = useState("");
+    const [lastname, setLastname] = useState("");
+    const [firstname, setFirstname] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState(""); 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let names = document.getElementById("name");
-        let emails = document.getElementById("email");
-        let messages = document.getElementById("message");
-    }
+        const templateParams = {
+            firstname,
+        }
+        emailjs.send('my_gmail','template_db83b08', templateParams, 'user_ArfWVVGSJEvGb8dc6tTwO')
+        .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        }, (err) => {
+        console.log('FAILED...', err);
+        });
+        
+        console.log(firstname);
+    }   
 
     return (
-        <div className='form'>
+        <form onSubmit={handleSubmit} className='form-contact'>
                 <h2 className="form__title">Contactez-nous</h2>
     
                 <div className="form__lastname">
                     <label className="form__lastname-label">Nom</label>
-                    <input id="form__input" className="form__lastname-input" type="text" />
+                    <Input className="form__lastname-input" type="text" />
                 </div>
                 
                 <div className="form__firstname">
                     <label className="form__firstname-label">Prénom</label>
-                    <input id="form__input" className="form__firstname-input" type="text" />
+                    <Input value={firstname} onChange={(e) => setFirstname(e.target.value)} className="form__firstname-input" type="text" />
                 </div>
                 
                 <div className="form__email">
                     <label className="form__email-label">Email</label>
-                    <input id="form__input" className="form__email-input" type="email" />
+                    <Input className="form__email-input" type="email" />
                 </div>
                 
                 <div className="form__phone">
                     <label className="form__phone-label">Téléphone</label>
-                    <input id="form__input" className="form__phone-input" type="number" />
+                    <Input className="form__phone-input" type="number" />
                 </div>
             <div className="form-message"></div>
-        </div>
+
+            <div className='message'>
+                <label className="message__label">Message</label>
+                <textarea className="message__text" rows="20" cols="75" placeholder="Votre Message"></textarea>
+
+                <Button className="message__button" type="submit">Envoyer</Button>
+            </div>
+        </form>
     );
 } 
 

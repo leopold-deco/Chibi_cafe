@@ -1,3 +1,5 @@
+// @use '../../styles/vars';
+
 .footer {
     display: flex;
     justify-content: space-around;
@@ -8,9 +10,9 @@
         display: flex;
         
         &-facebook {
-            width: 30px;
-            height: 30px;
-            margin: 0 30px;
+            width: 1.875rem;
+            height: 1.875rem;
+            margin: 0 1.875rem;
         }
     
         &-instagram {

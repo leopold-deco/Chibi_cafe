@@ -41,7 +41,7 @@ const userController = {
             // CREATION DE L'OBJECT UTILISATEUR
 
             const userInfo = {
-                mail: result.mail,
+                mail: result.email,
                 password: hashedPassword,
                 first_name: result.first_name,
                 last_name: result.last_name,
@@ -70,7 +70,7 @@ const userController = {
             RETURN CONNEXION
             */
             const userInfo = request.body;
-            const result = await User.check(userInfo.mail);
+            const result = await User.check(userInfo.email);
             if(!result) console.log(`Email ou mot de passe incorrect`);
             const isTrue = bcrypt.compareSync(userInfo.password, result.password);
             if(isTrue) console.log(`Connexion validé`);

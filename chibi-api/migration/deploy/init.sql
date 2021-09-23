@@ -23,8 +23,8 @@ CREATE TABLE "order" (
     "number" TEXT NOT NULL UNIQUE,
     "order_date" TIMESTAMPTZ DEFAULT NOW(),
     "delivery_date" TIMESTAMPTZ,
-    "total_without_taxes" INT NOT NULL,
-    "status" TEXT NOT NULL,
+    "total_without_taxes" FLOAT NOT NULL,
+    "status" TEXT NOT NULL DEFAULT "En cours",
     "delivery_street_number" TEXT NOT NULL,
     "delivery_name_of_the_road" TEXT NOT NULL,
     "delivery_postal_code" TEXT NOT NULL,
@@ -64,7 +64,8 @@ CREATE TABLE "product" (
 
 CREATE TABLE "order_has_product" (
     "order_id" INT REFERENCES "order"(id),
-    "product_id" INT REFERENCES"product"(id)
+    "product_id" INT REFERENCES"product"(id),
+    "quantiy" INT NOT NULL
 );
 
 

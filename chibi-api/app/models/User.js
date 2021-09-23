@@ -47,7 +47,7 @@ class User {
         }
     }  
 
-    static async delete(id) {
+    async delete(id) {
         try {
             await db.query('DELETE FROM user WHERE id=$1', [id]);
         } catch (error) {

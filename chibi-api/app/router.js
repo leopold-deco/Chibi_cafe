@@ -2,6 +2,7 @@ const {Router} = require('express');
 const productController = require('./controller/productController');
 const userController = require('./controller/userController');
 const categoryController = require('./controller/categoryController');
+const oderController = require('./controller/orderController');
 const router = Router();
 
 // Produits
@@ -25,6 +26,6 @@ router.delete('/account/:id', userController.delete);
 router.get('/category', categoryController.findAll)
 
 // Order
-
+router.post('/order', oderController.create);
 
 module.exports = router;

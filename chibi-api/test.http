@@ -16,7 +16,7 @@ POST {{host}}/SignUp
 Content-Type: application/json
 
 {
-    "mail": "abc@fde.fr",
+    "email": "abc@fde.fr",
     "password": "Chibi1234",
     "first_name": "ALbert",
     "last_name": "Jean",
@@ -37,7 +37,7 @@ POST {{host}}/login
 Content-Type: application/json
 
 {
-    "mail": "abc@fde.fr",
+    "email": "abc@fde.fr",
     "password": "Chibi1234"
 }
 
@@ -66,3 +66,19 @@ Content-Type: application/json
     "postal_code": "06450",
     "city": "Bordeaux"
 } 
+
+### CREATE ORDER
+
+POST {{host}}/order
+Content-Type: application/json
+
+{
+    "number": "123",
+    "total_without_taxes": 5,
+    "status": "en cours",
+    "delivery_street_number": "5",
+    "delivery_name_of_the_road": "rue de bagnolet",
+    "delivery_postal_code": "75020",
+    "delivery_city": "paris",
+    "user_id": 1
+}

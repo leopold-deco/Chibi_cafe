@@ -19,9 +19,9 @@ const userMiddleware = (store) => (next) => (action) => {
           },
         ).then(
           (response) => {
-            store.dispatch(connectUser(response.data));
+            //store.dispatch(connectUser(response.data));
 
-            axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
+            //axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
           },
         ).catch(
           () => console.log('error'),
@@ -29,6 +29,10 @@ const userMiddleware = (store) => (next) => (action) => {
         next(action);
         break;
     }
+    case LOGOUT:
+      delete axiosInstance.defaults.headers.common.Authorization;
+      next(action);
+      break;
     default:
       next(action);
   }

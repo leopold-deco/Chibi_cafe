@@ -11,9 +11,13 @@ class Category {
     static async findAll() {
         try {
          const {rows} = await db.query(`
-         SELECT *, product.id AS product_id
+         SELECT category.*, 
+         ARRAY_AGG (
+            product.product_name
+         )
          FROM "category" 
-         JOIN "product" ON (category_id=category.id)`);   
+         JOIN "product" ON (category_id=category.id)
+         GROUP BY category.id`);   
          return rows.map(row => new Category(row));
         }catch(error) {
             console.log(error);

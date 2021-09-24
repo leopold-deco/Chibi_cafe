@@ -8,9 +8,7 @@ GET {{host}}/products
 GET {{host}}/category
 
 
-### POST USER (/login)
-
-### LOGIN
+### SIGNUP
 
 POST {{host}}/SignUp
 Content-Type: application/json
@@ -107,6 +105,6 @@ Content-Type: application/json
 {
     "email": "abc@fde.fr",
     "actualPassword": "Chibi1234",
-    "newPassword1": "Chibi4321",
-    "newPassword2": "Chibi4321"
+    "newPassword1": "Chibi134",
+    "newPassword2": "Chibi124"
 }

@@ -49,7 +49,7 @@ class User {
 
     async delete(id) {
         try {
-            await db.query('DELETE FROM user WHERE id=$1', [id]);
+            await db.query('DELETE FROM "user" WHERE id=$1', [id]);
         } catch (error) {
             console.log(error);
         }
@@ -57,7 +57,7 @@ class User {
 
     async updatePassword(password, mail) {
         try {
-            await db.query('UPDATE user SET "password"=$1 WHERE email=$2', [password, mail]);
+            await db.query('UPDATE "user" SET "password"=$1 WHERE "mail"=$2', [password, mail]);
         } catch(error) {
             console.log(error);
         }

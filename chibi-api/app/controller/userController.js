@@ -93,7 +93,7 @@ const userController = {
         try {
             
             const userInfo = request.body;
-            
+            console.log(userInfo);
             /*
             email
             actualPassword
@@ -101,11 +101,15 @@ const userController = {
             newPassword2
             */
             const result = await User.check(userInfo.email);
-            
+            console.log("result", result);
             const isTrue = bcrypt.compareSync(userInfo.actualPassword, result.password);
-            if(!isTrue) console.log(`Mot de passe incorrect`);
+            if(!isTrue) {
+                return console.log(`Mot de passe incorrect`);
+            }
             
-            if(userInfo.newPassword1 !== userInfo.newPassword2) console.log('Veuillez rentrer des mots de passes identiques');
+            if(userInfo.newPassword1 !== userInfo.newPassword2) {
+                return console.log('Veuillez rentrer des mots de passes identiques');
+            }
 
             // GESTION DU MOT DE PASSE
             
@@ -113,8 +117,10 @@ const userController = {
             const salt = bcrypt.genSaltSync(saltRounds);
             const hashedPassword = bcrypt.hashSync(userPassword, salt);
             console.log("sorti gestion mdp");
-            const newPassword = new User(hashedPassword, result.mail);
-            await newPassword.updatePassword();
+            console.log(result.mail);
+            const newPassword = new User();
+            console.log("new password",newPassword);
+            await newPassword.updatePassword(hashedPassword, result.mail);
             // response.json('Mot de passe changé'); 
             console.log('mot de passe changé');
         } catch(error) {

@@ -108,3 +108,13 @@ Content-Type: application/json
     "newPassword1": "Chibi134",
     "newPassword2": "Chibi124"
 }
+
+
+### FIND ORDER BY USER
+
+GET {{host}}/accountOrder/1
+
+
+### DELETE USER
+
+DELETE {{host}}/account/1

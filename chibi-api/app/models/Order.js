@@ -24,6 +24,15 @@ class Order {
             console.log(error);   
         }
     }
+
+    static async findByUser(id) {
+        try {
+            const {rows} = await db.query('SELECT * FROM "order" WHERE user_id=$1', [id]);
+            return rows.map(row => new Order(row));
+        } catch(error) {
+            console.log(error);
+        }
+    }
 }
 
 /*

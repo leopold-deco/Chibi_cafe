@@ -40,9 +40,17 @@ const oderController = {
         }catch(error) {
             response.status(500).send(error.message);   
         }
+    },
+
+    findByUser: async (request, response) => {
+        try {
+            const userOrder = await Order.findByUser(request.params.id);
+            response.json(userOrder);
+        } catch (error) {
+            response.status(500).send(error.message);
+        }
     }
 }
-
 // {
 //     "CreateOrder":
 //     "Contenue panier":  [

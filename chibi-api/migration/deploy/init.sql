@@ -23,13 +23,13 @@ CREATE TABLE "order" (
     "number" TEXT NOT NULL UNIQUE,
     "order_date" TIMESTAMPTZ DEFAULT NOW(),
     "delivery_date" TIMESTAMPTZ,
-    "total_without_taxes" FLOAT NOT NULL,
+    "total" DECIMAL NOT NULL,
     "status" TEXT DEFAULT 'En cours',
     "delivery_street_number" TEXT NOT NULL,
     "delivery_name_of_the_road" TEXT NOT NULL,
     "delivery_postal_code" TEXT NOT NULL,
     "delivery_city" TEXT NOT NULL,
-    "user_id" INT REFERENCES "user"(id)
+    "user_id" INT REFERENCES "user"(id) ON DELETE CASCADE
 );
 
 CREATE TABLE "category" (
@@ -46,10 +46,10 @@ CREATE TABLE "product" (
     "product_name" TEXT NOT NULL,
     "product_picture" TEXT,
     "description" TEXT,
-    "price_without_taxes" FLOAT,
+    "price_without_taxes" DECIMAL,
     "taxe" DECIMAL DEFAULT 1.055,
     "stock" INT,
-    "category_id" INT REFERENCES "category"(id)
+    "category_id" INT REFERENCES "category"(id) ON DELETE CASCADE
 );
 
 -- CREATE TABLE "ingredient" (
@@ -63,8 +63,8 @@ CREATE TABLE "product" (
 -- );
 
 CREATE TABLE "order_has_product" (
-    "order_id" INT REFERENCES "order"(id),
-    "product_id" INT REFERENCES"product"(id),
+    "order_id" INT REFERENCES "order"(id) ON DELETE CASCADE,
+    "product_id" INT REFERENCES"product"(id) ON DELETE CASCADE,
     "quantity" INT NOT NULL
 );
 

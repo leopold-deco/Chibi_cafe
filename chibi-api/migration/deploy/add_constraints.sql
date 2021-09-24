@@ -10,7 +10,7 @@ ALTER TABLE "user"
 
 ALTER TABLE "order"
     ALTER COLUMN "delivery_postal_code" TYPE "zip_code",
-    ALTER COLUMN "total_without_taxes" TYPE "strict_posint";
+    ALTER COLUMN "total" TYPE "strict_posint";
 
 -- ALTER TABLE "category"
 --     ALTER COLUMN "picture" TYPE "url";

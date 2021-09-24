@@ -35,13 +35,13 @@ CREATE DOMAIN "zip_code" AS TEXT CHECK(
 
 -- );
 
-CREATE DOMAIN "posint" AS INT CHECK(
+CREATE DOMAIN "posint" AS DECIMAL CHECK(
 
     VALUE >= 0
 
 );
 
-CREATE DOMAIN "strict_posint" AS INT CHECK(
+CREATE DOMAIN "strict_posint" AS DECIMAL CHECK(
 
     VALUE > 0
 

@@ -13,7 +13,7 @@ ALTER TABLE "product"
 
 ALTER TABLE "order"
     ALTER COLUMN "delivery_postal_code" TYPE TEXT,
-    ALTER COLUMN "total_without_taxes" TYPE INT;
+    ALTER COLUMN "total" TYPE INT;
 ALTER TABLE "user"
     ALTER COLUMN "mail" TYPE TEXT,
     ALTER COLUMN "password" TYPE TEXT,

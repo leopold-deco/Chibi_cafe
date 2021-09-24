@@ -64,18 +64,15 @@ const userController = {
 
     login: async (request, response) => {
         try {
-            /*
-            RECUPERER LES DONNES DU FORMULAIRE (email + mdp)
-            CHECK BDD si email existe si non -> email ou mdp incorrect
-            COMPARE MDP REQUEST ET HASH BDD -> si non email ou mdp incorrect
-            RETURN CONNEXION
-            */
-            const userInfo = request.body;
-            const result = await User.check(userInfo.email);
-            if(!result) console.log(`Email ou mot de passe incorrect`);
-            const isTrue = bcrypt.compareSync(userInfo.password, result.password);
-            if(isTrue) console.log(`Connexion validé`);
-            else console.log('Email ou mot de passe incorrect');
+            
+            // const userInfo = request.body;
+            // const result = await User.check(userInfo.email);
+            // if(!result) return console.log(`Email ou mot de passe incorrect`);
+            // const isTrue = bcrypt.compareSync(userInfo.password, result.password);
+            // if(isTrue) return console.log(`Connexion validé`);
+            // else console.log('Email ou mot de passe incorrect');
+
+            response.json(accessToken)
         } catch(error) {
             response.status(500).send(error.message);
         }
@@ -83,7 +80,8 @@ const userController = {
 
     delete: async (request, response) => {
         try {
-            await User.delete(request.params.id);
+            const deletedUser = new User(request.params.id);
+            await deletedUser.delete();
         } catch (error) {
             response.status(500).send(error.message);
         }

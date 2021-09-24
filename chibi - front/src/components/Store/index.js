@@ -14,53 +14,57 @@ const Store = () => {
 
         <div className="container__left">
 
-          <div className="container__categories">
-            <Link className="container__categories__custom" to="/boutique/custom">
-            <img
-              src={custom}
-              className="container__categories__image"
-              alt="Sablés Personnalisables"
-            />
-            Personnalisables
-            </Link>
-
-            <Link className="container__categories__paint" to="/boutique/peindre">
-            <img
-              src={paint}
-              className="container__categories__image"
-              alt="Sablés A peindre"
-            />
-            A peindre
-            </Link>
-          </div>
-
-            <img
-              src={presImage}
-              className="container__title"
-              alt="Présentation Sablés"
-            />
-
-          <div className="container__right">
-            <Link className="container__categories__message" to="/boutique/message">
-            <img
-              src={messages}
-              className="container__categories__image"
-              alt="Sablés Personnalisables"
-            />
-            Sablés Message
-            </Link>
-
-            <Link className="container__categories__decores" to="/boutique/decores">
+          <div className="container__left__categories">
+          <Link className="container__left__categories__decores" to="/boutique/decores">
             <img
               src={decores}
-              className="container__categories__image"
-              alt="Sablés Personnalisables"
+              className="container__left__categories__image"
+              alt="Sablés Décorés"
             />
-            Sablés Décorés
+            <p className="container__left__categories__text">Sablés Décorés</p>
+            </Link>
+
+            <Link className="container__left__categories__message" to="/boutique/message">
+            <img
+              src={messages}
+              className="container__left__categories__image"
+              alt="Sablés Messages"
+            />
+            <p className="container__left__categories__text">Sablés Message</p>
             </Link>
           </div>
 
         </div>
+
+          <div className="container__center">
+            <img
+              src={presImage}
+              className="container__center__title"
+              alt="Présentation Sablés"
+            />
+          </div>
+
+          <div className="container__right">
+            
+
+            <Link className="container__right__categories__paint" to="/boutique/peindre">
+            <img
+              src={paint}
+              className="container__right__categories__image"
+              alt="Sablés A peindre"
+            />
+            <p className="container__right__categories__text">A peindre</p>
+            </Link>
+
+            <Link className="container__right__categories__custom" to="/boutique/custom">
+            <img
+              src={custom}
+              className="container__right__categories__image"
+              alt="Sablés Personnalisables"
+            />
+            <p className="container__right__categories__text">Personnalisables</p>
+            </Link>
+          </div>
 
       </div>
     );

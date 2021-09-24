@@ -1,7 +1,11 @@
-.container{
+.container {
     display: flex;
     justify-content: center;
-    margin: 2rem;
+    margin: auto;
+    background-image: url("../../assets/presentation-sables/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     &__left {
         width: 600px;
@@ -9,40 +13,13 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+
         
         &__categories {
             display: flex;
             flex-direction: column;
-            
-            &__image {
-                width: 320px;
-                height: 260px;
-                border-radius: 20px;
-                margin-bottom: 1rem;
-            }
-
-            &__text {
-                text-align: center;
-                margin-bottom: 2rem;
-            }
-        }
-    }
-
-    &__right {
-        width: 600px;
-        margin: 2rem;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        
-        &__categories {
-            display: flex;
-            flex-direction: column;
-            
+            margin-top: 2rem;
             
             &__image {
                 width: 320px;
@@ -65,12 +42,38 @@
         
         &__title {
             margin: 0 2rem;
-            width: 600px;
+            width: auto;
             height: 415px;
             border-radius: 20px;
         }
     }
 
-    
+    &__right {
+        width: 600px;
+        margin: 2rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        
+        &__categories {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+            
+            &__image {
+                width: 320px;
+                height: 260px;
+                border-radius: 20px;
+                margin-bottom: 1rem;
+            }
+
+            &__text {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+        }
+    }
 }
 

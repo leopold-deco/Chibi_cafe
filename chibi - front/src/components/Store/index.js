@@ -22,15 +22,15 @@ const Store = () => {
               alt="Sablés Décorés"
             />
             <p className="container__left__categories__text">Sablés Décorés</p>
-            </Link>
+          </Link>
 
             <Link className="container__left__categories__message" to="/boutique/message">
-            <img
-              src={messages}
-              className="container__left__categories__image"
-              alt="Sablés Messages"
-            />
-            <p className="container__left__categories__text">Sablés Message</p>
+              <img
+                src={messages}
+                className="container__left__categories__image"
+                alt="Sablés Messages"
+              />
+              <p className="container__left__categories__text">Sablés Message</p>
             </Link>
           </div>
 
@@ -44,28 +44,29 @@ const Store = () => {
             />
           </div>
 
-          <div className="container__right">
-            
-
+        <div className="container__right">
+          <div className="container__right__categories">
             <Link className="container__right__categories__paint" to="/boutique/peindre">
-            <img
-              src={paint}
-              className="container__right__categories__image"
-              alt="Sablés A peindre"
-            />
-            <p className="container__right__categories__text">A peindre</p>
+              <img
+                src={paint}
+                className="container__right__categories__image"
+                alt="Sablés A peindre"
+              />
+              <p className="container__right__categories__text">A peindre</p>
             </Link>
 
             <Link className="container__right__categories__custom" to="/boutique/custom">
-            <img
-              src={custom}
-              className="container__right__categories__image"
-              alt="Sablés Personnalisables"
-            />
-            <p className="container__right__categories__text">Personnalisables</p>
+              <img
+                src={custom}
+                className="container__right__categories__image"
+                alt="Sablés Personnalisables"
+              />
+              <p className="container__right__categories__text">Personnalisables</p>
             </Link>
           </div>
 
+        </div>
+        
       </div>
     );
   }

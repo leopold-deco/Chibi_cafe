@@ -5,18 +5,16 @@ import { calculPrice } from '../../pipes/calculPrice';
 
 const ProductCard = ({ product }) => {
   
-  console.log(product)
   const dispatch = useDispatch()
 
   const onCart = () => {
     dispatch(addProductToCart(product))
   }
 
-
     return (
       <div >
           <h3>{product.product_name}</h3>
-          <p>{calculPrice(product.price_without_taxes, product.taxe)}</p>
+          <p>{calculPrice(Number(product.price_without_taxes), Number(product.taxe)) }</p>
           <button
           onClick={onCart} 
           type="button"> ajouter au panier</button>
@@ -28,8 +26,8 @@ const ProductCard = ({ product }) => {
     product: PropTypes.shape({
       id: PropTypes.number.isRequired,
       product_name: PropTypes.string.isRequired,
-      price_without_taxes: PropTypes.number.isRequired,
-      taxe: PropTypes.number.isRequired,
+      price_without_taxes: PropTypes.string.isRequired,
+      taxe: PropTypes.string.isRequired,
     }).isRequired,
   }
   

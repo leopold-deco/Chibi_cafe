@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 const Cart = (props) => {
 
-  console.log(props.underprice)
+  localStorage.setItem('cart', JSON.stringify(props.cartItems))
 
 
     return (
@@ -39,7 +39,7 @@ const Cart = (props) => {
                             Total TTC
                         </div>
                         <div className="cart__ender__price">
-                           <b>{`${props.totalPrice} €`}</b>
+                           <b>{`${props.totalPrice.toFixed(2)} €`}</b>
                         </div>
                         <div className="cart__ender__footer">
                           <button type="button" className="cart__ender__btn">

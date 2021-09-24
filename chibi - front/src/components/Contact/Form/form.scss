@@ -23,6 +23,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        
+        &-input {
+            margin-top: 5px;
+            padding: 10px 10px 10px 10px;
+            border: 1px solid #c9c9c9; 
+            outline-color: rgb(226, 85, 132);
+            border-radius: 5px;
+            width: 500px;
+            height: 50px;
+        }
     }
 
     &__email {
@@ -45,15 +55,6 @@ label {
     margin: 0 auto;
 }
 
-input {
-    margin-top: 5px;
-    padding: 10px 10px 10px 10px;
-    border: 1px solid #c9c9c9; 
-    outline-color: rgb(226, 85, 132);
-    border-radius: 5px;
-    width: 500px;
-    height: 50px;
-}
 
 
 

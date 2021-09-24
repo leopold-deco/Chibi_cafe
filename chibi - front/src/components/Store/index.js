@@ -10,8 +10,11 @@ import './store.scss';
 const Store = () => {
 
   const products = useSelector((state) => state.shop.products)
+  const cart = useSelector((state) => state.shop.cart)
 
-  console.log(products)
+  localStorage.setItem('cart', JSON.stringify(cart))
+
+  
 
   const dispatch = useDispatch();
   useEffect(

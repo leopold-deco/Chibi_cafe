@@ -8,7 +8,7 @@ import {
 
 const initialState = {
     products: [],
-    cart: []
+    cart: JSON.parse(localStorage.getItem('cart')) || []
 };
 
 
@@ -61,6 +61,7 @@ const shopReducer = (state = initialState, action ) => {
 
             if(updatedItemIndex < 0) {
                 updatedCart.push({...action.payload, quantity: 1});
+            
             } else {
                 const updatedItem = {
                     ...updatedCart[updatedItemIndex]
@@ -78,7 +79,6 @@ const shopReducer = (state = initialState, action ) => {
             );
 
             updatedCart.splice(updatedItemIndex, 1);
-
             return {...state, cart: updatedCart};
         default:
             return state;

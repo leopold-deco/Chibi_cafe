@@ -9,11 +9,12 @@ const CartItem = ({ id, product_name, price_without_taxes, taxe, quantity}) => {
 
     const dispatch = useDispatch();
     
-    const price = calculPrice(price_without_taxes, taxe)
+    const price = calculPrice(Number(price_without_taxes), taxe)
 
     const [itemQuantity, setItemQuantity] = useState(quantity);
 
-    
+    const underPrice = price * itemQuantity;
+
 
     const removeItem = () => {
         dispatch(removeProductToCart(id));
@@ -63,7 +64,7 @@ const CartItem = ({ id, product_name, price_without_taxes, taxe, quantity}) => {
                     </div>
                     <div className="card__underPrice">
                         <div className="card__underPrice__div">
-                            <h6><strong>{`${price * itemQuantity} €`}</strong></h6>
+                            <h6><strong>{`${underPrice.toFixed(2)} €`}</strong></h6>
                         </div>
                     </div>
                 <div className="card__suppr">

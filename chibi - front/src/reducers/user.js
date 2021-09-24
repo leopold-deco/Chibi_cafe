@@ -1,12 +1,13 @@
-import { CONNECT_USER, LOGOUT, SET_USER_FIELD } from '../actions/user';
+import { CONNECT_USER, LOGOUT, SET_USER_FIELD, REGISTER_USER } from '../actions/user';
 
 export const initialState = {
-  logged: false,   // à voir avec le back
+  logged: false,
   mail: '',
   password: '',
-  pseudo: null,
+  passwordConfirm: '',
   first_name: null,
   last_name: null,
+  gender: null,
   birthday_date: null,
   phone_number: null,
   street_number: null,
@@ -27,11 +28,8 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         pseudo: action.data.pseudo,
-        // 3 - on stocke le token dans le state
         token: action.data.token,
         logged: action.data.logged,
-        email: '',
-        password: '',
       };
     case LOGOUT:
       return {
@@ -39,6 +37,10 @@ const reducer = (state = initialState, action = {}) => {
         pseudo: null,
         logged: false,
         token: null,
+      };
+    case REGISTER_USER:
+      return {
+        ...state,
       };
     default:
       return state;

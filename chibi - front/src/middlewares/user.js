@@ -1,27 +1,29 @@
 import axios from 'axios';
 
-import { connectUser, LOGIN, LOGOUT } from '../actions/user';
+import { connectUser, LOGIN, LOGOUT, SIGNUP } from '../actions/user';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'https://chibi-api.herokuapp.com',
 });
 
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOGIN: {
-        const { user: { mail, password } } = store.getState();
+        const { user: { email, password } } = store.getState();
 
         axiosInstance.post(
           '/login',
           {
-            mail,
+            email,
             password,
           },
         ).then(
           (response) => {
             // store.dispatch(connectUser(response.data));
-            console.log(response);
             // axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
+            console.log(response)
+            //store.dispatch(connectUser(response.data));
+            //axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
           },
         ).catch(
           () => console.log('error'),
@@ -29,6 +31,32 @@ const userMiddleware = (store) => (next) => (action) => {
         next(action);
         break;
     }
+    case LOGOUT:
+      delete axiosInstance.defaults.headers.common.Authorization;
+      next(action);
+      break;
+    case SIGNUP: {
+      const { user: {         
+        first_name, last_name, email, password, birthday_date, phone_number, street_number, name_of_the_road, postal_code, city, gender 
+      } } = store.getState();
+
+      axiosInstance.post(
+        '/SignUp',
+        {
+          first_name, last_name, email, password, birthday_date, phone_number, street_number, name_of_the_road, postal_code, city, gender 
+        },
+      ).then(
+        (response) => {
+          console.log(response)
+          //store.dispatch(connectUser(response.data));
+          //axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
+        },
+      ).catch(
+        () => console.log('error'),
+      );
+      next(action);
+      break;
+    }  
     default:
       next(action);
   }

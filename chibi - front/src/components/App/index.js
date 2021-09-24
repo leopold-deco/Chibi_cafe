@@ -2,8 +2,10 @@
 import './App.scss';
 import AppHeader from '../AppHeader';
 import { Route, Switch } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Home from '../Home';
 import Cart from '../Cart';
+import Delivery from '../Delivery';
 import Contact from '../Contact';
 import Menu from '../Menu';
 import Account from '../Account';
@@ -45,6 +47,9 @@ function App() {
         </Route>
         <Route path="/panier" exact>
           <Cart />
+        </Route>
+        <Route path="/panier/livraison" exact>
+          <Delivery />
         </Route>
         <Route path="/contact" exact>
           <Contact />

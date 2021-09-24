@@ -3,25 +3,27 @@
 .adresse {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    font-size: 22px;
-    margin: 0.7rem 3.1rem;
     padding: 3rem;
+    margin: 0 1rem;
     box-shadow: vars.$box-shadow;
     background: vars.$tertiary-color;
     gap: 0.5rem;
-    border-radius: 0.5rem;s
+    border-radius: 0.5rem;
+    max-height: 80vh;
 
     &__p {
         margin-bottom: 20px;
-        color: white;
+        color: rgb(22, 22, 22);
         font-weight: bold;
     }
 
     &__img {
-        width: 550px;
-        height: 420px;
-        margin-top: 10px;
+        width: 540px;
+        height: 415px;
+        margin-top: 5px;
+        margin-bottom: 5px;
         border-radius: 10px;
     }
 }

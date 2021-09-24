@@ -1,7 +1,4 @@
 .contact {
-    // background-image: url(../../assets/crepe-contact.jpg);
-    // background-size: cover;
-    // height: calc(100vh - 90px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,5 +12,12 @@
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.185);
         border-radius: 20px;
         padding: 20px;
+        margin-top: 1.6rem;
+        max-height: 85vh;
+
+        &-right {
+            margin-left: 1rem;
+        }
     }
+
 }

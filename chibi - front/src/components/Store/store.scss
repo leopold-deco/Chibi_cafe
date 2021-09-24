@@ -1,14 +1,24 @@
 .container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 3rem;
 
-    &__message{
-        background-color: grey;
+    &__title {
+        width: 600px;
+        height: 360px;
     }
 
-    &__decores{
-        background-color: beige;
+    &__categories {
+        display: flex;
+        width: 200px;
+        height: 120px;
+        
+        &__image {
+            width: 100%;
+            height: auto;
+        }
+    
     }
+
 }
 

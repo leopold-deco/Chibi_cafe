@@ -33,27 +33,27 @@ const Form = () => {
     }   
 
     return (
-        <form onSubmit={handleSubmit} className='"form__contact"'>
+        <form onSubmit={handleSubmit} className="form__contact">
                 <h2 className="form__contact__title">Contactez-nous</h2>
     
-                <div className="form__contact__input">
-                    <label className="form__contact__label">Prénom</label>
-                    <input value={firstname} onChange={(e) => setFirstname(e.target.value)} type="text" />
+                <div className="form__contact__fields">
+                    <label className="form__contact__fields__label">Prénom</label>
+                    <input className="form__contact__fields__input" value={firstname} onChange={(e) => setFirstname(e.target.value)} type="text" />
+                </div>
+
+                <div className="form__contact__fields">
+                    <label className="form__contact__fields__label">Nom</label>
+                    <input className="form__contact__fields__input" value={lastname} onChange={(e) => setLastname(e.target.value)} type="text" />
                 </div>
                 
-                <div className="form__contact__input">
-                    <label className="form__contact__label">Nom</label>
-                    <input value={lastname} onChange={(e) => setLastname(e.target.value)} type="text" />
+                <div className="form__contact__fields">
+                    <label className="form__contact__fields__label">Email</label>
+                    <input className="form__contact__fields__input" value={email} onChange={(e) => setEmail(e.target.value)} type="email" />
                 </div>
                 
-                <div className="form__contact__input">
-                    <label className="form__contact__label">Email</label>
-                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" />
-                </div>
-                
-                <div className="form__contact__input">
-                    <label className="form__contact__label">Téléphone</label>
-                    <input value={phone} onChange={(e) => setPhone(e.target.value)} type="number" />
+                <div className="form__contact__fields">
+                    <label className="form__contact__fields__label">Téléphone</label>
+                    <input className="form__contact__fields__input" value={phone} onChange={(e) => setPhone(e.target.value)} type="number" />
                 </div>
             <div className="form-message"></div>
 

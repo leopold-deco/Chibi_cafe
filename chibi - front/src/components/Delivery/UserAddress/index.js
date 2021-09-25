@@ -4,7 +4,7 @@ import Button from '../../Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup, setUserField } from '../../../actions/user';
 
-const UserDelivery = () => {
+const UserAddress = () => {
     const dispatch = useDispatch();
 
     const { 
@@ -64,4 +64,4 @@ const UserDelivery = () => {
     );
 };
 
-export default UserDelivery;
+export default UserAddress;

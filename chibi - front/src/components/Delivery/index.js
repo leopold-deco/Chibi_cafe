@@ -4,8 +4,8 @@ import Input from '../Input';
 import Button from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup, setUserField } from '../../actions/user';
-import UserDelivery from './UserDelivery';
-import NewDelivery from './NewDelivery';
+import UserAddress from './UserAddress';
+import NewAddress from './NewAddress';
 
 const Delivery = () => {
     const dispatch = useDispatch();
@@ -13,8 +13,8 @@ const Delivery = () => {
     return (
         <Form handleSubmit="test"> 
             <h2>Livraison</h2>
-            <UserDelivery />
-            <NewDelivery />
+            <UserAddress />
+            <NewAddress />
             <Button>Paiement</Button>
         </Form>
     );

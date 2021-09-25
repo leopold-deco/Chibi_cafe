@@ -17,13 +17,12 @@ const UserDelivery = () => {
 
     return (
         <Form> 
-            <h2>Inscription</h2>
                 <Input type="radio" name="gender" id="genderFemale"
                     value="true"
                     handleChange={handleChange}
                     checked={gender === true}
                 />
-                <label htmlFor="genderFemale">Livraison à une autre adresse</label>
+                <label htmlFor="genderFemale">Livraison à votre adresse</label>
 
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
                 value={first_name} 

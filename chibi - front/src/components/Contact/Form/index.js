@@ -55,7 +55,6 @@ const Form = () => {
                     <label className="form__contact__fields__label">Téléphone</label>
                     <input className="form__contact__fields__input" value={phone} onChange={(e) => setPhone(e.target.value)} type="number" />
                 </div>
-            <div className="form-message"></div>
 
             <div className='message'>
                 <label className="message__label">Message</label>

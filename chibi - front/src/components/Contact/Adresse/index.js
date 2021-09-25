@@ -8,8 +8,7 @@ const Adresse = () => (
         <p className="adresse__p">1 rue de Chibi - 75001 Paris</p>
 
         <h3 className="adresse__hours">Horaires</h3>
-        <p className="adresse__p">Lundi au samedi</p>
-        <p className="adresse__p">De 11h30 à 19h00</p>
+        <p className="adresse__p">Lundi au samedi - De 11h30 à 19h00</p>
 
         <h3 className="adresse__phone-number">Téléphone</h3>
         <p className="adresse__p">0123456789</p>

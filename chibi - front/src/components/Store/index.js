@@ -1,3 +1,5 @@
+// Pour code propre : faire un sous-composant de présentation factorisant les infos et ici ne renvoyer que ce sous-composant.
+
 import { Link } from "react-router-dom";
 
 import presImage from "../../assets/presentation-sables/presentation-sables.png";
@@ -13,16 +15,16 @@ const Store = () => {
       <div className="container">
 
         <div className="container__left">
-
+  
           <div className="container__left__categories">
-          <Link className="container__left__categories__decores" to="/boutique/decores">
-            <img
-              src={decores}
-              className="container__left__categories__image"
-              alt="Sablés Décorés"
-            />
-            <p className="container__left__categories__text">Sablés Décorés</p>
-          </Link>
+            <Link className="container__left__categories__decores" to="/boutique/decores">
+              <img
+                src={decores}
+                className="container__left__categories__image"
+                alt="Sablés Décorés"
+              />
+              <p className="container__left__categories__text">Sablés Décorés</p>
+            </Link>
 
             <Link className="container__left__categories__message" to="/boutique/message">
               <img
@@ -32,7 +34,7 @@ const Store = () => {
               />
               <p className="container__left__categories__text">Sablés Message</p>
             </Link>
-          </div>
+          </div>  
 
         </div>
 
@@ -42,6 +44,7 @@ const Store = () => {
               className="container__center__title"
               alt="Présentation Sablés"
             />
+            <p className="container__center__description">Tous nos sablés à la vanille sont réalisés par notre artisan avec de la glace royale onctueuse, à base de sucre glace, de blanc d'œuf et de couleurs naturelles.</p>
           </div>
 
         <div className="container__right">
@@ -72,3 +75,43 @@ const Store = () => {
   }
   
 export default Store;
+
+
+
+/*****************************/ /*SOUS-COMPOSANT* / /*****************************/  
+
+// import Categorie from "./Categorie";
+
+// import { Link } from "react-router-dom";
+
+// import './store.scss';
+
+// const Store = () => {
+
+//     return (
+//       <div className="container">
+  
+//           <div className="container__left">
+//             <Categorie />
+//             <Categorie />
+//           </div>
+
+//           <div className="container__center">
+//             <img
+//               src={presImage}
+//               className="container__center__title"
+//               alt="Présentation Sablés"
+//             />
+//             <p className="container__center__description">Tous nos sablés à la vanille sont réalisés par notre artisan avec de la glace royale onctueuse, à base de sucre glace, de blanc d'œuf et de couleurs naturelles.</p>
+//           </div>
+
+//           <div className="container__right">
+//             <Categorie />
+//             <Categorie />
+//           </div>
+        
+//       </div>
+//     );
+//   }
+  
+// export default Store;

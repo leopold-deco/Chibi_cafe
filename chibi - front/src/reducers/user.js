@@ -17,7 +17,7 @@ export const initialState = {
   token: null,
 };
 
-const reducer = (state = initialState, action = {}) => {
+const user = (state = initialState, action = {}) => {
   switch (action.type) {
     case SET_USER_FIELD:
       return {
@@ -47,4 +47,4 @@ const reducer = (state = initialState, action = {}) => {
   }
 };
 
-export default reducer;
+export default user;

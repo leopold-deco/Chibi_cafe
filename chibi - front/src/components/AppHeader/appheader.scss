@@ -1,11 +1,14 @@
 .header{
     text-align: center;
-    position: relative;
-    top: 30px;
+
+    .header__title{
+        position: relative;
+        top: 20px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
-    .header{
+    .header__title{
         display: none;
     }
 }

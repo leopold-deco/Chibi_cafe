@@ -4,9 +4,9 @@
     background: rgba(228, 225, 225, 0.603);
     justify-content: center;
     gap: 10rem;
-    margin-top: 3rem;
     border-bottom: 2px solid rgba(255, 255, 255, 0.25);
     border-top: 2px solid rgba(255, 255, 255, 0.25);
+    margin-top: 2rem;
 
     &__1{
         display: flex;
@@ -42,6 +42,8 @@
     color: white;
     font-weight: bold;
 }
+
+
 
 @media only screen and (max-width: 1400px) {
     .navbar{
@@ -96,4 +98,57 @@
     .navbar{
         display: none;
     }
+
+    .menu-btn {
+        position: absolute;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+        transition: all .5s ease-in-out;
+        /* border: 3px solid #fff; */
+      }
+      .menu-btn__burger {
+          content: '';
+        width: 50px;
+        height: 6px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(255,101,47,.2);
+        transition: all .5s ease-in-out;
+      }
+      .menu-btn__burger::before,
+      .menu-btn__burger::after {
+        content: '';
+        position: absolute;
+        right: 15px;
+        width: 50px;
+        height: 6px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(255,101,47,.2);
+        transition: all .5s ease-in-out;
+      }
+      .menu-btn__burger::before {
+        transform: translateY(-16px);
+      }
+      .menu-btn__burger::after {
+        transform: translateY(16px);
+      }
+      /* ANIMATION */
+      .menu-btn.open .menu-btn__burger {
+        transform: translateX(-35px);
+        background: transparent;
+        box-shadow: none;
+      }
+      .menu-btn.open .menu-btn__burger::before {
+        transform: rotate(45deg) translate(35px, -35px);
+      }
+      .menu-btn.open .menu-btn__burger::after {
+        transform: rotate(-45deg) translate(35px, 35px);
+      }
+      
 }

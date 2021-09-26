@@ -72,7 +72,7 @@ const CartItem = ({ id, product_name, price_without_taxes, taxe, quantity}) => {
                 <div className="card__suppr">
                     <button
                         onClick={removeItem}
-                        type="button" className="card__content__btnSuppr"><i class="far fa-trash-alt"></i>
+                        type="button" className="card__content__btnSuppr"><i className="far fa-trash-alt"></i>
                     </button>
                 </div>
         </div>

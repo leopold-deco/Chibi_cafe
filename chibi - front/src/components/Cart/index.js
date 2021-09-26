@@ -2,6 +2,7 @@ import "./cart.scss";
 import CartItem from "./cartItem";
 import { calculPrice } from "../../pipes/calculPrice";
 import { connect } from "react-redux";
+import Button from "../Button";
 
 const Cart = (props) => {
 
@@ -27,12 +28,12 @@ const Cart = (props) => {
                                   Quantité
                               </div>
                               <div className="cart__body__underPricer">
-                                  Sous total
+                                Sous total
                               </div>
                             </div>                 
                             {props.cartItemCount ? props.cartItems.map(cart => (
                                 <CartItem {...cart} key={cart.id} />
-                            )) : <h1 className="cart__body__none">Votre Panier est vide</h1> }
+                            )) : <h2 className="cart__body__none">Votre Panier est vide</h2> }
                         </div>
                       <div className="cart__ender">
                         <div className="cart__ender__header">
@@ -42,9 +43,9 @@ const Cart = (props) => {
                            <b>{`${props.totalPrice.toFixed(2)} €`}</b>
                         </div>
                         <div className="cart__ender__footer">
-                          <button type="button" className="cart__ender__btn">
+                          <Button type="button" className="cart__ender__btn">
                             Poursuivre la commande
-                          </button>
+                          </Button>
                         </div>
                       </div>
                       </div>

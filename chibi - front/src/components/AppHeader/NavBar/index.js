@@ -1,23 +1,23 @@
 import { NavLink } from 'react-router-dom';
-import { connect, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
+import './navbar.scss';
 
 
 function NavBar({cartCount, state}) {
 
-const cart = useSelector((state) => state.shop.cart)
-
-const deleteStorage = () => {
-  localStorage.removeItem(cart)
-}
 
     return (
-      <div >
-          <NavLink to="/">Accueil</NavLink>
-          <NavLink to="/menu">Menu</NavLink>
-          <NavLink to="/boutique">Boutique</NavLink>
-          <NavLink to="/compte">Compte</NavLink>
-          <NavLink onClick={deleteStorage} to="/panier">Panier {cartCount ? `(${cartCount})`: ''}</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+      <div className="navbar">
+        <div className="navbar__1">
+          <NavLink className="navlink" activeClassName="isactive" exact to="/">Accueil</NavLink>
+          <NavLink className="navlink"  activeClassName="isactive" exact to="/menu">Menu</NavLink>
+          <NavLink className="navlink"  activeClassName="isactive" exact to="/boutique">Boutique</NavLink>
+        </div>
+        <div className="navbar__2">
+          <NavLink className="navlink"  activeClassName="isactive" exact to="/compte">Compte</NavLink>
+          <NavLink className="navlink"  activeClassName="isactive" exact to="/panier">Panier{cartCount ? `(${cartCount})`:''}</NavLink>
+          <NavLink className="navlink"  activeClassName="isactive" exact to="/contact">Contact</NavLink>
+        </div>
       </div>
     );
   };

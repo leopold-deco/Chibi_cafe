@@ -8,6 +8,7 @@ import "./footer.scss";
 const Footer = () => (
   <div className="footer">
     <div className="footer__image">
+    <div className="footer__image__facebook">
       <NavLink
         to="/facebook"
       >
@@ -17,6 +18,8 @@ const Footer = () => (
           alt="Logo Facebook"
         />
       </NavLink>
+      </div>
+      <div className="footer__image__instagram">
       <NavLink
         to="/instagram"
       >
@@ -26,6 +29,7 @@ const Footer = () => (
           alt="Logo Instagram"
         />
       </NavLink>
+      </div>
     </div>
     <a href="/copyright" className="footer__copyright">Copyright</a>
     <a href="/mentions-legales" className="footer__mentions">Mentions Légales</a>

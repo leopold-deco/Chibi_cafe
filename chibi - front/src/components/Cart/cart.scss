@@ -1,55 +1,262 @@
-.container{
-    margin: 3rem;
-}
+@use '../../styles/vars';
 
+.container{
+    padding: 5rem;
+    width: 100%;
+    min-height: 70vh;
+    display: grid;
+    align-items: center;
+}
+.cart{
+    width: 90%;
+}
 .cart__header{
     font-size: 2rem;
+    text-align: center;
 }
 
 .cart__content {
-    margin-top: 2rem;
+    display: block;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
+
 
 .cart__body{
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    box-shadow: vars.$box-shadow;
+    background: vars.$tertiary-color;
+    margin: auto;
+    border-radius: 0.5rem;
 
     &__legend{
         display: flex;
-        gap: 3rem;
+       width: 100%;
+
     }
 
 }
-
-.card{
+.cart__body__legend{
+    width: 100%;
+    padding: 2%;
+}
+.cart__body__legend div{
+    width: 23.5%;
+    font-size: 0.8rem;
+}
+.card__content{
+    margin-top: 1.5rem;
     display: flex;
-    gap: 3rem;
-    border: 1px solid grey;
+    width:94%;
     border-radius: 5px;
-    padding: 0.5rem;
     align-items: center;
-    justify-content: center;
+    color:rgb(226, 85, 132);
 
     &__quantity{
         display: flex;
-
         &__count{
-            border: solid 1px black;
-            padding:  0.2rem 1rem;
-            
+            color: black;
+            text-align: center;
         }
     }
 }
+.card__underPrice h6{
+    white-space: nowrap;
+}
+.card{
+    display: flex;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgb(226, 85, 132);
+    width: 100%;
+    align-items: center; 
+    padding: 2%;
+}
+.card__suppr{
+    width: 6%;
+}
 
+.card__suppr button, .card__content__quantity input{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.card__suppr i{
+    color:rgb(226, 85, 132);
+  
+}
+.card__content div{
+    width: 25%;
+}
 .cart__ender{
     display: flex;
+    width: 30%;
+    align-items: center;
     flex-direction: column;
     padding: 1rem;
     gap: 2rem;
-    border: 1px solid grey;
     margin-left: 3rem;
+    box-shadow: vars.$box-shadow;
+    background: vars.$tertiary-color;
+    border-radius: 0.5rem;
+    height: 20%;
 }
 
+@media only screen and (max-width: 1000px) {
+    .cart__body{
+        width: 80%;
+    }
+    .cart__ender{
+        width: 25%;
+        margin-left: 0.5rem;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .container{
+        padding:5rem 0rem ;
+    }
+.cart{
+    width: 100%;
+}
+.cart__content{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cart__body{
+    width: 95%;
+}
+
+.cart__ender{
+    margin-left: 0;
+    margin-top: 2%;
+    width: 50%;
+}
+
+}
+
+@media only screen and (max-width: 600px) {
+    .cart{
+        position: relative;
+    }
+    .cart__header{
+        font-size: 1.1rem;
+    }
+    .cart__ender{
+        width: 95%;
+        height: 10%;
+        flex-direction: row;
+        position: sticky;
+        bottom: 55px;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+
+        
+        &__header{
+            display: none;
+        }
+
+        &__footer Button{
+            padding: 0.5rem;
+            margin-bottom: 1.1rem;
+        }
+
+    }
+  
+    .cart__body__legend div{
+        font-size: 0.7rem;
+    }
+    
+    .card__content{
+        font-size: 0.8rem;
+    }
+
+    .card__content__quantity__count{
+        margin: 0 1rem;
+    }
+    
+    .cart__ender__header{
+        font-size: 0.8rem;
+    }
+
+    .cart__ender__footer{
+        padding: 1rem;
+    }
+  
+}
+
+
+
+@media only screen and (max-width: 400px) {
+
+    .card{
+        margin-bottom: 0.5rem;
+    }
+
+    .card__content__des{
+        flex-basis: 60%;
+        text-align: center;
+        order: 1;
+    }
+
+    .cart__body__legend,.card__content__priceUnit{
+display: none;
+    }
+
+    .card__content__quantity{
+        order: 3;
+        margin-left: 2.5rem;
+    }
+
+    .card__content{
+        width: 90%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+
+    }
+
+    .card__underPrice{
+        order: 2;
+    }
+
+    .cart__ender{
+        width: 95%;
+    }
+
+}
+
+
+@media only screen and (max-width: 300px) {
+    .card__content__des,.card__underPrice,.card__content__quantity{
+        position: relative;
+        left: -10%;
+         }
+}
+
+@media only screen and (max-height: 680px) {
+    .container{
+        padding: 0.5rem;
+
+    }
+
+    .cart__ender{
+        gap: 1rem;
+
+        &__footer{
+            padding: 0;
+        }
+    }
+}

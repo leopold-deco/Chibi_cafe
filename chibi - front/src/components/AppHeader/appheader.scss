@@ -1,0 +1,11 @@
+.header{
+    text-align: center;
+    position: relative;
+    top: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .header{
+        display: none;
+    }
+}

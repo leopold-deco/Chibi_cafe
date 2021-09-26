@@ -1,0 +1,99 @@
+.navbar{
+    font-size: 1.3rem;
+    display: flex;
+    background: rgba(228, 225, 225, 0.603);
+    justify-content: center;
+    gap: 10rem;
+    margin-top: 3rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+    border-top: 2px solid rgba(255, 255, 255, 0.25);
+
+    &__1{
+        display: flex;
+
+    }
+
+    &__2{
+        display: flex;
+        
+    }
+
+}
+
+.navlink{
+    margin: 0;
+    padding: 1.5rem;
+    width: 200px;
+    
+}
+
+.navlink:hover{
+    background: rgba(238, 140, 190, 0.403);
+    border-radius: 1rem;
+    color: white;
+    font-size: 1.6rem;
+    transition-duration: 0.7s;
+    font-weight: bold; 
+}
+
+.isactive{
+    background: rgba(238, 140, 190, 0.403); 
+    border-radius: 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 1400px) {
+    .navbar{
+        gap: 5rem;
+    }
+    .navlink{
+        width: 180px;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .navbar{
+        gap: 5rem;
+        font-size: 0.9rem;
+    }
+    .navlink{
+        width: 180px;
+    }
+    .navlink:hover{
+        font-size: 1.1rem;
+    }
+
+    .isactive{
+       font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .navlink{
+        padding: 1.5rem 0;
+        width: 130px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .navbar{
+        gap: 2rem;
+    }
+    .navlink{
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .navbar{
+        gap: 0;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .navbar{
+        display: none;
+    }
+}

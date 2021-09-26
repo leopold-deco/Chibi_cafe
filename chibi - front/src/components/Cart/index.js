@@ -17,6 +17,7 @@ const Cart = (props) => {
                         </div>
                         <div className="cart__content">
                         <div className="cart__body">
+                        { props.cartItems.length !== 0 &&
                         <div className="cart__body__legend">
                               <div className="cart__body__designation">
                                 Désignation
@@ -30,11 +31,13 @@ const Cart = (props) => {
                               <div className="cart__body__underPricer">
                                 Sous total
                               </div>
-                            </div>                 
+                            </div>
+                          }                 
                             {props.cartItemCount ? props.cartItems.map(cart => (
                                 <CartItem {...cart} key={cart.id} />
                             )) : <h2 className="cart__body__none">Votre Panier est vide</h2> }
                         </div>
+                        { props.cartItems.length !== 0 &&
                       <div className="cart__ender">
                         <div className="cart__ender__header">
                             Total TTC
@@ -48,6 +51,7 @@ const Cart = (props) => {
                           </Button>
                         </div>
                       </div>
+                      }
                       </div>
                     </div>
       </div>

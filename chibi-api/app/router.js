@@ -20,7 +20,7 @@ router.get('/product/:id', productController.findOne);
 router.post('/product/:id', productController.create);
 router.patch('/product/:id', productController.update);
 // User
-// router.get('/account/:id', userController.findOne);
+router.get('/account/:id', userController.findOne);
 
 router.patch('/account/:id', userController.update);
 router.patch('/newPassword', userController.updatePassword);

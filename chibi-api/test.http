@@ -41,7 +41,7 @@ Content-Type: application/json
 
 ### FIND USER
 
-GET {{host}}/account/1
+GET {{host}}/account/3
 
 
 ### UPDATE USER

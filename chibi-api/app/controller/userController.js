@@ -72,10 +72,11 @@ const userController = {
             // if(isTrue) return console.log(`Connexion validé`);
             // else console.log('Email ou mot de passe incorrect');
             // accessToken
-            console.log('salut');
+            // console.log('salut');
+            console.log(accessToken);
             response.status(200).json({
                 userInfo,
-                token: "accessToken"
+                token: accessToken
             });
         } catch(error) {
             response.status(500).send(error.message);

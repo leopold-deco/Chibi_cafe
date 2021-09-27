@@ -10,7 +10,7 @@ const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOGIN: {
         const { user: { email, password } } = store.getState();
-
+      console.log(email, password)
         axiosInstance.post(
           '/login',
           {
@@ -19,9 +19,9 @@ const userMiddleware = (store) => (next) => (action) => {
           },
         ).then(
           (response) => {
-            // store.dispatch(connectUser(response.data));
-            // axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
-            console.log(response)
+            store.dispatch(connectUser(response.data));
+            axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
+            console.log("response",response)
           },
         ).catch(
           () => console.log('error'),

@@ -11,9 +11,7 @@ const tokenMW = {
         const isTrue = bcrypt.compareSync(userInfo.password, result.password);
         if(isTrue) console.log(`Connexion validé`);
         else return console.log('Email ou mot de passe incorrect');
-        console.log("Avant Access token");
         accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '600000s'});
-        console.log("Après access token" ,accessToken);
         next();
     },
 

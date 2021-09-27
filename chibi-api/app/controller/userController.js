@@ -4,14 +4,14 @@ const saltRounds = 10;
 
 const userController = {
 
-    findOne: async (request, response) => {
-        try {
-            const user = await User.findOne(request.params.id);
-            response.json(user);
-        }catch(error) {
-            res.status(500).send(error.message);   
-        }
-    },
+    // findOne: async (request, response) => {
+    //     try {
+    //         const user = await User.findOne(request.params.id);
+    //         response.json(user);
+    //     }catch(error) {
+    //         res.status(500).send(error.message);   
+    //     }
+    // },
     update: async (request, response) => {
         try {
             const updateUser = new User(request.body); 
@@ -65,15 +65,9 @@ const userController = {
     login: async (request, response) => {
         try {
             const userInfo = request.body;
-            // const userInfo = request.body;
-            // const result = await User.check(userInfo.email);
-            // if(!result) return console.log(`Email ou mot de passe incorrect`);
-            // const isTrue = bcrypt.compareSync(userInfo.password, result.password);
-            // if(isTrue) return console.log(`Connexion validé`);
-            // else console.log('Email ou mot de passe incorrect');
-
+            const user = await User.findOne(userInfo.email);
             response.status(200).json({
-                user: userInfo.email,
+                user,
                 token: accessToken
             });
         } catch(error) {

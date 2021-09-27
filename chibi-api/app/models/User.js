@@ -8,9 +8,9 @@ class User {
         }
     }
 
-    static async findOne(id) {
+    static async findOne(mail) {
         try {
-            const {rows} = await db.query('SELECT * FROM "user" WHERE id=$1', [id]);
+            const {rows} = await db.query('SELECT "mail", "first_name", "last_name", "gender", "birthday_date", "phone_number", "street_number", "name_of_the_road", "postal_code", "city" FROM "user" WHERE "mail"=$1', [mail]);
             if(rows[0]) {
                 return new User(rows[0]);
             }

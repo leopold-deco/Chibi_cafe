@@ -1,6 +1,11 @@
 // Pour code propre : faire un sous-composant de présentation factorisant les infos et ici ne renvoyer que ce sous-composant.
 
 import { Link } from "react-router-dom";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import ProductCard from "./ProductCard";
+import { fetchArticles } from "../../actions/shop";
 
 import presImage from "../../assets/presentation-sables/presentation-sables.png";
 import custom from "../../assets/presentation-sables/custom.png";
@@ -11,8 +16,26 @@ import './store.scss';
 
 const Store = () => {
 
+  const products = useSelector((state) => state.shop.products)
+  const cart = useSelector((state) => state.shop.cart)
+
+  localStorage.setItem('cart', JSON.stringify(cart))
+
+  
+
+  const dispatch = useDispatch();
+  useEffect(
+    () => {
+      dispatch(fetchArticles());
+    },
+    [],
+  );
+
     return (
       <div className="container">
+          {products.map((product) => (
+            <ProductCard key={product.id} {...product} product={product} />
+          ))}
 
         <div className="container__left">
   

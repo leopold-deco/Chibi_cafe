@@ -1,14 +1,14 @@
 import './form.scss';
 
-const Form = ({ children, handleLogin }) => {
+const Form = ({ children, handleSubmit }) => {
 
-    const handleSubmit = (event) => {
+    const handleLoginSignup = (event) => {
         event.preventDefault();
-        handleLogin();
+        handleSubmit();
     }
 
     return (
-        <form className='form' onSubmit={handleSubmit}>
+        <form className='form__auth' onSubmit={handleLoginSignup}>
             {children}
         </form>
     )

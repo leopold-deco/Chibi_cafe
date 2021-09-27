@@ -1,39 +1,23 @@
-import { CONNECT_USER, LOGOUT, SET_USER_FIELD } from '../actions/user';
+import { CONNECT_USER, LOGOUT, SET_USER_FIELD, REGISTER_USER } from '../actions/user';
 
-//const user = JSON.parse(localStorage.getItem("user"));
-// export const initialState = user
-// ? { isLoggedIn: true, user }
-// : { isLoggedIn: false, user: null };
+export const initialState = {
+  logged: false,
+  mail: '',
+  password: '',
+  passwordConfirm: '',
+  first_name: null,
+  last_name: null,
+  gender: null,
+  birthday_date: null,
+  phone_number: null,
+  street_number: null,
+  name_of_the_road: null,
+  postal_code: null,
+  city: null,
+  token: null,
+};
 
-  // email: '',
-  // password: '',
-  // pseudo: null,
-  // first_name: null,
-  // last_name: null,
-  // birthday_date: null,
-  // phone_number: null,
-  // street_number: null,
-  // name_of_the_road: null,
-  // postal_code: null,
-  // city: null,
-  // token: null,
-
-  export const initialState = {
-    logged: false,   // à voir avec le back
-    mail: '',
-    password: '',
-    pseudo: null,
-    first_name: null,
-    last_name: null,
-    birthday_date: null,
-    phone_number: null,
-    street_number: null,
-    name_of_the_road: null,
-    postal_code: null,
-    city: null,
-    token: null,
-  };
-const reducer = (state = initialState, action = {}) => {
+const user = (state = initialState, action = {}) => {
   switch (action.type) {
     case SET_USER_FIELD:
       return {
@@ -43,17 +27,24 @@ const reducer = (state = initialState, action = {}) => {
     case CONNECT_USER:
       return {
         ...state,
-        user: action.data
+        pseudo: action.data.pseudo,
+        token: action.data.token,
+        logged: action.data.logged,
       };
     case LOGOUT:
       return {
         ...state,
-        isLoggedIn: false,
-        user: null
+        pseudo: null,
+        logged: false,
+        token: null,
+      };
+    case REGISTER_USER:
+      return {
+        ...state,
       };
     default:
       return state;
   }
 };
 
-export default reducer;
+export default user;

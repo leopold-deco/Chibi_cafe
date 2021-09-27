@@ -1,10 +1,12 @@
 import "./cart.scss";
 import CartItem from "./cartItem";
+import { calculPrice } from "../../pipes/calculPrice";
 import { connect } from "react-redux";
+import Button from "../Button";
 
 const Cart = (props) => {
 
-  console.log(props.underprice)
+  localStorage.setItem('cart', JSON.stringify(props.cartItems))
 
 
     return (
@@ -15,6 +17,7 @@ const Cart = (props) => {
                         </div>
                         <div className="cart__content">
                         <div className="cart__body">
+                        { props.cartItems.length !== 0 &&
                         <div className="cart__body__legend">
                               <div className="cart__body__designation">
                                 Désignation
@@ -26,26 +29,29 @@ const Cart = (props) => {
                                   Quantité
                               </div>
                               <div className="cart__body__underPricer">
-                                  Sous total
+                                Sous total
                               </div>
-                            </div>                 
+                            </div>
+                          }                 
                             {props.cartItemCount ? props.cartItems.map(cart => (
                                 <CartItem {...cart} key={cart.id} />
-                            )) : <h1 className="cart__body__none">Votre Panier est vide</h1> }
+                            )) : <h2 className="cart__body__none">Votre Panier est vide</h2> }
                         </div>
+                        { props.cartItems.length !== 0 &&
                       <div className="cart__ender">
                         <div className="cart__ender__header">
                             Total TTC
                         </div>
                         <div className="cart__ender__price">
-                           <b>{`${props.totalPrice} €`}</b>
+                           <b>{`${props.totalPrice.toFixed(2)} €`}</b>
                         </div>
                         <div className="cart__ender__footer">
-                          <button type="button" className="cart__ender__btn">
+                          <Button type="button" className="cart__ender__btn">
                             Poursuivre la commande
-                          </button>
+                          </Button>
                         </div>
                       </div>
+                      }
                       </div>
                     </div>
       </div>
@@ -62,7 +68,7 @@ const Cart = (props) => {
             return count + curItem.quantity;
         }, 0),
         totalPrice: state.shop.cart.reduce((count, curItem) => {
-            return count + (curItem.prix * curItem.quantity);
+            return count + (calculPrice(curItem.price_without_taxes, curItem.taxe) * curItem.quantity);
         }, 0),
     }
 }

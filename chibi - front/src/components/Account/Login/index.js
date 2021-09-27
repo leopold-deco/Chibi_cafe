@@ -4,20 +4,19 @@ import Button from '../../Button';
 import Input from '../../Input';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { login, logout, setUserField } from '../../../actions/user';
+import { login, setUserField } from '../../../actions/user';
 
 const Login = () => {
     const dispatch = useDispatch();
 
-    const email = useSelector((state) => state.user.email);
-    const password = useSelector((state) => state.user.password);
+    const { email, password } = useSelector((state) => state.user);
 
     const handleChange = (value, name) => {
         dispatch(setUserField(value, name));
     };
 
     return (
-        <Form handleLogin={() => dispatch(login())}>
+        <Form handleSubmit={() => dispatch(login())}>
             <h2>Connexion</h2>
             <Input 
                 type="email" 
@@ -35,7 +34,7 @@ const Login = () => {
                 value={password} 
                 handleChange={handleChange}
             />
-            <Button>S'inscrire</Button>
+            <Button>Se connecter</Button>
         </Form>
     );
 };

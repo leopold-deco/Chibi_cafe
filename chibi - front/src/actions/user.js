@@ -33,3 +33,20 @@ export const logout = () => (
     type: LOGOUT,
   }
 );
+
+export const SIGNUP = 'SIGNUP';
+
+export const signup = () => (
+  {
+    type: SIGNUP,
+  }
+);
+
+export const REGISTER_USER = 'REGISTER_USER';
+
+export const registerUser = (data) => (
+  {
+    type: REGISTER_USER,
+    data,
+  }
+);

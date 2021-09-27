@@ -9,8 +9,13 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
+const corsOptions ={
+    credentials:true,           
+    optionSuccessStatus:200
+}
+
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json())
 app.use(router);
 

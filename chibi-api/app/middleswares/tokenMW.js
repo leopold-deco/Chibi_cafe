@@ -12,6 +12,7 @@ const tokenMW = {
         if(isTrue) console.log(`Connexion validé`);
         else return console.log('Email ou mot de passe incorrect');
         accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '600000s'});
+        console.log(accessToken);
         next();
     },
 

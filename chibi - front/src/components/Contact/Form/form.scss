@@ -10,8 +10,8 @@
     margin: 0 1rem;
     gap: 0.5rem;
     border-radius: 0.5rem;
-    max-height: 80vh;
-    max-width: 71vh;
+    max-height: 75vh;
+    max-width: 70vh;
 
     &__title {
         color:rgb(226, 85, 132);
@@ -26,18 +26,13 @@
         justify-content: space-between;
         align-items: center;
         
+        
         &__label {
             color: rgb(226, 85, 132);
             font-weight: bold;
+            width: 10rem;
         }
         
-        &__input {
-            margin: 0 0.8rem;
-            padding: vars.$halfGutter;
-            border-radius: vars.$border-radius;
-            border: vars.$border; 
-            width: 30rem;
-        }
     }
 }
 
@@ -45,16 +40,17 @@
 .message {
     display: flex;
     flex-direction: column;
-    margin: 0.7rem;
+    margin-top: 0.7rem;
     font-size: 22px;
-
+    
     &__label {
         text-align: center;
         color: rgb(226, 85, 132);
         font-weight: bold;
     }
-
+    
     &__text {
+        width: 100%;
         margin-top: 5px;
         background-color: #f8f8f8;
         outline: none;

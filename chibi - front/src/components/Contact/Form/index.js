@@ -1,4 +1,5 @@
 import Button from '../../Button';
+import Input from '../../Input';
 
 import emailjs from 'emailjs-com';
 
@@ -12,6 +13,7 @@ const Form = () => {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState(""); 
+    const [sendMessage, setSendMessage] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,12 +26,21 @@ const Form = () => {
         emailjs.send('my_gmail','template_db83b08', templateParams, 'user_ArfWVVGSJEvGb8dc6tTwO')
         .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
-        }, (err) => {
+        setSendMessage("Votre message a bien été envoyé");
+        }, 
+        (err) => {
         console.log('FAILED...', err);
         });
         
-        console.log(firstname);
+        setLastname("");
+        setFirstname("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+        
+
     }   
+    console.log(firstname);
 
     return (
         <form onSubmit={handleSubmit} className="form__contact">
@@ -37,22 +48,22 @@ const Form = () => {
     
                 <div className="form__contact__fields">
                     <label className="form__contact__fields__label">Prénom</label>
-                    <input className="form__contact__fields__input" value={firstname} onChange={(e) => setFirstname(e.target.value)} type="text" />
+                    <Input value={firstname} handleChange={setFirstname} type="text" id="firstname" />
                 </div>
 
                 <div className="form__contact__fields">
                     <label className="form__contact__fields__label">Nom</label>
-                    <input className="form__contact__fields__input" value={lastname} onChange={(e) => setLastname(e.target.value)} type="text" />
+                    <Input value={lastname} handleChange={setLastname} type="text" id="lastname" />
                 </div>
                 
                 <div className="form__contact__fields">
                     <label className="form__contact__fields__label">Email</label>
-                    <input className="form__contact__fields__input" value={email} onChange={(e) => setEmail(e.target.value)} type="email" />
+                    <Input value={email} handleChange={setEmail} type="email" id="email" />
                 </div>
                 
                 <div className="form__contact__fields">
                     <label className="form__contact__fields__label">Téléphone</label>
-                    <input className="form__contact__fields__input" value={phone} onChange={(e) => setPhone(e.target.value)} type="number" />
+                    <Input value={phone} handleChange={setPhone} type="tel" id="phone" />
                 </div>
 
             <div className='message'>
@@ -61,6 +72,10 @@ const Form = () => {
 
                 <Button className="message__button" type="submit">Envoyer</Button>
             </div>
+
+            <p>
+            {sendMessage}
+            </p>
         </form>
     );
 } 

@@ -1,7 +1,7 @@
 .contact {
     background-image: url(../../assets/crepe-contact.jpg);
     background-size: cover;
-    height: calc(90vh - 6vh);
+    height: calc(100vh - 100px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,16 +9,21 @@
     &__container {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: stretch;
         background: rgba(228, 225, 225, 0.603);
         border: 1px solid rgba(255, 255, 255, 0.25);
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.185);
         border-radius: 20px;
         padding: 20px;
-        // margin-top: 1.6rem;
-        max-height: 80vh;
+        width: 70%;
+
+        &-left {
+            flex-basis: 50%;
+            
+        }
 
         &-right {
+            flex-basis: 50%;
             margin-left: 1rem;
         }
     }

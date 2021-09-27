@@ -47,28 +47,28 @@ const Form = () => {
                 <h2 className="form__contact__title">Contactez-nous</h2>
     
                 <div className="form__contact__fields">
-                    <label className="form__contact__fields__label">Prénom</label>
+                    <label className="form__contact__fields__label" htmlFor="firstname" >Prénom</label>
                     <Input value={firstname} handleChange={setFirstname} type="text" id="firstname" />
                 </div>
 
                 <div className="form__contact__fields">
-                    <label className="form__contact__fields__label">Nom</label>
+                    <label className="form__contact__fields__label" htmlFor="lastname">Nom</label>
                     <Input value={lastname} handleChange={setLastname} type="text" id="lastname" />
                 </div>
                 
                 <div className="form__contact__fields">
-                    <label className="form__contact__fields__label">Email</label>
+                    <label className="form__contact__fields__label" htmlFor="email">Email</label>
                     <Input value={email} handleChange={setEmail} type="email" id="email" />
                 </div>
                 
                 <div className="form__contact__fields">
-                    <label className="form__contact__fields__label">Téléphone</label>
+                    <label className="form__contact__fields__label" htmlFor="phone">Téléphone</label>
                     <Input value={phone} handleChange={setPhone} type="tel" id="phone" />
                 </div>
 
             <div className='message'>
-                <label className="message__label">Message</label>
-                <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="message__text" rows="20" cols="75" placeholder="Votre Message"></textarea>
+                <label className="message__label" htmlFor="textarea">Message</label>
+                <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="message__text" rows="20" cols="75" placeholder="Votre Message" id="textarea"></textarea>
 
                 <Button className="message__button" type="submit">Envoyer</Button>
             </div>

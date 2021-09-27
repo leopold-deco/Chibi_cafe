@@ -1,3 +1,5 @@
+import { SET_DELIVERY_FIELD } from '../actions/delivery';
+
 export const initialState = {
   isNewAddress: false,
   mail: '',
@@ -12,7 +14,7 @@ export const initialState = {
 
 const delivery = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SET_USER_FIELD:
+    case SET_DELIVERY_FIELD:
       return {
         ...state,
         [action.name]: action.value,

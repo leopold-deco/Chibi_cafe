@@ -8,7 +8,7 @@ const UserAddress = () => {
     const dispatch = useDispatch();
 
     const { 
-        first_name, last_name, email, phone_number, street_number, name_of_the_road, postal_code, city, gender
+        first_name, last_name, email, phone_number, street_number, name_of_the_road, postal_code, city, isNewAddress
     } = useSelector((state) => state.user);
 
     const handleChange = (value, name) => {
@@ -16,13 +16,8 @@ const UserAddress = () => {
     };
 
     return (
-        <Form> 
-                <Input type="radio" name="gender" id="genderFemale"
-                    value="true"
-                    handleChange={handleChange}
-                    checked={gender === true}
-                />
-                <label htmlFor="genderFemale">Livraison à votre adresse</label>
+        <div> 
+
 
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
                 value={first_name} 
@@ -60,7 +55,7 @@ const UserAddress = () => {
                     disabled={true}
                 />
             </div>
-        </Form>
+        </div>
     );
 };
 

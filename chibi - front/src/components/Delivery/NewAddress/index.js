@@ -2,27 +2,22 @@ import Form from '../../Account/Form';
 import Input from '../../Input';
 import Button from '../../Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { signup, setUserField } from '../../../actions/user';
+import { signup, setDeliveryField } from '../../../actions/delivery';
 
 const NewAddress = () => {
     const dispatch = useDispatch();
 
     const { 
-        first_name, last_name, email, phone_number, street_number, name_of_the_road, postal_code, city, gender
-    } = useSelector((state) => state.user);
+        first_name, last_name, email, phone_number, street_number, name_of_the_road, postal_code, city, isNewAddress
+    } = useSelector((state) => state.delivery);
 
     const handleChange = (value, name) => {
-        dispatch(setUserField(value, name));
+        dispatch(setDeliveryField(value, name));
     };
-
+    console.log(isNewAddress)
     return (
-        <Form> 
-                <Input type="radio" name="gender" id="genderFemale"
-                    value="true"
-                    handleChange={handleChange}
-                    checked={gender === true}
-                />
-                <label htmlFor="genderFemale">Livraison à une autre adresse</label>
+        <div> 
+
 
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
                 value={first_name} 
@@ -60,7 +55,7 @@ const NewAddress = () => {
                     handleChange={handleChange}
                 />
             </div>
-        </Form>
+        </div>
     );
 };
 

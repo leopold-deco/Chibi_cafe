@@ -71,8 +71,11 @@ const userController = {
             // const isTrue = bcrypt.compareSync(userInfo.password, result.password);
             // if(isTrue) return console.log(`Connexion validé`);
             // else console.log('Email ou mot de passe incorrect');
-
-            response.json(accessToken)
+            // accessToken
+            response.status(200).json({
+                userInfo,
+                token: "accessToken"
+            });
         } catch(error) {
             response.status(500).send(error.message);
         }

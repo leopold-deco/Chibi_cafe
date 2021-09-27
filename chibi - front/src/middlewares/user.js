@@ -22,8 +22,8 @@ const userMiddleware = (store) => (next) => (action) => {
             // store.dispatch(connectUser(response.data));
             // axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
             console.log(response)
-            //store.dispatch(connectUser(response.data));
-            //axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
+            store.dispatch(connectUser(response.data));
+            axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
           },
         ).catch(
           () => console.log('error'),

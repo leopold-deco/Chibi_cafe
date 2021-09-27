@@ -17,6 +17,12 @@ const userMiddleware = (store) => (next) => (action) => {
             email,
             password,
           },
+          {
+          headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*",
+          }
+          }
         ).then(
           (response) => {
             // store.dispatch(connectUser(response.data));

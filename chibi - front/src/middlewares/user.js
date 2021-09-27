@@ -17,13 +17,17 @@ const userMiddleware = (store) => (next) => (action) => {
             email,
             password,
           },
+          {
+          headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*",
+          }
+          }
         ).then(
           (response) => {
             // store.dispatch(connectUser(response.data));
             // axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
             console.log(response)
-            store.dispatch(connectUser(response.data));
-            axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
           },
         ).catch(
           () => console.log('error'),

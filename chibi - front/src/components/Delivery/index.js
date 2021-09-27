@@ -21,11 +21,11 @@ const Delivery = () => {
         console.log('test')
         if(isNewAddress) {
             console.log("nex")
-            localStorage.setItem("delivery", delivery)
+            localStorage.setItem("delivery", JSON.stringify(delivery))
         } else {
-            localStorage.setItem("delivery", user)
+            localStorage.setItem("delivery", JSON.stringify(user))
         }
-        console.log("deliv",localStorage.getItem("delivery"))
+        console.log("deliv", JSON.parse(localStorage.getItem("delivery")))
     };
 
     return (

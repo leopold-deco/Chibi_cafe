@@ -20,7 +20,7 @@ class Category {
          GROUP BY category.id`);   
          return rows.map(row => new Category(row));
         }catch(error) {
-            console.log(error);
+            throw error;
         }
     }
 }

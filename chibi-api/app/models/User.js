@@ -14,9 +14,8 @@ class User {
             if(rows[0]) {
                 return new User(rows[0]);
             }
-            console.log('Aucuns utilisateur trouvé avec cet id');
         }catch(error) {
-            console.log(error);
+            throw error;
         }
     }    
     
@@ -24,7 +23,7 @@ class User {
         try {
             await db.query('UPDATE "user", SET "mail"=$1, "first_name"=$2, "last_name"=$3, "gender"=$4, "birthday_date"=$5, "phone_number"=$6, "street_number"=$7, "name_of_the_road"=$8, "postal_code"=$9, "city"=$10 WHERE "id"=$11;', [this.mail, this.first_name, this.last_name, this.gender, this.birthday_date, this.phone_number, this.street_number, this.name_of_the_road, this.postal_code, this.city, this.id]);
         }catch(error) {
-            console.log(error);   
+            throw error;  
         }
     }
 
@@ -32,7 +31,7 @@ class User {
         try {
             await db.query('INSERT INTO "user" ("mail", "password", "first_name", "last_name", "gender", "birthday_date", "phone_number", "street_number", "name_of_the_road", "postal_code", "city") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);', [this.mail, this.password, this.first_name, this.last_name, this.gender, this.birthday_date, this.phone_number, this.street_number, this.name_of_the_road, this.postal_code, this.city]);
         }catch(error) {
-            console.log(error);
+            throw error;
         }
     }
 
@@ -43,7 +42,7 @@ class User {
                 return new User(rows[0]);
             }
         }catch(error) {
-            console.log(error);
+            throw error;
         }
     }  
 
@@ -51,7 +50,7 @@ class User {
         try {
             await db.query('DELETE FROM "user" WHERE id=$1', [id]);
         } catch (error) {
-            console.log(error);
+            throw error;
         }
     }
 
@@ -59,7 +58,7 @@ class User {
         try {
             await db.query('UPDATE "user" SET "password"=$1 WHERE "mail"=$2', [password, mail]);
         } catch(error) {
-            console.log(error);
+            throw error;
         }
     }
 

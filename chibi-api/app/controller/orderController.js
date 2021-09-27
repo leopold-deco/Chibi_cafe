@@ -29,14 +29,11 @@ const oderController = {
             const newOrder = new Order(orderInfo);
             await newOrder.create();
             for(const line in result.cart.line){
-                console.log('result.cart.l.: ', result.cart.line);
-                console.log('line.in.r.c.l: ', line);
-                // console.log('result.cart.line: ',result.cart.line);
                 const newOrderHasProduct = new OrderHasProduct(line);
                 await newOrderHasProduct.create();
             }
-            // response.json(newOrder);
-            console.log("ca marche");
+            response.status(200).json(newOrderHasProduct);
+            
         }catch(error) {
             response.status(500).send(error.message);   
         }
@@ -45,28 +42,11 @@ const oderController = {
     findByUser: async (request, response) => {
         try {
             const userOrder = await Order.findByUser(request.params.id);
-            response.json(userOrder);
+            response.status(200).json(userOrder);
         } catch (error) {
             response.status(500).send(error.message);
         }
     }
 }
-// {
-//     "CreateOrder":
-//     "Contenue panier":  [
-//       {  "Id product": ...
-//         "Id order":
-//         "Quantity":
-//     },  
-//     {  "Id product": ...
-//         "Id order":
-//         "Quantity":
-//     },  
-//     {  "Id product": ...
-//         "Id order":
-//         "Quantity":
-//     },    
-//     ]
-// }
 
 module.exports = oderController;

@@ -13,7 +13,7 @@ class Product {
          const {rows} = await db.query('SELECT * FROM "product"');   
          return rows.map(row => new Product(row));
         }catch(error) {
-            console.log(error);
+            throw error;
         }
     }
 
@@ -23,9 +23,8 @@ class Product {
             if(rows[0]) {
                 return new Product(rows[0]);
             }
-            console.log('Aucuns produit trouvé avec cet id');
         }catch(error) {
-            console.log(error);   
+            throw error;   
         }
     }
 
@@ -33,7 +32,7 @@ class Product {
         try {
             const {rows} = await db.query('UPDATE product SET "number"=$1, "type_of_product"=$2, "name"=$3, "picture"=$4, "description"=$5, "price_without_taxes"=$6, "taxe"=$7, "stock"=$8, "category_id"=$9', [this.number, this.type_of_product, this.name, this.picture, this.description, this.price_without_taxes, this.taxe, this.stock, this.category_id, this.id])
         }catch(error) {
-            console.log(error);   
+            throw error;   
         }
     }
 
@@ -41,7 +40,7 @@ class Product {
         try {
             await db.query('INSERT INTO product("number", "type_of_product", "name", "picture", "description", "price_without_taxes", "taxe", "stock", "category_id") VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)', [this.number, this.type_of_product, this.name, this.picture, this.description, this.price_without_taxes, this.taxe, this.stock, this.category_id]);
         }catch(error) {
-            console.log(error);   
+            throw error;
         }
     }
 

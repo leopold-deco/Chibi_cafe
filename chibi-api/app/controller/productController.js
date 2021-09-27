@@ -5,7 +5,7 @@ const productController = {
     findAll: async (_, response) => {
         try {
             const products = await Product.findAll();
-            response.json(products);
+            response.status(200).json(products);
         }catch(error) {
             response.status(500).send(error.message);   
         }
@@ -13,7 +13,8 @@ const productController = {
     findOne: async (request, response) => {
         try {
             const product = await Product.findOne(request.body);
-            response.json(product);            
+            if(!product) response.status(200).json('Aucuns produit trouvé avec cet id');
+            response.status(200).json(product);           
         }catch(error) {
             response.status(500).send(error.message);   
         }
@@ -22,7 +23,7 @@ const productController = {
         try {
             const updateProduct = new Product(request.body);
             await updateProduct.update();
-            response.json(updateProduct);            
+            response.status(200).json(updateProduct);   
         }catch(error) {
             response.status(500).send(error.message);   
         }
@@ -31,7 +32,7 @@ const productController = {
         try {
             const newProduct = new Product(request.body);
             await newProduct.create();
-            response.json(newProduct);           
+            response.status(200).json(newProduct);           
         }catch(error) {
             response.status(500).send(error.message);   
         }

@@ -7,25 +7,21 @@ const tokenMW = {
     generateToken: async (request, response, next) => {
         const userInfo = request.body;
         const result = await User.check(userInfo.email);
-        if(!result) return console.log(`Email ou mot de passe incorrect`);
+        if(!result) return response.status(200).json(`Email ou mot de passe incorrect`);
         const isTrue = bcrypt.compareSync(userInfo.password, result.password);
-        if(isTrue) console.log(`Connexion validé`);
-        else return console.log('Email ou mot de passe incorrect');
+        if(isTrue) response.status(200).json(`Connexion validé`);
+        else return response.status(200).json('Email ou mot de passe incorrect');
         accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '600000s'});
         next();
     },
 
     authenticateToken: (request, response, next) => {
-        console.log(request.headers);
         const authHeader = request.headers['authorization'];
         const token = authHeader && authHeader.split(' ')[1];
-        console.log(token);
         if(!token){
-            console.log('connexion refusée');
+            response.status(200).json('Connexion refusé, temps de connexion expiré');
         }
-
         jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-        
         next();
     }
 }

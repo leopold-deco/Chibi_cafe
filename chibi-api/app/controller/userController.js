@@ -16,7 +16,7 @@ const userController = {
         try {
             const updateUser = new User(request.body); 
             await updateUser.update(request.params.id);
-            response.json(updateUser);            
+            response.status(200).json(updateUser);            
         }catch(error) {
             response.status(500).send(error.message);   
         }
@@ -56,7 +56,7 @@ const userController = {
 
             const newUser = new User(userInfo);
             await newUser.create();
-            console.log('User créé');
+            response.status(200).json('User créé');
         } catch (error) {
             response.status(500).send(error.message);
         }
@@ -88,22 +88,14 @@ const userController = {
         try {
             
             const userInfo = request.body;
-            console.log(userInfo);
-            /*
-            email
-            actualPassword
-            newPassword1
-            newPassword2
-            */
             const result = await User.check(userInfo.email);
-            console.log("result", result);
             const isTrue = bcrypt.compareSync(userInfo.actualPassword, result.password);
             if(!isTrue) {
-                return console.log(`Mot de passe incorrect`);
+                return response.status(200).json(`Mot de passe incorrect`);
             }
             
             if(userInfo.newPassword1 !== userInfo.newPassword2) {
-                return console.log('Veuillez rentrer des mots de passes identiques');
+                return response.status(200).json("Veuillez rentrer deux mot de passes identiques");
             }
 
             // GESTION DU MOT DE PASSE
@@ -111,13 +103,9 @@ const userController = {
             const userPassword = userInfo.newPassword1;
             const salt = bcrypt.genSaltSync(saltRounds);
             const hashedPassword = bcrypt.hashSync(userPassword, salt);
-            console.log("sorti gestion mdp");
-            console.log(result.mail);
             const newPassword = new User();
-            console.log("new password",newPassword);
             await newPassword.updatePassword(hashedPassword, result.mail);
-            // response.json('Mot de passe changé'); 
-            console.log('mot de passe changé');
+            response.status(200).json("Mot de passe modifié");
         } catch(error) {
             response.status(500).send(error.message);
         }

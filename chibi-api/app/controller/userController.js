@@ -64,7 +64,7 @@ const userController = {
 
     login: async (request, response) => {
         try {
-            const userInfo = request.body
+            const userInfo = request.body;
             // const userInfo = request.body;
             // const result = await User.check(userInfo.email);
             // if(!result) return console.log(`Email ou mot de passe incorrect`);

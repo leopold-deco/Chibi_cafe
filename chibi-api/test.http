@@ -41,11 +41,10 @@ Content-Type: application/json
 
 ### FIND USER
 
-GET {{host}}/account/3
+GET {{host}}/account/2
 
 
 ### UPDATE USER
-
 
 PATCH {{host}}/account/1
 Content-Type: application/json
@@ -112,7 +111,7 @@ Content-Type: application/json
 
 ### FIND ORDER BY USER
 
-GET {{host}}/accountOrder/1
+GET {{host}}/accountOrder/2
 
 
 ### DELETE USER

@@ -7,8 +7,18 @@ class User {
             this[propName] = obj[propName]; 
         }
     }
+    static async findOneId(id) {
+        try {
+            const {rows} = await db.query('SELECT "mail", "first_name", "last_name", "gender", "birthday_date", "phone_number", "street_number", "name_of_the_road", "postal_code", "city" FROM "user" WHERE "id"=$1', [id]);
+            if(rows[0]) {
+                return new User(rows[0]);
+            }
+        } catch(error) {
+            throw error;
+        }
+    }
 
-    static async findOne(mail) {
+    static async findOneMail(mail) {
         try {
             const {rows} = await db.query('SELECT "mail", "first_name", "last_name", "gender", "birthday_date", "phone_number", "street_number", "name_of_the_road", "postal_code", "city" FROM "user" WHERE "mail"=$1', [mail]);
             if(rows[0]) {

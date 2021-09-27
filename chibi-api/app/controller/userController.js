@@ -6,7 +6,7 @@ const userController = {
 
     findOne: async (request, response) => {
         try {
-            const user = await User.findOne(request.params.id);
+            const user = await User.findOneId(request.params.id);
             response.json(user);
         }catch(error) {
             res.status(500).send(error.message);   
@@ -65,7 +65,7 @@ const userController = {
     login: async (request, response) => {
         try {
             const userInfo = request.body;
-            const user = await User.findOne(userInfo.email);
+            const user = await User.findOneMail(userInfo.email);
             response.status(200).json({
                 user,
                 token: accessToken

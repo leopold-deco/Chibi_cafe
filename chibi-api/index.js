@@ -10,6 +10,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const corsOptions ={
+    origin:true,
     credentials:true,           
     optionSuccessStatus:200
 }

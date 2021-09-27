@@ -15,10 +15,11 @@
 
 .cart__content {
     display: block;
-    margin-top: 1rem;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 80%;
+    margin: 2rem auto;
+    max-width: 2000px;
 }
 
 
@@ -120,12 +121,18 @@
     height: 20%;
 }
 
+
+
+
 @media only screen and (max-width: 1000px) {
+    .card__content{
+        width: 97%;
+    }
+
     .cart__body{
         width: 80%;
     }
     .cart__ender{
-        width: 25%;
         margin-left: 0.5rem;
     }
 }
@@ -212,6 +219,9 @@
 
 
 @media only screen and (max-width: 400px) {
+    .cart__content{
+        width: 97%;
+    }
 
     .card{
         margin-bottom: 0.5rem;
@@ -235,8 +245,8 @@ display: none;
     .card__content{
         width: 90%;
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
+        justify-content: flex-start;
+        gap: 0.7rem;
 
     }
 

@@ -5,15 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signup, setUserField } from '../../../actions/user';
 
 const UserAddress = () => {
-    const dispatch = useDispatch();
 
     const { 
         first_name, last_name, email, phone_number, street_number, name_of_the_road, postal_code, city, isNewAddress
     } = useSelector((state) => state.user);
-
-    const handleChange = (value, name) => {
-        dispatch(setUserField(value, name));
-    };
 
     return (
         <div> 

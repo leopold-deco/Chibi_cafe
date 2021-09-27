@@ -1,0 +1,10 @@
+.delivery {
+    display: flex;
+    justify-content: space-between;
+
+    &__elements {
+        display: flex;
+        flex-direction: column;
+        max-width: 20rem;
+    }
+}

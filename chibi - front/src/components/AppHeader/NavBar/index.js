@@ -1,11 +1,11 @@
 import { NavLink, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import './navbar.scss';
-
+import { logout } from '../../../actions/auth';
 
 function NavBar({ cartCount }) {
-
+const dispatch = useDispatch()
 const [open, setMenu] = useState(false)
 
 window.addEventListener('click', (e) => {
@@ -39,6 +39,7 @@ const openBurger = () => {
           <NavLink className="navlink"  activeClassName="isactive" exact to="/compte">Compte</NavLink>
           <NavLink className="navlink"  activeClassName="isactive" exact to="/panier">Panier{cartCount ? `(${cartCount})`:''}</NavLink>
           <NavLink className="navlink"  activeClassName="isactive" exact to="/contact">Contact</NavLink>
+          <button onClick={() => dispatch(logout())}>se déconnecter</button>
         </div>
       </div>
       <div className="navbar__mobile">

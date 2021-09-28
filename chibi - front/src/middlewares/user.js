@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { connectUser, LOGIN, LOGOUT, SIGNUP } from '../actions/user';
+import { connectUser, LOGIN, LOGOUT, SIGNUP } from '../actions/auth';
 
 const axiosInstance = axios.create({
   baseURL: 'https://chibi-api.herokuapp.com',
@@ -17,9 +17,11 @@ const userMiddleware = (store) => (next) => (action) => {
           },
         ).then(
           (response) => {
-            store.dispatch(connectUser(response.data));
+            store.dispatch(connectUser(response.data.user));
             axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
             console.log("response",response)
+            const { auth } = store.getState();
+            console.log(auth)
           },
         ).catch(
           () => console.log('error'),
@@ -29,6 +31,7 @@ const userMiddleware = (store) => (next) => (action) => {
     }
     case LOGOUT:
       delete axiosInstance.defaults.headers.common.Authorization;
+      localStorage.removeItem("user");
       next(action);
       break;
     case SIGNUP: {

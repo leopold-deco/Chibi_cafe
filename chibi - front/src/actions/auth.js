@@ -1,14 +1,3 @@
-   
-export const SET_USER_FIELD = 'SET_USER_FIELD';
-
-export const setUserField = (value, name) => (
-  {
-    type: SET_USER_FIELD,
-    value,
-    name,
-  }
-);
-
 export const LOGIN = 'LOGIN';
 
 export const login = (email, password) => (
@@ -21,10 +10,10 @@ export const login = (email, password) => (
 
 export const CONNECT_USER = 'CONNECT_USER';
 
-export const connectUser = (data) => (
+export const connectUser = (user) => (
   {
     type: CONNECT_USER,
-    data,
+    user,
   }
 );
 

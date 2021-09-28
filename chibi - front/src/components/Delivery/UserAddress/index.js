@@ -2,7 +2,7 @@ import Form from '../../Account/Form';
 import Input from '../../Input';
 import Button from '../../Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { signup, setUserField } from '../../../actions/user';
+import { signup, setUserField } from '../../../actions/auth';
 
 const UserAddress = () => {
 

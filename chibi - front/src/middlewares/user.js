@@ -22,7 +22,7 @@ const userMiddleware = (store) => (next) => (action) => {
             console.log("response",response)
           },
         ).catch(
-          (error) => console.log(error),
+          () => console.log('error'),
         );
         next(action);
         break;
@@ -32,10 +32,6 @@ const userMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     case SIGNUP: {
-      const { user: {         
-        first_name, last_name, email, password, birthday_date, phone_number, street_number, name_of_the_road, postal_code, city, gender 
-      } } = store.getState();
-      console.log(action.firstname,action.lastname,action.email, action.password, action.birthdayDate, action.phoneNumber, action.streetNumber, action.nameOfTheRoad, action.postalCode, action.city, action.gender)
       axiosInstance.post(
         '/SignUp',
         {

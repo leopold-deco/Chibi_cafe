@@ -11,7 +11,7 @@
     &__container {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: stretch;
         background: rgba(228, 225, 225, 0.603);
         border: 1px solid rgba(255, 255, 255, 0.25);
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.185);
@@ -19,7 +19,6 @@
         padding: 20px;
         width: 70%;
         max-width: 2000px;
-        height: 85%;
         gap: 2rem;
 
         &-left {
@@ -31,9 +30,6 @@
             background: vars.$tertiary-color;
             border-radius: 0.5rem;
             flex-basis: 50%;
-            height: 90%;
-            
-            
         }
 
         &-right {
@@ -43,12 +39,8 @@
             flex-direction: column;
             box-shadow: vars.$box-shadow;
             background: vars.$tertiary-color;
-            gap: 0.5rem;
             border-radius: 0.5rem;
-            height: 100%;
             flex-basis: 50%;
-            height: 90%;
-            
         }
     }
 

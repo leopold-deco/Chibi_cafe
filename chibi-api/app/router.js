@@ -15,11 +15,15 @@ const router = Router();
 
 // Produits
 router.get('/products', productController.findAll);
+
 // produit
+
 router.get('/product/:id', productController.findOne);
 router.post('/product/:id', productController.create);
 router.patch('/product/:id', productController.update);
+
 // User
+
 router.get('/account/:id', userController.findOne);
 
 router.patch('/account/:id', userController.update);
@@ -35,7 +39,10 @@ router.delete('/account/:id', userController.delete);
 router.get('/category', categoryController.findAll)
 
 // Order
+
 router.get('/accountOrder/:id', tokenMW.authenticateToken,oderController.findByUser);
 router.post('/order', oderController.create);
+
+// 
 
 module.exports = router;

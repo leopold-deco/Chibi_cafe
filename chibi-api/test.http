@@ -70,30 +70,41 @@ POST {{host}}/order
 Content-Type: application/json
 
 {
-    "number": "123",
-    "total_without_taxes": 5,
-    "delivery_street_number": "5",
-    "delivery_name_of_the_road": "rue de bagnolet",
-    "delivery_postal_code": "75020",
-    "delivery_city": "paris",
-    "user_id": 1,
-    "cart": {
-        "line": {
-            "order_id": 1,
-            "product_id": 23,
-            "quantity": 4
-        },
-        "line": {
-            "order_id": 1,
-            "product_id": 24,
-            "quantity": 2
-        },
-        "line": {
-            "order_id": 1,
-            "product_id": 26,
-            "quantity": 1
-        } 
+    "delivery": {
+        "isNewAddress": true,
+        "street_number": "5",
+        "name_of_the_road": "rue de bagnolet",
+        "postal_code": "75020",
+        "city": "paris"
+    },
+
+    "auth":{
+        "isLogged": true,
+        "user": {
+            "user_id": 3,
+            "street_number": "12",
+            "name_of_the_road": "rue de la libération",
+            "postal_code": "06020",
+            "city": "Caen"
+        }
+    },    
+    "shop":{
+        "cart":[
+            {
+                "id":21,
+                "quantity":4
+            },
+            {
+                "id":26,
+                "quantity":2
+            },
+            {
+                "id":19,
+                "quantity":1
+            }
+        ]
     }
+    
 }
 
 ### UPDATE PASSWORD

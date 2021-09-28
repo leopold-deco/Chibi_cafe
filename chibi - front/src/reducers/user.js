@@ -18,7 +18,6 @@ export const initialState = {
 };
 
 const user = (state = initialState, action = {}) => {
-  console.log("state", state)
   switch (action.type) {
     case SET_USER_FIELD:
       return {

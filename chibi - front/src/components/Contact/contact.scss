@@ -11,7 +11,7 @@
     &__container {
         display: flex;
         justify-content: center;
-        align-items: stretch;
+        align-items: center;
         background: rgba(228, 225, 225, 0.603);
         border: 1px solid rgba(255, 255, 255, 0.25);
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.185);
@@ -55,19 +55,3 @@
 }
 
 
-@media only screen and (max-height: 1100px) {
-    .contact__container{
-        flex-direction: column;
-    
-    }
-
-    .contact__container-left{
-        flex-direction: row;
-    }
-
-    .contact__container-right{
-        flex-direction: row;
-        width: 100%;
-    }
-
-}

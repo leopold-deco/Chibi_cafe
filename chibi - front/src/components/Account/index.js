@@ -8,10 +8,10 @@ import { useSelector } from 'react-redux';
 import './account.scss';
 
 function Account() {
-  const logged = useSelector((state) => state.user.logged);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
     return (
       <div>
-        {!logged? 
+        {!isLoggedIn? 
           <div className="auth">
             <div className="auth-container">
               <SignUp />

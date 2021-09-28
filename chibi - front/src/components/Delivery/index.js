@@ -3,7 +3,7 @@ import Form from '../Account/Form';
 import Input from '../Input';
 import Button from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { signup, setDeliveryField } from '../../actions/delivery';
+import { setDeliveryField } from '../../actions/delivery';
 import UserAddress from './UserAddress';
 import NewAddress from './NewAddress';
 
@@ -11,19 +11,19 @@ const Delivery = () => {
     const dispatch = useDispatch();
     const { isNewAddress } = useSelector((state) => state.delivery);
     const delivery = useSelector((state) => state.delivery);
-    const user = useSelector((state) => state.user);
+    const user = useSelector((state) => state.auth.user);
 
     const handleChange = (value, name) => {
         dispatch(setDeliveryField(value, name));
     };
 
     const verifyIsNewAddressAndStore = () => {
-        console.log('test')
+        console.log("isnew",isNewAddress)
         if(isNewAddress) {
-            console.log("nex")
-            localStorage.setItem("delivery", JSON.stringify(delivery))
+            console.log('oui')
         } else {
-            localStorage.setItem("delivery", JSON.stringify(user))
+            console.log("non")
+            //localStorage.setItem("delivery", JSON.stringify(user));
         }
         console.log("deliv", JSON.parse(localStorage.getItem("delivery")))
     };

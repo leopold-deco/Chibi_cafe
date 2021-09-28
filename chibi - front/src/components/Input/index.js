@@ -1,6 +1,6 @@
 import './input.scss';
 
-const Input = ({ type, id, name, placeholder, value, handleChange, disabled }) => {
+const Input = ({ type, id, name, placeholder, value, handleChange, disabled, required }) => {
 
     return (
         <input 
@@ -11,7 +11,7 @@ const Input = ({ type, id, name, placeholder, value, handleChange, disabled }) =
             placeholder={placeholder} 
             value={value || ''} 
             onChange={(event) => handleChange(event.target.value, name)}
-            required
+            required={required}
             disabled={disabled} 
         />
     );

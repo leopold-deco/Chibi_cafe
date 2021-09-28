@@ -2,8 +2,8 @@ import './signup.scss';
 import Form from '../Form';
 import Input from '../../Input';
 import Button from '../../Button';
-import { useDispatch, useSelector } from 'react-redux';
-import { signup, setUserField } from '../../../actions/user';
+import { useDispatch } from 'react-redux';
+import { signup } from '../../../actions/auth';
 import { useState } from 'react';
 
 const SignUp = () => {
@@ -22,18 +22,10 @@ const SignUp = () => {
     const [city, setCity] = useState('');
     const [gender, setGender] = useState(false);
 
-    // const { 
-    //     first_name, last_name, email, password, passwordConfirm, birthday_date, phone_number, street_number, name_of_the_road, postal_code, city, gender
-    // } = useSelector((state) => state.user);
-
-    // const handleChange = (value, name) => {
-    //     dispatch(setUserField(value, name));
-    // };
-
     const verifyPasswordAndSubmit = () => {
         if (password === passwordConfirm) {
             dispatch(signup(firstname, lastname, email, password, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender));
-            setMessage("Inscription terminée! Veuillez vous connecter.")
+            setMessage("Inscription terminée! Veuillez vous connecter.");
         }
     }
 

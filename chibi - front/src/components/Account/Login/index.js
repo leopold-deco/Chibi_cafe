@@ -4,7 +4,7 @@ import Button from '../../Button';
 import Input from '../../Input';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { login, setUserField } from '../../../actions/user';
+import { login, setUserField } from '../../../actions/auth';
 import { useHistory } from "react-router-dom";
 import { useState } from 'react';
 
@@ -21,7 +21,7 @@ const Login = () => {
     // };
 
     const handleSubmitForm = () => {
-        dispatch(login(email, password))
+        dispatch(login(email, password));
         setEmail('');
         setPassword('');
         history.push('/');

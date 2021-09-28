@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import  userReducer  from "./user"
+import  authReducer  from "./auth"
 import productsReducer from './products';
 import shop from './shopReducer'
 import deliveryReducer from './delivery';
@@ -7,7 +7,7 @@ import deliveryReducer from './delivery';
 const rootReducer = combineReducers({
   shop,
   products: productsReducer,
-  user: userReducer,
+  auth: authReducer,
   delivery: deliveryReducer
 });
 

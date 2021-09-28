@@ -17,11 +17,12 @@ const userMiddleware = (store) => (next) => (action) => {
           },
         ).then(
           (response) => {
-            store.dispatch(connectUser(response.data.user));
-            axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
-            console.log("response",response)
-            const { auth } = store.getState();
-            console.log(auth)
+            if (response.data.token) {
+              store.dispatch(connectUser(response.data.user));
+              axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
+              localStorage.setItem("user", JSON.stringify(response.data.user));
+              console.log("response",response)
+            }
           },
         ).catch(
           () => console.log('error'),

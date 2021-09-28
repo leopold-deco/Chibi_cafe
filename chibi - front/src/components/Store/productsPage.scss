@@ -1,0 +1,42 @@
+.store-container{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin: 6rem auto;
+    align-items: center;
+    height: 50vh;
+    max-width: 2000px;
+}
+
+.storeCard{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    flex-basis: 25%;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    &__name{
+        margin-top: 1rem;
+    }
+
+    &__price{
+        font-size: 1.3rem;
+    }
+
+}
+
+.storeCard>.button{
+    width: 100%;
+    font-size: 1.3rem;
+    border-radius: 10px;
+}
+
+.productsPage__title{
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.8rem;
+
+}

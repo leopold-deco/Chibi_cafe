@@ -1,6 +1,5 @@
 import Adresse from './Adresse';
 import Form from './Form';
-import Message from './Message';
 
 import "./contact.scss";
 
@@ -14,7 +13,6 @@ function Contact() {
         
           <div className="contact__container-right">
             <Form />
-            <Message />
           </div>
         </div>
       </div>

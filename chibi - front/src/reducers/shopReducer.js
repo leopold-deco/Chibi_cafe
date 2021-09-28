@@ -1,5 +1,6 @@
 import {
     SAVE_ARTICLES,
+    SAVE_CATEGORIES,
     ADD_PRODUCT_TO_CART,
     DECREMENT_CART_ITEM_QUANTITY,
     INCREMENT_CART_ITEM_QUANTITY,
@@ -7,6 +8,7 @@ import {
 } from '../actions/shop';
 
 const initialState = {
+    categories: [],
     products: [],
     cart: JSON.parse(localStorage.getItem('cart')) || []
 };
@@ -22,6 +24,11 @@ const shopReducer = (state = initialState, action ) => {
                 ...state,
                 products: action.articles.filter(product => product.type_of_product === true),
             };
+        case SAVE_CATEGORIES:
+            return {
+                ...state,
+                categories: [action.categories[2], action.categories[6], action.categories[9]]
+            };    
         case INCREMENT_CART_ITEM_QUANTITY:
             updatedCart = [...state.cart];
             updatedItemIndex = updatedCart.findIndex(

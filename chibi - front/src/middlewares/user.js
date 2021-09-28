@@ -9,8 +9,6 @@ const axiosInstance = axios.create({
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOGIN: {
-        const { user: { email, password } } = store.getState();
-      console.log(action.email, action.password)
         axiosInstance.post(
           '/login',
           {
@@ -37,11 +35,21 @@ const userMiddleware = (store) => (next) => (action) => {
       const { user: {         
         first_name, last_name, email, password, birthday_date, phone_number, street_number, name_of_the_road, postal_code, city, gender 
       } } = store.getState();
-
+      console.log(action.firstname,action.lastname,action.email, action.password, action.birthdayDate, action.phoneNumber, action.streetNumber, action.nameOfTheRoad, action.postalCode, action.city, action.gender)
       axiosInstance.post(
         '/SignUp',
         {
-          first_name, last_name, email, password, birthday_date, phone_number, street_number, name_of_the_road, postal_code, city, gender 
+          first_name: action.firstname, 
+          last_name: action.lastname, 
+          email: action.email, 
+          password: action.password, 
+          birthday_date: action.birthdayDate, 
+          phone_number: action.phoneNumber, 
+          street_number: action.streetNumber, 
+          name_of_the_road: action.nameOfTheRoad, 
+          postal_code: action.postalCode, 
+          city: action.city, 
+          gender: action.gender 
         },
       ).then(
         (response) => {

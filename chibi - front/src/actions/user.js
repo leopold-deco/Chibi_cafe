@@ -38,9 +38,20 @@ export const logout = () => (
 
 export const SIGNUP = 'SIGNUP';
 
-export const signup = () => (
+export const signup = (firstname, lastname, email, password, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender) => (
   {
     type: SIGNUP,
+    firstname, 
+    lastname, 
+    email, 
+    password, 
+    birthdayDate, 
+    phoneNumber, 
+    streetNumber, 
+    nameOfTheRoad, 
+    postalCode, 
+    city, 
+    gender
   }
 );
 

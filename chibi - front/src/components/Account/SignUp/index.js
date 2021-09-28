@@ -9,18 +9,30 @@ import { useState } from 'react';
 const SignUp = () => {
     const dispatch = useDispatch();
     const [message, setMessage] = useState("");
+    const [firstname, setFirstname] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [passwordConfirm, setPasswordConfirm] = useState('');
+    const [birthdayDate, setBirthdayDate] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [streetNumber, setStreetNumber] = useState('');
+    const [nameOfTheRoad, setNameOfTheRoad] = useState('');
+    const [postalCode, setpostalCode] = useState('');
+    const [city, setCity] = useState('');
+    const [gender, setGender] = useState(false);
 
-    const { 
-        first_name, last_name, email, password, passwordConfirm, birthday_date, phone_number, street_number, name_of_the_road, postal_code, city, gender
-    } = useSelector((state) => state.user);
+    // const { 
+    //     first_name, last_name, email, password, passwordConfirm, birthday_date, phone_number, street_number, name_of_the_road, postal_code, city, gender
+    // } = useSelector((state) => state.user);
 
-    const handleChange = (value, name) => {
-        dispatch(setUserField(value, name));
-    };
+    // const handleChange = (value, name) => {
+    //     dispatch(setUserField(value, name));
+    // };
 
     const verifyPasswordAndSubmit = () => {
         if (password === passwordConfirm) {
-            dispatch(signup())
+            dispatch(signup(firstname, lastname, email, password, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender));
             setMessage("Inscription terminée! Veuillez vous connecter.")
         }
     }
@@ -32,7 +44,7 @@ const SignUp = () => {
                 <div>
                     <Input type="radio" name="gender" id="genderFemale"
                         value="false"
-                        handleChange={handleChange}
+                        handleChange={setGender}
                         checked={gender === false}
                     />
                     <label htmlFor="genderFemale">Madame</label>
@@ -40,7 +52,7 @@ const SignUp = () => {
                 <div>
                     <Input type="radio" name="gender" id="genderMale"  
                         value="true"
-                        handleChange={handleChange}
+                        handleChange={setGender}
                         checked={gender === true}
                     />
                     <label htmlFor="genderMale">Monsieur</label>
@@ -48,51 +60,51 @@ const SignUp = () => {
             </div>
 
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
-                value={first_name} 
-                handleChange={handleChange}
+                value={firstname} 
+                handleChange={setFirstname}
             />
             <Input type="text" name="last_name" id="last_name" placeholder="Nom" 
-                value={last_name} 
-                handleChange={handleChange}
+                value={lastname} 
+                handleChange={setLastname}
             />
             <Input type="email" name="email" id="email" placeholder="Email"
                 value={email} 
-                handleChange={handleChange}
+                handleChange={setEmail}
             />
             <Input type="password" name="password" id="password" placeholder="Mot de passe"
                 value={password} 
-                handleChange={handleChange}
+                handleChange={setPassword}
             />
             <Input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmer mot de passe" 
                 value={passwordConfirm} 
-                handleChange={handleChange}
+                handleChange={setPasswordConfirm}
             />
             <Input type="date" id="birthday_date" name="birthday_date" 
-                value={birthday_date} 
-                handleChange={handleChange}
+                value={birthdayDate} 
+                handleChange={setBirthdayDate}
             />
             <Input type="tel" id="phone_number" name="phone_number" placeholder="Numéro de mobile" 
-                value={phone_number} 
-                handleChange={handleChange}
+                value={phoneNumber} 
+                handleChange={setPhoneNumber}
             />
             <div className="address">
                 <Input type="number" id="street_number" name="street_number" placeholder="N° de rue"
-                    value={street_number} 
-                    handleChange={handleChange}
+                    value={streetNumber} 
+                    handleChange={setStreetNumber}
                 />
                 <Input type="text" id="name_of_the_road" name="name_of_the_road" placeholder="Nom de rue"
-                    value={name_of_the_road} 
-                    handleChange={handleChange}
+                    value={nameOfTheRoad} 
+                    handleChange={setNameOfTheRoad}
                 />
             </div>
             <div className="city">
                 <Input type="text" id="postal_code" name="postal_code" pattern="[0-9]{5}" placeholder="Code postal"
-                    value={postal_code} 
-                    handleChange={handleChange}
+                    value={postalCode} 
+                    handleChange={setpostalCode}
                 />
                 <Input type="text" id="city" name="city" placeholder="Ville" 
                     value={city} 
-                    handleChange={handleChange}
+                    handleChange={setCity}
                 />
             </div>
 

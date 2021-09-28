@@ -1,7 +1,9 @@
+@use '../../styles/vars';
+
 .contact {
     background-image: url(../../assets/crepe-contact.jpg);
     background-size: cover;
-    height: calc(90vh - 6vh);
+    height: 88.8vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,5 +17,41 @@
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.185);
         border-radius: 20px;
         padding: 20px;
+        width: 70%;
+        max-width: 2000px;
+        height: 85%;
+        gap: 2rem;
+
+        &-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            box-shadow: vars.$box-shadow;
+            background: vars.$tertiary-color;
+            border-radius: 0.5rem;
+            flex-basis: 50%;
+            height: 90%;
+            
+            
+        }
+
+        &-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            box-shadow: vars.$box-shadow;
+            background: vars.$tertiary-color;
+            gap: 0.5rem;
+            border-radius: 0.5rem;
+            height: 100%;
+            flex-basis: 50%;
+            height: 90%;
+            
+        }
     }
+
 }
+
+

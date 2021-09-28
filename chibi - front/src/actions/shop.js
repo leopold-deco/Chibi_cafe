@@ -2,8 +2,10 @@ export const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
 export const REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART';
 export const INCREMENT_CART_ITEM_QUANTITY = 'INCREMENT_CART_ITEM_QUANTITY';
 export const DECREMENT_CART_ITEM_QUANTITY = 'DECREMENT_CART_ITEM_QUANTITY';
-export const FETCH_ARTICLES = 'FETCH_ARTICLES'
-export const SAVE_ARTICLES = 'SAVE_ARTICLES'
+export const FETCH_ARTICLES = 'FETCH_ARTICLES';
+export const SAVE_ARTICLES = 'SAVE_ARTICLES';
+export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
+export const SAVE_CATEGORIES = 'SAVE_CATEGORIES';
 
 export const fetchArticles = () => ({ type: FETCH_ARTICLES });
 
@@ -13,6 +15,15 @@ export const saveArticles = (articles) => (
         articles,
     }
 );
+
+export const fetchCategories = () => ({ type: FETCH_CATEGORIES});
+
+export const saveCategories = (categories) => (
+    {
+        type: SAVE_CATEGORIES,
+        categories,
+    }
+)
 
 export const addProductToCart = product => {
     return {

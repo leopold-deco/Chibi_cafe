@@ -10,7 +10,7 @@ const Cart = (props) => {
 
 
     return (
-      <div className="container" >
+      <div className="cart-container" >
                     <div className="cart">
                         <div className="cart__header">
                             Votre Panier :

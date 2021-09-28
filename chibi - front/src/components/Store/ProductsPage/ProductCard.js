@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { addProductToCart } from '../../actions/shop';
+import { addProductToCart } from '../../../actions/shop';
 import PropTypes from 'prop-types';
-import { calculPrice } from '../../pipes/calculPrice';
+import { calculPrice } from '../../../pipes/calculPrice';
+import Button from '../../Button';
 
 const ProductCard = ({ product }) => {
   
@@ -12,10 +13,11 @@ const ProductCard = ({ product }) => {
   }
 
     return (
-      <div >
-          <h3>{product.product_name}</h3>
-          <p>{calculPrice(Number(product.price_without_taxes), Number(product.taxe)) }</p>
+      <div className="storeCard">
+          <h3 className="storeCard__name">{product.product_name}</h3>
+          <p className="storeCard__price">{calculPrice(Number(product.price_without_taxes), Number(product.taxe))} €</p>
           <button
+          className="storeCard__btn"
           onClick={onCart} 
           type="button"> ajouter au panier</button>
       </div>

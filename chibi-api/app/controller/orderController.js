@@ -26,7 +26,7 @@ const oderController = {
 
                 deliveryInfo = {
                     number: "DEL_3", // FONCTION A FAIRE POUR GENERER LE NUMERO DE COMMANDE PSQL 
-                    total: 28.2, // A FAIRE GERER LE PRIX (fonction checkprice) JAVASCRIPT
+                    total: 30, // A FAIRE GERER LE PRIX (fonction checkprice) JAVASCRIPT
                     delivery_street_number: userInfo.street_number,
                     delivery_name_of_the_road: userInfo.name_of_the_road,
                     delivery_postal_code: userInfo.postal_code,
@@ -38,7 +38,7 @@ const oderController = {
 
                 deliveryInfo = {
                     number: "DEL_3",
-                    total: 28.2, // A FAIRE GERER LE PRIX (fonction checkprice) JAVASCRIPT                  
+                    total: 31, // A FAIRE GERER LE PRIX (fonction checkprice) JAVASCRIPT                  
                     delivery_street_number: deliveryInfoRequest.street_number,
                     delivery_name_of_the_road: deliveryInfoRequest.name_of_the_road,
                     delivery_postal_code: deliveryInfoRequest.postal_code,
@@ -48,14 +48,15 @@ const oderController = {
             }
             
             const newOrder = new Order(deliveryInfo);
-            await newOrder.create();
+            const createdOrder = await newOrder.create();
+            
+         
             
             // GESTION D'INSERTION DANS LA TABLE Order_has_Product
             
             const cartInfo = request.body.shop.cart;
-            const orderInfo = await Order.findOne(deliveryInfo.number);
-            const orderId = orderInfo.id;
-            
+            const orderId = createdOrder.id;
+
             for(const item of cartInfo) {
                 const newOrderHasProduct = new OrderHasProduct();
                 await newOrderHasProduct.create(orderId, item.id, item.quantity);

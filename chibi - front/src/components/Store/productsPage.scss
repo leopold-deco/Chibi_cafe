@@ -28,10 +28,19 @@
 
 }
 
-.storeCard>.button{
+.storeCard> button{
     width: 100%;
     font-size: 1.3rem;
     border-radius: 10px;
+    margin-top: 1rem;
+    padding: 1.20rem;
+    border-radius: 0.75rem;
+    border: none;
+    background-color: #85dcec;
+
+    &:hover{
+        animation: jump 0.4s ease-in-out infinite alternate;
+    }
 }
 
 .productsPage__title{
@@ -39,4 +48,13 @@
     margin-top: 2rem;
     font-size: 1.8rem;
 
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(5px);
+    }
 }

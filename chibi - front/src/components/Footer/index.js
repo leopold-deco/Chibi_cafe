@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
-import logoFacebook from "../../assets/logo-facebook.png";
-import logoInstagram from "../../assets/logo-instagram.png";
+import logoFacebook from "../../assets/logos/facebook.png";
+import logoInstagram from "../../assets/logos/instagram.png";
 
 import "./footer.scss";
 

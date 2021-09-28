@@ -3,7 +3,7 @@
     justify-content: space-around;
     align-items: center;
     padding: 1rem;
-    position: absolute;
+     position: absolute;
     width: 100%;
     bottom: 0;
     margin-top: 2rem;
@@ -32,10 +32,10 @@
 }
 
 @media only screen and (max-width: 550px) {
-   .footer__image{
-       gap: 1rem;
-       width: 100px;
-   }
+.footer__image{
+    gap: 1rem;
+    width: 100px;
+}
 }    
 
 

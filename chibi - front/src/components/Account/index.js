@@ -2,13 +2,16 @@ import SignUp from './SignUp';
 import Login from './Login';
 import Informations from './Informations';
 import Orders from './Orders';
+
+import { useSelector } from 'react-redux';
+
 import './account.scss';
 
 function Account() {
-  const user = true;
+  const logged = useSelector((state) => state.user.logged);
     return (
       <div>
-        {user? 
+        {!logged? 
           <div className="auth">
             <div className="auth-container">
               <SignUp />

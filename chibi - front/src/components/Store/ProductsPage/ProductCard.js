@@ -16,10 +16,10 @@ const ProductCard = ({ product }) => {
       <div className="storeCard">
           <h3 className="storeCard__name">{product.product_name}</h3>
           <p className="storeCard__price">{calculPrice(Number(product.price_without_taxes), Number(product.taxe))} €</p>
-          <Button
+          <button
           className="storeCard__btn"
           onClick={onCart} 
-          type="button"> ajouter au panier</Button>
+          type="button"> ajouter au panier</button>
       </div>
     );
   }

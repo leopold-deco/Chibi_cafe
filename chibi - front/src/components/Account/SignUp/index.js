@@ -28,17 +28,17 @@ const SignUp = () => {
             <div className="gender">
                 <div>
                     <Input type="radio" name="gender" id="genderFemale"
-                        value="true"
+                        value="false"
                         handleChange={handleChange}
-                        checked={gender === true}
+                        checked={gender === false}
                     />
                     <label htmlFor="genderFemale">Madame</label>
                 </div>
                 <div>
                     <Input type="radio" name="gender" id="genderMale"  
-                        value="false"
+                        value="true"
                         handleChange={handleChange}
-                        checked={gender === false}
+                        checked={gender === true}
                     />
                     <label htmlFor="genderMale">Monsieur</label>
                 </div>

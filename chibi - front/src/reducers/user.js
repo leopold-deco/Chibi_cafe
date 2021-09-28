@@ -1,7 +1,7 @@
 import { CONNECT_USER, LOGOUT, SET_USER_FIELD, REGISTER_USER } from '../actions/user';
 
 export const initialState = {
-  logged: false,
+  isLoggedIn: false,
   mail: '',
   password: '',
   passwordConfirm: '',
@@ -18,6 +18,7 @@ export const initialState = {
 };
 
 const user = (state = initialState, action = {}) => {
+  console.log("state", state)
   switch (action.type) {
     case SET_USER_FIELD:
       return {
@@ -27,20 +28,29 @@ const user = (state = initialState, action = {}) => {
     case CONNECT_USER:
       return {
         ...state,
-        pseudo: action.data.pseudo,
+        mail: action.data.user.mail,
+        birthday_date: action.data.user.birthday_date,
+        city: action.data.user.city,
+        first_name: action.data.user.first_name,
+        gender: action.data.user.gender,
+        last_name: action.data.user.last_name,
+        name_of_the_road: action.data.user.name_of_the_road,
+        phone_number: action.data.user.phone_number,
+        postal_code: action.data.user.postal_code,
+        street_number: action.data.user.street_number,
         token: action.data.token,
-        logged: action.data.logged,
+        isLoggedIn: true
       };
     case LOGOUT:
       return {
         ...state,
-        pseudo: null,
-        logged: false,
-        token: null,
+        ...state = null,
+        isLoggedIn: false
       };
     case REGISTER_USER:
       return {
         ...state,
+        isLoggedIn: false
       };
     default:
       return state;

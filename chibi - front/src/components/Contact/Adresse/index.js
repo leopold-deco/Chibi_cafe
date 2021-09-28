@@ -3,6 +3,7 @@ import localisation from "../../../assets/localisation.png";
 import './adresse.scss';
 
 const Adresse = () => (
+    <>
     <div className='adresse'>
         <h3 className="adresse__title">Adresse</h3>
         <p className="adresse__p">1 rue de Chibi - 75001 Paris</p>
@@ -17,9 +18,11 @@ const Adresse = () => (
         <h3 className="adresse__email">Email</h3>
         <p className="adresse__p">contact@chibi.com</p>
 
-        <img className="adresse__img" src={localisation} />
-
     </div>
+    <div className="adresse__img">
+    <img className="img" src={localisation} alt="map img"/>
+    </div>
+    </>
 );
 
 export default Adresse;

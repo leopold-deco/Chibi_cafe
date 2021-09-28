@@ -2,7 +2,6 @@
 import './App.scss';
 import AppHeader from '../AppHeader';
 import { Route, Switch } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import Home from '../Home';
 import Cart from '../Cart';
 import Delivery from '../Delivery';
@@ -13,9 +12,7 @@ import Store from '../Store';
 import Footer from '../Footer';
 import Error from '../error';
 import Custom from "../Store/Custom";
-import Decorated from "../Store/Decorated";
-import Message from "../Store/Message";
-import Paint from "../Store/Paint";
+import ProductsPage from "../Store/ProductsPage";
 import Informations from '../Account/Informations';
 import Orders from '../Account/Orders';
 
@@ -54,17 +51,11 @@ function App() {
         <Route path="/contact" exact>
           <Contact />
         </Route>
-        <Route path="/boutique/decores" exact>
-          <Decorated />
+        <Route path="/boutique/:slug" exact>
+          <ProductsPage />
         </Route>
         <Route path="/boutique/custom" exact>
           <Custom />
-        </Route>
-        <Route path="/boutique/message" exact>
-          <Message />
-        </Route>
-        <Route path="/boutique/peindre" exact>
-          <Paint />
         </Route>
         <Route path="/" >
           <Error />

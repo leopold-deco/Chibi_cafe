@@ -1,18 +1,122 @@
-.container{
+@use '../../styles/vars';
+
+.container {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    margin: auto;
+    background-image: url("../../assets/presentation-sables/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 88.8vh;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(20, 20, 20);
 
-    &__message{
-        background-color: grey;
+
+
+    &__left {
+        width: 600px;
+        margin: 2rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        
+        &__categories {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+            
+            &__image {
+                width: 300px;
+                height: 240px;
+                border: vars.$border;
+                border-radius: 20px;
+                margin-bottom: 1rem;
+                -webkit-transition: all 0.3s ease;
+                opacity: .5;
+
+                &:hover {
+                    -webkit-transform:scale(1.1);
+                    opacity: 1;
+                }
+            }
+
+            &__text {
+                text-align: center;
+                margin-bottom: 2rem;
+
+                &:hover {
+                    color: vars.$tertiary-color;
+                }
+            }
+        }
     }
 
-    &__decores{
-        background-color: beige;
+    &__center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        &__title {
+            margin: 0 2rem 2rem;
+            width: auto;
+            height: 415px;
+            border-radius: 20px;
+        }
+
+        &__description {
+            padding: 0 2rem;
+            text-align: center;
+        }
+    }
+
+    &__right {
+        width: 600px;
+        margin: 2rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        
+        &__categories {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+            
+            &__image {
+                width: 300px;
+                height: 240px;
+                border-radius: 20px;
+                margin-bottom: 1rem;
+                -webkit-transition: all 0.3s ease;
+                opacity: .5;
+
+                &:hover {
+                    -webkit-transform:scale(1.1);
+                    opacity: 1;
+                }
+            }
+
+            &__text {
+                text-align: center;
+                margin-bottom: 2rem;
+
+
+                &:hover {
+                    color: vars.$tertiary-color;
+                }
+            }
+        }
     }
 }
 
 p {
     color: black;
 }
-

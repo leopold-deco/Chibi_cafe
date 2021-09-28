@@ -1,17 +1,12 @@
-import Form from '../../Account/Form';
 import Input from '../../Input';
-import Button from '../../Button';
-import { useSelector } from 'react-redux';
 
 const UserAddress = () => {
     const {
-        first_name, birthday_date, city, gender, last_name, mail, name_of_the_road, phone_number, postal_code, street_number
+        first_name, city, last_name, mail, name_of_the_road, phone_number, postal_code, street_number
     } = JSON.parse(localStorage.getItem('user'));
 
     return (
         <div> 
-
-
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
                 value={first_name}
                 disabled={true}

@@ -11,19 +11,19 @@ const Delivery = () => {
     const dispatch = useDispatch();
     const { isNewAddress } = useSelector((state) => state.delivery);
     const delivery = useSelector((state) => state.delivery);
-    const auth = useSelector((state) => state.auth);
+    const user = useSelector((state) => state.auth.user);
 
     const handleChange = (value, name) => {
         dispatch(setDeliveryField(value, name));
     };
 
     const verifyIsNewAddressAndStore = () => {
-        console.log('test')
+        console.log("isnew",isNewAddress)
         if(isNewAddress) {
-            console.log("nex")
-            localStorage.setItem("delivery", JSON.stringify(delivery))
+            console.log('oui')
         } else {
-            localStorage.setItem("delivery", JSON.stringify(auth))
+            console.log("non")
+            //localStorage.setItem("delivery", JSON.stringify(user));
         }
         console.log("deliv", JSON.parse(localStorage.getItem("delivery")))
     };

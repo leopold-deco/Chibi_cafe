@@ -6,19 +6,24 @@ import Input from '../../Input';
 import { useSelector, useDispatch } from 'react-redux';
 import { login, setUserField } from '../../../actions/user';
 import { useHistory } from "react-router-dom";
+import { useState } from 'react';
 
 const Login = () => {
     const history = useHistory();
     const dispatch = useDispatch();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    const { email, password } = useSelector((state) => state.user);
+    //const { email, password } = useSelector((state) => state.user);
 
-    const handleChange = (value, name) => {
-        dispatch(setUserField(value, name));
-    };
+    // const handleChange = (value, name) => {
+    //     dispatch(setUserField(value, name));
+    // };
 
     const handleSubmitForm = () => {
-        dispatch(login())
+        dispatch(login(email, password))
+        setEmail('');
+        setPassword('');
         history.push('/');
     }
 
@@ -31,7 +36,7 @@ const Login = () => {
                 id="loginMail" 
                 placeholder="Email" 
                 value={email} 
-                handleChange={handleChange} 
+                handleChange={setEmail} 
             />
             <Input 
                 type="password" 
@@ -39,7 +44,7 @@ const Login = () => {
                 id="loginPassword" 
                 placeholder="Mot de passe" 
                 value={password} 
-                handleChange={handleChange}
+                handleChange={setPassword}
             />
             <Button>Se connecter</Button>
         </Form>

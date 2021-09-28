@@ -11,9 +11,11 @@ export const setUserField = (value, name) => (
 
 export const LOGIN = 'LOGIN';
 
-export const login = () => (
+export const login = (email, password) => (
   {
     type: LOGIN,
+    email,
+    password
   }
 );
 

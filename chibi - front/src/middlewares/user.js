@@ -10,12 +10,12 @@ const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOGIN: {
         const { user: { email, password } } = store.getState();
-      console.log(email, password)
+      console.log(action.email, action.password)
         axiosInstance.post(
           '/login',
           {
-            email,
-            password,
+            email: action.email,
+            password: action.password,
           },
         ).then(
           (response) => {

@@ -16,6 +16,7 @@ Content-Type: application/json
 {
     "mail": "abc@fde.fr",
     "password": "Chibi1234",
+    "passwordConfirm": "Chibi1234",
     "first_name": "ALbert",
     "last_name": "Jean",
     "gender": true,

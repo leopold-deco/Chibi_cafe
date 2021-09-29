@@ -30,7 +30,7 @@ const userController = {
 
             // GESTION DU MOT DE PASSE
 
-            if(result.password !== passwordConfirm) response.status(200).json('Veuillez entrer deux mot de passe identiques'); 
+            if(result.password !== result.passwordConfirm) response.status(200).json('Veuillez entrer deux mot de passe identiques'); 
 
             const userPassword = result.password;
             const salt = bcrypt.genSaltSync(saltRounds);

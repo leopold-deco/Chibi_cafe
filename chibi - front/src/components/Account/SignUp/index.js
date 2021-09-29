@@ -1,4 +1,5 @@
 import './signup.scss';
+import PropTypes from 'prop-types'
 import Form from '../Form';
 import Input from '../../Input';
 import Button from '../../Button';
@@ -6,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { signup } from '../../../actions/auth';
 import { useState } from 'react';
 
-const SignUp = () => {
+const SignUp = ({ closeSignupForm }) => {
     const dispatch = useDispatch();
     const [message, setMessage] = useState("");
     const [firstname, setFirstname] = useState('');
@@ -33,7 +34,7 @@ const SignUp = () => {
         <Form handleSubmit={verifyPasswordAndSubmit}> 
             <h2>Inscription</h2>
             <div className="gender">
-                <div>
+                <div className="radioIn">
                     <Input type="radio" name="gender" id="genderFemale"
                         value="false"
                         handleChange={setGender}
@@ -41,8 +42,8 @@ const SignUp = () => {
                     />
                     <label htmlFor="genderFemale">Madame</label>
                 </div>
-                <div>
-                    <Input type="radio" name="gender" id="genderMale"  
+                <div className="radioIn">
+                    <Input  type="radio" name="gender" id="genderMale"  
                         value="true"
                         handleChange={setGender}
                         checked={gender === true}
@@ -99,11 +100,16 @@ const SignUp = () => {
                     handleChange={setCity}
                 />
             </div>
-
-            <Button>S'inscrire</Button>
+            <div className="signupBtn" onClick={closeSignupForm}>
+            <Button >S'inscrire</Button>
+            </div>
             <p style={{color: "green"}}>{message}</p>
         </Form>
     );
 };
+
+SignUp.propTypes = {
+    closeSignupForm: PropTypes.func.isRequired,
+}
 
 export default SignUp;

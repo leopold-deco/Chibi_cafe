@@ -1,6 +1,25 @@
 .gender {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.radioIn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.radioIn>.input{
+    width: 15px;
+    margin-left: 25px;
+}
+h2{
+    text-align: center;
+}
+
+
+.signupBtn>Button{
+    width: 100%;
 }
 
 .address {
@@ -27,4 +46,14 @@
     & input:last-child {
         flex: 1;
     }
+}
+
+@media only screen and (max-width: 600px) {
+.radioIn>.input{
+    width: 10px;
+}
+
+h2{
+    font-size: 1.2rem;
+}
 }

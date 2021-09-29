@@ -1,7 +1,7 @@
 @use '../../../styles/vars';
 
 .form__auth {
-    width: calc(50% - 0.75rem);
+    width: 80%;
     box-shadow: vars.$box-shadow;
     background: vars.$tertiary-color;
     margin: auto;
@@ -10,4 +10,22 @@
     flex-direction: column;
     gap: 0.5rem;
     border-radius: vars.$border-radius;
+}
+
+@media only screen and (max-width: 700px) {
+    .form__auth{
+        gap: 0.2rem;
+    }
+}
+
+@media only screen and (max-height: 850px) {
+    .form__auth{
+        padding: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .form__auth{
+        width: 90%;
+    }
 }

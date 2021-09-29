@@ -1,10 +1,115 @@
+@use '../../styles/vars';
+
+
 .auth {
     display: flex;
-    height: calc(100vh - 60px);
-    align-items: center;
+    height: 80vh;
+    align-items:flex-start;
+    justify-content: center;
+    margin-top: 1rem;
 
-    &-container {
-        flex-basis: 50%;
+    &-container-signup {
+        width: 40%;
+        margin-top: 1rem;
+    }
+
+    &-container-login{
+        width: 40%;
+        margin-top: 1rem;
+    }
+
+    
+}
+
+.input{
+    height: 25px;
+    border-radius: 8px;
+}
+
+.isClient{
+    display: none;
+}
+
+.clientBtn{
+    margin-top: 1rem;
+    padding: 1.20rem;
+    border-radius: 0.75rem;
+    border: none;
+    background-color: #85dcec;
+}
+
+@media only screen and (max-width: 1350px) {
+    .auth-container-signup{  
+        width: 45%;
+    
+}
+
+.auth-container-login{
+    width: 45%;
+
+}
+
+}
+
+@media only screen and (max-width: 900px) {
+    .auth-container-login{
+        width: 55%;
+    }
+
+    .auth-container-signup{
+        width: 55%;
+    }
+}
+
+
+@media only screen and (max-width: 700px) {
+    .auth-container-signup{
+        display: none;
+
+        &--open{
+            display: block;
+        }
+    }
+
+    .isClient{
+        width: 80%;
+        box-shadow: vars.$box-shadow;
+        background: vars.$tertiary-color;
+        margin: auto;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        border-radius: vars.$border-radius;
+    }
+
+    .auth-container-login{
+        width: 70%;
+
+        &--close{
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .auth{
+        align-items: center;
+        height: 100vh;
+    }
+
+    .auth-container-login{
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .auth-container-login{
+        width: 100%;
+    }
+
+    .isClient{
+        width: 90%;
     }
 }
 

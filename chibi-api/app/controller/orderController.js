@@ -4,15 +4,6 @@ const checkPrice = require('../function/checkPrice');
 
 const oderController = {
 
-    // lastOrder: async (request, response) => {
-    //     try {
-    //         const lastOrder = await Order.lastOrder();
-    //         response.json(lastOrder); 
-    //     } catch(error) {
-    //         response.status(500).send(error.message);   
-    //     }
-    // },
-
     create: async (request, response) => {
         try {
 

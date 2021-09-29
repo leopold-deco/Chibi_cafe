@@ -20,7 +20,6 @@ CREATE TABLE "user" (
 
 CREATE TABLE "order" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "number" TEXT NOT NULL UNIQUE,
     "order_date" TIMESTAMPTZ DEFAULT NOW(),
     "delivery_date" TIMESTAMPTZ,
     "total" DECIMAL NOT NULL,

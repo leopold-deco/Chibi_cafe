@@ -45,7 +45,7 @@ class User {
         }
     }
 
-    static async check(mail) {
+    static async checkMail(mail) {
         try {
             const {rows} = await db.query('SELECT "mail", "password" FROM "user" WHERE mail=$1', [mail]);
             if(rows[0]) {

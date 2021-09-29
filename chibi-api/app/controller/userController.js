@@ -85,7 +85,7 @@ const userController = {
         try {
             
             const userInfo = request.body;
-            const result = await User.check(userInfo.mail);
+            const result = await User.checkMail(userInfo.mail);
             const isTrue = bcrypt.compareSync(userInfo.actualPassword, result.password);
             if(!isTrue) {
                 return response.status(200).json(`Mot de passe incorrect`);

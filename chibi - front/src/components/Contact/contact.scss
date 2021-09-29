@@ -3,10 +3,14 @@
 .contact {
     background-image: url(../../assets/crepe-contact.jpg);
     background-size: cover;
-    height: 88.8vh;
+    position: absolute;
+    top: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1rem;
+    width: 100%;
     
     &__container {
         display: flex;
@@ -21,6 +25,7 @@
         max-width: 2000px;
         gap: 2rem;
         max-height: 70vh;
+        margin-top: 5rem;
 
         &-left {
             display: flex;
@@ -92,6 +97,7 @@
 
         &__container{
             width: 90%;
+            margin-top: 0;
         }
 
 

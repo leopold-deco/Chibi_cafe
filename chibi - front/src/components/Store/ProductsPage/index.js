@@ -5,7 +5,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "./ProductCard";
-import { fetchArticles, fetchCategories } from "../../../actions/shop";
+import { fetchArticles,} from "../../../actions/shop";
 
 import '../productsPage.scss';
 

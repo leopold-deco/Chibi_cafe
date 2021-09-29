@@ -15,7 +15,6 @@ const cartController = {
                 tabCart.push(amount);
             }
             const cartAmount = tabCart.reduce((previousValue, currentValue) => previousValue + currentValue);
-            console.log('CartAmount : ',cartAmount);
             response.status(200).json(cartAmount);
         } catch(error) {
             response.status(500).send(error.message);   

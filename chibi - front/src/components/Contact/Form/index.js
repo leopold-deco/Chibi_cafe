@@ -1,13 +1,13 @@
 import Button from '../../Button';
 import Input from '../../Input';
-
+import PropTypes from 'prop-types';
 import emailjs from 'emailjs-com';
 
 import { useState } from 'react';
 
 import './form.scss';
 
-const Form = () => {
+const Form = ({ className, closeForm }) => {
     const [lastname, setLastname] = useState("");
     const [firstname, setFirstname] = useState("");
     const [email, setEmail] = useState("");
@@ -37,6 +37,10 @@ const Form = () => {
         setEmail("");
         setPhone("");
         setMessage("");
+
+        setTimeout(function(){ closeForm(); }, 2000);
+
+        
         
 
     }   
@@ -45,7 +49,7 @@ const Form = () => {
     return (
         <>
         
-        <form className="form" onSubmit={handleSubmit} >
+        <form className={className} onSubmit={handleSubmit} >
         <div className="form__contact">
                 <h2 className="form__contact__title">Contactez-nous</h2>
     
@@ -85,5 +89,10 @@ const Form = () => {
         </>
     );
 } 
+
+Form.propTypes = {
+    className: PropTypes.string.isRequired,
+    closeForm: PropTypes.func.isRequired,
+}
 
 export default Form;

@@ -9,20 +9,21 @@ const oderController = require('./controller/orderController');
 
 // MIDDLEWARES
 
-const tokenMW = require('./middleswares/tokenMW')
+const tokenMW = require('./middleswares/tokenMW');
+const cartController = require('./controller/cartController');
 
 const router = Router();
 
-// Produits
+// PRODUITS
 router.get('/products', productController.findAll);
 
-// produit
+// PRODUIT
 
 router.get('/product/:id', productController.findOne);
 router.post('/product/:id', productController.create);
 router.patch('/product/:id', productController.update);
 
-// User
+// USER
 
 router.get('/account/:id', userController.findOne);
 
@@ -34,15 +35,16 @@ router.post('/SignUp', userController.create);
 
 router.delete('/account/:id', userController.delete);
 
-// Category - Test
+// CATEGORY - TEST
 
 router.get('/category', categoryController.findAll)
 
-// Order
+// ORDER
 
 router.get('/accountOrder/:id', tokenMW.authenticateToken,oderController.findByUser);
 router.post('/order', oderController.create);
 
-// 
+// CART 
+router.post('/checkPrice', cartController.checkPrice);
 
 module.exports = router;

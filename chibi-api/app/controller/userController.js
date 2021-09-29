@@ -30,14 +30,16 @@ const userController = {
 
             // GESTION DU MOT DE PASSE
 
-            const userPassword = result.password
+            if(result.password !== passwordConfirme) response.status(200).json('Veuillez entrer deux mot de passe identiques'); 
+
+            const userPassword = result.password;
             const salt = bcrypt.genSaltSync(saltRounds);
             const hashedPassword = bcrypt.hashSync(userPassword, salt);
 
             // CREATION DE L'OBJECT UTILISATEUR
 
             const userInfo = {
-                mail: result.email,
+                mail: result.mail,
                 password: hashedPassword,
                 first_name: result.first_name,
                 last_name: result.last_name,
@@ -49,7 +51,6 @@ const userController = {
                 postal_code: result.postal_code,
                 city: result.city
             }
-
             const newUser = new User(userInfo);
             await newUser.create();
             response.status(200).json('User créé');
@@ -61,7 +62,7 @@ const userController = {
     login: async (request, response) => {
         try {
             const userInfo = request.body;
-            const user = await User.findOneMail(userInfo.email);
+            const user = await User.findOneMail(userInfo.mail);
             response.status(200).json({
                 user,
                 token: accessToken
@@ -84,12 +85,11 @@ const userController = {
         try {
             
             const userInfo = request.body;
-            const result = await User.check(userInfo.email);
+            const result = await User.check(userInfo.mail);
             const isTrue = bcrypt.compareSync(userInfo.actualPassword, result.password);
             if(!isTrue) {
                 return response.status(200).json(`Mot de passe incorrect`);
             }
-            
             if(userInfo.newPassword1 !== userInfo.newPassword2) {
                 return response.status(200).json("Veuillez rentrer deux mot de passes identiques");
             }

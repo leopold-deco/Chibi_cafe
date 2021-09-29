@@ -3,9 +3,10 @@ import CartItem from "./cartItem";
 import { calculPrice } from "../../pipes/calculPrice";
 import { connect } from "react-redux";
 import Button from "../Button";
+import { useHistory } from 'react-router-dom';
 
 const Cart = (props) => {
-
+  const history = useHistory();
   localStorage.setItem('cart', JSON.stringify(props.cartItems))
 
 
@@ -46,7 +47,7 @@ const Cart = (props) => {
                            <b>{`${props.totalPrice.toFixed(2)} €`}</b>
                         </div>
                         <div className="cart__ender__footer">
-                          <Button type="button" className="cart__ender__btn">
+                          <Button handleClick={() => history.push('/panier/livraison')}>
                             Poursuivre la commande
                           </Button>
                         </div>

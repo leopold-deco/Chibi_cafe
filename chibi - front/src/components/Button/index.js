@@ -1,7 +1,7 @@
 import './button.scss';
 
-const Button = ({ children }) => (
-    <button className='button'>
+const Button = ({ children, handleClick }) => (
+    <button className='button' onClick={handleClick}>
         {children}
     </button>
 );

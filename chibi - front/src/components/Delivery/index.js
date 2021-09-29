@@ -49,7 +49,7 @@ const Delivery = () => {
                     { value: false, label: "Livraison à votre adresse", id: "userAddress" },
                     { value: true, label: "Livraison à une nouvelle adresse", id: "newAddress" }
                 ].map((option) => (
-                    <div className="delivery__elements">
+                    <div key={option.id} className="delivery__elements">
                         <input type="radio" name="isNewAddress" id={option.id}
                             value={option.value}
                             onChange={onRadioChange}

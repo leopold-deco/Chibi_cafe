@@ -15,8 +15,11 @@ import Custom from "../Store/Custom";
 import ProductsPage from "../Store/ProductsPage";
 import Informations from '../Account/Informations';
 import Orders from '../Account/Orders';
+import CheckoutForm from '../CheckoutForm';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
-
+const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 
 function App() {
 
@@ -47,6 +50,11 @@ function App() {
         </Route>
         <Route path="/livraison" exact>
           <Delivery />
+        </Route>
+        <Route path="/paiement" exact>
+          <Elements stripe={stripePromise}>
+            <CheckoutForm />
+          </Elements>
         </Route>
         <Route path="/contact" exact>
           <Contact />

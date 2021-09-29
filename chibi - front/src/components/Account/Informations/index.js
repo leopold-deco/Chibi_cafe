@@ -43,9 +43,7 @@ const Informations = () => {
 
     return (
         <div className="informations">
-        <div className="informations__aside-navbar">
             <AsideNavbar />
-        </div>
         <Form handleSubmit={handleSubmitForm}> 
             <h2>Mes informations personnelles</h2>
             <div className="gender">

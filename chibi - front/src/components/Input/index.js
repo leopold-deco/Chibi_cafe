@@ -10,7 +10,7 @@ const Input = ({ type, id, name, placeholder, value, handleChange, disabled, req
             name={name} 
             placeholder={placeholder} 
             value={value || ''} 
-            onChange={(event) => handleChange(event.target.value)}
+            onChange={(event) => handleChange(event.target.value, name)}
             required={required}
             disabled={disabled} 
         />

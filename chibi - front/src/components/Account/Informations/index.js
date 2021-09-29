@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 
 import Form from '../Form';
@@ -6,49 +6,39 @@ import Input from '../../Input';
 import Button from '../../Button';
 
 import './informations.scss';
+import { setUserField, updateUser, updatePassword } from '../../../actions/auth';
 
 const Informations = () => {
-    // const {
-    //     gender,
-    //     first_name,
-    //     last_name,
-    //     mail,
-    //     birthday_date,
-    //     phone_number,
-    //     street_number,
-    //     name_of_the_road,
-    //     postal_code,
-    //     city 
-    // } = JSON.parse(localStorage.getItem('user'));
-
     const dispatch = useDispatch();
-    const [state, setState] = useState({
-        first_name: '',
-        last_name: '',
-        mail: '',
-        password: '',
-        passwordConfirm: '',
-        birthday_date: '',
-        phone_number: '',
-        street_number: '',
-        name_of_the_road: '',
-        postal_code: '',
-        city: '',
-        gender: '',
-        
-    });
+
+    const { user: {
+        first_name,
+        last_name,
+        mail,
+        gender,
+        birthday_date,
+        phone_number,
+        street_number,
+        name_of_the_road,
+        postal_code,
+        city
+    } } = useSelector((state) => state.auth);
+
     const [message, setMessage] = useState("");
+    const [password, setPassword] = useState("");
+    const [passwordConfirm, setPasswordConfirm] = useState("");
+    const [actualPassword, setActualPassword] = useState("");
 
     const handleSubmitForm = () => {
-        
+        dispatch(updateUser());
+        if (password || passwordConfirm || actualPassword) {
+            dispatch(updatePassword(password, passwordConfirm, actualPassword));
+        }
     }
 
-    // const handleChange = (value, property) => {
-    //     setState(state => ({
-    //         ...state,           // copy all other field/objects
-    //         [property] : value,
-    //     }));
-    // }
+    const handleChange = (value, name) => {
+        dispatch(setUserField(value, name));
+    }
 
     return (
         <Form handleSubmit={handleSubmitForm}> 
@@ -56,68 +46,72 @@ const Informations = () => {
             <div className="gender">
                 <div>
                     <Input type="radio" name="gender" id="genderFemale"
-                        value={state.gender}
-                        // handleChange={(event) => handleChange(event.target.value, "gender")}
-                        checked={state.gender === false}
+                        value="false"
+                        handleChange={handleChange}
+                        checked={gender === false}
                     />
                     <label htmlFor="genderFemale">Madame</label>
                 </div>
                 <div>
                     <Input type="radio" name="gender" id="genderMale"  
-                        value={state.gender}
-                        // handleChange={handleChange("gender")}
-                        checked={state.gender === true}
+                        value="true"
+                        handleChange={handleChange}
+                        checked={gender === true}
                     />
                     <label htmlFor="genderMale">Monsieur</label>
                 </div>
             </div>
 
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
-                value={state.first_name}
-                // handleChange={handleChange("first_name")}
+                value={first_name}
+                handleChange={handleChange}
             />
             <Input type="text" name="last_name" id="last_name" placeholder="Nom" 
-                value={state.last_name} 
-                // handleChange={setState({last_name})}
+                value={last_name} 
+                handleChange={handleChange}
             />
-            <Input type="email" name="email" id="email" placeholder="Email"
-                value={state.mail} 
-                // handleChange={setState({mail})}
+            <Input type="email" name="mail" id="mail" placeholder="Email"
+                value={mail} 
+                handleChange={handleChange}
             />
-            <Input type="password" name="password" id="password" placeholder="Mot de passe"
-                value={state.password} 
-                // handleChange={setState({password})}
+            <Input type="password" name="actualPassword" id="actualPassword" placeholder="Mot de passe actuel"
+                value={actualPassword} 
+                handleChange={setActualPassword}
             />
-            <Input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmer mot de passe" 
-                value={state.passwordConfirm} 
-                // handleChange={setState({passwordConfirm})}
+            <Input type="password" name="password" id="password" placeholder="Nouveau mot de passe"
+                value={password} 
+                handleChange={setPassword}
+            />
+            <Input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmer le mot de passe" 
+                value={passwordConfirm} 
+                handleChange={setPasswordConfirm}
             />
             <Input type="date" id="birthday_date" name="birthday_date" 
-                value={state.birthday_date} 
-                // handleChange={setState({birthday_date})}
+                value={birthday_date} 
+                handleChange={handleChange}
             />
             <Input type="tel" id="phone_number" name="phone_number" placeholder="Numéro de mobile" 
-                value={state.phone_number} 
-                // handleChange={setState({phone_number})}
+                value={phone_number} 
+                handleChange={handleChange}
             />
             <div className="address">
-                <Input type="number" id="street_number" name="street_number" placeholder="N° de rue"
-                    value={state.street_number} 
-                    // handleChange={setState({street_number})}
+                <Input type="text" id="street_number" name="street_number" placeholder="N° de rue"
+                    value={street_number} 
+                    handleChange={handleChange}
                 />
                 <Input type="text" id="name_of_the_road" name="name_of_the_road" placeholder="Nom de rue"
-                    value={state.name_of_the_road} 
-                    // handleChange={setState({name_of_the_road})}
+                    value={name_of_the_road} 
+                    handleChange={handleChange}
                 />
             </div>
             <div className="city">
                 <Input type="text" id="postal_code" name="postal_code" pattern="[0-9]{5}" placeholder="Code postal"
-                    value={state.postal_code} 
-                    // handleChange={setState({postal_code})}
+                    value={postal_code} 
+                    handleChange={handleChange}
                 />
                 <Input type="text" id="city" name="city" placeholder="Ville" 
-                    value={state.city} 
-                    // handleChange={setState({city})}
+                    value={city} 
+                    handleChange={handleChange}
                 />
             </div>
 

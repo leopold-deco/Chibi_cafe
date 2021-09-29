@@ -8,7 +8,7 @@ const NewAddress = () => {
     const dispatch = useDispatch();
 
     const { 
-        first_name, last_name, email, phone_number, street_number, name_of_the_road, postal_code, city
+        first_name, last_name, mail, phone_number, street_number, name_of_the_road, postal_code, city
     } = useSelector((state) => state.delivery);
 
     const handleChange = (value, name) => {
@@ -29,8 +29,8 @@ const NewAddress = () => {
                 handleChange={handleChange}
                 required={false}
             />
-            <Input type="email" name="email" id="email" placeholder="Email"
-                value={email} 
+            <Input type="email" name="mail" id="mail" placeholder="Email"
+                value={mail} 
                 handleChange={handleChange}
                 required={false}
             />

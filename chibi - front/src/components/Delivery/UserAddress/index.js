@@ -15,7 +15,7 @@ const UserAddress = () => {
                 value={last_name}
                 disabled={true}
             />
-            <Input type="email" name="email" id="email" placeholder="Email"
+            <Input type="email" name="mail" id="mail" placeholder="Email"
                 value={mail}
                 disabled={true}
             />

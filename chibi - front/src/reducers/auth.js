@@ -1,7 +1,7 @@
-import { CONNECT_USER, LOGOUT, REGISTER_USER } from '../actions/auth';
+import { CONNECT_USER, LOGOUT, REGISTER_USER, SET_USER_FIELD } from '../actions/auth';
 
+// console.log(localStorage.removeItem("user"));
 const user = JSON.parse(localStorage.getItem("user"));
-
 export const initialState = user
 ? { isLoggedIn: true, user }
 : { isLoggedIn: false, user: null };
@@ -25,6 +25,11 @@ const auth = (state = initialState, action = {}) => {
         ...state,
         isLoggedIn: false,
       };
+    case SET_USER_FIELD:
+      return {
+        ...state,
+        user: {...state.user, [action.name]: action.value},
+      }
     default:
       return state;
   }

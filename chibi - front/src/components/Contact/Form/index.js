@@ -10,7 +10,7 @@ import './form.scss';
 const Form = () => {
     const [lastname, setLastname] = useState("");
     const [firstname, setFirstname] = useState("");
-    const [email, setEmail] = useState("");
+    const [mail, setMail] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState(""); 
     const [sendMessage, setSendMessage] = useState("");
@@ -20,7 +20,7 @@ const Form = () => {
         const templateParams = {
             lastname,
             firstname,
-            email,
+            mail,
             message,
         }
         emailjs.send('my_gmail','template_db83b08', templateParams, 'user_ArfWVVGSJEvGb8dc6tTwO')
@@ -34,7 +34,7 @@ const Form = () => {
         
         setLastname("");
         setFirstname("");
-        setEmail("");
+        setMail("");
         setPhone("");
         setMessage("");
         
@@ -61,7 +61,7 @@ const Form = () => {
                 
                 <div className="form__contact__fields">
                     <label className="form__contact__fields__label">Email</label>
-                    <Input value={email} handleChange={setEmail} type="email" id="email" />
+                    <Input value={mail} handleChange={setMail} type="email" id="mail" />
                 </div>
                 
                 <div className="form__contact__fields">

@@ -16,6 +16,7 @@ const userController = {
         try {
             const updateUser = new User(request.body); 
             await updateUser.update(request.params.id);
+            console.log("Update User " ,updateUser);
             response.status(200).json(updateUser);            
         }catch(error) {
             response.status(500).send(error.message);   

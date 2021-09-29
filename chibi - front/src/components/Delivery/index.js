@@ -9,24 +9,18 @@ import NewAddress from './NewAddress';
 import { useState } from 'react';
 
 const Delivery = () => {
-    const dispatch = useDispatch();
     const [isNewAddress, setIsNewAddress] = useState(true);
     const delivery = useSelector((state) => state.delivery);
     const user = useSelector((state) => state.auth.user);
-    console.log(user)
-    const handleChange = (value, name) => {
-        dispatch(setDeliveryField(value, name));
-    };
 
     const verifyIsNewAddressAndStore = () => {
-        console.log("isnew",isNewAddress)
-        if (!isNewAddress) {
-            console.log('oui')
-        } else if (!isNewAddress) {
-            console.log("non")
-            //localStorage.setItem("delivery", JSON.stringify(user));
+        
+        if (isNewAddress) {
+            localStorage.setItem("delivery", JSON.stringify(delivery));
+        } else {
+            localStorage.setItem("delivery", JSON.stringify(user));
         }
-        console.log("deliv", JSON.parse(localStorage.getItem("delivery")))
+        console.log("deliv", JSON.parse(localStorage.getItem('delivery')))
     };
 
     const stringToBoolean = (value) => {
@@ -56,7 +50,8 @@ const Delivery = () => {
                             checked={isNewAddress === option.value}
                             />
                         <label htmlFor={option.id}>{option.label}</label>
-                        {option.id === "userAddress" ? <UserAddress /> : <NewAddress />}
+                        {option.id === "userAddress" &&  <UserAddress />}
+                        {option.id === "newAddress" && <NewAddress />}
                     </div>
                 ))}
             </div>

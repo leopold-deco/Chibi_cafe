@@ -1,7 +1,6 @@
 import { SET_DELIVERY_FIELD } from '../actions/delivery';
 
 export const initialState = {
-  isNewAddress: false,
   mail: '',
   first_name: null,
   last_name: null,

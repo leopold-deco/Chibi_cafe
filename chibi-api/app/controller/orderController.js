@@ -1,5 +1,6 @@
 const Order = require('../models/Order');
 const OrderHasProduct = require('../models/OrderHasProduct');
+const checkPrice = require('../function/checkPrice');
 
 const oderController = {
 
@@ -16,15 +17,20 @@ const oderController = {
         try {
 
             // GESTION D'INSERTION DANS LA TABLE ORDER
+            console.log(request.body);
             const deliveryInfoRequest = request.body.delivery
             const userInfo = request.body.auth.user;
+            const cart = request.body.shop.cart;
+
             let deliveryInfo = {};
+
+            const cartAmount = await checkPrice(cart);
 
             if(!deliveryInfoRequest.isNewAddress) {
 
                 deliveryInfo = {
-                    number: "DEL_7", // FONCTION A FAIRE POUR GENERER LE NUMERO DE COMMANDE PSQL 
-                    total: 30, // A FAIRE GERER LE PRIX (fonction checkprice) JAVASCRIPT
+                    number: "DEL_11", // FONCTION A FAIRE POUR GENERER LE NUMERO DE COMMANDE PSQL 
+                    total: cartAmount, // A FAIRE GERER LE PRIX (fonction checkprice) JAVASCRIPT
                     delivery_street_number: userInfo.street_number,
                     delivery_name_of_the_road: userInfo.name_of_the_road,
                     delivery_postal_code: userInfo.postal_code,
@@ -35,8 +41,8 @@ const oderController = {
             } else {
 
                 deliveryInfo = {
-                    number: "DEL_7",
-                    total: 31, // A FAIRE GERER LE PRIX (fonction checkprice) JAVASCRIPT                  
+                    number: "DEL_11",
+                    total: cartAmount, // A FAIRE GERER LE PRIX (fonction checkprice) JAVASCRIPT                  
                     delivery_street_number: deliveryInfoRequest.street_number,
                     delivery_name_of_the_road: deliveryInfoRequest.name_of_the_road,
                     delivery_postal_code: deliveryInfoRequest.postal_code,

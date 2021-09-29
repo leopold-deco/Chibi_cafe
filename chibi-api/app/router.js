@@ -45,6 +45,6 @@ router.get('/accountOrder/:id', tokenMW.authenticateToken,oderController.findByU
 router.post('/order', oderController.create);
 
 // CART 
-router.post('/checkPrice', cartController.checkPrice);
+router.post('/checkPrice', cartController.priceConfirmation);
 
 module.exports = router;

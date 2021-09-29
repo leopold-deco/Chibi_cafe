@@ -168,3 +168,45 @@ Content-Type: application/json
     }
     
 }
+
+### TEST STRIPE
+
+POST {{host}}/createCheckoutSession
+Content-Type: application/json
+
+{
+    "delivery": {
+        "isNewAddress": true,
+        "street_number": "5",
+        "name_of_the_road": "rue de bagnolet",
+        "postal_code": "75020",
+        "city": "paris"
+    },
+
+    "auth":{
+        "isLogged": true,
+        "user": {
+            "user_id": 3,
+            "street_number": "12",
+            "name_of_the_road": "rue de la libération",
+            "postal_code": "06020",
+            "city": "Caen"
+        }
+    },
+    "shop":{
+        "cart":[
+            {
+                "id":21,
+                "quantity":4
+            },
+            {
+                "id":26,
+                "quantity":2
+            },
+            {
+                "id":19,
+                "quantity":1
+            }
+        ]
+    }
+}

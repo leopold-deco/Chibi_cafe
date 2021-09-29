@@ -9,7 +9,7 @@ const checkPrice = async (cart) => {
             tabCart.push(amount);
     }
     const cartAmount = tabCart.reduce((previousValue, currentValue) => previousValue + currentValue);
-    return cartAmount
+    return cartAmount;
 }
 
 module.exports = checkPrice;

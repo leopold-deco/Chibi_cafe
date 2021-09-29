@@ -19,9 +19,8 @@ const oderController = {
 
             if(!deliveryInfoRequest.isNewAddress) {
 
-                deliveryInfo = {
-                    number: "DEL_11", // FONCTION A FAIRE POUR GENERER LE NUMERO DE COMMANDE PSQL 
-                    total: cartAmount, // A FAIRE GERER LE PRIX (fonction checkprice) JAVASCRIPT
+                deliveryInfo = { 
+                    total: cartAmount, 
                     delivery_street_number: userInfo.street_number,
                     delivery_name_of_the_road: userInfo.name_of_the_road,
                     delivery_postal_code: userInfo.postal_code,
@@ -32,8 +31,7 @@ const oderController = {
             } else {
 
                 deliveryInfo = {
-                    number: "DEL_11",
-                    total: cartAmount, // A FAIRE GERER LE PRIX (fonction checkprice) JAVASCRIPT                  
+                    total: cartAmount,             
                     delivery_street_number: deliveryInfoRequest.street_number,
                     delivery_name_of_the_road: deliveryInfoRequest.name_of_the_road,
                     delivery_postal_code: deliveryInfoRequest.postal_code,

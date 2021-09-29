@@ -13,7 +13,6 @@ const cartController = {
             response.status(500).send(error.message);
         }
     }
-
 }
 
 module.exports = cartController;

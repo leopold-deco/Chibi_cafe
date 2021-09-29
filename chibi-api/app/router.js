@@ -6,6 +6,7 @@ const productController = require('./controller/productController');
 const userController = require('./controller/userController');
 const categoryController = require('./controller/categoryController');
 const oderController = require('./controller/orderController');
+const stripeController = require('./controller/stripeController');
 
 // MIDDLEWARES
 
@@ -46,5 +47,8 @@ router.post('/order', oderController.create);
 
 // CART 
 router.post('/checkPrice', cartController.priceConfirmation);
+
+// PAIEMENT STRIPE
+router.post('/createCheckoutSession', stripeController.payment);
 
 module.exports = router;

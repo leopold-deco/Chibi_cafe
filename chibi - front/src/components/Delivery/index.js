@@ -2,25 +2,24 @@ import './delivery.scss';
 import Form from '../Account/Form';
 import Input from '../Input';
 import Button from '../Button';
-import { useDispatch, useSelector } from 'react-redux';
-import { setDeliveryField } from '../../actions/delivery';
+import { useSelector } from 'react-redux';
 import UserAddress from './UserAddress';
 import NewAddress from './NewAddress';
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 
 const Delivery = () => {
+    const history = useHistory();
     const [isNewAddress, setIsNewAddress] = useState(true);
     const delivery = useSelector((state) => state.delivery);
     const user = useSelector((state) => state.auth.user);
 
     const verifyIsNewAddressAndStore = () => {
-        
         if (isNewAddress) {
             localStorage.setItem("delivery", JSON.stringify(delivery));
         } else {
             localStorage.setItem("delivery", JSON.stringify(user));
         }
-        console.log("deliv", JSON.parse(localStorage.getItem('delivery')))
     };
 
     const stringToBoolean = (value) => {
@@ -29,12 +28,12 @@ const Delivery = () => {
              if (value.toLowerCase() === "false") return false;
         }
         return value;
-     }
+    }
+
     const onRadioChange = (event) => {
         setIsNewAddress(stringToBoolean(event.target.value));
-
     }
-    console.log(isNewAddress)
+
     return (
         <Form handleSubmit={verifyIsNewAddressAndStore}> 
             <h2>Livraison</h2>
@@ -55,7 +54,7 @@ const Delivery = () => {
                     </div>
                 ))}
             </div>
-            <Button>Paiement</Button>
+            <Button handleClick={() => history.push('/paiement')}>Paiement</Button>
         </Form>
     );
 };

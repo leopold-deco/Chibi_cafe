@@ -45,7 +45,7 @@ function App() {
         <Route path="/panier" exact>
           <Cart />
         </Route>
-        <Route path="/panier/livraison" exact>
+        <Route path="/livraison" exact>
           <Delivery />
         </Route>
         <Route path="/contact" exact>

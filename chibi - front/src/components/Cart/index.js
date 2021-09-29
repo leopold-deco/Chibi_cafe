@@ -47,7 +47,7 @@ const Cart = (props) => {
                            <b>{`${props.totalPrice.toFixed(2)} €`}</b>
                         </div>
                         <div className="cart__ender__footer">
-                          <Button handleClick={() => history.push('/panier/livraison')}>
+                          <Button handleClick={() => history.push('/livraison')}>
                             Poursuivre la commande
                           </Button>
                         </div>

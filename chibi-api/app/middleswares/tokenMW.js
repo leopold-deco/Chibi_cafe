@@ -6,7 +6,7 @@ const tokenMW = {
 
     generateToken: async (request, response, next) => {
         const userInfo = request.body;
-        const result = await User.checkMail(userInfo.email);
+        const result = await User.checkMail(userInfo.mail);
         if(!result) response.status(200).json(`Email ou mot de passe incorrect`);
         const isTrue = bcrypt.compareSync(userInfo.password, result.password);
         if(isTrue) {

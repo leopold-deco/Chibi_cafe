@@ -30,7 +30,7 @@ const userController = {
 
             // GESTION DU MOT DE PASSE
 
-            if(result.password !== passwordConfirme) response.status(200).json('Veuillez entrer deux mot de passe identiques'); 
+            if(result.password !== passwordConfirm) response.status(200).json('Veuillez entrer deux mot de passe identiques'); 
 
             const userPassword = result.password;
             const salt = bcrypt.genSaltSync(saltRounds);
@@ -90,13 +90,13 @@ const userController = {
             if(!isTrue) {
                 return response.status(200).json(`Mot de passe incorrect`);
             }
-            if(userInfo.newPassword1 !== userInfo.newPassword2) {
+            if(userInfo.password !== userInfo.passwordConfirm) {
                 return response.status(200).json("Veuillez rentrer deux mot de passes identiques");
             }
 
             // GESTION DU MOT DE PASSE
             
-            const userPassword = userInfo.newPassword1;
+            const userPassword = userInfo.password
             const salt = bcrypt.genSaltSync(saltRounds);
             const hashedPassword = bcrypt.hashSync(userPassword, salt);
             const newPassword = new User();

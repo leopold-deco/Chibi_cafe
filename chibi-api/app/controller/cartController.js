@@ -10,11 +10,11 @@ const cartController = {
                 const quantity = item.quantity;
                 console.log('quantity', quantity);
                 const price = await Product.findOne(item.id);
-                const amount = ((quantity * price.price_without_taxes) * price.taxe);
+                const amount = (quantity * (price.price_without_taxes * price.taxe).toFixed(2));
                 console.log('amount', amount);
                 tabCart.push(amount);
             }
-            const cartAmount = tabCart.reduce((previousValue, currentValue) => previousValue + currentValue).toFixed(2);
+            const cartAmount = tabCart.reduce((previousValue, currentValue) => previousValue + currentValue);
             console.log('CartAmount : ',cartAmount);
             response.status(200).json(cartAmount);
         } catch(error) {

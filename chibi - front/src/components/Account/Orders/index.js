@@ -1,8 +1,13 @@
+import AsideNavbar from '../AsideNavbar';
+
 import './orders.scss';
 
 const Orders = () => (
     <div className='orders'>
-        Orders
+        <AsideNavbar />
+        <div className='orders'>
+            Commandes
+        </div>
     </div>
 );
 

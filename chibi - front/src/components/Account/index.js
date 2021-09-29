@@ -1,17 +1,11 @@
 import SignUp from './SignUp';
 import Login from './Login';
-import Informations from './Informations';
-import Orders from './Orders';
-
-import { useSelector } from 'react-redux';
 
 import './account.scss';
 
 function Account() {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
     return (
       <div>
-        {!isLoggedIn? 
           <div className="auth">
             <div className="auth-container">
               <SignUp />
@@ -19,12 +13,7 @@ function Account() {
             <div className="auth-container">
               <Login /> 
             </div>
-          </div> :
-          <div className="account">
-            <Informations />
-            <Orders />
           </div>
-        }
       </div>
     );
 }

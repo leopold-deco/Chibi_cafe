@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 
+import AsideNavbar from '../AsideNavbar';
 import Form from '../Form';
 import Input from '../../Input';
 import Button from '../../Button';
@@ -41,6 +42,10 @@ const Informations = () => {
     }
 
     return (
+        <div className="informations">
+        <div className="informations__aside-navbar">
+            <AsideNavbar />
+        </div>
         <Form handleSubmit={handleSubmitForm}> 
             <h2>Mes informations personnelles</h2>
             <div className="gender">
@@ -118,6 +123,7 @@ const Informations = () => {
             <Button>S'inscrire</Button>
             <p style={{color: "green"}}>{message}</p>
         </Form>
+    </div>
     );
 }
 

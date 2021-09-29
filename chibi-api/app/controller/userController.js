@@ -32,11 +32,6 @@ const userController = {
             const userPassword = result.password
             const salt = bcrypt.genSaltSync(saltRounds);
             const hashedPassword = bcrypt.hashSync(userPassword, salt);
-            
-            // FORMATAGE DATE DE NAISSANCE
-
-            const {day, month, year} = result;
-            const birthdayDate = `${day}/${month}/${year}`;
 
             // CREATION DE L'OBJECT UTILISATEUR
 
@@ -46,7 +41,7 @@ const userController = {
                 first_name: result.first_name,
                 last_name: result.last_name,
                 gender: result.gender,
-                birthday_date: birthdayDate,
+                birthday_date: result.birthday_date,
                 phone_number: result.phone_number,
                 street_number: result.street_number,
                 name_of_the_road: result.name_of_the_road,

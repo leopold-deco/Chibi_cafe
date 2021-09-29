@@ -1,7 +1,5 @@
-const db = require('../database');
 const Order = require('../models/Order');
 const OrderHasProduct = require('../models/OrderHasProduct');
-
 
 const oderController = {
 
@@ -49,9 +47,7 @@ const oderController = {
             
             const newOrder = new Order(deliveryInfo);
             const createdOrder = await newOrder.create();
-            
          
-            
             // GESTION D'INSERTION DANS LA TABLE Order_has_Product
             
             const cartInfo = request.body.shop.cart;
@@ -62,9 +58,7 @@ const oderController = {
                 await newOrderHasProduct.create(orderId, item.id, item.quantity);
 
             }
-
             response.status(200).json(newOrder);
-            
         }catch(error) {
             response.status(500).send(error.message);   
         }

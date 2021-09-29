@@ -1,4 +1,3 @@
-const db = require('../database');
 const Category = require('../models/Category');
 
 const categoryController = {

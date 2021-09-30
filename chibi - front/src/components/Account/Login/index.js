@@ -10,7 +10,7 @@ import { useState } from 'react';
 const Login = () => {
     const history = useHistory();
     const dispatch = useDispatch();
-    const [email, setEmail] = useState('');
+    const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
 
     //const { email, password } = useSelector((state) => state.user);
@@ -20,8 +20,8 @@ const Login = () => {
     // };
 
     const handleSubmitForm = () => {
-        dispatch(login(email, password));
-        setEmail('');
+        dispatch(login(mail, password));
+        setMail('');
         setPassword('');
         history.push('/');
     }
@@ -31,11 +31,11 @@ const Login = () => {
             <h2 className="signupTitle">Connexion</h2>
             <Input 
                 type="email" 
-                name="email" 
+                name="mail" 
                 id="loginMail" 
                 placeholder="Email" 
-                value={email} 
-                handleChange={setEmail} 
+                value={mail} 
+                handleChange={setMail} 
             />
             <Input 
                 type="password" 

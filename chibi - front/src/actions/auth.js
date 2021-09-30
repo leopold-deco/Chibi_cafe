@@ -1,9 +1,9 @@
 export const LOGIN = 'LOGIN';
 
-export const login = (email, password) => (
+export const login = (mail, password) => (
   {
     type: LOGIN,
-    email,
+    mail,
     password
   }
 );
@@ -27,13 +27,14 @@ export const logout = () => (
 
 export const SIGNUP = 'SIGNUP';
 
-export const signup = (firstname, lastname, email, password, passwordConfirm, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender) => (
+export const signup = (firstname, lastname, mail, password, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender) => (
+
   {
     type: SIGNUP,
     firstname, 
     lastname, 
-    email, 
-    password,
+    mail, 
+    password, 
     passwordConfirm, 
     birthdayDate, 
     phoneNumber, 
@@ -51,5 +52,34 @@ export const registerUser = (data) => (
   {
     type: REGISTER_USER,
     data,
+  }
+);
+
+export const SET_USER_FIELD = 'SET_USER_FIELD';
+
+export const setUserField = (value, name) => (
+  {
+    type: SET_USER_FIELD,
+    value,
+    name,
+  }
+);
+
+export const UPDATE_USER = 'UPDATE_USER';
+
+export const updateUser = () => (
+  {
+    type: UPDATE_USER,
+  }
+);
+
+export const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
+
+export const updatePassword = (password, passwordConfirm, actualPassword) => (
+  {
+    type: UPDATE_PASSWORD,
+    password,
+    passwordConfirm,
+    actualPassword,
   }
 );

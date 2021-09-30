@@ -1,7 +1,7 @@
 const Product = require('../models/Product');
 
 const checkPrice = async (cart) => {
-    console.log('Cart dans checkprice', cart)
+    console.log('Cart dans checkprice', cart);
     const tabCart = [];
         for(const item of cart){
             const quantity = item.quantity;

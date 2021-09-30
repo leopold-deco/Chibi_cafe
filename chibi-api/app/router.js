@@ -39,7 +39,7 @@ router.delete('/account/:id', userController.delete);
 
 // CATEGORY - TEST
 
-router.get('/category', categoryController.findAll)
+router.get('/category', categoryController.findAll);
 
 // ORDER
 
@@ -55,5 +55,9 @@ router.post('/createCheckoutSession', stripeController.payment);
 // WISHLIST
 
 router.get('/wishList/:id', tokenMW.authenticateToken, wishListController.findByUser);
+router.delete('/wishList/:id', wishListController.deleteByUser);
+
+router.post('/useWishList/:id', wishListController.addProduct);
+router.delete('/useWishList/:id', wishListController.deleteProduct);
 
 module.exports = router;

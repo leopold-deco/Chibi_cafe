@@ -46,10 +46,10 @@ const userController = {
                 gender: result.gender,
                 birthday_date: result.birthday_date,
                 phone_number: result.phone_number,
-                street_number: result.street_number,
-                name_of_the_road: result.name_of_the_road,
-                postal_code: result.postal_code,
-                city: result.city
+                principal_street_number: result.street_number,
+                principal_name_of_the_road: result.name_of_the_road,
+                principal_postal_code: result.postal_code,
+                principal_city: result.city
             }
             const newUser = new User(userInfo);
             await newUser.create();

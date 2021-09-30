@@ -6,3 +6,4 @@ constraint 2021-09-21T11:52:47Z leo <leopold.deconinck@gmail.com> # Ajout des co
 add_constraints 2021-09-21T12:37:28Z leo <leopold.deconinck@gmail.com> # Ajout des contraintes aux champs
 seeding_product 2021-09-21T12:57:52Z leo <leopold.deconinck@gmail.com> # Integration de données pour les produits
 wishlist 2021-09-30T08:39:04Z Florentin <marechalflorentin@gmail.com> # Ajout de la wishlist en base
+address 2021-09-30T13:43:47Z Florentin <marechalflorentin@gmail.com> # Add table address

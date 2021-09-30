@@ -12,10 +12,10 @@ CREATE TABLE "user" (
     "birthday_date" TEXT NOT NULL,
     "phone_number" TEXT NOT NULL,
     "roles" BOOLEAN NOT NULL DEFAULT FALSE,
-    "street_number" TEXT NOT NULL,
-    "name_of_the_road" TEXT NOT NULL,
-    "postal_code" TEXT NOT NULL,
-    "city" TEXT NOT NULL
+    "principal_street_number" TEXT NOT NULL, --principal_street..
+    "principal_name_of_the_road" TEXT NOT NULL, -- principal_..
+    "principal_postal_code" TEXT NOT NULL,
+    "principal_city" TEXT NOT NULL
 );
 
 CREATE TABLE "order" (
@@ -34,6 +34,7 @@ CREATE TABLE "order" (
 CREATE TABLE "category" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "category_name" TEXT NOT NULL UNIQUE,
+    "type_of_product" BOOLEAN NOT NULL,
     "category_picture" TEXT,
     "state" BOOLEAN NOT NULL
 );
@@ -41,7 +42,6 @@ CREATE TABLE "category" (
 CREATE TABLE "product" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "number" TEXT NOT NULL UNIQUE,
-    "type_of_product" BOOLEAN NOT NULL,
     "product_name" TEXT NOT NULL,
     "product_picture" TEXT,
     "description" TEXT,

@@ -39,7 +39,7 @@ class User {
 
     async create() {
         try {
-            await db.query('INSERT INTO "user" ("mail", "password", "first_name", "last_name", "gender", "birthday_date", "phone_number", "street_number", "name_of_the_road", "postal_code", "city") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);', [this.mail, this.password, this.first_name, this.last_name, this.gender, this.birthday_date, this.phone_number, this.street_number, this.name_of_the_road, this.postal_code, this.city]);
+            await db.query('INSERT INTO "user" ("mail", "password", "first_name", "last_name", "gender", "birthday_date", "phone_number", "principal_street_number", "principal_name_of_the_road", "principal_postal_code", "principal_city") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);', [this.mail, this.password, this.first_name, this.last_name, this.gender, this.birthday_date, this.phone_number, this.principal_street_number, this.principal_name_of_the_road, this.principal_postal_code, this.principal_city]);
         }catch(error) {
             throw error;
         }

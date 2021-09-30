@@ -6,7 +6,7 @@ ALTER TABLE "user"
     ALTER COLUMN "mail" TYPE "mail",
     ALTER COLUMN "password" TYPE "password",
     ALTER COLUMN "phone_number" TYPE "phone_number",
-    ALTER COLUMN "postal_code" TYPE "zip_code";
+    ALTER COLUMN "principal_postal_code" TYPE "zip_code";
 
 ALTER TABLE "order"
     ALTER COLUMN "delivery_postal_code" TYPE "zip_code",

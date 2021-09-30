@@ -1,5 +1,6 @@
 const Order = require('../models/Order');
 const OrderHasProduct = require('../models/OrderHasProduct');
+const Address = require('../models/Address');
 const checkPrice = require('../function/checkPrice');
 
 const oderController = {
@@ -9,7 +10,7 @@ const oderController = {
 
             // GESTION D'INSERTION DANS LA TABLE ORDER
 
-            const deliveryInfoRequest = request.body.state.delivery
+            const deliveryInfoRequest = request.body.state.delivery;
             const userInfo = request.body.state.auth.user;
             const cart = request.body.state.shop.cart;
 
@@ -41,6 +42,11 @@ const oderController = {
                 delivery_city: deliveryInfoRequest.city,
                 user_id: userInfo.user_id
             }
+
+            if(deliveryInfoRequest.isNewAddress) {
+                const newAdress = new Address(deliveryInfo);
+                await newAdress.create();
+            }
             
             const newOrder = new Order(deliveryInfo);
             const createdOrder = await newOrder.create();
@@ -63,6 +69,16 @@ const oderController = {
     findByUser: async (request, response) => {
         try {
             const userOrder = await Order.findByUser(request.params.id);
+            response.status(200).json(userOrder);
+        } catch (error) {
+            response.status(500).send(error.message);
+        }
+    },
+
+    findAdressByUser: async (request, response) => {
+        try {
+            const {id} = request.body.state.auth.user;
+            const userOrder = await Address.findByUser(request.params.id);
             response.status(200).json(userOrder);
         } catch (error) {
             response.status(500).send(error.message);

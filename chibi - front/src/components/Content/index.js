@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import Card from '../Card';
+import CardFavorite from '../Favorites/CardFavorite';
 
 import './content.scss';
 
@@ -11,7 +11,7 @@ const Content = ({ title, text, products }) => (
         {products && (
             <div className="content__list">
                 {products.map((product) => (
-                    <Card key={product.id} {...product} />
+                    <CardFavorite key={product.id} {...product} />
                 ))}
             </div>
         )}

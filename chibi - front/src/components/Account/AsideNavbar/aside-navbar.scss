@@ -21,6 +21,7 @@
         text-transform: uppercase;
         transition: all .4s ease-out;
         padding: 0.5rem;
+        font-weight: bold;
 
         &:after {
             display: flex;
@@ -39,8 +40,13 @@
             content: "Informations personnelles";
             color: rgb(226, 85, 132);
         }
-        
+
         &:nth-child(2):after { 
+            content: "Favoris";
+            color: rgb(226, 85, 132);
+        }
+        
+        &:nth-child(3):after { 
             content: "Commandes";
             color: rgb(226, 85, 132);
         }

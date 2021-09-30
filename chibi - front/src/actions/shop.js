@@ -53,8 +53,40 @@ export const decrementCartQuantity = productId => {
   }
 };
 
-export const FETCH_FAVORITES = 'FETCH__FAVORITES';
 
+export const INCREMENT_FAVORITES_ITEM_QUANTITY = 'INCREMENT_FAVORITE_ITEM_QUANTITY';
+export const incrementFavoritesItemQuantity = (productId) => (
+    {
+        type: INCREMENT_FAVORITES_ITEM_QUANTITY,
+        payload: productId,
+    }
+);
+
+export const DECREMENT_FAVORITES_ITEM_QUANTITY = 'DECREMENT_FAVORITE_ITEM_QUANTITY';
+export const decrementFavoritesItemQuantity = (productId) => (
+    {
+        type: DECREMENT_FAVORITES_ITEM_QUANTITY,
+        payload: productId,
+    }
+);
+
+export const REMOVE_PRODUCT_FROM_FAVORITES = 'REMOVE_PRODUCT_FROM_FAVORITES';
+export const removeProductFromFavorites = (productId) => (
+  {
+    type: REMOVE_PRODUCT_FROM_FAVORITES,
+    payload: productId,
+  }
+);
+
+export const ADD_FAVORITES = 'ADD_FAVORITES';
+export const addFavorites = (product) => (
+    {       
+        type: ADD_FAVORITES,
+        payload: product,
+    }       
+);
+
+export const FETCH_FAVORITES = 'FETCH__FAVORITES';
 export const fetchFavorites = () => (
     {
         type: FETCH_FAVORITES,
@@ -62,7 +94,6 @@ export const fetchFavorites = () => (
 );
 
 export const SAVE_FAVORITES = 'SAVE_FAVORITES';
-
 export const saveFavorites = (favorites) => (
     {
         type: SAVE_FAVORITES,

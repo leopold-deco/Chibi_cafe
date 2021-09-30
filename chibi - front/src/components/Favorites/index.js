@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react";
-import { fetchFavorites } from "../../../actions/shop";
+import { fetchFavorites } from "../../actions/shop";
 
-import Content from "../../Content";
+import Content from "../Content";
 
 import './favorites.scss';
 

@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addProductToCart } from '../../../actions/shop';
+import { addProductToCart, addFavorites } from '../../../actions/shop';
 import PropTypes from 'prop-types';
 import { calculPrice } from '../../../pipes/calculPrice';
 import Button from '../../Button';
@@ -9,7 +9,11 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch()
 
   const onCart = () => {
-    dispatch(addProductToCart(product))
+    dispatch(addProductToCart(product));
+  }
+
+  const onFavorites = () => {
+    dispatch(addFavorites(product));
   }
 
     return (
@@ -20,6 +24,11 @@ const ProductCard = ({ product }) => {
           className="storeCard__btn"
           onClick={onCart} 
           type="button"> ajouter au panier</button>
+          
+          <button
+          className="storeCard__btn"
+          onClick={onFavorites}
+          type="button"> Ajouter aux favoris</button>
       </div>
     );
   }

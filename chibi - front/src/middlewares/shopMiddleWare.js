@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_ARTICLES, FETCH_CATEGORIES, saveArticles, saveCategories, FETCH_FAVORITES, saveFavorites } from '../actions/shop';
+import { FETCH_ARTICLES, FETCH_CATEGORIES, PRICE_CHECK, saveArticles, saveCategories, FETCH_FAVORITES, saveFavorites } from '../actions/shop';
 
 const axiosInstance = axios.create({
   baseURL: 'https://chibi-api.herokuapp.com',
@@ -50,7 +50,27 @@ const shopMiddleWare = (store) => (next) => (action) => {
           store.dispatch(saveFavorites(response.data));
         }
       ).catch(
-        () => console.log("erreur")
+        () => console.log("erreur"));
+        next(action);
+        break;
+    }
+    
+    case PRICE_CHECK: {
+
+
+      
+      const state = store.getState();
+      console.log("state", state)
+
+
+      axios.post('https://chibi-api.herokuapp.com/checkPrice',
+      {
+         state
+      })
+      .then(
+        (response) => {
+          console.log(response.data)
+        }
       );
       next(action);
       break;

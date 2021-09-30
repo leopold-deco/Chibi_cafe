@@ -5,6 +5,7 @@ import { ADD_FAVORITES, SAVE_FAVORITES,
 export const initialState = {
   products: [],
   favorites: JSON.parse(localStorage.getItem('favorites')) || [],
+  categories: [],
 };
 
 const reducer = (state = initialState, action = {}) => {

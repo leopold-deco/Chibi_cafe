@@ -16,6 +16,9 @@ const ProductsPage = () => {
     const cats = [{ id: 5, name: "Sablés décorés"  }, { id: 7, name: "Sablés message" }, {id: 6, name: "Sablés à peindre" }]
 
   const products = useSelector((state) => state.shop.products.filter((product) => product.category_id === Number(slug)));
+
+  console.log(products)
+
   const cart = useSelector((state) => state.shop.cart)
   const category = cats.find((categorie) => categorie.id === Number(slug));
 

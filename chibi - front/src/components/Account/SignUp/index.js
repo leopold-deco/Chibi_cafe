@@ -12,7 +12,7 @@ const SignUp = ({ closeSignupForm }) => {
     const [message, setMessage] = useState("");
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
-    const [email, setEmail] = useState('');
+    const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [birthdayDate, setBirthdayDate] = useState('');
@@ -22,10 +22,11 @@ const SignUp = ({ closeSignupForm }) => {
     const [postalCode, setpostalCode] = useState('');
     const [city, setCity] = useState('');
     const [gender, setGender] = useState(false);
-
     const verifyPasswordAndSubmit = () => {
+        console.log("test");
         if (password === passwordConfirm) {
-            dispatch(signup(firstname, lastname, email, password, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender));
+            console.log("test2");
+            dispatch(signup(firstname, lastname, mail, password, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender));
             setMessage("Inscription terminée! Veuillez vous connecter.");
         }
     }
@@ -60,9 +61,9 @@ const SignUp = ({ closeSignupForm }) => {
                 value={lastname} 
                 handleChange={setLastname}
             />
-            <Input type="email" name="email" id="email" placeholder="Email"
-                value={email} 
-                handleChange={setEmail}
+            <Input type="email" name="mail" id="mail" placeholder="Email"
+                value={mail} 
+                handleChange={setMail}
             />
             <Input type="password" name="password" id="password" placeholder="Mot de passe"
                 value={password} 

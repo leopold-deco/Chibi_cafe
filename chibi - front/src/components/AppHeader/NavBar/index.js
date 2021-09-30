@@ -1,20 +1,22 @@
 import { NavLink, Link } from 'react-router-dom';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import './navbar.scss';
 import { logout } from '../../../actions/auth';
 
 function NavBar({ cartCount }) {
-const dispatch = useDispatch()
-const [open, setMenu] = useState(false)
+const dispatch = useDispatch();
+const [open, setMenu] = useState(false);
+
+const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
 window.addEventListener('click', (e) => {
   const overlay = document.querySelector('.menu-btn')
   const overlay2 = document.querySelector('.menu-btn__burger')
-   if(open === true && e.target !== overlay && e.target !== overlay2) {
-     setMenu(false)
-   }
- })
+  if(open === true && e.target !== overlay && e.target !== overlay2) {
+    setMenu(false)
+  }
+})
 
 const className = open ? "menu-btn open" : "menu-btn";
 const menuClassName = open ? "menu__mobile--open" : "menu__mobile";
@@ -36,7 +38,11 @@ const openBurger = () => {
           <NavLink className="navlink"  activeClassName="isactive" exact to="/boutique">Boutique</NavLink>
         </div>
         <div className="navbar__2">
+        {isLoggedIn?
+          <NavLink className="navlink"  activeClassName="isactive" exact to="/compte/informations">Compte</NavLink>
+        :
           <NavLink className="navlink"  activeClassName="isactive" exact to="/compte">Compte</NavLink>
+        }
           <NavLink className="navlink"  activeClassName="isactive" exact to="/panier">Panier{cartCount ? `(${cartCount})`:''}</NavLink>
           <NavLink className="navlink"  activeClassName="isactive" exact to="/contact">Contact</NavLink>
           <button onClick={() => dispatch(logout())}>se déconnecter</button>
@@ -56,15 +62,15 @@ const openBurger = () => {
       <i className="fas fa-shopping-cart"></i>{cartCount ? `(${cartCount})`:''}
       </div>
       </NavLink>
-        <div onClick={openBurger} class={className}>
+        <div onClick={openBurger} className={className}>
         <div className="menu-btn__burger"></div>
         </div>
       </div>
       <div className={menuClassName}>
         <Link className="menu__mobile__link" to="/"><i className="fas fa-home"></i> Accueil</Link>
-        <Link className="menu__mobile__link" to="/boutique"><i class="fas fa-store"></i> Boutique</Link>
-        <Link className="menu__mobile__link" to="/menu"><i class="fas fa-utensils"></i> Menu</Link>
-        <Link className="menu__mobile__link" to="/contact"><i class="fas fa-envelope-square"></i> Contact</Link>
+        <Link className="menu__mobile__link" to="/boutique"><i className="fas fa-store"></i> Boutique</Link>
+        <Link className="menu__mobile__link" to="/menu"><i className="fas fa-utensils"></i> Menu</Link>
+        <Link className="menu__mobile__link" to="/contact"><i className="fas fa-envelope-square"></i> Contact</Link>
       </div>
     </>
     );

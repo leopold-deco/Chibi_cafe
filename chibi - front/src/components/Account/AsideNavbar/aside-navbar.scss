@@ -1,0 +1,77 @@
+@use '../../../styles/vars';
+
+:after {
+    content: "";
+}
+
+.aside-navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: vars.$tertiary-color;
+    width: 12.3rem;
+    padding: 1rem;
+    gap: 2rem;
+    border-radius: vars.$border-radius;
+
+    &__link {
+        display: flex;
+        position: relative;
+        text-transform: uppercase;
+        transition: all .4s ease-out;
+
+        &:after {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top:0;
+            left: 70px;
+            width: 70px; height: 100%;
+            opacity:.5;
+            transform: perspective(400px) rotateY(90deg);
+            transform-origin: 0 100%;
+            transition:all .3s ease-out;
+        }
+        
+        &:nth-child(1):after { 
+            content: "Informations personnelles";
+            color: rgb(226, 85, 132);
+        }
+        
+        &:nth-child(2):after { 
+            content: "Commandes";
+            color: rgb(226, 85, 132);
+        }
+
+        &:hover {
+            transform: translateX(-65px);
+
+            &:after {
+                opacity: 1;
+                transform: perspective(400px) rotateY(0deg) scale(1) ;
+            }
+        }
+    }
+}
+
+
+ion-icon {
+    position: relative;
+    font-size: 64px;
+    color: rgb(226, 85, 132);
+    transition: all .4s ease-out;
+
+    &:after {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top:0;
+        left: 70px;
+        width: 70px; height: 100%;
+        opacity:.5;
+        transform: perspective(400px) rotateY(90deg);
+        transform-origin: 0 100%;
+        transition:all .3s ease-out;
+    }
+}

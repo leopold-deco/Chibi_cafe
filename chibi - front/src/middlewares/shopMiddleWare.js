@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_ARTICLES, FETCH_CATEGORIES, saveArticles, saveCategories } from '../actions/shop';
+import { FETCH_ARTICLES, FETCH_CATEGORIES, saveArticles, saveCategories, FETCH_FAVORITES, saveFavorites } from '../actions/shop';
 
 
 const shopMiddleWare = (store) => (next) => (action) => {
@@ -27,6 +27,19 @@ const shopMiddleWare = (store) => (next) => (action) => {
         }
       ).catch(
         (error) => console.log(error),
+      );
+      next(action);
+      break;
+    }
+
+    case FETCH_FAVORITES: {
+      axios.get('https://chibi-api.herokuapp.com/favorites')
+      .then(
+        (response) => {
+          store.dispatch(saveFavorites(response.data));
+        }
+      ).catch(
+        () => console.log("erreur")
       );
       next(action);
       break;

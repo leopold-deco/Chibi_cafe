@@ -1,0 +1,19 @@
+@use '../../styles/vars';
+
+.card {
+    border-radius: 1rem;
+    border: 1px solid #ddd;
+    width: calc(50% - #{vars.$halfGutter});
+    margin-top: vars.$gutter;
+    overflow: hidden;
+    
+    @media (max-width: vars.$small) {
+        width: 100%;
+    }
+
+    &-description {
+        color: rgba(0,0,0,.4);
+        font-size: .8em;
+        margin-bottom: vars.$halfGutter;
+    }
+}

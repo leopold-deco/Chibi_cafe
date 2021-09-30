@@ -1,33 +1,39 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useHistory } from 'react-router-dom';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import './navbar.scss';
 import { logout } from '../../../actions/auth';
 
 function NavBar({ cartCount }) {
-const dispatch = useDispatch();
-const [open, setMenu] = useState(false);
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const [open, setMenu] = useState(false);
 
-const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-window.addEventListener('click', (e) => {
-  const overlay = document.querySelector('.menu-btn')
-  const overlay2 = document.querySelector('.menu-btn__burger')
-  if(open === true && e.target !== overlay && e.target !== overlay2) {
-    setMenu(false)
+  window.addEventListener('click', (e) => {
+    const overlay = document.querySelector('.menu-btn')
+    const overlay2 = document.querySelector('.menu-btn__burger')
+    if(open === true && e.target !== overlay && e.target !== overlay2) {
+      setMenu(false)
+    }
+  })
+
+  const handleClick = () => {
+    dispatch(logout());
+    history.push('/');
   }
-})
 
-const className = open ? "menu-btn open" : "menu-btn";
-const menuClassName = open ? "menu__mobile--open" : "menu__mobile";
+  const className = open ? "menu-btn open" : "menu-btn";
+  const menuClassName = open ? "menu__mobile--open" : "menu__mobile";
 
-const openBurger = () => {
-  if(open === true){
-    setMenu(false)
-  } else {
-    setMenu(true)
+  const openBurger = () => {
+    if(open === true){
+      setMenu(false)
+    } else {
+      setMenu(true)
+    }
   }
-}
 
     return (
       <> 
@@ -45,7 +51,7 @@ const openBurger = () => {
         }
           <NavLink className="navlink"  activeClassName="isactive" exact to="/panier">Panier{cartCount ? `(${cartCount})`:''}</NavLink>
           <NavLink className="navlink"  activeClassName="isactive" exact to="/contact">Contact</NavLink>
-          <button onClick={() => dispatch(logout())}>se déconnecter</button>
+          {isLoggedIn && <button onClick={handleClick}>se déconnecter</button>}
         </div>
       </div>
       <div className="navbar__mobile">

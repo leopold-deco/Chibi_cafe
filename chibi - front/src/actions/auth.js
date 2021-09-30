@@ -27,7 +27,7 @@ export const logout = () => (
 
 export const SIGNUP = 'SIGNUP';
 
-export const signup = (firstname, lastname, mail, password, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender) => (
+export const signup = (firstname, lastname, mail, password, passwordConfirm, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender) => (
 
   {
     type: SIGNUP,

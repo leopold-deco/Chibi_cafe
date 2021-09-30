@@ -1,7 +1,7 @@
 import { CONNECT_USER, LOGOUT, REGISTER_USER, SET_USER_FIELD } from '../actions/auth';
 
-// console.log(localStorage.removeItem("user"));
 const user = JSON.parse(localStorage.getItem("user"));
+
 export const initialState = user
 ? { isLoggedIn: true, user }
 : { isLoggedIn: false, user: null };

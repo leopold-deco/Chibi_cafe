@@ -1,4 +1,5 @@
-const stripe = require('stripe')('sk_test_VePHdqKTYQjKNInc7u56JBrQ');
+const stripe = require('stripe')('sk_test_51JeKakDij0gh8k8y5xaGpicpBtwjOE0SRQKD3cNONH3oApd32b04CUvh8Y4IhRUu4GF2V58vCLxTMor35JLNnBJb00nR0GNbKs');
+//mettre la "sk_test" (clé privé) dans le .env;
 const checkPrice = require('../function/checkPrice');
 
 // const YOUR_DOMAIN = 'http://localhost:4242';

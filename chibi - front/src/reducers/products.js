@@ -1,5 +1,6 @@
 export const initialState = {
-  
+  categories: [],
+  products: []
 };
 
 const reducer = (state = initialState, action = {}) => {

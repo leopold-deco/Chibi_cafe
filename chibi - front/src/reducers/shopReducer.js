@@ -22,12 +22,12 @@ const shopReducer = (state = initialState, action ) => {
         case SAVE_ARTICLES:
             return {
                 ...state,
-                products: action.articles.filter(product => product.type_of_product === true),
+                products: action.articles,
             };
         case SAVE_CATEGORIES:
             return {
                 ...state,
-                categories: [action.categories[2], action.categories[6], action.categories[9]]
+                categories: action.categories.filter(category => category.type_of_product === true ),
             };    
         case INCREMENT_CART_ITEM_QUANTITY:
             updatedCart = [...state.cart];

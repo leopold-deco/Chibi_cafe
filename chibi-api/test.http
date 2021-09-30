@@ -210,3 +210,8 @@ Content-Type: application/json
         ]
     }
 }
+
+
+### WISHLIST 
+
+GET {{host}}/wishList/1

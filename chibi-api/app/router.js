@@ -60,4 +60,8 @@ router.delete('/wishList/:id', wishListController.deleteByUser);
 router.post('/useWishList/:id', wishListController.addProduct);
 router.delete('/useWishList/:id', wishListController.deleteProduct);
 
+// ADDRESS
+
+router.get('/address/:id', oderController.findAdressByUser);
+
 module.exports = router;

@@ -44,8 +44,9 @@ const oderController = {
             }
 
             if(deliveryInfoRequest.isNewAddress) {
-                const newAdress = new Address(deliveryInfo);
-                await newAdress.create();
+                console.log();
+                const newAddress = new Address(deliveryInfo);
+                await newAddress.create();
             }
             
             const newOrder = new Order(deliveryInfo);
@@ -77,7 +78,7 @@ const oderController = {
 
     findAdressByUser: async (request, response) => {
         try {
-            const {id} = request.body.state.auth.user;
+            const {id} = request.params;
             const userOrder = await Address.findByUser(id);
             response.status(200).json(userOrder);
         } catch (error) {

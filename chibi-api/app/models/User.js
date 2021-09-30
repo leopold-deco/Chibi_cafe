@@ -31,9 +31,9 @@ class User {
     
     async update(id) {
         try {
-            await db.query('UPDATE "user" SET "mail"=$1, "first_name"=$2, "last_name"=$3, "gender"=$4, "birthday_date"=$5, "phone_number"=$6, "principal_street_number"=$7, "principal_name_of_the_road"=$8, "principal_postal_code"=$9, "principal_city"=$10 WHERE "id"=$11;', [this.mail, this.first_name, this.last_name, this.gender, this.birthday_date, this.phone_number, this.street_number, this.name_of_the_road, this.postal_code, this.city, id]);
+            await db.query('UPDATE "user" SET "mail"=$1, "first_name"=$2, "last_name"=$3, "gender"=$4, "birthday_date"=$5, "phone_number"=$6, "principal_street_number"=$7, "principal_name_of_the_road"=$8, "principal_postal_code"=$9, "principal_city"=$10 WHERE "id"=$11;', [this.mail, this.first_name, this.last_name, this.gender, this.birthday_date, this.phone_number, this.principal_street_number, this.principal_name_of_the_road, this.principal_postal_code, this.principal_city, id]);
         }catch(error) {
-            throw error;  
+            throw error;
         }
     }
 

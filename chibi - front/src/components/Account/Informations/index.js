@@ -98,21 +98,21 @@ const Informations = () => {
                 handleChange={handleChange}
             />
             <div className="address">
-                <Input type="text" id="street_number" name="street_number" placeholder="N° de rue"
+                <Input type="text" id="principal_street_number" name="principal_street_number" placeholder="N° de rue"
                     value={street_number} 
                     handleChange={handleChange}
                 />
-                <Input type="text" id="name_of_the_road" name="name_of_the_road" placeholder="Nom de rue"
+                <Input type="text" id="principal_name_of_the_road" name="principal_name_of_the_road" placeholder="Nom de rue"
                     value={name_of_the_road} 
                     handleChange={handleChange}
                 />
             </div>
             <div className="city">
-                <Input type="text" id="postal_code" name="postal_code" pattern="[0-9]{5}" placeholder="Code postal"
+                <Input type="text" id="principal_postal_code" name="principal_postal_code" pattern="[0-9]{5}" placeholder="Code postal"
                     value={postal_code} 
                     handleChange={handleChange}
                 />
-                <Input type="text" id="city" name="city" placeholder="Ville" 
+                <Input type="text" id="principal_city" name="principal_city" placeholder="Ville" 
                     value={city} 
                     handleChange={handleChange}
                 />

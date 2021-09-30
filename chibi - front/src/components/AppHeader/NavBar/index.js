@@ -62,15 +62,15 @@ const openBurger = () => {
       <i className="fas fa-shopping-cart"></i>{cartCount ? `(${cartCount})`:''}
       </div>
       </NavLink>
-        <div onClick={openBurger} class={className}>
+        <div onClick={openBurger} className={className}>
         <div className="menu-btn__burger"></div>
         </div>
       </div>
       <div className={menuClassName}>
         <Link className="menu__mobile__link" to="/"><i className="fas fa-home"></i> Accueil</Link>
-        <Link className="menu__mobile__link" to="/boutique"><i class="fas fa-store"></i> Boutique</Link>
-        <Link className="menu__mobile__link" to="/menu"><i class="fas fa-utensils"></i> Menu</Link>
-        <Link className="menu__mobile__link" to="/contact"><i class="fas fa-envelope-square"></i> Contact</Link>
+        <Link className="menu__mobile__link" to="/boutique"><i className="fas fa-store"></i> Boutique</Link>
+        <Link className="menu__mobile__link" to="/menu"><i className="fas fa-utensils"></i> Menu</Link>
+        <Link className="menu__mobile__link" to="/contact"><i className="fas fa-envelope-square"></i> Contact</Link>
       </div>
     </>
     );

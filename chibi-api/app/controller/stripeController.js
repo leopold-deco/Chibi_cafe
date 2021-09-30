@@ -7,19 +7,26 @@ const checkPrice = require('../function/checkPrice');
 const stripeController = {
     payment: async (request, response) => {
         try {
-            const cart = request.body.shop.cart
+            const {cart, id} = request.body;
             const priceTTC = await checkPrice(cart);
 
-            const paymentIntent = await stripe.paymentIntents.create({
+            const payment = await stripe.paymentIntents.create({
                   amount: priceTTC*100,
-                  currency: "eur"
+                  currency: "eur",
+                  payment_method: id,
+                  confirm: true
                 });
-
+                console.log("payment", payment);
             response.json({
-                clientSecret: paymentIntent.client_secret, // pi_3Jf35W2VYugoKSBz148oH7m0_secret_EeQkCoAOSEqetIc2ywOcnt9P5
+                message: "Paiement validé",
+                success: true
               });
         } catch (error) {
-            response.status(500).json(error);
+            console.log('Error', error);
+            response.json({
+                message: "Paiement décliné",
+                success: false
+            })
         }
     }
 

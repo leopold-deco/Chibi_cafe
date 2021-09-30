@@ -16,8 +16,11 @@ import ProductsPage from "../Store/ProductsPage";
 import Informations from '../Account/Informations';
 import Orders from '../Account/Orders';
 import CheckoutForm from '../CheckoutForm';
+import Favorites from '../Favorites';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+
+import { useSelector } from 'react-redux';
 
 const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 
@@ -41,6 +44,9 @@ function App() {
         </Route>
         <Route path="/compte/informations" exact>
           <Informations />
+        </Route>
+        <Route path="/compte/favoris" exact>
+          <Favorites />
         </Route>
         <Route path="/compte/commandes" exact>
           <Orders />

@@ -5,10 +5,13 @@ import { fetchFavorites } from "../../actions/shop";
 import Content from "../Content";
 
 import './favorites.scss';
+import { Redirect } from 'react-router-dom';
 
 const Favorites = () => {
     const dispatch = useDispatch();
     const favorites = useSelector((state) => state.products.favorites);
+
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
     
     useEffect(
         () => {
@@ -17,6 +20,10 @@ const Favorites = () => {
         },
         [],
     );
+
+    if (!isLoggedIn) {
+        return <Redirect to="/compte" />
+    }
     return (
         <Content
         title="Mes produits favoris"

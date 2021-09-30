@@ -100,7 +100,7 @@ const userMiddleware = (store) => (next) => (action) => {
         console.log(response);
       },
       ).catch(
-        () => console.log('error'),
+        (error) => console.log('error', error),
       );
       next(action);
       break;

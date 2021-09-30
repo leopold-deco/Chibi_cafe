@@ -5,9 +5,9 @@
 
     &-title {
         font-size: 2em;
-        color: vars.$color;
+        color: vars.$primary-color;
         margin-bottom: vars.$gutter;
-        padding-bottom: math.div(vars.$gutter, 4);
+        // padding-bottom: math.div(vars.$gutter, 4);
         border-bottom: vars.$border;
     }
 

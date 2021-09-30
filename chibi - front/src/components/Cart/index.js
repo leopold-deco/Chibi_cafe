@@ -3,10 +3,18 @@ import CartItem from "./cartItem";
 import { calculPrice } from "../../pipes/calculPrice";
 import { connect } from "react-redux";
 import Button from "../Button";
+import { useDispatch } from "react-redux";
+import { checkPrice } from "../../actions/shop";
 
 const Cart = (props) => {
 
   localStorage.setItem('cart', JSON.stringify(props.cartItems))
+
+  const dispatch = useDispatch();
+
+  const orderNext = () => {
+    dispatch(checkPrice())
+  }
 
 
     return (
@@ -46,9 +54,9 @@ const Cart = (props) => {
                            <b>{`${props.totalPrice.toFixed(2)} €`}</b>
                         </div>
                         <div className="cart__ender__footer">
-                          <Button type="button" className="cart__ender__btn">
+                          <button onClick={orderNext} type="button" className="cart__ender__btn">
                             Poursuivre la commande
-                          </Button>
+                          </button>
                         </div>
                       </div>
                       }

@@ -6,6 +6,7 @@ export const FETCH_ARTICLES = 'FETCH_ARTICLES';
 export const SAVE_ARTICLES = 'SAVE_ARTICLES';
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
 export const SAVE_CATEGORIES = 'SAVE_CATEGORIES';
+export const PRICE_CHECK = 'PRICE_CHECK';
 
 export const fetchArticles = () => ({ type: FETCH_ARTICLES });
 
@@ -52,3 +53,10 @@ export const decrementCartQuantity = productId => {
       payload: productId
   }
 };
+
+export const checkPrice = () => {
+    return {
+        type: PRICE_CHECK,
+        
+    }
+}

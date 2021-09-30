@@ -8,36 +8,38 @@ const oderController = {
         try {
 
             // GESTION D'INSERTION DANS LA TABLE ORDER
-            console.log(request.body);
-            const deliveryInfoRequest = request.body.delivery
-            const userInfo = request.body.auth.user;
-            const cart = request.body.shop.cart;
+
+            const deliveryInfoRequest = request.body.state.delivery
+            const userInfo = request.body.state.auth.user;
+            const cart = request.body.state.shop.cart;
 
             let deliveryInfo = {};
 
             const cartAmount = await checkPrice(cart);
 
-            if(!deliveryInfoRequest.isNewAddress) {
+            // if(!deliveryInfoRequest.isNewAddress) {
 
-                deliveryInfo = { 
-                    total: cartAmount, 
-                    delivery_street_number: userInfo.street_number,
-                    delivery_name_of_the_road: userInfo.name_of_the_road,
-                    delivery_postal_code: userInfo.postal_code,
-                    delivery_city: userInfo.city,
-                    user_id: userInfo.user_id
-                }
+            //     deliveryInfo = { 
+            //         total: cartAmount, 
+            //         delivery_street_number: userInfo.street_number,
+            //         delivery_name_of_the_road: userInfo.name_of_the_road,
+            //         delivery_postal_code: userInfo.postal_code,
+            //         delivery_city: userInfo.city,
+            //         user_id: userInfo.user_id
+            //     }
             
-            } else {
+            // } else {
 
-                deliveryInfo = {
-                    total: cartAmount,             
-                    delivery_street_number: deliveryInfoRequest.street_number,
-                    delivery_name_of_the_road: deliveryInfoRequest.name_of_the_road,
-                    delivery_postal_code: deliveryInfoRequest.postal_code,
-                    delivery_city: deliveryInfoRequest.city,
-                    user_id: userInfo.user_id
-                }
+                
+            // }
+
+            deliveryInfo = {
+                total: cartAmount,             
+                delivery_street_number: deliveryInfoRequest.street_number,
+                delivery_name_of_the_road: deliveryInfoRequest.name_of_the_road,
+                delivery_postal_code: deliveryInfoRequest.postal_code,
+                delivery_city: deliveryInfoRequest.city,
+                user_id: userInfo.user_id
             }
             
             const newOrder = new Order(deliveryInfo);
@@ -45,10 +47,9 @@ const oderController = {
          
             // GESTION D'INSERTION DANS LA TABLE Order_has_Product
             
-            const cartInfo = request.body.shop.cart;
             const orderId = createdOrder.id;
 
-            for(const item of cartInfo) {
+            for(const item of cart) {
                 const newOrderHasProduct = new OrderHasProduct();
                 await newOrderHasProduct.create(orderId, item.id, item.quantity);
 

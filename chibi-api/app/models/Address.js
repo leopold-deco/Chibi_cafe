@@ -8,16 +8,9 @@ class Address {
         }
     }
 
-    static async findAll() {
+    static async findByUser(id) {
         try {
-         const {rows} = await db.query(`
-         SELECT category.*, 
-         ARRAY_AGG (
-            product.product_name
-         )
-         FROM "category" 
-         JOIN "product" ON (category_id=category.id)
-         GROUP BY category.id`);   
+         const {rows} = await db.query('SELECT * FROM "address" WHERE user_id = $1', [id]);   
          return rows.map(row => new Address(row));
         }catch(error) {
             throw error;

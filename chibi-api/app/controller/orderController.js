@@ -78,7 +78,7 @@ const oderController = {
     findAdressByUser: async (request, response) => {
         try {
             const {id} = request.body.state.auth.user;
-            const userOrder = await Address.findByUser(request.params.id);
+            const userOrder = await Address.findByUser(id);
             response.status(200).json(userOrder);
         } catch (error) {
             response.status(500).send(error.message);

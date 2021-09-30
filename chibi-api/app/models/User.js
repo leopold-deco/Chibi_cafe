@@ -9,7 +9,7 @@ class User {
     }
     static async findOneId(id) {
         try {
-            const {rows} = await db.query('SELECT "mail", "first_name", "last_name", "gender", "birthday_date", "phone_number", "street_number", "name_of_the_road", "postal_code", "city" FROM "user" WHERE "id"=$1', [id]);
+            const {rows} = await db.query('SELECT "mail", "first_name", "last_name", "gender", "birthday_date", "phone_number", "principal_street_number", "principal_name_of_the_road", "principal_postal_code", "principal_city" FROM "user" WHERE "id"=$1', [id]);
             if(rows[0]) {
                 return new User(rows[0]);
             }
@@ -20,7 +20,7 @@ class User {
 
     static async findOneMail(mail) {
         try {
-            const {rows} = await db.query('SELECT id, "mail", "first_name", "last_name", "gender", "birthday_date", "phone_number", "street_number", "name_of_the_road", "postal_code", "city" FROM "user" WHERE "mail"=$1', [mail]);
+            const {rows} = await db.query('SELECT id, "mail", "first_name", "last_name", "gender", "birthday_date", "phone_number", "principal_street_number", "principal_name_of_the_road", "principal_postal_code", "principal_city" FROM "user" WHERE "mail"=$1', [mail]);
             if(rows[0]) {
                 return new User(rows[0]);
             }
@@ -31,7 +31,7 @@ class User {
     
     async update(id) {
         try {
-            await db.query('UPDATE "user" SET "mail"=$1, "first_name"=$2, "last_name"=$3, "gender"=$4, "birthday_date"=$5, "phone_number"=$6, "street_number"=$7, "name_of_the_road"=$8, "postal_code"=$9, "city"=$10 WHERE "id"=$11;', [this.mail, this.first_name, this.last_name, this.gender, this.birthday_date, this.phone_number, this.street_number, this.name_of_the_road, this.postal_code, this.city, id]);
+            await db.query('UPDATE "user" SET "mail"=$1, "first_name"=$2, "last_name"=$3, "gender"=$4, "birthday_date"=$5, "phone_number"=$6, "principal_street_number"=$7, "principal_name_of_the_road"=$8, "principal_postal_code"=$9, "principal_city"=$10 WHERE "id"=$11;', [this.mail, this.first_name, this.last_name, this.gender, this.birthday_date, this.phone_number, this.street_number, this.name_of_the_road, this.postal_code, this.city, id]);
         }catch(error) {
             throw error;  
         }

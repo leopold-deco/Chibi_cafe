@@ -35,7 +35,7 @@ Content-Type: application/json
 
 {
     "mail": "abc@fde.fr",
-    "password": "ChibiUther"
+    "password": "Chibi1234"
 }
 
 ### FIND USER

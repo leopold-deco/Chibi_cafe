@@ -8,6 +8,7 @@ const categoryController = require('./controller/categoryController');
 const oderController = require('./controller/orderController');
 const stripeController = require('./controller/stripeController');
 const wishListController = require('./controller/wishListController');
+const addressController = require('./controller/addressController')
 
 // MIDDLEWARES
 
@@ -62,6 +63,9 @@ router.delete('/useWishList/:id', wishListController.deleteProduct);
 
 // ADDRESS
 
-router.get('/address/:id', oderController.findAdressByUser);
+router.get('/address/:id', addressController.findAdressByUser);
+
+router.delete('/address/:id', addressController.deleteAddress);
+router.patch('/address/:id', addressController.updateAddress);
 
 module.exports = router;

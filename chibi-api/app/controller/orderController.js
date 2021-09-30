@@ -74,17 +74,8 @@ const oderController = {
         } catch (error) {
             response.status(500).send(error.message);
         }
-    },
-
-    findAdressByUser: async (request, response) => {
-        try {
-            const {id} = request.params;
-            const userOrder = await Address.findByUser(id);
-            response.status(200).json(userOrder);
-        } catch (error) {
-            response.status(500).send(error.message);
-        }
     }
+
 }
 
 module.exports = oderController;

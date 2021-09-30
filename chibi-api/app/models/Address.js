@@ -24,6 +24,21 @@ class Address {
             throw error;
         }
     }
+
+    async delete(id) {
+        try {
+            await db.query('DELETE FROM "address" WHERE id=$1', [id]);
+        } catch (error) {
+            throw error;
+        }
+    }
+    async update(id) {
+        try {
+            await db.query('UPDATE "address" SET "street_number"=$1 "name_of_the_road"=$2, "postal_code"=$3, "city"=$4 WHERE id=$5', [this.street_number, this.name_of_the_road, this.postal_code, this.city, id])
+        } catch(error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = Address;

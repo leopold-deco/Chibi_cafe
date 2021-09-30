@@ -15,7 +15,7 @@ import Custom from "../Store/Custom";
 import ProductsPage from "../Store/ProductsPage";
 import Informations from '../Account/Informations';
 import Orders from '../Account/Orders';
-import CheckoutForm from '../CheckoutForm';
+import StripeContainer from '../StripeContainer';
 
 function App() {
 
@@ -48,6 +48,7 @@ function App() {
           <Delivery />
         </Route>
         <Route path="/paiement" exact>
+          <StripeContainer />
         </Route>
         <Route path="/contact" exact>
           <Contact />

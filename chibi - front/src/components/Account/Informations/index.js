@@ -19,10 +19,10 @@ const Informations = () => {
         gender,
         birthday_date,
         phone_number,
-        street_number,
-        name_of_the_road,
-        postal_code,
-        city
+        principal_street_number,
+        principal_name_of_the_road,
+        principal_postal_code,
+        principal_city
     } } = useSelector((state) => state.auth);
 
     const [message, setMessage] = useState("");
@@ -99,21 +99,21 @@ const Informations = () => {
             />
             <div className="address">
                 <Input type="text" id="principal_street_number" name="principal_street_number" placeholder="N° de rue"
-                    value={street_number} 
+                    value={principal_street_number} 
                     handleChange={handleChange}
                 />
                 <Input type="text" id="principal_name_of_the_road" name="principal_name_of_the_road" placeholder="Nom de rue"
-                    value={name_of_the_road} 
+                    value={principal_name_of_the_road} 
                     handleChange={handleChange}
                 />
             </div>
             <div className="city">
                 <Input type="text" id="principal_postal_code" name="principal_postal_code" pattern="[0-9]{5}" placeholder="Code postal"
-                    value={postal_code} 
+                    value={principal_postal_code} 
                     handleChange={handleChange}
                 />
                 <Input type="text" id="principal_city" name="principal_city" placeholder="Ville" 
-                    value={city} 
+                    value={principal_city} 
                     handleChange={handleChange}
                 />
             </div>

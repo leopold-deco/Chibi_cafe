@@ -24,10 +24,8 @@ const SignUp = ({ closeSignupForm }) => {
     const [gender, setGender] = useState(false);
 
     const verifyPasswordAndSubmit = () => {
-        if (password === passwordConfirm) {
-            dispatch(signup(firstname, lastname, email, password, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender));
-            setMessage("Inscription terminée! Veuillez vous connecter.");
-        }
+        dispatch(signup(firstname, lastname, email, password, passwordConfirm, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender));
+        setMessage("Inscription terminée! Veuillez vous connecter.");
     }
 
     return (

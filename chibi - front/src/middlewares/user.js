@@ -43,6 +43,7 @@ const userMiddleware = (store) => (next) => (action) => {
           last_name: action.lastname, 
           email: action.email, 
           password: action.password, 
+          passwordConfirm: action.passwordConfirm,
           birthday_date: action.birthdayDate, 
           phone_number: action.phoneNumber, 
           street_number: action.streetNumber, 

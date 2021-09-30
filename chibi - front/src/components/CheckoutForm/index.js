@@ -2,13 +2,15 @@ import './checkout-form.scss';
 import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import { useState } from 'react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
   const [ success, setSuccess ] = useState(false);
-  const cart = JSON.parse(localStorage.getItem("cart"));
-
+  const cart = useSelector(state => state.shop.cart);
+  const state = useSelector(state => state);
+  console.log(state)
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -41,6 +43,18 @@ export default function CheckoutForm() {
         if(response.data.success) {
           console.log("Successful payment");
           setSuccess(true);
+          try {
+            const responseOrder = await axios.post("https://chibi-api.herokuapp.com/order", { 
+              state
+            });
+  
+            if(responseOrder) {
+              console.log("success", responseOrder);
+            }
+
+          } catch (error) {
+            console.log('error', error)
+          }
         }
       } catch (error) {
         console.log('error', error)

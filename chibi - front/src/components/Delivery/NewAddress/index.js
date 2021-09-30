@@ -1,8 +1,6 @@
-import Form from '../../Account/Form';
 import Input from '../../Input';
-import Button from '../../Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { signup, setDeliveryField } from '../../../actions/delivery';
+import { setDeliveryField } from '../../../actions/delivery';
 
 const NewAddress = () => {
     const dispatch = useDispatch();

@@ -73,10 +73,10 @@ const userMiddleware = (store) => (next) => (action) => {
         gender,
         birthday_date,
         phone_number,
-        street_number,
-        name_of_the_road,
-        postal_code,
-        city } } = store.getState().auth;
+        principal_street_number,
+        principal_name_of_the_road,
+        principal_postal_code,
+        principal_city } } = store.getState().auth;
 
         axiosInstance.patch(
         `/account/${id}`,
@@ -88,10 +88,10 @@ const userMiddleware = (store) => (next) => (action) => {
           gender,
           birthday_date,
           phone_number,
-          street_number,
-          name_of_the_road,
-          postal_code,
-          city
+          principal_street_number,
+          principal_name_of_the_road,
+          principal_postal_code,
+          principal_city
         },
       ).then((response) => {
         localStorage.setItem("user", JSON.stringify(response.data));

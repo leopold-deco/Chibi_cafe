@@ -33,7 +33,7 @@ const shopMiddleWare = (store) => (next) => (action) => {
     }
 
     case FETCH_FAVORITES: {
-      axios.get('https://chibi-api.herokuapp.com/wishList/:id')
+      axios.get('https://chibi-api.herokuapp.com/wishList')
       .then(
         (response) => {
           store.dispatch(saveFavorites(response.data));

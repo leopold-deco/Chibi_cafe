@@ -2,7 +2,6 @@ import './login.scss';
 import Form from '../Form';
 import Button from '../../Button';
 import Input from '../../Input';
-
 import { useSelector, useDispatch } from 'react-redux';
 import { login, setUserField } from '../../../actions/auth';
 import { useHistory } from "react-router-dom";
@@ -29,7 +28,7 @@ const Login = () => {
 
     return (
         <Form handleSubmit={handleSubmitForm}>
-            <h2>Connexion</h2>
+            <h2 className="signupTitle">Connexion</h2>
             <Input 
                 type="email" 
                 name="mail" 
@@ -46,9 +45,13 @@ const Login = () => {
                 value={password} 
                 handleChange={setPassword}
             />
-            <Button>Se connecter</Button>
+            <Button className="logBtn">Se connecter</Button>
+            
+
         </Form>
     );
 };
+
+
 
 export default Login;

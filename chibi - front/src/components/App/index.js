@@ -54,7 +54,7 @@ function App() {
         <Route path="/boutique/:slug" exact>
           <ProductsPage />
         </Route>
-        <Route path="/boutique/custom" exact>
+        <Route path="/boutique/formulaire/custom" exact>
           <Custom />
         </Route>
         <Route path="/" >

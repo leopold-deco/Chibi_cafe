@@ -50,7 +50,7 @@ const Store = () => {
             <CategoriesCard key={categories[2]} {...categories[2]} />
       
 
-            <Link className="container__right__categories__custom" to="/boutique/custom">
+            <Link className="container__right__categories__custom" to="/boutique/formulaire/custom">
               <img
                 src={custom}
                 className="container__right__categories__image"

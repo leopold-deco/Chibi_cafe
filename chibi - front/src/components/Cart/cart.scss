@@ -103,7 +103,7 @@
   
 }
 .card__content div{
-    width: 25%;
+    width: 50%;
 }
 .cart__ender{
     position: sticky;
@@ -166,8 +166,15 @@
 
     .cart{
         position: relative;
-        width: 97%;
-        margin: 5rem auto 1rem;
+        width: 100%;
+        margin: 5rem 0 1rem;
+
+
+        &__body{
+            width: 100%;
+        }
+
+        
     }
     .cart__header{
         font-size: 1.1rem;
@@ -177,7 +184,7 @@
         height: 10%;
         flex-direction: row;
         position: sticky;
-        bottom: 70px;
+        bottom: 60px;
         justify-content: center;
         align-items: center;
         padding: 0;
@@ -220,7 +227,7 @@
 
 @media only screen and (max-width: 400px) {
     .cart__content{
-        width: 97%;
+        width: 100%;
     }
 
     .card{
@@ -261,16 +268,10 @@ display: none;
 }
 
 
-@media only screen and (max-width: 300px) {
-    .card__content__des,.card__underPrice,.card__content__quantity{
-        position: relative;
-        left: -10%;
-         }
-}
 
 
 
-@media only screen and (max-height: 680px) {
+@media only screen and (max-height: 850px) {
     .cart{
         margin: 5rem auto 2rem;
     }

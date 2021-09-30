@@ -5,15 +5,17 @@ import { connect } from "react-redux";
 import Button from "../Button";
 import { useDispatch } from "react-redux";
 import { checkPrice } from "../../actions/shop";
+import { useHistory } from 'react-router-dom';
 
 const Cart = (props) => {
-
+  const history = useHistory();
   localStorage.setItem('cart', JSON.stringify(props.cartItems))
 
   const dispatch = useDispatch();
 
   const orderNext = () => {
     dispatch(checkPrice())
+    history.push('/livraison')
   }
 
 
@@ -54,9 +56,9 @@ const Cart = (props) => {
                            <b>{`${props.totalPrice.toFixed(2)} €`}</b>
                         </div>
                         <div className="cart__ender__footer">
-                          <button onClick={orderNext} type="button" className="cart__ender__btn">
+                          <Button handleClick={() => orderNext()}>
                             Poursuivre la commande
-                          </button>
+                          </Button>
                         </div>
                       </div>
                       }

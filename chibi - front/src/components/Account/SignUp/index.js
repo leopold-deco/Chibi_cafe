@@ -6,6 +6,7 @@ import Button from '../../Button';
 import { useDispatch } from 'react-redux';
 import { signup } from '../../../actions/auth';
 import { useState } from 'react';
+import BooleanCheckbox from '../../BooleanCheckbox';
 
 const SignUp = ({ closeSignupForm }) => {
     const dispatch = useDispatch();
@@ -22,35 +23,22 @@ const SignUp = ({ closeSignupForm }) => {
     const [postalCode, setpostalCode] = useState('');
     const [city, setCity] = useState('');
     const [gender, setGender] = useState(false);
+    
     const verifyPasswordAndSubmit = () => {
-        console.log("test");
-        if (password === passwordConfirm) {
-            console.log("test2");
-            dispatch(signup(firstname, lastname, mail, password, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender));
-            setMessage("Inscription terminée! Veuillez vous connecter.");
-        }
+        dispatch(signup(firstname, lastname, mail, password, passwordConfirm, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender));
+        setMessage("Inscription terminée! Veuillez vous connecter.");
     }
-
+    console.log(gender)
     return (
         <Form handleSubmit={verifyPasswordAndSubmit}> 
             <h2>Inscription</h2>
             <div className="gender">
-                <div className="radioIn">
-                    <Input type="radio" name="gender" id="genderFemale"
-                        value="false"
-                        handleChange={setGender}
-                        checked={gender === false}
-                    />
-                    <label htmlFor="genderFemale">Madame</label>
-                </div>
-                <div className="radioIn">
-                    <Input  type="radio" name="gender" id="genderMale"  
-                        value="true"
-                        handleChange={setGender}
-                        checked={gender === true}
-                    />
-                    <label htmlFor="genderMale">Monsieur</label>
-                </div>
+                <BooleanCheckbox 
+                    label={["Madame", "Monsieur"]}
+                    id={["femaleGender", "maleGender"]}
+                    handleChange={setGender}
+                    state={gender}
+                />
             </div>
 
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 

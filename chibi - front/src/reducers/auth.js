@@ -11,14 +11,16 @@ const auth = (state = initialState, action = {}) => {
     case CONNECT_USER:
       return {
         ...state,
-        user: action.user,
-        isLoggedIn: true
+        user: action.data.user,
+        isLoggedIn: true,
+        token: action.data.token
       };
     case LOGOUT:
       return {
         ...state,
         user: null,
-        isLoggedIn: false
+        isLoggedIn: false, 
+        usertoken: null
       };
     case REGISTER_USER:
       return {

@@ -36,15 +36,20 @@ const shopMiddleWare = (store) => (next) => (action) => {
     }
 
     case FETCH_FAVORITES: {
-      const { user: {
+      const { token, user: {
         id,
       } } = store.getState().auth;
-      axiosInstance.get(`https://chibi-api.herokuapp.com/wishList/${id}`
+      axiosInstance.get(`/wishList/${id}`, {
+        credentials: 'include',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
       )
       .then(
         (response) => {
-          console.log("autorisations:", axiosInstance.defaults.headers.common.Authorization);
-          console.log(response);
+          console.log(response)
+          console.log("autorisations:", axiosInstance.defaults.headers.common);
           console.log("id:", id);
           localStorage.setItem("favorites", JSON.stringify(response.data));
           store.dispatch(saveFavorites(response.data));

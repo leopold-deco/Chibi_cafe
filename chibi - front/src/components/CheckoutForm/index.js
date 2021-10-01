@@ -3,8 +3,10 @@ import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import { useState } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 export default function CheckoutForm() {
+  const history = useHistory();
   const stripe = useStripe();
   const elements = useElements();
   const [ success, setSuccess ] = useState(false);
@@ -48,8 +50,9 @@ export default function CheckoutForm() {
               state
             });
   
-            if(responseOrder) {
+            if(responseOrder.data.id) {
               console.log("success", responseOrder);
+              history.push('/confirmation')
             }
 
           } catch (error) {

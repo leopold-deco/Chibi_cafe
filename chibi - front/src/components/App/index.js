@@ -10,6 +10,7 @@ import Menu from '../Menu';
 import Account from '../Account';
 import Store from '../Store';
 import Footer from '../Footer';
+import Confirmation from '../Confirmation';
 import Error from '../error';
 import Custom from "../Store/Custom";
 import ProductsPage from "../Store/ProductsPage";
@@ -49,6 +50,9 @@ function App() {
         </Route>
         <Route path="/paiement" exact>
           <StripeContainer />
+        </Route>
+        <Route path="/confirmation" exact>
+          <Confirmation />
         </Route>
         <Route path="/contact" exact>
           <Contact />

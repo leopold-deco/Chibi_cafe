@@ -1,10 +1,11 @@
+import { useSelector } from 'react-redux';
 import Input from '../../Input';
 
 const UserAddress = () => {
     const {
-        first_name, city, last_name, mail, name_of_the_road, phone_number, postal_code, street_number
-    } = JSON.parse(localStorage.getItem('user'));
-
+        first_name, principal_city, last_name, mail, principal_name_of_the_road, phone_number, principal_postal_code, principal_street_number
+    } = useSelector(state => state.auth.user);
+    
     return (
         <div> 
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
@@ -24,22 +25,22 @@ const UserAddress = () => {
                 disabled={true}
             />
             <div className="address">
-                <Input type="text" id="street_number" name="street_number" placeholder="N° de rue"
-                    value={street_number}
+                <Input type="text" id="principal_street_number" name="principal_street_number" placeholder="N° de rue"
+                    value={principal_street_number}
                     disabled={true}
                 />
-                <Input type="text" id="name_of_the_road" name="name_of_the_road" placeholder="Nom de rue"
-                    value={name_of_the_road}
+                <Input type="text" id="principal_name_of_the_road" name="principal_name_of_the_road" placeholder="Nom de rue"
+                    value={principal_name_of_the_road}
                     disabled={true}
                 />
             </div>
             <div className="city">
-                <Input type="text" id="postal_code" name="postal_code" pattern="[0-9]{5}" placeholder="Code postal"
-                    value={postal_code}
+                <Input type="text" id="principal_postal_code" name="principal_postal_code" pattern="[0-9]{5}" placeholder="Code postal"
+                    value={principal_postal_code}
                     disabled={true}
                 />
-                <Input type="text" id="city" name="city" placeholder="Ville" 
-                    value={city}
+                <Input type="text" id="principal_city" name="principal_city" placeholder="Ville" 
+                    value={principal_city}
                     disabled={true}
                 />
             </div>

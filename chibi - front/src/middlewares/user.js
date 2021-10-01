@@ -23,6 +23,7 @@ const userMiddleware = (store) => (next) => (action) => {
               console.log("response",response)
               store.dispatch(connectUser(response.data));
               localStorage.setItem("user", JSON.stringify(response.data.user));
+              store.dispatch({type: GET_USER_ADDRESSES});
             }
           },
         ).catch(

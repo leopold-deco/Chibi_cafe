@@ -52,6 +52,7 @@ export default function CheckoutForm() {
   
             if(responseOrder.data.id) {
               console.log("success", responseOrder);
+              localStorage.setItem("lastOrder", JSON.stringify(responseOrder.data));
               history.push('/confirmation')
             }
 

@@ -1,203 +1,96 @@
+@use '../../styles/vars';
 
-.modal-content {
-    background-color: #42469d;
-    border-color: #42469d;
-    border-radius: 1rem
-}
-
-@media (min-width: 576px) {
-    .modal-dialog {
-        max-width: 750px;
-        margin: 1.75rem auto
-    }
-}
-
-.show {
-    padding: 0
-}
-
-.modal-header {
-    border-bottom: none;
-    text-align: center
-}
-
-.modal-header .close {
-    padding: 1rem 1rem;
-    margin: -1rem -1rem -1rem 0;
-    color: #fff
-}
-
-:-moz-any-link:focus {
-    outline: none
-}
-
-.modal-title {
-    line-height: 3rem
-}
-
-.modal-body {
-    padding: 1rem
+.confirmation {
+    width: 40rem;
+    margin: 2rem auto;
+    border-radius: vars.$border-radius;
+    padding: 4rem;
 }
 
 #progressbar {
-    margin-bottom: 3vh;
+    margin-bottom: 30px;
     overflow: hidden;
-    color: white;
+    color: #455A64;
     padding-left: 0px;
-    margin-top: 3vh
+    margin-top: 30px
 }
 
 #progressbar li {
     list-style-type: none;
-    font-size: 0.8rem;
-    width: 25%;
+    font-size: 13px;
+    width: 33.33%;
     float: left;
     position: relative;
     font-weight: 400;
-    color: white
+    color: #455A64 !important;
+
+    &:nth-child(2) {
+        text-align: center;
+    }
+
+    &:nth-child(3) {
+        text-align: right;
+    }
 }
 
 #progressbar #step1:before {
-    content: "";
-    color: white;
-    width: 20px;
-    height: 20px;
-    margin-left: 0px !important
+    content: "1";
+    color: #fff;
+    width: 29px;
+    margin-left: 15px !important;
+    padding-left: 11px !important
 }
 
 #progressbar #step2:before {
-    content: "";
+    content: "2";
     color: #fff;
-    width: 20px;
-    height: 20px;
-    margin-left: 32%
+    width: 29px
 }
 
 #progressbar #step3:before {
-    content: "";
+    content: "3";
     color: #fff;
-    width: 20px;
-    height: 20px;
-    margin-right: 32%
-}
-
-#progressbar #step4:before {
-    content: "";
-    color: rgb(151, 149, 149, 0.651);
-    width: 20px;
-    height: 20px;
-    margin-right: 0px !important
+    width: 29px;
+    margin-right: 15px !important;
+    padding-right: 11px !important
 }
 
 #progressbar li:before {
     line-height: 29px;
     display: block;
     font-size: 12px;
-    background: rgb(151, 149, 149);
+    background: #455A64;
     border-radius: 50%;
-    margin: auto;
-    z-index: -1;
-    margin-bottom: 1vh
+    margin: auto
 }
 
 #progressbar li:after {
     content: '';
-    height: 3px;
-    background: rgb(151, 149, 149, 0.651);
+    width: 121%;
+    height: 2px;
+    background: #455A64;
     position: absolute;
     left: 0%;
     right: 0%;
-    margin-bottom: 2vh;
-    top: 8px;
-    z-index: 1
-}
-
-.progress-track {
-    padding: 0 8%
+    top: 15px;
+    z-index: -1
 }
 
 #progressbar li:nth-child(2):after {
-    margin-right: auto
+    left: 50%
 }
 
 #progressbar li:nth-child(1):after {
-    margin: auto
+    left: 25%;
+    width: 121%
 }
 
 #progressbar li:nth-child(3):after {
-    float: left;
-    width: 68%
-}
-
-#progressbar li:nth-child(4):after {
-    margin-left: auto;
-    width: 132%
+    left: 25% !important;
+    width: 50% !important
 }
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: white
-}
-
-#three {
-    font-size: 1.2rem
-}
-
-@media (max-width: 767px) {
-    #three {
-        font-size: 1rem
-    }
-}
-
-.details {
-    padding: 2rem;
-    font-size: 1.4rem;
-    line-height: 3.5rem
-}
-
-@media (max-width: 767px) {
-    .details {
-        padding: 2rem 0;
-        font-size: 1rem;
-        line-height: 2.5rem
-    }
-}
-
-.d-table {
-    width: 100%
-}
-
-.d-table-row {
-    width: 100%
-}
-
-.d-table-cell {
-    padding-left: 3rem
-}
-
-@media (max-width: 767px) {
-    .d-table-cell {
-        padding-left: 1rem
-    }
-}
-
-.col-3 {
-    display: grid;
-    text-align: end
-}
-
-.col-3 .d-table-row {
-    align-self: flex-end
-}
-
-.fa {
-    font-size: xx-large;
-    text-align: center;
-    width: 3rem;
-    padding: 0.5rem;
-    color: #42469d;
-    background-color: #fff;
-    border-radius: 2rem;
-    bottom: 0;
-    right: 0
+    background: #4bb8a9
 }

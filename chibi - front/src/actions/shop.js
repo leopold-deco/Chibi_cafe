@@ -6,6 +6,7 @@ export const FETCH_ARTICLES = 'FETCH_ARTICLES';
 export const SAVE_ARTICLES = 'SAVE_ARTICLES';
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
 export const SAVE_CATEGORIES = 'SAVE_CATEGORIES';
+export const PRICE_CHECK = 'PRICE_CHECK';
 
 export const fetchArticles = () => ({ type: FETCH_ARTICLES });
 
@@ -52,3 +53,40 @@ export const decrementCartQuantity = productId => {
       payload: productId
   }
 };
+
+export const REMOVE_PRODUCT_FROM_FAVORITES = 'REMOVE_PRODUCT_FROM_FAVORITES';
+export const removeProductFromFavorites = (productId) => (
+  {
+    type: REMOVE_PRODUCT_FROM_FAVORITES,
+    payload: productId,
+  }
+);
+
+export const ADD_FAVORITES = 'ADD_FAVORITES';
+export const addFavorites = (product) => (
+    {       
+        type: ADD_FAVORITES,
+        payload: product,
+    }       
+);
+
+export const FETCH_FAVORITES = 'FETCH__FAVORITES';
+export const fetchFavorites = () => (
+    {
+        type: FETCH_FAVORITES,
+    }
+);
+
+export const SAVE_FAVORITES = 'SAVE_FAVORITES';
+export const saveFavorites = (favorites) => (
+    {
+        type: SAVE_FAVORITES,
+        favorites,
+    }
+);
+export const checkPrice = () => {
+    return {
+        type: PRICE_CHECK,
+        
+    }
+}

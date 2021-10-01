@@ -11,8 +11,11 @@ import './account.scss';
 function Account() {
   // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const [openSignForm, setOpenSignForm] = useState(false)
+  const [inscription, setInscription] = useState(false)
   const signUpclassName = openSignForm ? "auth-container-signup--open" : "auth-container-signup"
   const loginClassName = openSignForm ? "auth-container-login--close" : "auth-container-login"
+  const modConnectClasse = inscription ? "isClient--close" : "isClient";
+
 
   const openSignupForm = () => {
     setOpenSignForm(true)
@@ -20,10 +23,8 @@ function Account() {
 
   const closeSignupForm = () => {
     setTimeout(function(){ setOpenSignForm(false); }, 2000);
+    setInscription(true)
   }
-
-  console.log(openSignForm)
-
 
     return (
       <div>
@@ -33,7 +34,7 @@ function Account() {
             </div>
             <div className={loginClassName}>
               <Login/>
-              <div className="isClient">
+              <div className={modConnectClasse}>
                 <h2 className="signupTitle">Nouveau Client ?</h2>
                 <button onClick={openSignupForm} className="clientBtn">Créer un Compte</button>
             </div> 

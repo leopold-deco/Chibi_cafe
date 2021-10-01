@@ -28,6 +28,10 @@
 
 .isClient{
     display: none;
+
+    &--close{
+        display: none;
+    }
 }
 
 .clientBtn{
@@ -81,6 +85,10 @@
         flex-direction: column;
         gap: 0.5rem;
         border-radius: vars.$border-radius;
+
+        &--close{
+            display: none;
+        }
     }
 
     .auth-container-login{
@@ -110,6 +118,8 @@
 
     .isClient{
         width: 90%;
+
+       
     }
 }
 

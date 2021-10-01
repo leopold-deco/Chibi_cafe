@@ -4,7 +4,7 @@ const deliveryAddress = JSON.parse(localStorage.getItem("deliveryAddress"));
 
 export const initialState = {
   isNewAddress: false,
-  ...deliveryAddress
+  deliveryAddress
 };
 
 const delivery = (state = initialState, action = {}) => {

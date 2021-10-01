@@ -17,7 +17,7 @@ const tokenMW = {
     },
 
     authenticateToken: (request, response, next) => {
-        console.log('req : ', request);
+        console.log('request.headerTest : ', request.headers);
         const authHeader = request.headers['authorization'];
         console.log('authHeader', authHeader);
         const token = authHeader && authHeader.split(' ')[1];

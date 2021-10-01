@@ -12,6 +12,8 @@ const oderController = {
 
             const deliveryInfoRequest = request.body.state.delivery;
             const userInfo = request.body.state.auth.user;
+            console.log('TEST req.body.state', request.bo);
+            console.log('userInfo', userInfo);
             const cart = request.body.state.shop.cart;
 
             let deliveryInfo = {};
@@ -40,7 +42,7 @@ const oderController = {
                 delivery_name_of_the_road: deliveryInfoRequest.name_of_the_road,
                 delivery_postal_code: deliveryInfoRequest.postal_code,
                 delivery_city: deliveryInfoRequest.city,
-                user_id: userInfo.user_id
+                user_id: userInfo.id
             }
 
             if(deliveryInfoRequest.isNewAddress) {

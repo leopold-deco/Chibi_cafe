@@ -65,7 +65,8 @@ Content-Type: application/json
 ### CREATE ORDER
 
 POST {{host}}/order
-Content-Type: application/json
+Content-Type: application/
+remote: json
 
 {
     "state":{

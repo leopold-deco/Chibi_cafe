@@ -137,7 +137,7 @@ const userMiddleware = (store) => (next) => (action) => {
       axiosInstance.get(
         `/address/${id}`,
       ).then((response) => {
-        // localStorage.setItem("user", JSON.stringify(response.data));
+        localStorage.setItem("orders", JSON.stringify(response.data));
         console.log(response);
       },
       ).catch(

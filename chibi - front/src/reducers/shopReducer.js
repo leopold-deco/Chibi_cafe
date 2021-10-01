@@ -4,8 +4,13 @@ import {
     ADD_PRODUCT_TO_CART,
     DECREMENT_CART_ITEM_QUANTITY,
     INCREMENT_CART_ITEM_QUANTITY,
-    REMOVE_PRODUCT_FROM_CART
+    REMOVE_PRODUCT_FROM_CART,
 } from '../actions/shop';
+
+import {
+    SAVE_FOODS,
+    SAVE_FOODCATEGORIES
+} from '../actions/menu'
 
 const initialState = {
     categories: [],
@@ -28,7 +33,19 @@ const shopReducer = (state = initialState, action ) => {
             return {
                 ...state,
                 categories: action.categories.filter(category => category.type_of_product === true ),
-            };    
+            };
+            
+        case SAVE_FOODCATEGORIES:
+            return{
+                ...state,
+                categories: action.foodCategories
+            };
+        case SAVE_FOODS:
+            return{
+                ...state,
+                products: action.foods
+            }       
+            
         case INCREMENT_CART_ITEM_QUANTITY:
             updatedCart = [...state.cart];
             updatedItemIndex = updatedCart.findIndex(

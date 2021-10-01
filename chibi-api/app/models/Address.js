@@ -19,7 +19,7 @@ class Address {
 
     async create() {
         try {
-            await db.query('INSERT INTO "address"("street_number", "name_of_the_road", "postal_code", "city", "user_id") VALUES($1, $2, $3, $4, $5)', [this.delivery_street_number, this.delivery_name_of_the_road, this.delivery_postal_code, this.delivery_city, this.user_id]);
+            await db.query('INSERT INTO "address"("first_name", "last_name", "phone_number", "street_number", "name_of_the_road", "postal_code", "city", "user_id") VALUES($1, $2, $3, $4, $5, $6, $7, $8)', [this.first_name, this.last_name, this.phone_number, this.delivery_street_number, this.delivery_name_of_the_road, this.delivery_postal_code, this.delivery_city, this.user_id]);
         } catch (error) {
             throw error;
         }

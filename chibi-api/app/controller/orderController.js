@@ -2,6 +2,8 @@ const Order = require('../models/Order');
 const OrderHasProduct = require('../models/OrderHasProduct');
 const Address = require('../models/Address');
 const checkPrice = require('../function/checkPrice');
+const nodemailer = require('nodemailer');
+
 
 const oderController = {
 
@@ -9,42 +11,24 @@ const oderController = {
         try {
 
             // GESTION D'INSERTION DANS LA TABLE ORDER
-
             const deliveryInfoRequest = request.body.state.delivery;
             const userInfo = request.body.state.auth.user;
-            console.log('TEST req.body.state', request.bo);
-            console.log('userInfo', userInfo);
             const cart = request.body.state.shop.cart;
 
-            let deliveryInfo = {};
-
             const cartAmount = await checkPrice(cart);
-
-            if(!deliveryInfoRequest.isNewAddress) {
-
-                deliveryInfo = { 
-                    total: cartAmount, 
-                    delivery_street_number: userInfo.street_number,
-                    delivery_name_of_the_road: userInfo.name_of_the_road,
-                    delivery_postal_code: userInfo.postal_code,
-                    delivery_city: userInfo.city,
-                    user_id: userInfo.id
-                }
-            
-            } else {
-
-                deliveryInfo = {
-                    total: cartAmount,             
-                    delivery_street_number: deliveryInfoRequest.street_number,
-                    delivery_name_of_the_road: deliveryInfoRequest.name_of_the_road,
-                    delivery_postal_code: deliveryInfoRequest.postal_code,
-                    delivery_city: deliveryInfoRequest.city,
-                    user_id: userInfo.id
-                }
-
-            }
-
-            
+            const deliveryInfo = {
+                
+                total: cartAmount,   
+                first_name: deliveryInfoRequest.first_name,
+                last_name: deliveryInfoRequest.last_name,
+                mail: deliveryInfoRequest.mail,
+                phone_number: deliveryInfoRequest.phone_number,          
+                delivery_street_number: deliveryInfoRequest.street_number,
+                delivery_name_of_the_road: deliveryInfoRequest.name_of_the_road,
+                delivery_postal_code: deliveryInfoRequest.postal_code,
+                delivery_city: deliveryInfoRequest.city,
+                user_id: userInfo.id
+            };         
 
             if(deliveryInfoRequest.isNewAddress) {
                 console.log();
@@ -64,6 +48,40 @@ const oderController = {
                 await newOrderHasProduct.create(orderId, item.id, item.quantity);
 
             }
+            
+            // ENVOIE DU MAIL DE CONFIRMATION 
+            console.log(userInfo);
+            const transporter = nodemailer.createTransport({
+                host:'smtp.gmail.com',
+                 port: 465,  //25,
+                secure: false,
+                 service:'gmail',
+                 auth: {
+                   user:"chibi.test3@gmail.com",
+                   pass:"Chibi12345"
+                },
+                tls: {
+                    rejectUnauthorized: false
+                },
+            });
+            var mailOptions = {
+                from: 'chibi.test3@gmail.com', 
+                  to: userInfo.mail,
+                 subject: `Récapitulatif de commande n° ${createdOrder.id} sur CHIBI`, 
+                  text: `Cet email tient lieu de confirmation pour votre paiement de ${deliveryInfo.total}, effectué le ${createdOrder.order_date} sur la boutique Chibi Cafe.
+                         La commande sera livré au ${deliveryInfo.delivery_street_number} ${deliveryInfo.delivery_name_of_the_road} ${deliveryInfo.delivery_postal_code} ${deliveryInfo.delivery_city}
+                  Merci de votre commande ${deliveryInfo.first_name} `
+                };
+                transporter.sendMail(mailOptions, function(error, info){
+                    if (error) {
+                      console.log(error);
+                    } else {
+                      console.log('Email sent: ' + info.response);
+                    }
+                  });
+
+            // ENVOIE DE LA REPONSE 
+
             response.status(200).json(createdOrder);
         }catch(error) {
             response.status(500).send(error.message);   

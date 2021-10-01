@@ -28,7 +28,7 @@ CREATE TABLE "order" (
     "delivery_name_of_the_road" TEXT NOT NULL,
     "delivery_postal_code" TEXT NOT NULL,
     "delivery_city" TEXT NOT NULL,
-    "user_id" INT REFERENCES "user"(id) ON DELETE CASCADE
+    "user_id" INT REFERENCES "user"(id) ON DELETE CASCADE NOT NULL
 );
 
 CREATE TABLE "category" (

@@ -18,6 +18,6 @@ ALTER TABLE "user"
     ALTER COLUMN "mail" TYPE TEXT,
     ALTER COLUMN "password" TYPE TEXT,
     ALTER COLUMN "phone_number" TYPE TEXT,
-    ALTER COLUMN "postal_code" TYPE TEXT;
+    ALTER COLUMN "principal_postal_code" TYPE TEXT;
 
 COMMIT;

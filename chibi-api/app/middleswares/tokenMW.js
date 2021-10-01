@@ -9,7 +9,7 @@ const tokenMW = {
         const result = await User.checkMail(userInfo.mail);
         if(!result) response.status(200).json(`Email ou mot de passe incorrect`);
         const isTrue = bcrypt.compareSync(userInfo.password, result.password);
-        const userInfoToken = {mail:userInfo.mail}
+        const userInfoToken = {mail:userInfo.mail};
         if(isTrue) {
             accessToken = jwt.sign(userInfoToken, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '600000s'});
         }

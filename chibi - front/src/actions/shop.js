@@ -54,21 +54,15 @@ export const decrementCartQuantity = productId => {
   }
 };
 
-export const REMOVE_PRODUCT_FROM_FAVORITES = 'REMOVE_PRODUCT_FROM_FAVORITES';
-export const removeProductFromFavorites = (productId) => (
+export const ADD_FAVORITES = 'ADD_FAVORITES';
+
+export const addFavorites = (favorites) => (
   {
-    type: REMOVE_PRODUCT_FROM_FAVORITES,
-    payload: productId,
+    type: ADD_FAVORITES,
+    favorites,
   }
 );
 
-export const ADD_FAVORITES = 'ADD_FAVORITES';
-export const addFavorites = (product) => (
-    {       
-        type: ADD_FAVORITES,
-        payload: product,
-    }       
-);
 
 export const FETCH_FAVORITES = 'FETCH__FAVORITES';
 export const fetchFavorites = () => (

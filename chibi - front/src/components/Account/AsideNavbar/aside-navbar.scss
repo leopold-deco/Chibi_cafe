@@ -14,6 +14,7 @@
     padding: 1rem;
     gap: 2rem;
     border-radius: vars.$border-radius;
+    box-shadow: vars.$box-shadow;
 
     &__link {
         display: flex;
@@ -44,11 +45,13 @@
         &:nth-child(2):after { 
             content: "Favoris";
             color: rgb(226, 85, 132);
+            padding-left: 1rem;
         }
         
         &:nth-child(3):after { 
             content: "Commandes";
             color: rgb(226, 85, 132);
+            padding-left: 0.5rem;
         }
 
         &:hover {
@@ -68,4 +71,8 @@ ion-icon {
     font-size: 64px;
     color: rgb(226, 85, 132);
     transition: all .4s ease-out;
+
+    &:after {
+        padding-left: 1rem;
+    }
 }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_ARTICLES, FETCH_CATEGORIES, PRICE_CHECK, saveArticles, saveCategories, FETCH_FAVORITES, saveFavorites } from '../actions/shop';
+import { FETCH_ARTICLES, FETCH_CATEGORIES, PRICE_CHECK, ADD_FAVORITES, addFavorites, saveArticles, saveCategories, FETCH_FAVORITES, saveFavorites } from '../actions/shop';
 
 const axiosInstance = axios.create({
   baseURL: 'https://chibi-api.herokuapp.com',
@@ -35,6 +35,23 @@ const shopMiddleWare = (store) => (next) => (action) => {
       break;
     }
 
+    case ADD_FAVORITES: {
+      const { token,  favorites: { id } } = store.getState().products;
+    
+      axios.post(`https://chibi-api.herokuapp.com/useWishList/${id}`)
+      .then(
+        (response) => {
+          console.log(response)
+          localStorage.setItem("favorites", JSON.stringify(response.data));
+          store.dispatch(addFavorites(response.data))
+        }
+      ).catch(
+        (error) => console.log("erreur: pas d'ajout en favoris", error)
+      );
+      next(action);
+      break;
+    }
+
     case FETCH_FAVORITES: {
       const { token, user: {
         id,
@@ -44,8 +61,7 @@ const shopMiddleWare = (store) => (next) => (action) => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      }
-      )
+      })
       .then(
         (response) => {
           console.log(response)
@@ -59,6 +75,24 @@ const shopMiddleWare = (store) => (next) => (action) => {
         next(action);
         break;
     }
+
+    // case REMOVE_PRODUCT_FROM_FAVORITES: {
+    //   const { token, user: {id,} } = store.getState().auth;
+    //   axiosInstance.delete(`/useWishList/${id}`, {
+    //     credentials: 'include',
+    //     headers: {
+    //     Authorization: `Bearer ${token}`,
+    //     },
+    //   })
+    //   .then(
+    //     (response) => {
+    //       store.dispatch()
+    //     }
+    //   ).catch(
+    //     () => console.log("erreur"));
+    //     next(action);
+    //     break;
+    // }
     
     case PRICE_CHECK: {
 

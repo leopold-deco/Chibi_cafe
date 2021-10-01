@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
- import { useParams } from "react-router-dom";
-
-
+import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import ProductCard from "./ProductCard";
 import { fetchArticles,} from "../../../actions/shop";
 

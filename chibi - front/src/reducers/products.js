@@ -1,5 +1,5 @@
-import { ADD_FAVORITES, SAVE_FAVORITES,
-  REMOVE_PRODUCT_FROM_FAVORITES } from '../actions/shop';
+/* eslint-disable no-use-before-define */
+import { ADD_FAVORITES, SAVE_FAVORITES, } from '../actions/shop';
 
 
 export const initialState = {
@@ -9,39 +9,28 @@ export const initialState = {
 };
 
 const reducer = (state = initialState, action = {}) => {
-  let updatedFavorites;
-  let updatedElementIndex;
+  let newFavorites;
+  let updateFavorites;
 
   switch (action.type) {
+    case ADD_FAVORITES:
+      newFavorites = [...state.favorites];
+      updateFavorites = newFavorites.findIndex = (element) => element.id === action.payload;
+
+      const incrementedFavorites = {...newFavorites[updateFavorites]};
+      
+      incrementedFavorites.quantity++;
+
+      return {
+        ...state,
+        favorites: newFavorites,
+      }
+
     case SAVE_FAVORITES:
       return {
         ...state,
         favorites: action.favorites,
       }
-
-    case ADD_FAVORITES :
-      updatedFavorites = [...state.favorites];
-      updatedElementIndex = updatedFavorites.findIndex(item => item.id === action.payload.id);
-
-      if (updatedElementIndex < 0) {
-        updatedFavorites.push({...action.payload, quantity: 1});
-      } else {
-        const updatedElement = {
-          ...updatedElement[updatedElementIndex]
-        };
-        updatedElement.quantity++;
-        updatedFavorites[updatedElementIndex] = updatedElement;
-      }
-
-      return {...state, favorites: updatedFavorites};
-
-    case REMOVE_PRODUCT_FROM_FAVORITES:
-      updatedFavorites = [...state.favorites];
-      updatedElementIndex = updatedFavorites.findIndex(item => item.id === action.payload.id);
-
-      updatedFavorites.splice(updatedElementIndex, 1);
-
-      return {...state, favorites: updatedFavorites};
 
     default:
       return state;

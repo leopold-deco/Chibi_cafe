@@ -39,8 +39,9 @@ const shopMiddleWare = (store) => (next) => (action) => {
       const { user: {
         id,
       } } = store.getState().auth;
-      axiosInstance.get(`https://chibi-api.herokuapp.com/wishList/${id}`
-      )
+      axiosInstance.get(`/wishList/${id}`, {
+        credentials: "include",
+      })
       .then(
         (response) => {
           console.log("autorisations:", axiosInstance.defaults.headers.common.Authorization);
@@ -57,8 +58,6 @@ const shopMiddleWare = (store) => (next) => (action) => {
     
     case PRICE_CHECK: {
 
-
-      
       const state = store.getState();
       console.log("state", state)
 

@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react";
 import { fetchFavorites } from "../../actions/shop";
 
+import AsideNavbar from '../Account/AsideNavbar';
 import Content from "../Content";
 
 import './favorites.scss';
@@ -25,11 +26,14 @@ const Favorites = () => {
         return <Redirect to="/compte" />
     }
     return (
-        <Content
-        title="Mes produits favoris"
-        text="Ma sélection de produits favoris"
-        products={favorites}
-        />
+        <div className="favorites">
+            <AsideNavbar />
+            <Content
+            title="Mes produits favoris"
+            text="Ma sélection de produits favoris"
+            products={favorites}
+            />
+        </div>
     );
 };
 

@@ -35,7 +35,7 @@ const Delivery = () => {
                     state={isNewAddress}
                 />
             </div>
-            <Button>Paiement</Button>
+            <Button type="submit">Paiement</Button>
         </Form>
     );
 };

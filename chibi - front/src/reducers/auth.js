@@ -2,7 +2,7 @@ import { CONNECT_USER, LOGOUT, REGISTER_USER, SET_USER_FIELD } from '../actions/
 
 const user = JSON.parse(localStorage.getItem("user"));
 const orders = JSON.parse(localStorage.getItem("orders"));
-console.log("reduc",orders)
+
 export const initialState = user
 ? { isLoggedIn: true, user, orders }
 : { isLoggedIn: false, user: null, orders: null };

@@ -18,10 +18,9 @@ const userMiddleware = (store) => (next) => (action) => {
         ).then(
           (response) => {
             if (response.data.token) {
-              store.dispatch(connectUser(response.data.user));
-              axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
-              localStorage.setItem("user", JSON.stringify(response.data.user));
               console.log("response",response)
+              store.dispatch(connectUser(response.data));
+              localStorage.setItem("user", JSON.stringify(response.data.user));
             }
           },
         ).catch(
@@ -31,7 +30,6 @@ const userMiddleware = (store) => (next) => (action) => {
         break;
     }
     case LOGOUT:
-      delete axiosInstance.defaults.headers.common.Authorization;
       localStorage.removeItem("user");
       next(action);
       break;

@@ -20,30 +20,31 @@ const oderController = {
 
             const cartAmount = await checkPrice(cart);
 
-            // if(!deliveryInfoRequest.isNewAddress) {
+            if(!deliveryInfoRequest.isNewAddress) {
 
-            //     deliveryInfo = { 
-            //         total: cartAmount, 
-            //         delivery_street_number: userInfo.street_number,
-            //         delivery_name_of_the_road: userInfo.name_of_the_road,
-            //         delivery_postal_code: userInfo.postal_code,
-            //         delivery_city: userInfo.city,
-            //         user_id: userInfo.user_id
-            //     }
+                deliveryInfo = { 
+                    total: cartAmount, 
+                    delivery_street_number: userInfo.street_number,
+                    delivery_name_of_the_road: userInfo.name_of_the_road,
+                    delivery_postal_code: userInfo.postal_code,
+                    delivery_city: userInfo.city,
+                    user_id: userInfo.id
+                }
             
-            // } else {
+            } else {
 
-                
-            // }
+                deliveryInfo = {
+                    total: cartAmount,             
+                    delivery_street_number: deliveryInfoRequest.street_number,
+                    delivery_name_of_the_road: deliveryInfoRequest.name_of_the_road,
+                    delivery_postal_code: deliveryInfoRequest.postal_code,
+                    delivery_city: deliveryInfoRequest.city,
+                    user_id: userInfo.id
+                }
 
-            deliveryInfo = {
-                total: cartAmount,             
-                delivery_street_number: deliveryInfoRequest.street_number,
-                delivery_name_of_the_road: deliveryInfoRequest.name_of_the_road,
-                delivery_postal_code: deliveryInfoRequest.postal_code,
-                delivery_city: deliveryInfoRequest.city,
-                user_id: userInfo.id
             }
+
+            
 
             if(deliveryInfoRequest.isNewAddress) {
                 console.log();

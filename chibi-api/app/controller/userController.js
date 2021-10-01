@@ -63,6 +63,7 @@ const userController = {
         try {
             const userInfo = request.body;
             const user = await User.findOneMail(userInfo.mail);
+            console.log('accesTokenTEST2', accessToken);
             response.status(200).json({
                 user,
                 token: accessToken

@@ -221,7 +221,7 @@ GET {{host}}/wishList/1
 
 ### INSERER UN OBJET DANS LA WISHLIST
 
-POST {{host}}/useWishList/1
+POST {{host}}/useWishList/3
 Content-Type: application/json 
 
 {

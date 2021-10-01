@@ -8,7 +8,7 @@ const UserAddress = () => {
     const user = useSelector(state => state.auth.user);
     const orders = useSelector(state => state.auth.orders);
     const { isShowing, toggle } = useModal();
-
+    console.log(orders)
     return (
         <div>
             <FormInputDisabled data={user} />
@@ -31,7 +31,7 @@ const UserAddress = () => {
                         </div>
                         <div className="modal-flex">
                         {orders.map((order) => (
-                            <FormInputDisabled data={order}/>
+                            <FormInputDisabled key={order.id} data={order}/>
                         ))}
                         </div>
                         </div>

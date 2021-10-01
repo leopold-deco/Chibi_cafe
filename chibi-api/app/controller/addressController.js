@@ -15,8 +15,10 @@ const addressController = {
 
     deleteAddress: async (request, response) => {
         try {
-            const {id} = request.params
-            await Address.delete(id);
+            const {id} = request.params;
+            const deleteAddress = new Address();
+            await deleteAddress.delete(id);
+            response.status(200).json("Adresse suprimmée");
         } catch (error) {
             response.status(500).send(error.message);
         }
@@ -24,9 +26,8 @@ const addressController = {
 
     updateAddress: async (request, response) => {
         try {
-            const {id} = request.params.id;
             const updatedAddress = new Address(request.body);
-            await updatedAddress.update(id);
+            await updatedAddress.update(request.params.id);
             response.status(200).json("Changement effectué")
         } catch(error) {
             response.status(500).send(error.message);

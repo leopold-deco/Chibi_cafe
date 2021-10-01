@@ -1,3 +1,4 @@
+
 @host=http://localhost:8080
 
 ### GET PRODUCT
@@ -216,7 +217,7 @@ Content-Type: application/json
 
 ### VOIR LA WISHLIST
 
-GET {{host}}/wishList/1
+GET {{host}}/wishList/3
 
 
 ### INSERER UN OBJET DANS LA WISHLIST
@@ -240,10 +241,26 @@ Content-Type: application/json
 
 ### SURPIMER LES PRODUIT PRODUIT DE LA WISHLIST
 
-DELETE {{host}}/wishList/1
+DELETE {{host}}/wishList/3
 
 
 ### AVOIR LES ADRESSES SECONDAIRES D'UN USER
 
 GET {{host}}/address/3
 
+### MODIFICATION INFO ADRESSE
+
+PATCH {{host}}/address/7
+Content-Type: application/json
+
+{
+    "street_number": "2",
+    "name_of_the_road": "rue des palmiers",
+    "postal_code": "75018",
+    "city": "lyon",
+    "user_id": 3
+}
+
+### SUPPRESSION D'UNE ADRESS
+
+DELETE {{host}}/address/8

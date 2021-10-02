@@ -37,8 +37,7 @@ const userMiddleware = (store) => (next) => (action) => {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
       localStorage.removeItem("deliveryAddress");
-      localStorage.removeItem("orders");
-      console.log(JSON.parse(localStorage.getItem('orders')))
+      localStorage.removeItem("userAddresses");
       next(action);
       break;
     case SIGNUP: {
@@ -142,7 +141,8 @@ const userMiddleware = (store) => (next) => (action) => {
       axiosInstance.get(
         `/address/${id}`,
       ).then((response) => {
-        localStorage.setItem("orders", JSON.stringify(response.data));
+        console.log("orderrr", response)
+        localStorage.setItem("userAddresses", JSON.stringify(response.data));
       },
       ).catch(
         (error) => console.log('error', error),

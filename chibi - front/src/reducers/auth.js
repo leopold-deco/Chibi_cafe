@@ -1,12 +1,12 @@
 import { CONNECT_USER, LOGOUT, REGISTER_USER, SET_USER_FIELD } from '../actions/auth';
 
 const user = JSON.parse(localStorage.getItem("user"));
-const orders = JSON.parse(localStorage.getItem("orders"));
+const userAddresses = JSON.parse(localStorage.getItem("userAddresses"));
 const token = JSON.parse(localStorage.getItem("token"));
 
 export const initialState = user
-? { isLoggedIn: true, user, orders, token }
-: { isLoggedIn: false, user: null, orders: null, token: null };
+? { isLoggedIn: true, user, userAddresses, token }
+: { isLoggedIn: false, user: null, userAddresses: null, token: null };
 
 const auth = (state = initialState, action = {}) => {
   switch (action.type) {
@@ -23,7 +23,7 @@ const auth = (state = initialState, action = {}) => {
         user: null,
         isLoggedIn: false, 
         token: null,
-        orders: null
+        userAddresses: null
       };
     case REGISTER_USER:
       return {

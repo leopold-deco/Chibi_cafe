@@ -15,10 +15,6 @@ const Delivery = () => {
     const { isLoggedIn } = useSelector(state => state.auth);
 
     const verifyIsNewAddressAndStore = () => {
-        if (isNewAddress) {
-            console.log(isNewAddress,  delivery)
-            localStorage.setItem("deliveryAddress", JSON.stringify(delivery));
-        }
         history.push('/paiement');
     };
 

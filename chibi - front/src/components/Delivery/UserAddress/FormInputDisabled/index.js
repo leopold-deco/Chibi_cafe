@@ -2,12 +2,11 @@ import './form-input-disabled.scss';
 import Input from '../../../Input';
 import Button from '../../../Button';
 
-const FormInputDisabled = ({ data, button }) => {
+const FormInputDisabled = ({ data, button, setData }) => {
     const DeliverySubmit = () => {
-        console.log("la",data)
-        localStorage.setItem("deliveryAddress", JSON.stringify(data));
+        setData(data);
     }
-    console.log()
+
     return (
         <div className="form-input-disabled">
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 

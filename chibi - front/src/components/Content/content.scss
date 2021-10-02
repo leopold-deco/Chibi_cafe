@@ -1,0 +1,19 @@
+@use '../../styles/vars';
+
+.content {
+    padding: vars.$gutter;
+
+    &-title {
+        font-size: 2em;
+        color: vars.$primary-color;
+        margin-bottom: vars.$gutter;
+        // padding-bottom: math.div(vars.$gutter, 4);
+        border-bottom: vars.$border;
+    }
+
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}

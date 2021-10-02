@@ -10,16 +10,14 @@ import Menu from '../Menu';
 import Account from '../Account';
 import Store from '../Store';
 import Footer from '../Footer';
+import Confirmation from '../Confirmation';
 import Error from '../error';
 import Custom from "../Store/Custom";
 import ProductsPage from "../Store/ProductsPage";
 import Informations from '../Account/Informations';
 import Orders from '../Account/Orders';
-import CheckoutForm from '../CheckoutForm';
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
-
-const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+import StripeContainer from '../StripeContainer';
+import Favorites from '../Favorites';
 
 function App() {
 
@@ -42,6 +40,9 @@ function App() {
         <Route path="/compte/informations" exact>
           <Informations />
         </Route>
+        <Route path="/compte/favoris" exact>
+          <Favorites />
+        </Route>
         <Route path="/compte/commandes" exact>
           <Orders />
         </Route>
@@ -52,9 +53,10 @@ function App() {
           <Delivery />
         </Route>
         <Route path="/paiement" exact>
-          <Elements stripe={stripePromise}>
-            <CheckoutForm />
-          </Elements>
+          <StripeContainer />
+        </Route>
+        <Route path="/confirmation" exact>
+          <Confirmation />
         </Route>
         <Route path="/contact" exact>
           <Contact />

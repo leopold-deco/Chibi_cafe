@@ -54,6 +54,36 @@ export const decrementCartQuantity = productId => {
   }
 };
 
+export const REMOVE_PRODUCT_FROM_FAVORITES = 'REMOVE_PRODUCT_FROM_FAVORITES';
+export const removeProductFromFavorites = (productId) => (
+  {
+    type: REMOVE_PRODUCT_FROM_FAVORITES,
+    payload: productId,
+  }
+);
+
+export const ADD_FAVORITES = 'ADD_FAVORITES';
+export const addFavorites = (product) => (
+    {       
+        type: ADD_FAVORITES,
+        payload: product,
+    }       
+);
+
+export const FETCH_FAVORITES = 'FETCH__FAVORITES';
+export const fetchFavorites = () => (
+    {
+        type: FETCH_FAVORITES,
+    }
+);
+
+export const SAVE_FAVORITES = 'SAVE_FAVORITES';
+export const saveFavorites = (favorites) => (
+    {
+        type: SAVE_FAVORITES,
+        favorites,
+    }
+);
 export const checkPrice = () => {
     return {
         type: PRICE_CHECK,

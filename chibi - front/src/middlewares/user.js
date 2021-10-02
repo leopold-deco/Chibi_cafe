@@ -18,10 +18,9 @@ const userMiddleware = (store) => (next) => (action) => {
         ).then(
           (response) => {
             if (response.data.token) {
-              store.dispatch(connectUser(response.data.user));
-              axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
-              localStorage.setItem("user", JSON.stringify(response.data.user));
               console.log("response",response)
+              store.dispatch(connectUser(response.data));
+              localStorage.setItem("user", JSON.stringify(response.data.user));
             }
           },
         ).catch(
@@ -31,7 +30,6 @@ const userMiddleware = (store) => (next) => (action) => {
         break;
     }
     case LOGOUT:
-      delete axiosInstance.defaults.headers.common.Authorization;
       localStorage.removeItem("user");
       next(action);
       break;
@@ -59,7 +57,7 @@ const userMiddleware = (store) => (next) => (action) => {
           //axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
         },
       ).catch(
-        () => console.log('error'),
+        (error) => console.log('error', error),
       );
       next(action);
       break;
@@ -73,10 +71,10 @@ const userMiddleware = (store) => (next) => (action) => {
         gender,
         birthday_date,
         phone_number,
-        street_number,
-        name_of_the_road,
-        postal_code,
-        city } } = store.getState().auth;
+        principal_street_number,
+        principal_name_of_the_road,
+        principal_postal_code,
+        principal_city } } = store.getState().auth;
 
         axiosInstance.patch(
         `/account/${id}`,
@@ -88,10 +86,10 @@ const userMiddleware = (store) => (next) => (action) => {
           gender,
           birthday_date,
           phone_number,
-          street_number,
-          name_of_the_road,
-          postal_code,
-          city
+          principal_street_number,
+          principal_name_of_the_road,
+          principal_postal_code,
+          principal_city
         },
       ).then((response) => {
         localStorage.setItem("user", JSON.stringify(response.data));
@@ -100,7 +98,7 @@ const userMiddleware = (store) => (next) => (action) => {
         console.log(response);
       },
       ).catch(
-        () => console.log('error'),
+        (error) => console.log('error', error),
       );
       next(action);
       break;
@@ -123,7 +121,7 @@ const userMiddleware = (store) => (next) => (action) => {
           console.log(response);
         },
         ).catch(
-          () => console.log('error'),
+          (error) => console.log('error', error),
         );
         next(action);
         break;

@@ -1,14 +1,10 @@
 import { SET_DELIVERY_FIELD } from '../actions/delivery';
 
+const deliveryAddress = JSON.parse(localStorage.getItem("deliveryAddress"));
+
 export const initialState = {
-  mail: '',
-  first_name: null,
-  last_name: null,
-  phone_number: null,
-  street_number: null,
-  name_of_the_road: null,
-  postal_code: null,
-  city: null,
+  isNewAddress: false,
+  deliveryAddress
 };
 
 const delivery = (state = initialState, action = {}) => {

@@ -3,20 +3,25 @@ import { CardElement } from '@stripe/react-stripe-js';
 export default function CardElement() {
     return(
         <CardElement
-        options={{
-            style: {
-            base: {
-                fontSize: '16px',
-                color: '#424770',
-                '::placeholder': {
-                color: '#aab7c4',
-                },
-            },
-            invalid: {
-                color: '#9e2146',
-            },
-            },
-        }}
+            options={{
+                iconStyle: "solid",
+                style: {
+                    base: {
+                        iconColor: "#c4f0ff",
+                        color: "#fff",
+                        fontWeight: 500,
+                        fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+                        fontSize: "16px",
+                        fontSmoothing: "antialiased",
+                        ":-webkit-autofill": { color: "#fce883" },
+                        "::placeholder": { color: "#87bbfd" }
+                    },
+                    invalid: {
+                        iconColor: "#ffc7ee",
+                        color: "#ffc7ee"
+                    }
+                }
+            }}
         />
     );
 

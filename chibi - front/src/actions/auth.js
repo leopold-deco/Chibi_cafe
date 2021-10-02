@@ -10,10 +10,10 @@ export const login = (mail, password) => (
 
 export const CONNECT_USER = 'CONNECT_USER';
 
-export const connectUser = (user) => (
+export const connectUser = (data) => (
   {
     type: CONNECT_USER,
-    user,
+    data,
   }
 );
 

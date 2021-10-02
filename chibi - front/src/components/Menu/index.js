@@ -14,19 +14,20 @@ function Menu() {
 
   const [seeProducts, setOpenProducts] = useState(false)
   const [pageProducts, setProducts] = useState([])
+  const [categorieName, setNameCat] = useState([])
 
 const categories = useSelector((state) => state.shop.categories.filter(category => category.type_of_product === false))
-
 const products = useSelector((state) => state.shop.products)
 
 
 const findProducts = (target, target2) => {
    setProducts(products.filter((product) =>  product.category_id === Number(target) || product.category_id === Number(target2)));
+   findCategorie(target, target2)
    setOpenProducts(true)
 } 
 
 
-const hangleMouseOver = () => {
+const handleMouseHover = () => {
 
 $('.liquid__categories').each(function() {
   $(this).mouseover(function() {
@@ -38,15 +39,42 @@ $('.liquid__categories').each(function() {
       $('.liquid').children('.liquid__categories').not('.active').removeClass('inactive');
   });
 });
+
+  $('.solid__categories').each(function() {
+    $(this).mouseover(function() {
+        $(this).addClass('active');
+      $('.solid').children('.solid__categories').not('.active').addClass('inactive');
+    });
+    $(this).mouseleave(function() {
+        $(this).removeClass('active');
+        $('.solid').children('.solid__categories').not('.active').removeClass('inactive');
+    });
+  });
+  
 }
 
 
 
-console.log(pageProducts)
+const closeMenuProducts = () => {
+  setOpenProducts(false)
+}
 
 
-const solids = categories.filter(category => category.state === true)
-const liquids = categories.filter(category => category.state === false)
+
+const findCategorie = (id, id2) => {
+   setNameCat(categories.find((categorie) => categorie.id === Number(id) || categorie.id === Number(id2)));
+
+}
+
+
+
+
+const solids = categories.filter(category => category.state === true);
+const liquids = categories.filter(category => category.state === false);
+
+const menuClassName = seeProducts ? "active" : "inactive";
+const classMenu = seeProducts ? "" : "nonvisible";
+const overlayClasseName = seeProducts ? "overOn" : "";
 
 
 
@@ -63,17 +91,20 @@ useEffect(
 
 
     return (
-      <div className='menu'>
+      <>      
+      <div onMouseOver={handleMouseHover} className='menu'>
         <div className='menu__solid'>
-          <Solid solids={solids} />
+          <Solid solids={solids} findProducts={findProducts}/>
         </div>
-        <div onMouseOver={hangleMouseOver} className="menu__liquid">
+        <div  className="menu__liquid">
           <Liquid liquids={liquids} findProducts={findProducts}/>
         </div>
-       {
-         seeProducts && <MenuProducts products={pageProducts}/>
-       } 
+       
+       <MenuProducts products={pageProducts} closeMenuProducts={closeMenuProducts} menuClassName={menuClassName} classMenu={classMenu} {...categorieName}/>
+      
       </div>
+      <div onClick={() => setOpenProducts(false)} className={`menu-overlay ${overlayClasseName}`}></div>
+      </>
     );
 }
   

@@ -1,4 +1,4 @@
-.liquid__categories{
+.solid__categories{
     background: green;
     width: 202px;
     -webkit-transform-origin: 50% 50%;
@@ -18,20 +18,17 @@
     cursor: pointer;
 }
 
-.Soft{
-    background-position-y: 0;
-}
 
 
-.liquid__categories.active {
-    width: 70%;
+.solid__categories.active {
+    width: 50%;
     -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     -ms-transition: all 0.25s ease-in-out;
     -o-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
   }
-  .liquid__categories.inactive {
+  .solid__categories.inactive {
     width: 162px;
     -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;

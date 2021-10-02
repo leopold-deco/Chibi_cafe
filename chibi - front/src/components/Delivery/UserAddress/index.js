@@ -1,17 +1,22 @@
 import './user-address.scss';
 import { useSelector } from 'react-redux';
-import Input from '../../Input';
 import FormInputDisabled from './FormInputDisabled';
 import useModal from "../../../hooks/useModal";
 
 const UserAddress = () => {
-    const user = useSelector(state => state.auth.user);
+    const { user } = useSelector(state => state.auth);
     const orders = useSelector(state => state.auth.orders);
     const { isShowing, toggle } = useModal();
-    console.log(orders)
+    const state = useSelector(state => state)
+    console.log(state)
+    const { deliveryAddress } = useSelector(state => state.delivery)
+
+
     return (
         <div>
-            <FormInputDisabled data={user} />
+            <FormInputDisabled data={deliveryAddress ? deliveryAddress : user} 
+                button={false}
+            />
             <button type="button" className="modal-toggle" onClick={toggle}>
                 Choisir une autre adresse de livraison
             </button>
@@ -31,7 +36,7 @@ const UserAddress = () => {
                         </div>
                         <div className="modal-flex">
                         {orders.map((order) => (
-                            <FormInputDisabled key={order.id} data={order}/>
+                            <FormInputDisabled key={order.id} data={order} button={true}/>
                         ))}
                         </div>
                         </div>

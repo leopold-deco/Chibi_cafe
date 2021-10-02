@@ -4,13 +4,15 @@ import Button from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import BooleanCheckbox from '../BooleanCheckbox';
-import { setDeliveryField } from '../../actions/delivery';
+import { setDeliveryRadio } from '../../actions/delivery';
+import { Redirect } from 'react-router-dom';
 
 const Delivery = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const delivery = useSelector((state) => state.delivery);
     const { isNewAddress } = useSelector((state) => state.delivery);
+    const { isLoggedIn } = useSelector(state => state.auth);
 
     const verifyIsNewAddressAndStore = () => {
         if (isNewAddress) {
@@ -21,8 +23,12 @@ const Delivery = () => {
     };
 
     const handleChange = (value) => {
-        dispatch(setDeliveryField(value, "isNewAddress"));
+        dispatch(setDeliveryRadio(value, "isNewAddress"));
     };
+
+    if (!isLoggedIn) {
+        return <Redirect to="/compte" />
+    }
 
     return (
         <Form handleSubmit={verifyIsNewAddressAndStore}> 

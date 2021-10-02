@@ -20,9 +20,10 @@ const userMiddleware = (store) => (next) => (action) => {
         ).then(
           (response) => {
             if (response.data.token) {
-              console.log("response",response)
-              store.dispatch(connectUser(response.data));
+              console.log("login",response)
               localStorage.setItem("user", JSON.stringify(response.data.user));
+              localStorage.setItem("token", JSON.stringify(response.data.token));
+              store.dispatch(connectUser(response.data));
               store.dispatch({type: GET_USER_ADDRESSES});
             }
           },
@@ -33,7 +34,11 @@ const userMiddleware = (store) => (next) => (action) => {
         break;
     }
     case LOGOUT:
+      localStorage.removeItem("token");
       localStorage.removeItem("user");
+      localStorage.removeItem("deliveryAddress");
+      localStorage.removeItem("orders");
+      console.log(JSON.parse(localStorage.getItem('orders')))
       next(action);
       break;
     case SIGNUP: {
@@ -138,7 +143,6 @@ const userMiddleware = (store) => (next) => (action) => {
         `/address/${id}`,
       ).then((response) => {
         localStorage.setItem("orders", JSON.stringify(response.data));
-        console.log(response);
       },
       ).catch(
         (error) => console.log('error', error),

@@ -1,13 +1,13 @@
 import './form-input-disabled.scss';
 import Input from '../../../Input';
-import Form from '../../../Account/Form';
 import Button from '../../../Button';
 
-const FormInputDisabled = ({ data }) => {
-    const DeliverySubmit = (event) => {
+const FormInputDisabled = ({ data, button }) => {
+    const DeliverySubmit = () => {
         console.log("la",data)
         localStorage.setItem("deliveryAddress", JSON.stringify(data));
     }
+    console.log()
     return (
         <div className="form-input-disabled">
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
@@ -18,20 +18,16 @@ const FormInputDisabled = ({ data }) => {
                 value={data.last_name}
                 disabled={true}
             />
-            <Input type="email" name="mail" id="mail" placeholder="Email"
-                value={data.mail}
-                disabled={true}
-            />
             <Input type="tel" id="phone_number" name="phone_number" placeholder="Numéro de mobile" 
                 value={data.phone_number}
                 disabled={true}
             />
             <div className="address">
-                <Input type="text" id="street_number" name="principal_street_number" placeholder="N° de rue"
+                <Input type="text" id="street_number" name="street_number" placeholder="N° de rue"
                     value={data.principal_street_number || data.street_number}
                     disabled={true}
                 />
-                <Input type="text" id="name_of_the_road" name="principal_name_of_the_road" placeholder="Nom de rue"
+                <Input type="text" id="name_of_the_road" name="name_of_the_road" placeholder="Nom de rue"
                     value={data.principal_name_of_the_road || data.name_of_the_road}
                     disabled={true}
                 />
@@ -46,7 +42,7 @@ const FormInputDisabled = ({ data }) => {
                     disabled={true}
                 />
             </div>
-            {!data.principal_city && <Button handleClick={DeliverySubmit}>Livrer à cette adresse</Button>}
+            {button && <Button type="button" handleClick={DeliverySubmit}>Livrer à cette adresse</Button>}
         </div>
     );
 };

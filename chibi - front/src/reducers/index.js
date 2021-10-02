@@ -3,8 +3,7 @@ import authReducer  from "./auth";
 import productsReducer from './products';
 import shop from './shopReducer'
 import deliveryReducer from './delivery';
-import menuReducer from './menuReducer'
-import ordersReducer from './orders';
+import menuReducer from './menuReducer';
 
 const rootReducer = combineReducers({
   shop,
@@ -12,7 +11,6 @@ const rootReducer = combineReducers({
   auth: authReducer,
   delivery: deliveryReducer,
   menuReducer,
-  ordersReducer
 });
 
 export default rootReducer;

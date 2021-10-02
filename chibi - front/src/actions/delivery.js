@@ -8,3 +8,14 @@ export const setDeliveryField = (value, name) => (
     name,
   }
 );
+
+   
+export const SET_DELIVERY_RADIO = 'SET_DELIVERY_RADIO';
+
+export const setDeliveryRadio = (value, name) => (
+  {
+    type: SET_DELIVERY_RADIO,
+    value,
+    name,
+  }
+);

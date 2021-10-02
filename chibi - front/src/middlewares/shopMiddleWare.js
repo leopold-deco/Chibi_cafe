@@ -36,9 +36,14 @@ const shopMiddleWare = (store) => (next) => (action) => {
     }
 
     case ADD_FAVORITES: {
-      const { token,  favorites: { id } } = store.getState().products;
+      const { token,  favorites: { id } } = store.getState().favorites;
     
-      axios.post(`https://chibi-api.herokuapp.com/useWishList/${id}`)
+      axios.post(`https://chibi-api.herokuapp.com/useWishList/${id}`, {
+        credentials: 'include',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then(
         (response) => {
           console.log(response)

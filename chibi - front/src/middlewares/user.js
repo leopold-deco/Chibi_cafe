@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { 
-  connectUser, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES 
+  connectUser, getAddresses, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES 
 } from '../actions/auth';
 
 const axiosInstance = axios.create({
@@ -143,6 +143,7 @@ const userMiddleware = (store) => (next) => (action) => {
       ).then((response) => {
         console.log("orderrr", response)
         localStorage.setItem("userAddresses", JSON.stringify(response.data));
+        store.dispatch(getAddresses(response.data));
       },
       ).catch(
         (error) => console.log('error', error),

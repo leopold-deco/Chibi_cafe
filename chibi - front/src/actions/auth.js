@@ -85,3 +85,12 @@ export const updatePassword = (password, passwordConfirm, actualPassword) => (
 );
 
 export const GET_USER_ADDRESSES = 'GET_USER_ADDRESSES';
+
+export const GET_ADDRESSES = 'GET_ADDRESSES';
+
+export const getAddresses = (data) => (
+  {
+    type: GET_ADDRESSES,
+    data
+  }
+);

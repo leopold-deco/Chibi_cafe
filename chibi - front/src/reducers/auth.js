@@ -1,4 +1,4 @@
-import { CONNECT_USER, LOGOUT, REGISTER_USER, SET_USER_FIELD } from '../actions/auth';
+import { CONNECT_USER, LOGOUT, REGISTER_USER, SET_USER_FIELD, GET_ADDRESSES } from '../actions/auth';
 
 const user = JSON.parse(localStorage.getItem("user"));
 const userAddresses = JSON.parse(localStorage.getItem("userAddresses"));
@@ -34,6 +34,11 @@ const auth = (state = initialState, action = {}) => {
       return {
         ...state,
         user: {...state.user, [action.name]: action.value},
+      }
+    case GET_ADDRESSES:
+      return {
+        ...state,
+        userAddresses: action.data
       }
     default:
       return state;

@@ -1,7 +1,7 @@
 .solid{
     display: flex;
     max-width: 630px;
-    width: 100%;
+    width: 630px;
     height: 30vh;
     -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
@@ -47,3 +47,17 @@
       opacity: 1;
     }
   }
+
+  @media only screen and (max-width: 685px) {
+    .solid{
+      width: 500px;
+      margin: auto;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+  .solid{
+    width: 400px;
+    margin: auto;
+  }
+}

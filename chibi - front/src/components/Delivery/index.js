@@ -4,7 +4,7 @@ import Button from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import BooleanCheckbox from '../BooleanCheckbox';
-import { setDeliveryRadio } from '../../actions/delivery';
+import { setDeliveryAddress, setDeliveryRadio } from '../../actions/delivery';
 import { Redirect } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -41,7 +41,16 @@ const Delivery = () => {
     }
 
     const verifyIsNewAddressAndStore = () => {
-        history.push('/paiement');
+        if (isNewAddress) {
+            dispatch(setDeliveryAddress(newAddress));
+            localStorage.setItem("deliveryAddress", JSON.stringify(newAddress));
+            history.push('/paiement');
+        } else {
+            dispatch(setDeliveryAddress(userAddress));
+            localStorage.setItem("deliveryAddress", JSON.stringify(userAddress));
+            history.push('/paiement');
+        }
+
     };
 
     const handleChange = (value) => {

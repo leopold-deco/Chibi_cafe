@@ -1,4 +1,4 @@
-import { SET_DELIVERY_FIELD, SET_DELIVERY_RADIO } from '../actions/delivery';
+import { SET_DELIVERY_ADDRESS, SET_DELIVERY_RADIO } from '../actions/delivery';
 
 const deliveryAddress = JSON.parse(localStorage.getItem("deliveryAddress"));
 
@@ -9,13 +9,10 @@ export const initialState = {
 
 const delivery = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SET_DELIVERY_FIELD:
+    case SET_DELIVERY_ADDRESS:
       return {
         ...state,
-        deliveryAddress: { 
-          ...state.deliveryAddress, 
-          [action.name]: action.value 
-        }
+        deliveryAddress: action.data
       };
     case SET_DELIVERY_RADIO:
       return {

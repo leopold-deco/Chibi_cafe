@@ -32,7 +32,7 @@ const wishListController = {
             const userId = request.params.id;
             const deleteOneWish = new UserWishProduct();
             await deleteOneWish.removeProduct(productId, userId);
-            response.json('produit supprimé des favoris');
+            response.status(200).json('produit supprimé des favoris');
         } catch (error) {
             response.status(500).send(error.message);
         }
@@ -43,6 +43,7 @@ const wishListController = {
             const userId = request.params.id;
             const deleteAllWish = new UserWishProduct();
             await deleteAllWish.removeWishList(userId);
+            response.status(200).json('liste de souhaits supprimé');
         } catch (error) {
             response.status(500).send(error.message);
         }

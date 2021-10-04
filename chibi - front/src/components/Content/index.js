@@ -4,17 +4,17 @@ import CardFavorite from '../Favorites/CardFavorite';
 
 import './content.scss';
 
-const Content = ({ title, text, favorites }) => {
-console.log(favorites);
+const Content = ({ title, text, products }) => {
+console.log(products);
     
     return (
         <div className='content'>
             <h1 className="content__title">{title}</h1>
             <p className="content__text">{text}</p>
-            {favorites && (
+            {products && (
                 <div className="content__list">
-                    {favorites.map((favorite) => (
-                        <CardFavorite key={favorite.id} {...favorite} />
+                    {products.map((product) => (
+                        <CardFavorite key={product.product_id} {...product} />
                     ))}
                 </div>
             )}

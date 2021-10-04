@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
-import { addProductToCart, addFavorites } from '../../../actions/shop';
+import { addProductToCart,  } from '../../../actions/shop';
+
+import { addFavorites } from "../../../actions/favorites";
 import PropTypes from 'prop-types';
 import { calculPrice } from '../../../pipes/calculPrice';
-import Button from '../../Button';
 
 const ProductCard = ({ product }) => {
   
@@ -13,6 +14,7 @@ const ProductCard = ({ product }) => {
   }
 
   const onFavorites = () => {
+    console.log("test", product);
     dispatch(addFavorites(product));
   }
 

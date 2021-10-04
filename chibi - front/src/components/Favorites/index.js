@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react";
-import { fetchFavorites } from "../../actions/shop";
+import { fetchFavorites } from "../../actions/favorites";
 
 import AsideNavbar from '../Account/AsideNavbar';
 import Content from "../Content";
@@ -10,7 +11,8 @@ import { Redirect } from 'react-router-dom';
 
 const Favorites = () => {
     const dispatch = useDispatch();
-    const favorites = useSelector((state) => state.products.favorites);
+    const { favorites } = useSelector((state) => state.favoritesReducer);
+    console.log("favorites", favorites);
 
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
     
@@ -34,6 +36,8 @@ const Favorites = () => {
             products={favorites}
             />
         </div>
+        
+    
     );
 };
 

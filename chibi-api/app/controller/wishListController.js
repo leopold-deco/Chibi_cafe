@@ -19,10 +19,10 @@ const wishListController = {
             await newWish.insertProduct(userId, productId);
             response.status(200).json(newWish[0]);
         } catch(error) {
-            if(error.message = `duplicate key value violates unique constraint "user_wish_product_user_id_product_id_key"`){
-                response.status(500).send('Produit déjà dans votre WishList'); 
+            if(error.message = `duplicate key value violates unique constraint "user_wish_product_user_id_product_id_key`){
+                response.status(500).send('Produit déjà dans votre WishList');
             } 
-            response.status(500).send(error.message);   
+            response.status(500).send(error.message);
         }
     },
     

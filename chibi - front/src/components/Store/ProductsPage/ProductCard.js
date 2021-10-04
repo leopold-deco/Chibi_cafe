@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
 import { addProductToCart, addFavorites } from '../../../actions/shop';
 import PropTypes from 'prop-types';
 import { calculPrice } from '../../../pipes/calculPrice';

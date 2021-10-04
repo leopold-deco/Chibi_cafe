@@ -11,7 +11,7 @@ const oderController = {
         try {
 
             // GESTION D'INSERTION DANS LA TABLE ORDER
-            const deliveryInfoRequest = request.body.state.delivery;
+            const deliveryInfoRequest = request.body.state.delivery.deliveryAddress;
             const userInfo = request.body.state.auth.user;
             const cart = request.body.state.shop.cart;
 
@@ -30,7 +30,9 @@ const oderController = {
                 user_id: userInfo.id
             };         
 
-            if(deliveryInfoRequest.isNewAddress) {
+            const {isNewAddress} = request.body.state.delivery;
+
+            if(isNewAddress) {
                 console.log();
                 const newAddress = new Address(deliveryInfo);
                 await newAddress.create();

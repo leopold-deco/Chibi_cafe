@@ -28,10 +28,10 @@ router.patch('/product/:id', productController.update);
 
 // USER
 
-router.get('/account/:id', userController.findOne);
+router.get('/account/:id', tokenMW.authenticateToken, userController.findOne);
 
-router.patch('/account/:id', userController.update);
-router.patch('/newPassword', userController.updatePassword);
+router.patch('/account/:id', tokenMW.authenticateToken, userController.update);
+router.patch('/newPassword', tokenMW.authenticateToken, userController.updatePassword);
 
 router.post('/login', tokenMW.generateToken, userController.login);
 router.post('/SignUp', userController.create);
@@ -51,21 +51,21 @@ router.post('/order', oderController.create);
 router.post('/checkPrice', cartController.priceConfirmation);
 
 // PAIEMENT STRIPE
-router.post('/createCheckoutSession', stripeController.payment);
+router.post('/createCheckoutSession', stripeController.payment); //tokenMW.authenticateToken ??
 
 // WISHLIST
 
 router.get('/wishList/:id', tokenMW.authenticateToken, wishListController.findByUser);
-router.delete('/wishList/:id', wishListController.deleteByUser);
+router.delete('/wishList/:id', tokenMW.authenticateToken, wishListController.deleteByUser);
 
-router.post('/useWishList/:id', wishListController.addProduct);
-router.delete('/useWishList/:id', wishListController.deleteProduct);
+router.post('/useWishList/:id', tokenMW.authenticateToken, wishListController.addProduct);
+router.delete('/useWishList/:id', tokenMW.authenticateToken, wishListController.deleteProduct);
 
 // ADDRESS
 
-router.get('/address/:id', addressController.findAdressByUser);
+router.get('/address/:id', tokenMW.authenticateToken,addressController.findAdressByUser);
 
-router.delete('/address/:id', addressController.deleteAddress);
-router.patch('/address/:id', addressController.updateAddress);
+router.delete('/address/:id', tokenMW.authenticateToken, addressController.deleteAddress);
+router.patch('/address/:id', tokenMW.authenticateToken, addressController.updateAddress);
 
 module.exports = router;

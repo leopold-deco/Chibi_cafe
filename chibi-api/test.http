@@ -240,7 +240,7 @@ DELETE {{host}}/useWishList/1
 Content-Type: application/json
 
 {
-    "id": null
+    "id": 26
 }
 
 ### SURPIMER LES PRODUIT PRODUIT DE LA WISHLIST

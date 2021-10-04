@@ -2,12 +2,15 @@ import { useDispatch } from 'react-redux';
 import { addProductToCart,  } from '../../../actions/shop';
 
 import { addFavorites } from "../../../actions/favorites";
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { calculPrice } from '../../../pipes/calculPrice';
 
 const ProductCard = ({ product }) => {
   
   const dispatch = useDispatch()
+
+  const [quantityToCart, setQuantity] = useState(0)
 
   const onCart = () => {
     dispatch(addProductToCart(product));
@@ -26,6 +29,7 @@ const ProductCard = ({ product }) => {
           className="storeCard__btn"
           onClick={onCart} 
           type="button"> ajouter au panier</button>
+
           
           <button
           className="storeCard__btn"

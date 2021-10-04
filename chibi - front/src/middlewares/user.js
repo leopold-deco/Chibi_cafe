@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-import { connectUser, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD } from '../actions/auth';
+import { 
+  connectUser, getAddresses, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES 
+} from '../actions/auth';
 
 const axiosInstance = axios.create({
   baseURL: 'https://chibi-api.herokuapp.com',
@@ -18,9 +20,11 @@ const userMiddleware = (store) => (next) => (action) => {
         ).then(
           (response) => {
             if (response.data.token) {
-              console.log("response",response)
-              store.dispatch(connectUser(response.data));
+              console.log("login",response)
               localStorage.setItem("user", JSON.stringify(response.data.user));
+              localStorage.setItem("token", JSON.stringify(response.data.token));
+              store.dispatch(connectUser(response.data));
+              store.dispatch({type: GET_USER_ADDRESSES});
             }
           },
         ).catch(
@@ -30,7 +34,10 @@ const userMiddleware = (store) => (next) => (action) => {
         break;
     }
     case LOGOUT:
+      localStorage.removeItem("token");
       localStorage.removeItem("user");
+      localStorage.removeItem("deliveryAddress");
+      localStorage.removeItem("userAddresses");
       next(action);
       break;
     case SIGNUP: {
@@ -103,29 +110,47 @@ const userMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
-      case UPDATE_PASSWORD: {
-        const { user: {
+    case UPDATE_PASSWORD: {
+      const { user: {
+        mail,
+      } } = store.getState().auth;
+      
+        axiosInstance.patch(
+        '/newPassword',
+        {
           mail,
-        } } = store.getState().auth;
-        
-          axiosInstance.patch(
-          '/newPassword',
-          {
-            mail,
-            password: action.password,
-            passwordConfirm: action.passwordConfirm,
-            actualPassword: action.actualPassword,
-          },
-        ).then((response) => {
-          // localStorage.setItem("user", JSON.stringify(response.data));
-          console.log(response);
+          password: action.password,
+          passwordConfirm: action.passwordConfirm,
+          actualPassword: action.actualPassword,
         },
-        ).catch(
-          (error) => console.log('error', error),
-        );
-        next(action);
-        break;
-      }
+      ).then((response) => {
+        // localStorage.setItem("user", JSON.stringify(response.data));
+        console.log(response);
+      },
+      ).catch(
+        (error) => console.log('error', error),
+      );
+      next(action);
+      break;
+    }
+    case GET_USER_ADDRESSES: {
+      const { user: {
+        id,
+      } } = store.getState().auth;
+      
+      axiosInstance.get(
+        `/address/${id}`,
+      ).then((response) => {
+        console.log("orderrr", response)
+        localStorage.setItem("userAddresses", JSON.stringify(response.data));
+        store.dispatch(getAddresses(response.data));
+      },
+      ).catch(
+        (error) => console.log('error', error),
+      );
+      next(action);
+      break;
+    }
     default:
       next(action);
   }

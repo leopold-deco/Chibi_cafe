@@ -1,6 +1,6 @@
 @use '../../../styles/vars';
 
-.card {
+.card-favorite {
     border-radius: 1rem;
     border: 1px solid #ddd;
     width: calc(50% - #{vars.$halfGutter});

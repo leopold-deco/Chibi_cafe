@@ -1,63 +1,54 @@
 import Input from '../../Input';
-import { useDispatch, useSelector } from 'react-redux';
-import { setDeliveryField } from '../../../actions/delivery';
 
-const NewAddress = () => {
-    const dispatch = useDispatch();
-
-    const { 
-        first_name, last_name, mail, phone_number, street_number, name_of_the_road, postal_code, city
-    } = useSelector((state) => state.delivery);
-
-    const handleChange = (value, name) => {
-        dispatch(setDeliveryField(value, name));
-    };
+const NewAddress = ({ newAddress, handleChangeNewAddress }) => {
+    // const [firstname, setFirstname] = useState('');
+    // const [lastname, setLastname] = useState('');
+    // const [phoneNumber, setPhoneNumber] = useState('');
+    // const [streetNumber, setStreetNumber] = useState('');
+    // const [nameOfTheRoad, setNameOfTheRoad] = useState('');
+    // const [postalCode, setpostalCode] = useState('');
+    // const [city, setCity] = useState('');
 
     return (
         <div> 
 
 
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
-                value={first_name} 
-                handleChange={handleChange}
+                value={newAddress.first_name} 
+                handleChange={handleChangeNewAddress}
                 required={false}
             />
             <Input type="text" name="last_name" id="last_name" placeholder="Nom" 
-                value={last_name} 
-                handleChange={handleChange}
-                required={false}
-            />
-            <Input type="email" name="mail" id="mail" placeholder="Email"
-                value={mail} 
-                handleChange={handleChange}
+                value={newAddress.last_name} 
+                handleChange={handleChangeNewAddress}
                 required={false}
             />
             <Input type="tel" id="phone_number" name="phone_number" placeholder="Numéro de mobile" 
-                value={phone_number} 
-                handleChange={handleChange}
+                value={newAddress.phone_number} 
+                handleChange={handleChangeNewAddress}
                 required={false}
             />
             <div className="address">
                 <Input type="number" id="street_number" name="street_number" placeholder="N° de rue"
-                    value={street_number} 
-                    handleChange={handleChange}
+                    value={newAddress.street_number} 
+                    handleChange={handleChangeNewAddress}
                     required={false}
                 />
                 <Input type="text" id="name_of_the_road" name="name_of_the_road" placeholder="Nom de rue"
-                    value={name_of_the_road} 
-                    handleChange={handleChange}
+                    value={newAddress.name_of_the_road} 
+                    handleChange={handleChangeNewAddress}
                     required={false}
                 />
             </div>
             <div className="city">
                 <Input type="text" id="postal_code" name="postal_code" pattern="[0-9]{5}" placeholder="Code postal"
-                    value={postal_code} 
-                    handleChange={handleChange}
+                    value={newAddress.postal_code} 
+                    handleChange={handleChangeNewAddress}
                     required={false}
                 />
                 <Input type="text" id="city" name="city" placeholder="Ville" 
-                    value={city} 
-                    handleChange={handleChange}
+                    value={newAddress.city} 
+                    handleChange={handleChangeNewAddress}
                     required={false}
                 />
             </div>

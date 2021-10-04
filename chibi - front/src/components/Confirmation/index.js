@@ -6,8 +6,8 @@ export default function Confirmation() {
     console.log(user)
   return (
     <div className="confirmation">
-        <h4 class="modal-title mx-auto">Merci "user delivery" <br/>
-            Commande n°{lastOrder.id} du {lastOrder.order_date}
+        <h4 class="modal-title mx-auto">Merci {user.first_name} {user.last_name}<br/>
+            Commande n°{lastOrder.id} du {lastOrder.order_date} {lastOrder.total}
         </h4>
         <ul id="progressbar">
             <li class="step0 active " id="step1">Passée</li>

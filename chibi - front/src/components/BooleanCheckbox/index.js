@@ -2,7 +2,9 @@ import './boolean-checkbox.scss';
 import UserAddress from '../Delivery/UserAddress';
 import NewAddress from '../Delivery/NewAddress';
 
-const Delivery = ({ label, id, handleChange, state }) => {
+const Delivery = ({ 
+    label, id, handleChange, isNewAddress, newAddress, handleChangeNewAddress, userAddress, setUserAddress
+}) => {
     const stringToBoolean = (value) => {
         if (value && typeof value === "string") {
              if (value.toLowerCase() === "true") return true;
@@ -25,11 +27,15 @@ const Delivery = ({ label, id, handleChange, state }) => {
                     <input type="radio" name="deliveryAddress" id={option.id}
                         value={option.value}
                         onChange={onRadioChange}
-                        checked={state === option.value}
+                        checked={isNewAddress === option.value}
                         />
                     <label htmlFor={option.id}>{option.label}</label>
-                    {option.id === "userAddress" &&  <UserAddress />}
-                    {option.id === "newAddress" && <NewAddress />}
+                    {option.id === "userAddress" &&  
+                        <UserAddress userAddress={userAddress} setUserAddress={setUserAddress}
+                    />}
+                    {option.id === "newAddress" && 
+                        <NewAddress newAddress={newAddress} handleChangeNewAddress={handleChangeNewAddress}
+                    />}
                 </div>
             ))}
         </>

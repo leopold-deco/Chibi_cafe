@@ -4,17 +4,19 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import Form from '../Account/Form';
+import cupcake from '../../assets/icons/cupcake.png';
 export default function CheckoutForm() {
   const history = useHistory();
   const stripe = useStripe();
   const elements = useElements();
   const [ success, setSuccess ] = useState(false);
+  const [ message, setMessage ] = useState('');
   const cart = useSelector(state => state.shop.cart);
   const state = useSelector(state => state);
   console.log(state)
+
   const handleSubmit = async (event) => {
-    event.preventDefault();
 
     if (!stripe || !elements) {
       return;
@@ -33,6 +35,8 @@ export default function CheckoutForm() {
 
     if (error) {
       console.log('[error]', error.message);
+      setMessage(error.message)
+      console.log(error)
     } else {
       console.log('[PaymentMethod]', paymentMethod);
       try {
@@ -69,7 +73,17 @@ export default function CheckoutForm() {
   return (
     <div className="checkout">
     {!success ?
-      <form onSubmit={handleSubmit}>
+      <Form handleSubmit={handleSubmit}>
+        {message? 
+          <div style={{display: 'flex', justifyContent: 'center'}}><img style={{width: "6rem"}} src={cupcake} /></div> :
+          <div>
+            <p>{message}</p>
+            <img style={{width: "6rem"}} src="https://img.icons8.com/nolan/64/kawaii-rice.png"/>
+          </div>
+            
+        }
+
+
         <fieldset className="checkout__form-group">
           <div className="checkout__form-row">
             <CardElement />
@@ -79,7 +93,7 @@ export default function CheckoutForm() {
         <button className="checkout__button" type="submit" disabled={!stripe}>
           Payer
         </button>
-      </form> :
+      </Form> :
       <div>
         <h2>You just bought a ...</h2>
       </div>

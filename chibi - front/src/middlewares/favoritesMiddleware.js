@@ -14,12 +14,17 @@ const favoritesMiddleware = (store) => (next) => (action) => {
       console.log("id de user:", id);
       console.log("action.product:", action.product.id);
       console.log("token:", token);
+      console.log("axios:", axios.post(`https://chibi-api.herokuapp.com/useWishList/${id}`, {id: action.product.id}, {
+        credentials: 'include',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }));
         axios.post(`https://chibi-api.herokuapp.com/useWishList/${id}`, {id: action.product.id}, {
           credentials: 'include',
           headers: {
             Authorization: `Bearer ${token}`,
           },
-          
         })
         .then(
           (response) => {

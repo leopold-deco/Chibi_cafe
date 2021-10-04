@@ -56,7 +56,7 @@ router.post('/createCheckoutSession', stripeController.payment); //tokenMW.authe
 
 // WISHLIST
 
-router.get('/wishList/:id', wishListController.findByUser);
+router.get('/wishList/:id', tokenMW.authenticateToken, wishListController.findByUser);
 router.delete('/wishList/:id', tokenMW.authenticateToken, wishListController.deleteByUser);
 
 router.post('/useWishList/:id', tokenMW.authenticateToken, wishListController.addProduct);

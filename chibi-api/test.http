@@ -230,7 +230,7 @@ POST {{host}}/useWishList/1
 Content-Type: application/json 
 
 {
-    "id":26
+    "id":11
 }
 
 

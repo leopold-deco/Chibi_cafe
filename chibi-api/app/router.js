@@ -9,11 +9,12 @@ const oderController = require('./controller/orderController');
 const stripeController = require('./controller/stripeController');
 const wishListController = require('./controller/wishListController');
 const addressController = require('./controller/addressController')
+const cartController = require('./controller/cartController');
 
 // MIDDLEWARES
 
 const tokenMW = require('./middleswares/tokenMW');
-const cartController = require('./controller/cartController');
+
 
 const router = Router();
 
@@ -55,10 +56,10 @@ router.post('/createCheckoutSession', stripeController.payment); //tokenMW.authe
 
 // WISHLIST
 
-router.get('/wishList/:id', tokenMW.authenticateToken, wishListController.findByUser);
+router.get('/wishList/:id', wishListController.findByUser);
 router.delete('/wishList/:id', tokenMW.authenticateToken, wishListController.deleteByUser);
 
-router.post('/useWishList/:id', tokenMW.authenticateToken, wishListController.addProduct);
+router.post('/useWishList/:id',wishListController.addProduct);
 router.delete('/useWishList/:id', tokenMW.authenticateToken, wishListController.deleteProduct);
 
 // ADDRESS

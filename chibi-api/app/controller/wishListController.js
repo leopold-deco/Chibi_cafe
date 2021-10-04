@@ -32,6 +32,7 @@ const wishListController = {
             const userId = request.params.id;
             const deleteOneWish = new UserWishProduct();
             await deleteOneWish.removeProduct(productId, userId);
+            response.json('element supprime');
         } catch (error) {
             response.status(500).send(error.message);
         }

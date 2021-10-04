@@ -34,7 +34,7 @@ router.get('/account/:id', userController.findOne);
 router.patch('/account/:id', userController.update);
 router.patch('/newPassword', userController.updatePassword);
 
-router.post('/login', tokenMW.generateToken, userController.login);
+router.post('/login', userController.login);
 router.post('/SignUp', userController.create);
 
 router.delete('/account/:id', userController.delete);

@@ -38,6 +38,7 @@ const addressController = {
         try {
             const newAddress = new Address(request.body);
             await newAddress.create();
+            console.log('varNewAddress', newAddress);
             response.status(200).json(newAddress);
         } catch(error) {
             response.status(500).send(error.message);

@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-import { SAVE_FAVORITES, } from '../actions/favorites';
+import { SAVE_FAVORITES, REMOVE_FAVORITES } from '../actions/favorites';
 
 
 export const initialState = {
@@ -15,11 +15,15 @@ const favoritesReducer = (state = initialState, action = {}) => {
         favorites: action.favorites,
       }
 
-    // case DELETE_FAVORITES:
-    //   return {
-    //     ...state,
-    //     // favorites: 
-    //   }
+    case REMOVE_FAVORITES:
+      const filteredFavorites = state.favorites.filter((favorite) => {
+        return favorite.product_id !== action.productId;
+      })
+      return {
+        
+        ...state,
+        favorites: filteredFavorites,
+      }
 
     default:
       return state;

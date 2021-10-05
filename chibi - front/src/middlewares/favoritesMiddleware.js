@@ -60,16 +60,17 @@ const favoritesMiddleware = (store) => (next) => (action) => {
         console.log("productId:", action.productId);
         console.log("token de delete:", token);
         console.log("id de user:", id);
-        axiosInstance.delete(`/useWishList/${id}`,  {
+        axiosInstance.delete(`/useWishList/${id}`, {
           data: { id: action.productId }, 
           headers: { "Authorization": `Bearer ${token}` }
         })
         .then(
           (response) => {
             console.log("response.data de delete :", response.data);
-            // store.dispatch(removeFavorites(response.data));
+            store.dispatch(removeFavorites(action.productId));
           }
-        ).catch(
+        )
+        .catch(
           (error) => console.log("erreur de delete", error));
           next(action);
           break;

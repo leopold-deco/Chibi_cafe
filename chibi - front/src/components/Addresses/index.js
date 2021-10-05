@@ -3,11 +3,11 @@ import NewAddress from '../Delivery/NewAddress';
 import './addresses.scss';
 import useModal from "../../hooks/useModal";
 import { useState } from 'react';
-import { newAddress } from '../../actions/auth';
+import { addNewAddress } from '../../actions/auth';
 
 function Addresses() {
     const dispatch = useDispatch();
-    const { deliveryAddress } = useSelector((state) => state.delivery);
+    const { userAddresses } = useSelector((state) => state.auth);
     const { isShowing, toggle } = useModal();
     const [newAddress, setNewAddress] = useState({
         first_name: '', 
@@ -27,10 +27,10 @@ function Addresses() {
     }
 
     const handleClick = () => {
-        dispatch(newAddress(newAddress))
+        dispatch(addNewAddress(newAddress))
     };
 
-    console.log(newAddress)
+    console.log("deliv",userAddresses)
     return (
       <div>
             <button type="button" className="modal-toggle" onClick={toggle}>
@@ -58,8 +58,8 @@ function Addresses() {
                 </div>
                 </div>
             }
-          {deliveryAddress && deliveryAddress.map(address => (
-              <NewAddress newAddress={address} />
+          {userAddresses && userAddresses.map(address => (
+              <NewAddress key={address.id} newAddress={address} />
           ))}
       </div>
     );

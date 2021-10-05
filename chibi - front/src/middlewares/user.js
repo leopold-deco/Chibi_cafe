@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { 
-  connectUser, getAddresses, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES 
+  connectUser, getAddresses, ADD_NEW_ADDRESS, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES 
 } from '../actions/auth';
 
 const axiosInstance = axios.create({
@@ -154,20 +154,33 @@ const userMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
-    case NEW_ADDRESS: {
+    case ADD_NEW_ADDRESS: {
       const { token, user: {
         id,
       } } = store.getState().auth;
-      
-      axiosInstance.get(
-        `/address/${id}`,
+
+      axiosInstance.post(
+        '/newAddress',
+        {            
+          first_name: action.address.first_name,
+          last_name: action.address.last_name,
+          phone_number: action.address.phone_number,
+          street_number: action.address.street_number,
+          name_of_the_road: action.address.name_of_the_road,
+          postal_code: action.address.postal_code,
+          city: action.address.city,
+          user_id: id
+        }, 
         {
-          headers: { "Authorization": `Bearer ${token}` }
-        }
+          credentials: 'include',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        } 
       ).then((response) => {
-        console.log("orderrr", response)
-        localStorage.setItem("userAddresses", JSON.stringify(response.data));
-        store.dispatch(getAddresses(response.data));
+        if(response.data.first_name) {
+          store.dispatch({type: GET_USER_ADDRESSES});
+        }
       },
       ).catch(
         (error) => console.log('error', error),

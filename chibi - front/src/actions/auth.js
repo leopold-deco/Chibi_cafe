@@ -95,11 +95,11 @@ export const getAddresses = (data) => (
   }
 );
 
-export const NEW_ADDRESS = 'NEW_ADDRESS';
+export const ADD_NEW_ADDRESS = 'NEW_ADDRESS';
 
-export const getAddress = (address) => (
+export const addNewAddress = (address) => (
   {
-    type: NEW_ADDRESS,
+    type: ADD_NEW_ADDRESS,
     address
   }
 );

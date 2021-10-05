@@ -60,7 +60,7 @@ const Delivery = () => {
     if (!isLoggedIn) {
         return <Redirect to="/compte" />
     }
-    console.log("userAddress",userAddress, "new address",newAddress )
+    console.log("user adresse",userAddress, newAddress)
     return (
         <Form handleSubmit={verifyIsNewAddressAndStore}> 
             <h2>Livraison</h2>

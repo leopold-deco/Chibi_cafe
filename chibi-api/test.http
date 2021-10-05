@@ -254,7 +254,7 @@ GET {{host}}/address/1
 
 ### MODIFICATION INFO ADRESSE
 
-PATCH {{host}}/address/7
+PATCH {{host}}/address/16
 Content-Type: application/json
 
 {
@@ -267,7 +267,7 @@ Content-Type: application/json
 
 ### SUPPRESSION D'UNE ADRESS
 
-DELETE {{host}}/address/8
+DELETE {{host}}/address/15
 
 ### AJOUTER UNE ADRESSE
 

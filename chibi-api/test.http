@@ -268,3 +268,19 @@ Content-Type: application/json
 ### SUPPRESSION D'UNE ADRESS
 
 DELETE {{host}}/address/8
+
+### AJOUTER UNE ADRESSE
+
+POST {{host}}/newAddress
+Content-Type: application/json
+
+{
+    "first_name": "jules",
+    "last_name": "julien",
+    "phone_number": "0143080716",
+    "delivery_street_number": "123",
+    "delivery_name_of_the_road": "rue des pommes",
+    "delivery_postal_code": "75019",
+    "delivery_city": "Paris",
+    "user_id": 1
+}

@@ -32,6 +32,16 @@ const addressController = {
         } catch(error) {
             response.status(500).send(error.message);
         }
+    },
+
+    newAddress: async (request, response) => {
+        try {
+            const newAddress = new Address(request.body);
+            await newAddress.create();
+            response.status(200).json(newAddress);
+        } catch(error) {
+            response.status(500).send(error.message);
+        }
     }
 }
 

@@ -1,3 +1,4 @@
+const { bindComplete } = require('pg-protocol/dist/messages');
 const db = require('../database');
 
 class Address {

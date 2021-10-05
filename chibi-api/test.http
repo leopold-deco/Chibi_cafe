@@ -275,12 +275,12 @@ POST {{host}}/newAddress
 Content-Type: application/json
 
 {
-    "first_name": "jules",
-    "last_name": "julien",
+    "first_name": "marc",
+    "last_name": "theo",
     "phone_number": "0143080716",
-    "delivery_street_number": "123",
-    "delivery_name_of_the_road": "rue des pommes",
-    "delivery_postal_code": "75019",
-    "delivery_city": "Paris",
+    "street_number": "123",
+    "name_of_the_road": "rue des pommes",
+    "postal_code": "75019",
+    "city": "Paris",
     "user_id": 1
 }

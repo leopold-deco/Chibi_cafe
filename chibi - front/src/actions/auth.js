@@ -103,3 +103,12 @@ export const addNewAddress = (address) => (
     address
   }
 );
+
+export const EDIT_ADDRESS = 'EDIT_ADDRESS';
+
+export const editAddress = (address) => (
+  {
+    type: EDIT_ADDRESS,
+    address
+  }
+);

@@ -3,8 +3,9 @@ import NewAddress from '../Delivery/NewAddress';
 import './addresses.scss';
 import useModal from "../../hooks/useModal";
 import { useState } from 'react';
-import { addNewAddress } from '../../actions/auth';
+import { addNewAddress, editAddress } from '../../actions/auth';
 import Button from '../Button';
+import FormEditAddress from './FormEditAddress';
 
 function Addresses() {
     const dispatch = useDispatch();
@@ -27,9 +28,18 @@ function Addresses() {
         });
     }
 
-    const handleClick = () => {
+    const handleClickAdd = () => {
         dispatch(addNewAddress(newAddress))
     };
+
+    const handleClickEdit = (address) => {
+        console.log(address)
+        dispatch(editAddress(address))
+    };
+
+    // const handleClickDelete = () => {
+    //     dispatch(editAddress(newAddress))
+    // };
 
     console.log("deliv",userAddresses)
     return (
@@ -52,8 +62,8 @@ function Addresses() {
                         </button>
                     </div>
                     <div className="modal-flex">
-                    <NewAddress newAddress={newAddress} handleChangeNewAddress={handleChangeNewAddress}
-                        button={<Button handleClick={handleClick}>Ajouter</Button>}
+                    <NewAddress newAddress={newAddress} handleChange={handleChangeNewAddress}
+                        button={<Button handleClick={handleClickAdd}>Ajouter</Button>}
                     />
                     </div>
                     </div>
@@ -61,8 +71,9 @@ function Addresses() {
                 </div>
             }
           {userAddresses && userAddresses.map(address => (
-              <NewAddress key={address.id} newAddress={address} 
-                button={<Button handleClick={handleClick}>Modifier</Button>}
+            <FormEditAddress key={address.id} 
+                handleClickEdit={handleClickEdit}
+                userAddressStore={address}
             />
           ))}
       </div>

@@ -23,10 +23,10 @@ const oderController = {
                 last_name: deliveryInfoRequest.last_name,
                 mail: deliveryInfoRequest.mail,
                 phone_number: deliveryInfoRequest.phone_number,          
-                delivery_street_number: deliveryInfoRequest.street_number,
-                delivery_name_of_the_road: deliveryInfoRequest.name_of_the_road,
-                delivery_postal_code: deliveryInfoRequest.postal_code,
-                delivery_city: deliveryInfoRequest.city,
+                street_number: deliveryInfoRequest.street_number,
+                name_of_the_road: deliveryInfoRequest.name_of_the_road,
+                postal_code: deliveryInfoRequest.postal_code,
+                city: deliveryInfoRequest.city,
                 user_id: userInfo.id
             };         
 

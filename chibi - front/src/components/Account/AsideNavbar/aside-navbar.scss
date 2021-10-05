@@ -1,14 +1,12 @@
 @use '../../../styles/vars';
 
-
-
 .aside-navbar {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: vars.$tertiary-color;
-    width: 12.3rem;
+    width: 12rem;
     padding: 1rem;
     gap: 2rem;
     border-radius: vars.$border-radius;
@@ -71,6 +69,69 @@ ion-icon {
     transition: all .4s ease-out;
 }
 
-// @media screen ((min-width: 500px) and max_width: 1000px) {
-    
-// }
+@media only screen and (max-width: 1120px) {
+    .aside-navbar {
+        width: 10rem;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .aside-navbar {
+        width: 7.5rem;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .aside-navbar {
+        width: 5rem;
+    }
+
+    ion-icon {
+        width: 3rem;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .aside-navbar {
+        width: 80%;
+        margin-left: 5rem;
+        margin-right: 5rem;
+        margin-bottom: 1.3rem;
+        padding: 0.5rem;
+        flex-direction: row;
+    }
+
+    ion-icon {
+        width: 3rem;
+    }
+}
+
+@media only screen and (max-width: 485px) {
+    .aside-navbar {
+        padding: 0.2rem;
+    }
+
+    ion-icon {
+        width: 2.5rem;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 435px) {
+    .aside-navbar {
+        grid-gap: 0;
+        gap: 0;
+    }
+
+    ion-icon {
+        width: 2rem;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    ion-icon {
+        width: 1.3rem;
+        
+    }
+}

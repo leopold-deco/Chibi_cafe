@@ -1,46 +1,114 @@
 @use "../../../styles/vars";
 
-.custom__top {
+.custom {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
     
-    &__img {
-        width: 25vh;
-        height: 25vh;
-        padding: 1rem;
-        
-    }
-
-    &__description {
-        text-align: center;
-    }
-}
-
-.custom__down {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    // width: 100%;
-    gap: 0.5rem;
-    
-    &__identity {
+    &__top {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 0.5rem;
-    }
+        margin-top: 1rem;
+        margin-bottom: 1rem;
 
-    &__radio {
+        &__card-container {
+            font-family: "Open Sans", sans serif;
+            font-size: 120px;
+            font-weight: bold;
+            width: 400px;
+            height: 250px;
+            margin: 80px auto;
+            border-radius: 10px;
+            perspective: 1400px;
+
+            &__card {
+                position: relative;
+                height: 100%;
+                border-radius: 10px;
+                width: 100%;
+                transform-style: preserve-3d;
+
+                &__front {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                    justify-content: center;
+                    align-items: center;
+                    backface-visibility: hidden;
+                }
+
+                &__back {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                    justify-content: center;
+                    align-items: center;
+                    backface-visibility: hidden;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: rotateY(180deg);
+                }
+            }
+        }
+        
+        &__img {
+            width: 25vh;
+            height: 25vh;
+            padding: 1rem;
+            border-radius: 50px;
+        }
+    
+        &__description {
+            text-align: center;
+        }
+    }
+    
+    &__bottom {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        
+        &__identity {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0.5rem;
+        }
+    
+        &__radio {
+            display: flex;
+            flex-direction: column;
+        }
+    
     }
-
+    
     &__choice {
         display: flex;
         flex-direction: column;
+    }
+
+    &__submit {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+
+        &__text {
+        width: 50%;
+        height: 150px;
+        margin-top: 5px;
+        background-color: #f8f8f8;
+        outline: none;
+        padding: vars.$halfGutter;
+        border-radius: vars.$border-radius;
+        border: vars.$border; 
+        resize: none;
+        font-size: .8rem;
+        letter-spacing: 1px;
+        }
     }
 }

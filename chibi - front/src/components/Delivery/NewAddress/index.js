@@ -1,18 +1,10 @@
 import Input from '../../Input';
+import Button from '../../Button';
 
-const NewAddress = ({ newAddress, handleChangeNewAddress }) => {
-    // const [firstname, setFirstname] = useState('');
-    // const [lastname, setLastname] = useState('');
-    // const [phoneNumber, setPhoneNumber] = useState('');
-    // const [streetNumber, setStreetNumber] = useState('');
-    // const [nameOfTheRoad, setNameOfTheRoad] = useState('');
-    // const [postalCode, setpostalCode] = useState('');
-    // const [city, setCity] = useState('');
+const NewAddress = ({ newAddress, handleChangeNewAddress, button, handleClick }) => {
 
     return (
         <div> 
-
-
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
                 value={newAddress.first_name} 
                 handleChange={handleChangeNewAddress}
@@ -52,6 +44,7 @@ const NewAddress = ({ newAddress, handleChangeNewAddress }) => {
                     required={false}
                 />
             </div>
+            {button && <Button handleClick={handleClick}>Ajouter</Button>}
         </div>
     );
 };

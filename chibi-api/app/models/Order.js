@@ -28,7 +28,7 @@ class Order {
 
     async create() {
         try {
-            const createdOrder = await db.query('INSERT INTO "order" ("delivery_date", "total", "delivery_street_number", "delivery_name_of_the_road", "delivery_postal_code", "delivery_city", "user_id") VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *', [this.delivery_date, this.total, this.delivery_street_number, this.delivery_name_of_the_road, this.delivery_postal_code, this.delivery_city, this.user_id]);
+            const createdOrder = await db.query('INSERT INTO "order" ("delivery_date", "total", "delivery_street_number", "delivery_name_of_the_road", "delivery_postal_code", "delivery_city", "user_id") VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *', [this.date, this.total, this.street_number, this.name_of_the_road, this.postal_code, this.city, this.user_id]);
             return createdOrder.rows[0];
         } catch(error) {
             throw error;   

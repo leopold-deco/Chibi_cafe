@@ -4,6 +4,7 @@ import './addresses.scss';
 import useModal from "../../hooks/useModal";
 import { useState } from 'react';
 import { addNewAddress } from '../../actions/auth';
+import Button from '../Button';
 
 function Addresses() {
     const dispatch = useDispatch();
@@ -52,14 +53,17 @@ function Addresses() {
                     </div>
                     <div className="modal-flex">
                     <NewAddress newAddress={newAddress} handleChangeNewAddress={handleChangeNewAddress}
-                    button={true} handleClick={handleClick}/>
+                        button={<Button handleClick={handleClick}>Ajouter</Button>}
+                    />
                     </div>
                     </div>
                 </div>
                 </div>
             }
           {userAddresses && userAddresses.map(address => (
-              <NewAddress key={address.id} newAddress={address} />
+              <NewAddress key={address.id} newAddress={address} 
+                button={<Button handleClick={handleClick}>Modifier</Button>}
+            />
           ))}
       </div>
     );

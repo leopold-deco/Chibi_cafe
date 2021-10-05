@@ -1,7 +1,6 @@
 import Input from '../../Input';
-import Button from '../../Button';
 
-const NewAddress = ({ newAddress, handleChangeNewAddress, button, handleClick }) => {
+const NewAddress = ({ newAddress, handleChangeNewAddress, button }) => {
 
     return (
         <div> 
@@ -44,7 +43,7 @@ const NewAddress = ({ newAddress, handleChangeNewAddress, button, handleClick })
                     required={false}
                 />
             </div>
-            {button && <Button handleClick={handleClick}>Ajouter</Button>}
+            {button && button}
         </div>
     );
 };

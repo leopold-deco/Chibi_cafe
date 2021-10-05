@@ -71,7 +71,7 @@ const oderController = {
                   to: userInfo.mail,
                  subject: `Récapitulatif de commande n° ${createdOrder.id} sur CHIBI`, 
                   text: `Cet email tient lieu de confirmation pour votre paiement de ${deliveryInfo.total}, effectué le ${createdOrder.order_date} sur la boutique Chibi Cafe.
-                         La commande sera livré au ${deliveryInfo.delivery_street_number} ${deliveryInfo.delivery_name_of_the_road} ${deliveryInfo.delivery_postal_code} ${deliveryInfo.delivery_city}
+                         La commande sera livré au ${deliveryInfo.street_number} ${deliveryInfo.name_of_the_road} ${deliveryInfo.postal_code} ${deliveryInfo.city}
                   Merci de votre commande ${deliveryInfo.first_name} `
                 };
                 transporter.sendMail(mailOptions, function(error, info){

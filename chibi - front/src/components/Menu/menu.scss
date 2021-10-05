@@ -1,6 +1,5 @@
 .menu{
 
-  margin-top: 2rem;
 
     position: absolute;
     top: 0;
@@ -97,5 +96,7 @@
   }
 
   @media only screen and (max-width: 600px) {
-
+    .menu{
+      width: 100%;
+    }
   }

@@ -50,14 +50,20 @@
 
   @media only screen and (max-width: 685px) {
     .solid{
-      width: 500px;
+      width: 480px;
       margin: auto;
     }
 }
 
 @media only screen and (max-width: 500px) {
   .solid{
-    width: 400px;
-    margin: auto;
+    width: 350px;
+    
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .solid{
+    width: 280px;
   }
 }

@@ -17,6 +17,7 @@ const MenuProducts = ({ products, closeMenuProducts, menuClassName, classMenu, c
     ))}
     </div> 
     <div className={`products-menu__cover ${menuClassName}`}>
+        
         <figure className="products-menu__cover__front">
         <h1 className="products-menu__cover__front__title">Chibi Café</h1>
         </figure>
@@ -27,6 +28,7 @@ const MenuProducts = ({ products, closeMenuProducts, menuClassName, classMenu, c
             </div>
         </figure>
     </div>
+    <div className="coverDiv"></div>
     </div>
 );
 

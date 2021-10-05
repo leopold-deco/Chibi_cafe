@@ -4,12 +4,12 @@
     position: absolute;
     z-index: 20;
     left: 45%;
-    height: 70vh;
-    width: 500px;
+    height: 60vh;
+    width: 450px;
     box-shadow: vars.$box-shadow;
     background: vars.$tertiary-color;
     border-radius: 0.5rem;
-    transform: translate(-50%,-50%);
+    
     perspective: 1000px;
     transition: all .4s ease-in-out;
     transform: scale(1);
@@ -24,6 +24,19 @@
 
 
     }
+
+    .coverDiv{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70px;
+        height: 100%;
+        font-size: 25rem;
+        background: rgb(241, 240, 179);
+        z-index: -1;
+        border-bottom-left-radius: 0.5rem;
+        border-top-left-radius: 0.5rem;
+    }
     
     
 
@@ -36,8 +49,7 @@
         background: rgba(228, 225, 225, 0.2);
         position: absolute;
         top: 0;
-        left: 40px;
-        transform: rotateY(-15deg);
+        left: 70px;
         transform-style: preserve-3d;
         transform-origin: left;
         transition: all .3s ease-in ;
@@ -50,9 +62,11 @@
             border-top: 2px solid gray;
             border-bottom: 2px solid gray;
             border-right: 2px solid gray;
+            border-bottom-right-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
 
             &__title{
-                position: absolute;
+                position: relative;
                 top: 30%;
                 font-size: 7rem;
                 text-align: center;
@@ -64,6 +78,7 @@
             transform: rotateY(180deg);
             box-shadow: vars.$box-shadow;
             background: rgb(241, 221, 179);
+            border-right: 13px solid rgba(184, 184, 184, 0.233);
             
 
             &__img{
@@ -89,13 +104,13 @@
     }
 
     .active {
-            transform: rotateY(-170deg);
+            transform: rotateY(-180deg);
             transition: transform 1.5s ease-in-out;
         
     }
 
     .inactive{
-        transform: rotateY(-30deg);
+        transform: rotateY(0deg);
     }
 }
 
@@ -135,12 +150,12 @@
 
 .product-card{
     width: 83%;
-    height: 10%;
+    height: 11.5%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-    margin-left: 40px;
+    margin-left: 70px;
 
    
 
@@ -167,8 +182,17 @@
     .products-menu{
         width: 350px;
         height: 60vh;
-        left: 40%;
+        left: 43%;
 
+    }
+
+    .product-card{
+        height: 13%;
+
+        &__img{
+            width: 56px;
+            height: 56px;
+        }
     }
 
     .product-card>h4{
@@ -181,8 +205,25 @@
     .products-menu{
         width: 350px;
         height: 50vh;
+        left: 40%;
         transform: scale(0.9);
         transition: transform .4s ease-in-out;
+
+        &__cover__front__title{
+            font-size: 5rem;
+        }
+
+        &__cover{
+            left: 55px;
+        }
+
+        .product-card{
+            margin-left: 55px;
+        }
+
+        .coverDiv{
+            width: 55px;
+        }
 
     }
 
@@ -191,8 +232,8 @@
     }
 
     .product-card__img{
-        width: 50px;
-        height: 50px;
+        width: 46px;
+        height: 46px;
 
     }
 
@@ -209,5 +250,108 @@
 @media only screen and (max-width: 600px) {
     .products-menu{
         width: 300px;
+
+       
     }
+}
+
+@media only screen and (max-width: 500px) {
+
+    .product-card{
+        gap: 0.2rem;
+        height: 9.5%;
+    }
+
+    .products-menu{
+        width: 250px;
+        height: 70vh;
+
+        &__cover__front__title{
+            font-size: 4rem;
+        }
+
+        &__cover__back__title{
+            font-size: 1rem;
+        }
+    }
+
+    .product-card>h4{
+        font-size: 0.6rem;
+    }
+
+    
+}
+
+
+
+@media only screen and (max-width: 400px) {
+    .products-menu{
+        left: 35%;
+        width: 220px;
+    }
+
+    .product-card>h4{
+        font-size: 0.5rem;
+    }
+}
+
+
+@media only screen and (max-width: 350px) {
+    .products-menu{
+        width: 210px;
+    }
+
+    .product-card>h4{
+        font-size: 0.55rem;
+    }
+}
+
+
+@media only screen and (max-height: 720px) {
+    
+    .product-card__img{
+        width: 44px;
+        height: 44px;
+
+    }
+
+}
+
+@media only screen and (max-height: 700px) {
+    .product-card{
+    
+    }
+
+    .product-card__img{
+        width: 40px;
+        height: 40px;
+
+    }
+
+}
+
+@media only screen and (max-height: 650px) {
+    .product-card{
+        
+    }
+
+    .product-card__img{
+        width: 36px;
+        height: 36px;
+
+    }
+
+}
+
+@media only screen and (max-height: 600px) {
+    .product-card{
+        
+    }
+
+    .product-card__img{
+        width: 36px;
+        height: 36px;
+
+    }
+
 }

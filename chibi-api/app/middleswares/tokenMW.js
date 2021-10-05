@@ -19,7 +19,9 @@ const tokenMW = {
 
     authenticateToken: (request, response, next) => {
         const authHeader = request.headers['authorization'];
+        console.log('authHeaderLog : ', authHeader);
         const token = authHeader && authHeader.split(' ')[1];
+        console.log('tokenLog : ', token);
         if(!token){
             response.status(200).json('Connexion refusé, temps de connexion expiré');
         }

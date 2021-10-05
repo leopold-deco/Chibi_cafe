@@ -64,8 +64,8 @@ router.delete('/useWishList/:id', tokenMW.authenticateToken, wishListController.
 
 // ADDRESS
 
-router.get('/address/:id', tokenMW.authenticateToken, addressController.findAdressByUser);
 router.post('/newAddress', tokenMW.authenticateToken, addressController.newAddress);
+router.get('/address/:id', tokenMW.authenticateToken, addressController.findAdressByUser);
 router.delete('/address/:id', tokenMW.authenticateToken, addressController.deleteAddress);
 router.patch('/address/:id', tokenMW.authenticateToken, addressController.updateAddress);
 

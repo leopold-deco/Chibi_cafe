@@ -94,3 +94,12 @@ export const getAddresses = (data) => (
     data
   }
 );
+
+export const NEW_ADDRESS = 'NEW_ADDRESS';
+
+export const getAddress = (address) => (
+  {
+    type: NEW_ADDRESS,
+    address
+  }
+);

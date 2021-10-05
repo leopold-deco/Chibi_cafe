@@ -154,6 +154,27 @@ const userMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+    case NEW_ADDRESS: {
+      const { token, user: {
+        id,
+      } } = store.getState().auth;
+      
+      axiosInstance.get(
+        `/address/${id}`,
+        {
+          headers: { "Authorization": `Bearer ${token}` }
+        }
+      ).then((response) => {
+        console.log("orderrr", response)
+        localStorage.setItem("userAddresses", JSON.stringify(response.data));
+        store.dispatch(getAddresses(response.data));
+      },
+      ).catch(
+        (error) => console.log('error', error),
+      );
+      next(action);
+      break;
+    }
     default:
       next(action);
   }

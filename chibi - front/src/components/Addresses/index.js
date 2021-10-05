@@ -3,10 +3,9 @@ import NewAddress from '../Delivery/NewAddress';
 import './addresses.scss';
 import useModal from "../../hooks/useModal";
 import { useState } from 'react';
-import { useHistory } from 'react-router';
+import { newAddress } from '../../actions/auth';
 
 function Addresses() {
-    const history = useHistory();
     const dispatch = useDispatch();
     const { deliveryAddress } = useSelector((state) => state.delivery);
     const { isShowing, toggle } = useModal();

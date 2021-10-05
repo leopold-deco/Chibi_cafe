@@ -1,15 +1,10 @@
 import SignUp from './SignUp';
 import Login from './Login';
-// import Button from '../Button';
-// import Informations from './Informations';
-// import Orders from './Orders';
 import { useState } from 'react';
-// import { useSelector } from 'react-redux';
 
 import './account.scss';
 
 function Account() {
-  // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const [openSignForm, setOpenSignForm] = useState(false)
   const [inscription, setInscription] = useState(false)
   const signUpclassName = openSignForm ? "auth-container-signup--open" : "auth-container-signup"

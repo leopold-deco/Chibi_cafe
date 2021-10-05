@@ -134,12 +134,15 @@ const userMiddleware = (store) => (next) => (action) => {
       break;
     }
     case GET_USER_ADDRESSES: {
-      const { user: {
+      const { token, user: {
         id,
       } } = store.getState().auth;
       
       axiosInstance.get(
         `/address/${id}`,
+        {
+          headers: { "Authorization": `Bearer ${token}` }
+        }
       ).then((response) => {
         console.log("orderrr", response)
         localStorage.setItem("userAddresses", JSON.stringify(response.data));

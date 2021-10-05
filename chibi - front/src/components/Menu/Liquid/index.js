@@ -1,16 +1,20 @@
 
 import LiquidCats from '../LiquidCats';
+import { useRef, useState } from 'react';
 import PropTypes from 'prop-types'
 import './liquid.scss';
 
-const Liquid = ({ liquids, findProducts }) => { 
+const Liquid = ({ liquids, findProducts, mouseoverLiquid, setMouseoverLiquid }) => { 
 
+
+    
 
 return (
 
-    <div className='liquid'>
+    <div  className='liquid'>
     { liquids.map((liquid) => (
-        <LiquidCats  key={liquid.id}  {...liquid} findProducts={findProducts}/>
+        <LiquidCats  key={liquid.id}  {...liquid} findProducts={findProducts}  mouseoverLiquid={mouseoverLiquid} setMouseoverLiquid={setMouseoverLiquid} 
+        newClassName={mouseoverLiquid === "" ? "" : mouseoverLiquid === liquid.category_name ? "active" : "inactive"}/>
     ))}
         
     </div>

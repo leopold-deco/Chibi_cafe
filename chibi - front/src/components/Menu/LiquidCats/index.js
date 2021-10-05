@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-
+import { useState } from 'react';
 import './liquidcats.scss';
 
-const LiquidCats = ({ category_name, category_picture, id, findProducts }) => {
+const LiquidCats = ({ category_name, category_picture, id, findProducts, setMouseoverLiquid, mouseoverLiquid, newClassName }) => {
 
 
 
@@ -13,14 +13,22 @@ const LiquidCats = ({ category_name, category_picture, id, findProducts }) => {
         backgroundSize: "cover"
       };
 
+      
 
+ const onMouseOver = () => {
+   setMouseoverLiquid(category_name)
+}
  
+const mouseleaver = () => {
+   setMouseoverLiquid('')
+}
+
   
 
     
  return   (
-    <div onClick={(e) => findProducts(e.target.id, e.target.className)} id={`${id}`} style={mystyle} 
-     className={`liquid__categories ${category_name}`}>
+    <div onMouseLeave={mouseleaver} onMouseEnter={onMouseOver}  onClick={(e) => findProducts(e.target.id, e.target.className)} id={`${id}`} style={mystyle} 
+     className={`liquid__categories ${category_name} ${newClassName} `}>
         <h2 className={`${id}`} style={{marginTop: '2rem'}} >{category_name}</h2>
         
     </div>

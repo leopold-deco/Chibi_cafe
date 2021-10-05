@@ -1,48 +1,49 @@
-import Input from '../../Input';
+import './user-address.scss';
+import { useSelector } from 'react-redux';
+import FormInputDisabled from './FormInputDisabled';
+import useModal from "../../../hooks/useModal";
 
-const UserAddress = () => {
-    const {
-        first_name, city, last_name, mail, name_of_the_road, phone_number, postal_code, street_number
-    } = JSON.parse(localStorage.getItem('user'));
+const UserAddress = ({ userAddress, setUserAddress}) => {
+    const { user } = useSelector(state => state.auth);
+    const userAddressesStore = useSelector(state => state.auth.userAddresses);
+    const { isShowing, toggle } = useModal();
 
     return (
-        <div> 
-            <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
-                value={first_name}
-                disabled={true}
+        <div>
+            <FormInputDisabled data={userAddress ? userAddress : user} 
+                button={false}
             />
-            <Input type="text" name="last_name" id="last_name" placeholder="Nom" 
-                value={last_name}
-                disabled={true}
-            />
-            <Input type="email" name="mail" id="mail" placeholder="Email"
-                value={mail}
-                disabled={true}
-            />
-            <Input type="tel" id="phone_number" name="phone_number" placeholder="Numéro de mobile" 
-                value={phone_number}
-                disabled={true}
-            />
-            <div className="address">
-                <Input type="text" id="street_number" name="street_number" placeholder="N° de rue"
-                    value={street_number}
-                    disabled={true}
-                />
-                <Input type="text" id="name_of_the_road" name="name_of_the_road" placeholder="Nom de rue"
-                    value={name_of_the_road}
-                    disabled={true}
-                />
-            </div>
-            <div className="city">
-                <Input type="text" id="postal_code" name="postal_code" pattern="[0-9]{5}" placeholder="Code postal"
-                    value={postal_code}
-                    disabled={true}
-                />
-                <Input type="text" id="city" name="city" placeholder="Ville" 
-                    value={city}
-                    disabled={true}
-                />
-            </div>
+            {userAddressesStore &&
+                <>
+                    <button type="button" className="modal-toggle" onClick={toggle}>
+                        Choisir une autre adresse de livraison
+                    </button>
+                    {isShowing && 
+                        <div className="modal-overlay">
+                        <div className="modal-wrapper">
+                            <div className="modal">
+                            <div className="modal-header">
+                                <h4>Choisir une autre adresse de livraison</h4>
+                                <button
+                                type="button"
+                                className="modal-close-button"
+                                onClick={toggle}
+                                >
+                                <span>&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-flex">
+                            {userAddressesStore.map((userAddressStore) => (
+                                <FormInputDisabled key={userAddressStore.id} data={userAddressStore} button={true} 
+                                    setData={setUserAddress}/>
+                            ))}
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    }
+                </>
+            }
         </div>
     );
 };

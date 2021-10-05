@@ -1,6 +1,6 @@
 import './input.scss';
 
-const Input = ({ type, id, name, placeholder, value, handleChange, disabled, required, stringToBoolean }) => {
+const Input = ({ type, id, name, placeholder, value, handleChange, disabled, required }) => {
 
     return (
         <input 

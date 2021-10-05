@@ -1,16 +1,24 @@
+import './checkout-form.scss';
 import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
-
+import { useState } from 'react';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import Form from '../Account/Form';
+import cupcake from '../../assets/icons/cupcake.png';
 export default function CheckoutForm() {
+  const history = useHistory();
   const stripe = useStripe();
   const elements = useElements();
+  const [ success, setSuccess ] = useState(false);
+  const [ message, setMessage ] = useState('');
+  const cart = useSelector(state => state.shop.cart);
+  const state = useSelector(state => state);
+  console.log(state)
 
   const handleSubmit = async (event) => {
-    // Block native form submission.
-    event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
       return;
     }
 
@@ -26,18 +34,71 @@ export default function CheckoutForm() {
     });
 
     if (error) {
-      console.log('[error]', error);
+      console.log('[error]', error.message);
+      setMessage(error.message)
+      console.log(error)
     } else {
       console.log('[PaymentMethod]', paymentMethod);
+      try {
+        const { id } = paymentMethod;
+        const response = await axios.post("https://chibi-api.herokuapp.com/createCheckoutSession", { 
+          cart,
+          id,
+        });
+
+        if(response.data.success) {
+          console.log("Successful payment");
+          setSuccess(true);
+          try {
+            const responseOrder = await axios.post("https://chibi-api.herokuapp.com/order", { 
+              state
+            });
+  
+            if(responseOrder.data.id) {
+              console.log("success", responseOrder);
+              localStorage.setItem("lastOrder", JSON.stringify(responseOrder.data));
+              history.push('/confirmation')
+            }
+
+          } catch (error) {
+            console.log('error', error)
+          }
+        }
+      } catch (error) {
+        console.log('error', error)
+      }
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <CardElement />
-      <button type="submit" disabled={!stripe}>
-        Pay
-      </button>
-    </form>
+    <div className="checkout">
+    {!success ?
+      <Form handleSubmit={handleSubmit}>
+        {message? 
+          <div style={{display: 'flex', justifyContent: 'center'}}><img style={{width: "6rem"}} src={cupcake} /></div> :
+          <div>
+            <p>{message}</p>
+            <img style={{width: "6rem"}} src="https://img.icons8.com/nolan/64/kawaii-rice.png"/>
+          </div>
+            
+        }
+
+
+        <fieldset className="checkout__form-group">
+          <div className="checkout__form-row">
+            <CardElement />
+          </div>
+        </fieldset>
+        
+        <button className="checkout__button" type="submit" disabled={!stripe}>
+          Payer
+        </button>
+      </Form> :
+      <div>
+        <h2>You just bought a ...</h2>
+      </div>
+    }
+
+    </div>
   );
 };

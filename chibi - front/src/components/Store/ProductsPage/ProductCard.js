@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addProductToCart, addFavorites } from '../../../actions/shop';
+import { addProductToCart,  } from '../../../actions/shop';
+
+import { addFavorites } from "../../../actions/favorites";
 import PropTypes from 'prop-types';
 import { calculPrice } from '../../../pipes/calculPrice';
 

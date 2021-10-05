@@ -7,6 +7,7 @@ import { fetchCategories } from "../../actions/shop";
 import presImage from "../../assets/presentation-sables/presentation-sables.png";
 import custom from "../../assets/presentation-sables/custom.png";
 import CategoriesCard from './CategoriesCard';
+import Custom from "./Custom";
 import './store.scss';
 
 const Store = () => {
@@ -56,7 +57,7 @@ const Store = () => {
                 className="container__right__categories__image"
                 alt="Sablés Personnalisables"
               />
-              <p className="container__right__categories__text">Personnalisables</p>
+              <p className="container__right__categories__text">Sablés personnalisés</p>
             </Link>
           </div>
 

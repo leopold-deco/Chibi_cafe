@@ -1,0 +1,46 @@
+@use "../../../styles/vars";
+
+.custom__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    
+    &__img {
+        width: 25vh;
+        height: 25vh;
+        padding: 1rem;
+        
+    }
+
+    &__description {
+        text-align: center;
+    }
+}
+
+.custom__down {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    // width: 100%;
+    gap: 0.5rem;
+    
+    &__identity {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0.5rem;
+    }
+
+    &__radio {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__choice {
+        display: flex;
+        flex-direction: column;
+    }
+}

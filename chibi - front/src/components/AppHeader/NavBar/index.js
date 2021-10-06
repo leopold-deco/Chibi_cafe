@@ -46,12 +46,14 @@ function NavBar({ cartCount }) {
         <div className="navbar__2">
         {isLoggedIn?
           <NavLink className="navlink"  activeClassName="isactive" exact to="/compte/informations">Compte</NavLink>
+            
+      
         :
-          <NavLink className="navlink"  activeClassName="isactive" exact to="/compte">Compte</NavLink>
+          <NavLink className="navlink"  activeClassName="isactive" exact to="/compte">Se connecter</NavLink>
         }
+        {isLoggedIn && <div className="disconnectBtn"><i onClick={handleClick} class="fas fa-power-off"></i></div>}
           <NavLink className="navlink"  activeClassName="isactive" exact to="/panier">Panier{cartCount ? `(${cartCount})`:''}</NavLink>
           <NavLink className="navlink"  activeClassName="isactive" exact to="/contact">Contact</NavLink>
-          {isLoggedIn && <button onClick={handleClick}>se déconnecter</button>}
         </div>
       </div>
       <div className="navbar__mobile">
@@ -77,6 +79,7 @@ function NavBar({ cartCount }) {
         <Link className="menu__mobile__link" to="/boutique"><i className="fas fa-store"></i> Boutique</Link>
         <Link className="menu__mobile__link" to="/menu"><i className="fas fa-utensils"></i> Menu</Link>
         <Link className="menu__mobile__link" to="/contact"><i className="fas fa-envelope-square"></i> Contact</Link>
+        {isLoggedIn && <div className="disconnectBtn__mobile"><i onClick={handleClick} class="fas fa-power-off"></i> Se déconnecter</div>}
       </div>
     </>
     );

@@ -127,3 +127,114 @@
 p {
     color: black;
 }
+
+@media only screen and (max-width: 1000px) {
+.container{
+    align-items: center;
+    
+    &__center{
+        height: 50vh;
+        width: 150%;
+
+        &__title{
+            margin: 0;
+        }
+
+        &__description{
+            font-size: 0.9rem;
+            text-align: left;
+        }
+    }
+
+    &__left{
+
+        &__categories{
+
+            &__image{
+                width: 130px;
+                height: 130px;
+            }
+
+            &__text{
+                font-size: 1rem;
+
+            }
+        }
+    }
+
+    &__right{
+
+        &__categories{
+
+            &__image{
+                width: 130px;
+                height: 130px;
+            }
+
+            &__text{
+                font-size: 1rem;
+
+            }
+        }
+    }
+}
+
+   
+}
+
+@media only screen and (max-height: 850px) {
+        .container{
+        align-items: center;
+        
+        
+        &__right{
+
+            &__categories{
+    
+                &__image{
+                    width: 130px;
+                    height: 130px;
+                }
+
+                &__text{
+                    font-size: 1rem;
+                }
+    }
+
+}
+
+&__left{
+
+    &__categories{
+
+        &__image{
+            width: 130px;
+            height: 130px;
+        }
+
+        &__text{
+            font-size: 1rem;
+        }
+}
+
+}
+
+
+    .container__center{
+        height: 50vh;
+
+        &__title{
+            width: 80%;
+        }
+    }
+}
+
+}
+
+
+@media only screen and (max-width: 850px) {
+    .container__center__description{
+        margin-top: 1rem;
+        font-size: 0.8rem;
+    }
+}

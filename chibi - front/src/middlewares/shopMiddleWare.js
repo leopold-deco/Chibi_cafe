@@ -2,9 +2,6 @@ import axios from 'axios';
 
 import { FETCH_ARTICLES, FETCH_CATEGORIES, PRICE_CHECK,  saveArticles, saveCategories } from '../actions/shop';
 
-const axiosInstance = axios.create({
-  baseURL: 'https://chibi-api.herokuapp.com',
-});
 
 const shopMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {

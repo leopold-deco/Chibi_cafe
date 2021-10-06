@@ -2,7 +2,7 @@ import Input from '../../Input';
 import Button from '../../Button';
 import { useState } from 'react';
 
-const FormEditAddress = ({ userAddressStore, handleClickEdit }) => {
+const FormEditAddress = ({ userAddressStore, handleClickEdit, handleClickDelete }) => {
     const [userAddress, setUserAddress] = useState({
         first_name: userAddressStore.first_name, 
         last_name: userAddressStore.last_name, 
@@ -63,7 +63,7 @@ const FormEditAddress = ({ userAddressStore, handleClickEdit }) => {
                 />
             </div>
             <Button handleClick={() => handleClickEdit(userAddress)}>Modifier</Button>
-            {/* <Button handleClick={() => handleClickDelete(userAddress)}>Supprimer</Button> */}
+            <Button handleClick={() => handleClickDelete(userAddress)}>Supprimer</Button>
         </div>
     );
 };

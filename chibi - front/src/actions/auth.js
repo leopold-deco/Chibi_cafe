@@ -112,3 +112,12 @@ export const editAddress = (address) => (
     address
   }
 );
+
+export const DELETE_ADDRESS = 'DELETE_ADDRESS';
+
+export const deleteAddress = (address) => (
+  {
+    type: DELETE_ADDRESS,
+    address
+  }
+);

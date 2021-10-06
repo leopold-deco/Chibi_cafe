@@ -3,7 +3,7 @@ import NewAddress from '../Delivery/NewAddress';
 import './addresses.scss';
 import useModal from "../../hooks/useModal";
 import { useState } from 'react';
-import { addNewAddress, editAddress } from '../../actions/auth';
+import { addNewAddress, editAddress, deleteAddress } from '../../actions/auth';
 import Button from '../Button';
 import FormEditAddress from './FormEditAddress';
 
@@ -33,13 +33,12 @@ function Addresses() {
     };
 
     const handleClickEdit = (address) => {
-        console.log(address)
         dispatch(editAddress(address))
     };
 
-    // const handleClickDelete = () => {
-    //     dispatch(editAddress(newAddress))
-    // };
+    const handleClickDelete = (address) => {
+        dispatch(deleteAddress(address))
+    };
 
     console.log("deliv",userAddresses)
     return (
@@ -73,6 +72,7 @@ function Addresses() {
           {userAddresses && userAddresses.map(address => (
             <FormEditAddress key={address.id} 
                 handleClickEdit={handleClickEdit}
+                handleClickDelete={handleClickDelete}
                 userAddressStore={address}
             />
           ))}

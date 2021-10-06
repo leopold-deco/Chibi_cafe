@@ -29,7 +29,6 @@ const stripeController = {
             })
         }
     }
-
 }
 
 module.exports = stripeController;

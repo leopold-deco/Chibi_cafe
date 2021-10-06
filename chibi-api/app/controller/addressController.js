@@ -28,7 +28,7 @@ const addressController = {
         try {
             const updatedAddress = new Address(request.body);
             await updatedAddress.update(request.params.id);
-            response.status(200).json("Changement effectué")
+            response.status(200).json("Changement effectué");
         } catch(error) {
             response.status(500).send(error.message);
         }

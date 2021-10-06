@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import Form from '../Account/Form';
 import cupcake from '../../assets/icons/cupcake.png';
 import cupcakeClose from '../../assets/icons/cupcake-close.png';
+import bread from '../../assets/icons/bread.png';
 
 export default function CheckoutForm() {
   const history = useHistory();
@@ -76,14 +77,18 @@ export default function CheckoutForm() {
     console.log("change")
     setImage(cupcakeClose);
   }
-  console.log(image)
+
   return (
     <div className="checkout">
     {!success ?
       <Form handleSubmit={handleSubmit}>
-        <div style={{display: 'flex', justifyContent: 'center'}}>
+        <div classname="checkout__message" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: "6rem"}}>
         {message? 
-          <p>{message}</p> :
+          <>
+            <p className="text-animation">
+              {message}
+            </p> 
+            <img className="image-animation" src={bread} /> </>:
           <img style={{width: "6rem"}} src={image} />
         }
         </div>        

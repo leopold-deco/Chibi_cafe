@@ -1,7 +1,11 @@
 .header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
     text-align: center;
     position: relative;
     z-index: 10;
+    height: 15vh;
 
     .header__title{
         position: relative;

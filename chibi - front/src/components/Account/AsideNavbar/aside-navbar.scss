@@ -35,18 +35,18 @@
         
         &:nth-child(1):after { 
             content: "Informations personnelles";
-            color: rgb(226, 85, 132);
+            color: vars.$fourth-color;
         }
 
         &:nth-child(2):after { 
             content: "Favoris";
-            color: rgb(226, 85, 132);
+            color: vars.$fourth-color;
             padding-left: 1rem;
         }
         
         &:nth-child(3):after { 
             content: "Commandes";
-            color: rgb(226, 85, 132);
+            color: vars.$fourth-color;
             padding-left: 0.5rem;
         }
 
@@ -65,7 +65,7 @@
 ion-icon {
     display: block;
     font-size: 64px;
-    color: rgb(226, 85, 132);
+    color: vars.$fourth-color;
     transition: all .4s ease-out;
 }
 

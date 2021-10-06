@@ -21,7 +21,7 @@
         gap: 0.5rem;
 
     &__title {
-        color:rgb(226, 85, 132);
+        color: vars.$fourth-color;
         font-weight: bold;
         text-align: center;
         margin-bottom: 0.6rem;
@@ -35,7 +35,7 @@
         
         
         &__label {
-            color: rgb(226, 85, 132);
+            color: vars.$fourth-color;
             font-weight: bold;
             width: 7rem;
         }
@@ -57,7 +57,7 @@
     
     &__label {
         text-align: center;
-        color: rgb(226, 85, 132);
+        color: vars.$fourth-color;
         font-weight: bold;
     }
     

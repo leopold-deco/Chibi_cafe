@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import emailjs from 'emailjs-com';
 
+import Input from '../../Input';
 import Button from '../../Button';
-import custom2 from '../../../assets/custom/custom2.png';
+import custom3 from '../../../assets/custom/custom3.jpg';
 import './custom.scss';
 
 
-
-function Custom() {
+function Custom({ className, closeForm }) {
   const [lastname, setLastname] = useState("");
   const [firstname, setFirstname] = useState("");
   const [mail, setMail] = useState("");
@@ -43,90 +43,85 @@ function Custom() {
     setMessage("");
   }
 
-
-  
   return (
     <>
       <form className="custom" onSubmit={handleSubmit}>
+        <h2 className="custom__title">Sablés personnalisables : Suivez les étapes !</h2>
+
         <div className="custom__top">
-          <h2 className="custom__top__title">Sablés personnalisables</h2>
-          
-          <div className="custom__top__card-container">
             <div className="custom__top__card">
               <div className="custom__top__card__front">
                 <img
-                // onClick={onClick}
-                className="custom__top__card__img"
-                src={custom2}
+                className="custom__top__card__front__img"
+                src={custom3}
                 alt="Sablés Personnalisables"/>
               </div>
               <div className="custom__top__card__back">
-                <h3 className="custom__top__card__subtitle">Envie d’épater votre famille, vos amis, vos collègues, vos salariés ?</h3>
-                <p className="custom__top__card__description">Voici une idée de cadeau qui plaira à tous les gourmands.
-                <br></br>
+                <h3 className="custom__top__card__back__subtitle">Envie d’épater votre famille, vos amis, vos collègues, vos salariés ?</h3>
+                <p className="custom__top__card__back__description">Voici une idée de cadeau qui plaira à tous les gourmands.</p>
+                <p className="custom__top__card__back__description">
                 Une idée ? Un thème ? Une inspiration ?
                 Vous décidez du logo, du dessin, des couleurs, de la forme… et nous créerons pour vous le sablé sur-mesure qui surprendra vos convives !</p>
               </div>
             </div>
           </div>
 
-        </div>
+          <div className="custom__center">
+            <div className="custom__center__one">
+              <h3 className="custom__center__one__title">Etape 1 : Vos coordonnées</h3>
+              <div className="custom__center__one__identity">
+                <label className="custom__center__one__identity__label" htmlFor="firstname">Prénom</label>
+                <Input className="custom__center__one__identity__input" value={firstname} handleChange={setFirstname} type="text" id="firstname" />
 
-        <div className="custom__bottom">
+                <label className="custom__center__one__identity__label" htmlFor="lastname">Nom</label>
+                <Input className="custom__center__one__identity__input" value={lastname} handleChange={setLastname} type="text" id="lastname" />
 
-          <div className="custom__bottom__left">
-            <div className="custom__bottom__left__identity">
-              <label htmlFor="firstname">Prénom</label>
-              <input className="custom__bottom__left__identity__input" value={firstname} handleChange={setFirstname} type="text" id="firstname" />
+                <label className="custom__center__one__identity__label" htmlFor="mail">Email</label>
+                <Input className="custom__center__one__identity__input" value={mail} handleChange={setMail} type="email" id="mail" />
+              </div>
             </div>
 
-            <div className="custom__bottom__left__identity">
-              <label htmlFor="lastname">Nom</label>
-              <input className="custom__bottom__left__identity__input" value={lastname} handleChange={setLastname} type="text" id="lastname" />
-            </div>
-
-            <div className="custom__bottom__left__identity">
-              <label htmlFor="mail">Email</label>
-              <input className="custom__bottom__left__identity__input" value={mail} handleChange={setMail} type="email" id="mail" />
-            </div>
-          </div>
-
-          <div className="custom__bottom__right">
-              <h5 className="custom__bottom__right__title" htmlFor="quantity">Sélectionnez la taille de vos sablés :</h5>
-              <div className="custom__bottom__right__radio">
-                <input className="custom__bottom__right__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="small" />
-                <label className="custom__bottom__right__radio__label" htmlFor="small">Petit</label>
-                <p className="custom__bottom__right__radio__description">(5cm)</p>
+            <div className="custom__center__two">
+              <h3 className="custom__center__two__title">Etape 2 : Sélectionnez la taille de vos sablés :</h3>
+              <div className="custom__center__two__radio">
+                <Input className="custom__center__two__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="small" />
+                <label className="custom__center__two__radio__label" htmlFor="small">Petit</label>
+                <p className="custom__center__two__radio__description">(5cm)</p>
               </div>
 
-              <div className="custom__bottom__right__radio">
-                <input className="custom__bottom__right__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="medium" />
-                <label className="custom__bottom__right__radio__label" htmlFor="medium">Moyen</label>
-                <p className="custom__bottom__right__radio__description">(10cm)</p>
+              <div className="custom__center__two__radio">
+                <Input className="custom__center__two__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="medium" />
+                <label className="custom__center__center__radio__label" htmlFor="medium">Moyen</label>
+                <p className="custom__center__two__radio__description">(10cm)</p>
               </div>
 
-              <div className="custom__bottom__right__radio">
-                <input className="custom__bottom__right__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="large" />
-                <label className="custom__bottom__right__radio__label" htmlFor="large">Grand</label>
-                <p className="custom__bottom__right__radio__description">(15cm)</p>
+              <div className="custom__center__two__radio">
+                <Input className="custom__center__two__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="large" />
+                <label className="custom__center__two__radio__label" htmlFor="large">Grand</label>
+                <p className="custom__center__two__radio__description">(15cm)</p>
               </div>
+            </div>
 
-            <div className="custom__bottom__right__number">
-              <label className="custom__bottom__right__number__title" htmlFor="quantity">Votre quantité</label>
-              <input className="custom__bottom__right__number__input" value={quantity} handleChange={setQuantity} type="number" min="0" id="quantity" />
+            <div className="custom__center__three">
+              <h3 className="custom__center__three__title">Etape 3 : La quantité souhaitée</h3>
+              <Input className="custom__center__three__input" value={quantity} handleChange={setQuantity} type="number" min="0" id="quantity" />
+            </div>
+
+            <div className="custom__center__four">
+              <h3 className="custom__center__four__title">Etape 4 : Téléchargez votre image</h3>
+              <Input className="custom__center__four__input" value={file} handleChange={setFile} type="file" id="lastname" />
             </div>
           </div>
-        </div>
+          
+          
 
-          <div className="custom__choice">
-            <label htmlFor="file">Télécharger votre image</label>
-            <input className="custom__choice__input" value={file} handleChange={setFile} type="file" id="lastname" />
-          </div>
+          <div className="custom__bottom">
 
-          <div className="custom__submit">
-            <textarea  value={message} onChange={(e) => setMessage(e.target.value)} className="custom__submit__text" placeholder="Votre Message"></textarea>
+            <div className="custom__bottom__submit">
+              <textarea  value={message} onChange={(e) => setMessage(e.target.value)} className="custom__bottom__submit__text" placeholder="Votre Message"></textarea>
 
-            <Button className="custom__button" type="button">Demander un devis</Button>
+              <Button className="custom__bottom__button" type="button">Demander un devis</Button>
+            </div>
           </div>
 
       </form>

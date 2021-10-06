@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { 
-  connectUser, getAddresses, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES 
+  connectUser, getAddresses, ADD_NEW_ADDRESS, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES, EDIT_ADDRESS, DELETE_ADDRESS
 } from '../actions/auth';
 
 const axiosInstance = axios.create({
@@ -134,16 +134,120 @@ const userMiddleware = (store) => (next) => (action) => {
       break;
     }
     case GET_USER_ADDRESSES: {
-      const { user: {
+      const { token, user: {
         id,
       } } = store.getState().auth;
       
       axiosInstance.get(
         `/address/${id}`,
+        {
+          headers: { "Authorization": `Bearer ${token}` }
+        }
       ).then((response) => {
-        console.log("orderrr", response)
+        console.log("adresses", response)
         localStorage.setItem("userAddresses", JSON.stringify(response.data));
         store.dispatch(getAddresses(response.data));
+      },
+      ).catch(
+        (error) => console.log('error', error),
+      );
+      next(action);
+      break;
+    }
+    case ADD_NEW_ADDRESS: {
+      const { token, user: {
+        id,
+      } } = store.getState().auth;
+
+      axiosInstance.post(
+        '/newAddress',
+        {            
+          first_name: action.address.first_name,
+          last_name: action.address.last_name,
+          phone_number: action.address.phone_number,
+          street_number: action.address.street_number,
+          name_of_the_road: action.address.name_of_the_road,
+          postal_code: action.address.postal_code,
+          city: action.address.city,
+          user_id: id
+        }, 
+        {
+          credentials: 'include',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        } 
+      ).then((response) => {
+        if(response.data.first_name) {
+          store.dispatch({type: GET_USER_ADDRESSES});
+        }
+      },
+      ).catch(
+        (error) => console.log('error', error),
+      );
+      next(action);
+      break;
+    }
+    case EDIT_ADDRESS: {
+      const { token, user: {
+        id,
+      } } = store.getState().auth;
+      console.log("action.address",action.address)
+      axiosInstance.patch(
+        `/address/${action.address.id}`,
+        {            
+          first_name: action.address.first_name,
+          last_name: action.address.last_name,
+          phone_number: action.address.phone_number,
+          street_number: action.address.street_number,
+          name_of_the_road: action.address.name_of_the_road,
+          postal_code: action.address.postal_code,
+          city: action.address.city,
+          user_id: id
+        }, 
+        {
+          credentials: 'include',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        } 
+      ).then((response) => {
+        if(response.data) {
+          console.log(response)
+          store.dispatch({type: GET_USER_ADDRESSES});
+        }
+      },
+      ).catch(
+        (error) => console.log('error', error),
+      );
+      next(action);
+      break;
+    }
+    case DELETE_ADDRESS: {
+      const { token, user: {
+        id,
+      } } = store.getState().auth;
+      console.log("action.address",action.address)
+      axiosInstance.delete(
+        `/address/${action.address.id}`,
+        {
+          data: {            
+            first_name: action.address.first_name,
+            last_name: action.address.last_name,
+            phone_number: action.address.phone_number,
+            street_number: action.address.street_number,
+            name_of_the_road: action.address.name_of_the_road,
+            postal_code: action.address.postal_code,
+            city: action.address.city,
+            user_id: id
+          }, 
+          headers: { "Authorization": `Bearer ${token}` }
+        }
+      ).then((response) => {
+        if(response.data) {
+          console.log("supprimé",response.data)
+          store.dispatch({type: GET_USER_ADDRESSES});
+        }
       },
       ).catch(
         (error) => console.log('error', error),

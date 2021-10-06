@@ -2,3 +2,11 @@
     display: flex;
     padding: 2rem;
 }
+
+@media only screen and (max-width: 680px) {
+    .informations {
+        flex-direction: column;
+        margin: 3rem;
+        align-items: center;
+    }
+}

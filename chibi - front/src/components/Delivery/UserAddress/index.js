@@ -35,7 +35,7 @@ const UserAddress = ({ userAddress, setUserAddress}) => {
                             <div className="modal-flex">
                             {userAddressesStore.map((userAddressStore) => (
                                 <FormInputDisabled key={userAddressStore.id} data={userAddressStore} button={true} 
-                                    setData={setUserAddress}/>
+                                handleClick={setUserAddress} />
                             ))}
                             </div>
                             </div>

@@ -1,0 +1,256 @@
+@use "../../../styles/vars";
+
+.custom {
+    display: flex;
+    flex-direction: column;
+    min-height: 85vh;
+    text-align: center;
+    background-image: url(../../../assets/custom/background-custom.jpg);
+    background-position: center;
+    background-size: cover;
+    font-size: 1.3rem;
+
+    &__title {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        color: #fd403f;
+        font-weight: bold;
+    }
+
+    &__top {
+        width: 325px;
+        height: 310px;
+        margin: auto;
+        
+        &__card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            transform-style: preserve-3d;
+            transition: all 0.8s ease;
+            
+            &:hover {
+                display: block;
+                transform: rotateY(180deg);
+            }
+            
+            &__front {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+
+                &__img {
+                    border-radius: 20px;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            &__back {
+                position: absolute;
+                color: black;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: vars.$tertiary-color;
+                width: 100%;
+                height: 100%;
+                border-radius: 20px;
+                backface-visibility: hidden;
+                transform: rotateY(180deg);
+                padding: 1rem;
+
+                &__description {
+                    padding: 1rem;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    
+    &__center {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        &__one {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            background-color: #e8af7b;
+            box-shadow: vars.$box-shadow;
+            border: vars.$border;
+            border-radius: 20px;
+            width: 290px;
+            height: 270px;
+
+            &__title {
+                color: vars.$tertiary-color;
+            }
+
+            &__identity {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 00.5rem;
+
+                &__label {
+                    margin-top: 0.5rem;
+                    // margin-bottom: 00.5rem;
+                }
+            }
+        }
+
+        &__two {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 1rem;
+            background-color: #e8af7b;
+            box-shadow: vars.$box-shadow;
+            border: vars.$border;
+            border-radius: 20px;
+            width: 290px;
+            height: 270px;
+            
+            &__title {
+                color: vars.$tertiary-color;
+                font-weight: bold;
+                margin-bottom: 2rem;
+            }
+            
+            &__radio {
+                display: flex;
+                margin-bottom: 1rem;
+
+                &__label {
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+
+        &__three {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 1rem;
+            background-color: #e8af7b;
+            box-shadow: vars.$box-shadow;
+            border: vars.$border;
+            border-radius: 20px;
+            width: 290px;
+            height: 270px;
+
+            &__title {
+                color: vars.$tertiary-color;;
+                margin-bottom: 2rem;
+            }
+        }
+
+        &__four {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 1rem;
+            background-color: #e8af7b;
+            box-shadow: vars.$box-shadow;
+            border: vars.$border;
+            border-radius: 20px;
+            width: 290px;
+            height: 270px;
+
+            &__title {
+                color: vars.$tertiary-color;;
+                margin-bottom: 2rem;
+                    
+            }
+
+        }
+        
+        
+    }
+    
+    &__bottom {
+        width: 100%;
+        bottom: 70px;
+
+        &__submit {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+    
+            &__text {
+            width: 50%;
+            height: 150px;
+            margin-top: 5px;
+            background-color: #f8f8f8;
+            outline: none;
+            padding: vars.$halfGutter;
+            border-radius: vars.$border-radius;
+            border: vars.$border; 
+            resize: none;
+            font-size: .8rem;
+            letter-spacing: 1px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .custom {
+        
+        &__top {
+            display: none;
+        }
+
+        &__one {
+            font-size: 1.2rem;
+            flex-direction: column;
+            text-align: center;
+    
+            &__two {
+                align-items: center;
+                margin-top: 2rem;
+            }
+    
+            &__three {
+                &__number {
+                    margin-top: 2rem;
+                }
+            }
+
+            &__four {
+                
+                &__choice {
+                    margin-top: 2rem;
+                }
+            }
+        }
+
+        &__bottom {
+            bottom: 90px;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .custom {
+        
+        &__top {
+            padding: 5rem;
+        }
+
+        &__bottom {
+            bottom: 90px;
+        }
+    }
+}

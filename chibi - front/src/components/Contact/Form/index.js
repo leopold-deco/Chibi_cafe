@@ -39,11 +39,8 @@ const Form = ({ className, closeForm }) => {
         setMessage("");
 
         setTimeout(function(){ closeForm(); }, 2000);
+    }  
 
-        
-        
-
-    }   
     console.log(firstname);
 
     return (

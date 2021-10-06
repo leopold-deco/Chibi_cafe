@@ -1,18 +1,19 @@
 @use '../../styles/vars';
 @font-face { font-family: CandyFul; src: url('../../assets/Candyful\ -\ Free\ Trial.ttf'); } 
 
-
 body {
   font-family: 'Nova Round', cursive;
   background: vars.$primary-linear;
   background-repeat:no-repeat;
   background-size: cover;
 }
+
 .App{
   position:relative;
   min-height: 100vh;
   
 }
+
 h1, h2, h3 {
   font-weight: normal;
 }

@@ -2,10 +2,7 @@ import './form-input-disabled.scss';
 import Input from '../../../Input';
 import Button from '../../../Button';
 
-const FormInputDisabled = ({ data, button, setData }) => {
-    const DeliverySubmit = () => {
-        setData(data);
-    }
+const FormInputDisabled = ({ data, button, handleClick }) => {
 
     return (
         <div className="form-input-disabled">
@@ -41,7 +38,7 @@ const FormInputDisabled = ({ data, button, setData }) => {
                     disabled={true}
                 />
             </div>
-            {button && <Button type="button" handleClick={DeliverySubmit}>Livrer à cette adresse</Button>}
+            {button && <Button type="button" handleClick={() => handleClick(data)}>Livrer à cette adresse</Button>}
         </div>
     );
 };

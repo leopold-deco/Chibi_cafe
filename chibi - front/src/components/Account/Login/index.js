@@ -2,28 +2,22 @@ import './login.scss';
 import Form from '../Form';
 import Button from '../../Button';
 import Input from '../../Input';
-import { useSelector, useDispatch } from 'react-redux';
-import { login, setUserField } from '../../../actions/auth';
+import { useDispatch } from 'react-redux';
+import { login } from '../../../actions/auth';
 import { useHistory } from "react-router-dom";
 import { useState } from 'react';
 
-const Login = () => {
+const Login = ({ to }) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
 
-    //const { email, password } = useSelector((state) => state.user);
-
-    // const handleChange = (value, name) => {
-    //     dispatch(setUserField(value, name));
-    // };
-
     const handleSubmitForm = () => {
         dispatch(login(mail, password));
         setMail('');
         setPassword('');
-        history.push('/');
+        setTimeout(() => history.push(`${to}`), 1000);
     }
 
     return (

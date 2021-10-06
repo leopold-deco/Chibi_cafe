@@ -94,3 +94,30 @@ export const getAddresses = (data) => (
     data
   }
 );
+
+export const ADD_NEW_ADDRESS = 'NEW_ADDRESS';
+
+export const addNewAddress = (address) => (
+  {
+    type: ADD_NEW_ADDRESS,
+    address
+  }
+);
+
+export const EDIT_ADDRESS = 'EDIT_ADDRESS';
+
+export const editAddress = (address) => (
+  {
+    type: EDIT_ADDRESS,
+    address
+  }
+);
+
+export const DELETE_ADDRESS = 'DELETE_ADDRESS';
+
+export const deleteAddress = (address) => (
+  {
+    type: DELETE_ADDRESS,
+    address
+  }
+);

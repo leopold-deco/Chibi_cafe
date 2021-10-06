@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from '../Home';
 import Cart from '../Cart';
 import Delivery from '../Delivery';
+import Addresses from '../Addresses';
 import Contact from '../Contact';
 import Menu from '../Menu';
 import Account from '../Account';
@@ -45,6 +46,9 @@ function App() {
         </Route>
         <Route path="/compte/commandes" exact>
           <Orders />
+        </Route>
+        <Route path="/compte/adresses" exact>
+          <Addresses />
         </Route>
         <Route path="/panier" exact>
           <Cart />

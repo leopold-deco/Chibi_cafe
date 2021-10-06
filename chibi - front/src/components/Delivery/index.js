@@ -13,7 +13,7 @@ const Delivery = () => {
     const history = useHistory();
     const { isNewAddress } = useSelector((state) => state.delivery);
     const { isLoggedIn, user } = useSelector(state => state.auth);
-    const [userAddress, setUserAddress] = useState({
+    const [userAddress, setUserAddress] = useState(user && {
         first_name: user.first_name, 
         last_name: user.last_name, 
         phone_number: user.phone_number,
@@ -60,7 +60,7 @@ const Delivery = () => {
     if (!isLoggedIn) {
         return <Redirect to="/compte" />
     }
-    console.log("userAddress",userAddress, "new address",newAddress )
+    
     return (
         <Form handleSubmit={verifyIsNewAddressAndStore}> 
             <h2>Livraison</h2>

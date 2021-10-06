@@ -34,7 +34,7 @@ const Delivery = ({
                         <UserAddress userAddress={userAddress} setUserAddress={setUserAddress}
                     />}
                     {option.id === "newAddress" && 
-                        <NewAddress newAddress={newAddress} handleChangeNewAddress={handleChangeNewAddress}
+                        <NewAddress newAddress={newAddress} handleChange={handleChangeNewAddress}
                     />}
                 </div>
             ))}

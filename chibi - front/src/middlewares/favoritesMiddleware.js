@@ -23,7 +23,6 @@ const favoritesMiddleware = (store) => (next) => (action) => {
         .then(
           (response) => {
             console.log("favoris ajouter :", response)
-            console.log("store.getState.favorites", store.getState().favoritesReducer);
           }
         ).catch(
           (error) => console.log("erreur: pas d'ajout en favoris", error)
@@ -44,7 +43,6 @@ const favoritesMiddleware = (store) => (next) => (action) => {
         })
         .then(
           (response) => {
-            console.log("store.getState.favorites2", store.getState().favoritesReducer);
             console.log("log response fetch:", response);
             localStorage.setItem("favorites", JSON.stringify(response.data));
             store.dispatch(saveFavorites(response.data));

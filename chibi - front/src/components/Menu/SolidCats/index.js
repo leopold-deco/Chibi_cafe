@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import './solidcats.scss';
 
-const SolidCats = ({ category_name, category_picture, id, findProducts }) => {
+const SolidCats = ({ category_name, category_picture, id, findProducts, setMouseoverSolid, mouseoverSolid, newClassName }) => {
 
 
 
@@ -14,13 +14,19 @@ const SolidCats = ({ category_name, category_picture, id, findProducts }) => {
       };
 
 
- 
+      const onMouseOver = () => {
+        setMouseoverSolid(category_name)
+     }
+      
+     const mouseleaver = () => {
+        setMouseoverSolid('')
+     }
   
 
     
  return   (
-    <div onClick={(e) => findProducts(e.target.id, e.target.className)} id={`${id}`} style={mystyle} 
-     className={`solid__categories ${category_name}`}>
+    <div  onMouseLeave={mouseleaver} onMouseEnter={onMouseOver} onClick={(e) => findProducts(e.target.id, e.target.className)} id={`${id}`} style={mystyle} 
+     className={`solid__categories ${category_name} ${newClassName}`}>
         <h2 className={`${id}`} style={{marginTop: '2rem'}} >{category_name}</h2>
         
     </div>

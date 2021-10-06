@@ -1,12 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Solid from './Solid';
 import Liquid from './Liquid';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFoodCategories } from "../../actions/menu";
 import { fetchArticles } from '../../actions/shop'
 import MenuProducts from './MenuProducts';
-import $ from 'jquery'
 
 import './menu.scss';
 
@@ -16,43 +15,23 @@ function Menu() {
   const [pageProducts, setProducts] = useState([])
   const [categorieName, setNameCat] = useState([])
 
+  const [mouseoverLiquid, setMouseoverLiquid] = useState('')
+  const [mouseoverSolid, setMouseoverSolid] = useState('')
+  
+  
+
+  const liquidRef = useRef()
+
 const categories = useSelector((state) => state.shop.categories.filter(category => category.type_of_product === false))
 const products = useSelector((state) => state.shop.products)
 
+console.log(liquidRef)
 
 const findProducts = (target, target2) => {
    setProducts(products.filter((product) =>  product.category_id === Number(target) || product.category_id === Number(target2)));
    findCategorie(target, target2)
    setOpenProducts(true)
 } 
-
-
-const handleMouseHover = () => {
-
-$('.liquid__categories').each(function() {
-  $(this).mouseover(function() {
-      $(this).addClass('active');
-    $('.liquid').children('.liquid__categories').not('.active').addClass('inactive');
-  });
-  $(this).mouseleave(function() {
-      $(this).removeClass('active');
-      $('.liquid').children('.liquid__categories').not('.active').removeClass('inactive');
-  });
-});
-
-  $('.solid__categories').each(function() {
-    $(this).mouseover(function() {
-        $(this).addClass('active');
-      $('.solid').children('.solid__categories').not('.active').addClass('inactive');
-    });
-    $(this).mouseleave(function() {
-        $(this).removeClass('active');
-        $('.solid').children('.solid__categories').not('.active').removeClass('inactive');
-    });
-  });
-  
-}
-
 
 
 const closeMenuProducts = () => {
@@ -92,12 +71,12 @@ useEffect(
 
     return (
       <>      
-      <div onMouseOver={handleMouseHover} className='menu'>
+      <div className='menu'>
         <div className='menu__solid'>
-          <Solid solids={solids} findProducts={findProducts}/>
+          <Solid solids={solids} findProducts={findProducts} mouseoverSolid={mouseoverSolid}   setMouseoverSolid={setMouseoverSolid} />
         </div>
         <div  className="menu__liquid">
-          <Liquid liquids={liquids} findProducts={findProducts}/>
+          <Liquid liquids={liquids} findProducts={findProducts} mouseoverLiquid={mouseoverLiquid}   setMouseoverLiquid={setMouseoverLiquid}/>
         </div>
        
        <MenuProducts products={pageProducts} closeMenuProducts={closeMenuProducts} menuClassName={menuClassName} classMenu={classMenu} {...categorieName}/>

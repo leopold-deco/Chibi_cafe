@@ -6,17 +6,19 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Form from '../Account/Form';
 import cupcake from '../../assets/icons/cupcake.png';
+import cupcakeClose from '../../assets/icons/cupcake-close.png';
+
 export default function CheckoutForm() {
   const history = useHistory();
   const stripe = useStripe();
   const elements = useElements();
   const [ success, setSuccess ] = useState(false);
   const [ message, setMessage ] = useState('');
+  const [ image, setImage ] = useState(cupcake);
   const cart = useSelector(state => state.shop.cart);
   const state = useSelector(state => state);
-  console.log(state)
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async () => {
 
     if (!stripe || !elements) {
       return;
@@ -70,23 +72,46 @@ export default function CheckoutForm() {
     }
   };
 
+  const handleFocus = () => {
+    console.log("change")
+    setImage(cupcakeClose);
+  }
+  console.log(image)
   return (
     <div className="checkout">
     {!success ?
       <Form handleSubmit={handleSubmit}>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
         {message? 
-          <div style={{display: 'flex', justifyContent: 'center'}}><img style={{width: "6rem"}} src={cupcake} /></div> :
-          <div>
-            <p>{message}</p>
-            <img style={{width: "6rem"}} src="https://img.icons8.com/nolan/64/kawaii-rice.png"/>
-          </div>
-            
+          <p>{message}</p> :
+          <img style={{width: "6rem"}} src={image} />
         }
-
+        </div>        
 
         <fieldset className="checkout__form-group">
           <div className="checkout__form-row">
-            <CardElement />
+            <CardElement 
+              onChange={handleFocus}
+              options={{
+                iconStyle: "solid",
+                style: {
+                    base: {
+                        iconColor: "#c4f0ff",
+                        color: "#fff",
+                        fontWeight: 500,
+                        fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+                        fontSize: "16px",
+                        fontSmoothing: "antialiased",
+                        ":-webkit-autofill": { color: "#fce883" },
+                        "::placeholder": { color: "#87bbfd" }
+                    },
+                    invalid: {
+                        iconColor: "#ffc7ee",
+                        color: "#ffc7ee"
+                    }
+                }
+              }} 
+            />
           </div>
         </fieldset>
         
@@ -95,7 +120,7 @@ export default function CheckoutForm() {
         </button>
       </Form> :
       <div>
-        <h2>You just bought a ...</h2>
+        <h2>Paiement validé!</h2>
       </div>
     }
 

@@ -26,7 +26,6 @@ const Cart = (props) => {
   }
 
   const verifyLogged = () => {
-    console.log("message",message)
     if (message === "Prix vérifié") {
       if(isLoggedIn) {
         history.push('/livraison');

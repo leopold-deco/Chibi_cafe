@@ -1,6 +1,7 @@
 import Input from '../../Input';
 import Button from '../../Button';
 import { useState } from 'react';
+import './form-edit-address.scss';
 
 const FormEditAddress = ({ userAddressStore, handleClickEdit, handleClickDelete }) => {
     const [userAddress, setUserAddress] = useState({
@@ -22,7 +23,7 @@ const FormEditAddress = ({ userAddressStore, handleClickEdit, handleClickDelete 
     }
 
     return (
-        <div> 
+        <div className="form-edit-address"> 
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
                 value={userAddress.first_name} 
                 handleChange={handleChangeAddress}

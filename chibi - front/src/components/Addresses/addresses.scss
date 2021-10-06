@@ -1,0 +1,11 @@
+.addresses {
+    display: flex;
+    padding: 2rem;
+
+    &__container {
+        padding: 2rem;
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+}

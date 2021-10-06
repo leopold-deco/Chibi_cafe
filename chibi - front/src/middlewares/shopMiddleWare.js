@@ -46,8 +46,10 @@ const shopMiddleWare = (store) => (next) => (action) => {
       })
       .then(
         (response) => {
-          console.log(response.data)
+          console.log("check ok", response.data)
         }
+      ).catch(
+        (error) => console.log('error', error),
       );
       next(action);
       break;

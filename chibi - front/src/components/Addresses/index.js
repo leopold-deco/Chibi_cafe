@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { addNewAddress, editAddress, deleteAddress } from '../../actions/auth';
 import Button from '../Button';
 import FormEditAddress from './FormEditAddress';
-
+import AsideNavbar from '../Account/AsideNavbar';
 function Addresses() {
     const dispatch = useDispatch();
     const { userAddresses } = useSelector((state) => state.auth);
@@ -40,10 +40,12 @@ function Addresses() {
         dispatch(deleteAddress(address))
     };
 
-    console.log("deliv",userAddresses)
+
     return (
-      <div>
-            <button type="button" className="modal-toggle" onClick={toggle}>
+        <div className="addresses">
+            <AsideNavbar />
+      <div className="addresses__container">
+            <button style={{flexBasis:"22%"}} type="button" className="modal-toggle" onClick={toggle}>
             Ajouter une adresse
             </button>
             {isShowing && 
@@ -76,6 +78,7 @@ function Addresses() {
                 userAddressStore={address}
             />
           ))}
+      </div>
       </div>
     );
 }

@@ -212,7 +212,7 @@ const userMiddleware = (store) => (next) => (action) => {
           },
         } 
       ).then((response) => {
-        if(response.data.first_name) {
+        if(response.data) {
           console.log(response)
           store.dispatch({type: GET_USER_ADDRESSES});
         }
@@ -244,8 +244,8 @@ const userMiddleware = (store) => (next) => (action) => {
           headers: { "Authorization": `Bearer ${token}` }
         }
       ).then((response) => {
-        if(response) {
-          console.log("supprimé",response)
+        if(response.data) {
+          console.log("supprimé",response.data)
           store.dispatch({type: GET_USER_ADDRESSES});
         }
       },

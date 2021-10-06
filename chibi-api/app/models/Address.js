@@ -35,7 +35,7 @@ class Address {
     }
     async update(id) {
         try {
-            await db.query('UPDATE "address" SET "first_name"=$1, "last_name"=$2, "phone_number"=$3, "street_number"=$4, "name_of_the_road"=$5, "postal_code"=$6, "city"=$7, WHERE id=$8', [this.first_name, this.last_name, this.phone_number, this.street_number, this.name_of_the_road, this.postal_code, this.city, id]);
+            await db.query('UPDATE "address" SET "first_name"=$1, "last_name"=$2, "phone_number"=$3, "street_number"=$4, "name_of_the_road"=$5, "postal_code"=$6, "city"=$7 WHERE id=$8', [this.first_name, this.last_name, this.phone_number, this.street_number, this.name_of_the_road, this.postal_code, this.city, id]);
         } catch(error) {
             throw error;
         }

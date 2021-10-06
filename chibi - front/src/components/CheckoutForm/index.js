@@ -7,7 +7,8 @@ import { useHistory } from 'react-router-dom';
 import Form from '../Account/Form';
 import cupcake from '../../assets/icons/cupcake.png';
 import cupcakeClose from '../../assets/icons/cupcake-close.png';
-import bread from '../../assets/icons/bread.png';
+import coffee from '../../assets/icons/coffee.png';
+import Button from '../Button';
 
 export default function CheckoutForm() {
   const history = useHistory();
@@ -88,7 +89,7 @@ export default function CheckoutForm() {
             <p className="text-animation">
               {message}
             </p> 
-            <img className="image-animation" src={bread} /> </>:
+            <img className="image-animation" src={coffee} /> </>:
           <img style={{width: "6rem"}} src={image} />
         }
         </div>        
@@ -120,9 +121,9 @@ export default function CheckoutForm() {
           </div>
         </fieldset>
         
-        <button className="checkout__button" type="submit" disabled={!stripe}>
+        <Button type="submit" disabled={!stripe}>
           Payer
-        </button>
+        </Button>
       </Form> :
       <div>
         <h2>Paiement validé!</h2>

@@ -7,7 +7,7 @@ import { login } from '../../../actions/auth';
 import { useHistory } from "react-router-dom";
 import { useState } from 'react';
 
-const Login = () => {
+const Login = ({ to }) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const [mail, setMail] = useState('');
@@ -17,7 +17,7 @@ const Login = () => {
         dispatch(login(mail, password));
         setMail('');
         setPassword('');
-        history.push('/');
+        setTimeout(() => history.push(`${to}`), 1000);
     }
 
     return (

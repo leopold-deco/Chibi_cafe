@@ -144,7 +144,7 @@ const userMiddleware = (store) => (next) => (action) => {
           headers: { "Authorization": `Bearer ${token}` }
         }
       ).then((response) => {
-        console.log("orderrr", response)
+        console.log("adresses", response)
         localStorage.setItem("userAddresses", JSON.stringify(response.data));
         store.dispatch(getAddresses(response.data));
       },

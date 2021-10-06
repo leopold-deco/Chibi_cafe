@@ -28,7 +28,7 @@ function Account() {
               <SignUp closeSignupForm={closeSignupForm}/>
             </div>
             <div className={loginClassName}>
-              <Login/>
+              <Login to='/' />
               <div className={modConnectClasse}>
                 <h2 className="signupTitle">Nouveau Client ?</h2>
                 <button onClick={openSignupForm} className="clientBtn">Créer un Compte</button>

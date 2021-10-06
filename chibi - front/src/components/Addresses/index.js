@@ -7,6 +7,7 @@ import { addNewAddress, editAddress, deleteAddress } from '../../actions/auth';
 import Button from '../Button';
 import FormEditAddress from './FormEditAddress';
 import AsideNavbar from '../Account/AsideNavbar';
+
 function Addresses() {
     const dispatch = useDispatch();
     const { userAddresses } = useSelector((state) => state.auth);

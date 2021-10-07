@@ -8,7 +8,7 @@ $dark-pink: #f9c4d2;
 $pink-border: #b18597;
 $pink-shadow: #ffe3e2;
 
-.button {
+.basic-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,6 +18,7 @@ $pink-shadow: #ffe3e2;
     cursor: pointer;
     outline: none;
     border: 0;
+    margin-bottom: 1rem;
     vertical-align: middle;
     text-decoration: none;
     font-weight: 600;
@@ -61,7 +62,7 @@ $pink-shadow: #ffe3e2;
       }
     }
     &__animation {
-        height: 4rem;
+        height: 3rem;
     }
 }
 
@@ -76,4 +77,13 @@ $pink-shadow: #ffe3e2;
     100% {
         transform: translateY(5px);
     }
+}
+
+@media only screen and (max-width: 600px) {
+  .basic-button {
+    &__animation {
+      height: 2rem;
+    }
+  }
+
 }

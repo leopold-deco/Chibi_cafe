@@ -3,6 +3,7 @@ import Login from './Login';
 import { useState } from 'react';
 
 import './account.scss';
+import AccountBackground from '../AccountBackground';
 
 function Account() {
   const [openSignForm, setOpenSignForm] = useState(false)
@@ -22,20 +23,20 @@ function Account() {
   }
 
     return (
-      <div>
-          <div className="auth">
-            <div className={signUpclassName}>
-              <SignUp closeSignupForm={closeSignupForm}/>
-            </div>
-            <div className={loginClassName}>
-              <Login to='/' />
-              <div className={modConnectClasse}>
-                <h2 className="center">Nouveau Client ?</h2>
-                <button onClick={openSignupForm} className="clientBtn">Créer un Compte</button>
-            </div> 
-            </div>
+      <AccountBackground>
+        <div className="auth">
+          <div className={signUpclassName}>
+            <SignUp closeSignupForm={closeSignupForm}/>
           </div>
-      </div>
+          <div className={loginClassName}>
+            <Login to='/' />
+            <div className={modConnectClasse}>
+              <h2 className="center">Nouveau Client ?</h2>
+              <button onClick={openSignupForm} className="clientBtn">Créer un Compte</button>
+          </div> 
+          </div>
+        </div>
+      </AccountBackground>
     );
 }
   

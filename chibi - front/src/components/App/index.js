@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import './App.scss';
 import AppHeader from '../AppHeader';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import Home from '../Home';
 import Cart from '../Cart';
 import Delivery from '../Delivery';
@@ -19,11 +19,25 @@ import Informations from '../Account/Informations';
 import Orders from '../Account/Orders';
 import StripeContainer from '../StripeContainer';
 import Favorites from '../Favorites';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [classNameBackground, setClassNameBackground] = useState('accueil');
+  const location = useLocation();
 
+  useEffect(() => {
+    switch (location.pathname) {
+      case '/':
+        setClassNameBackground('accueil');
+        break;
+      case '/compte/informations':
+        setClassNameBackground('compte');
+        break;
+    }
+  }, [location.pathname]);
+  console.log(classNameBackground, location)
   return (
-    <div className="App">
+    <div className={`App ${classNameBackground}`}>
       <AppHeader />
       <Switch>
         <Route path="/" exact>

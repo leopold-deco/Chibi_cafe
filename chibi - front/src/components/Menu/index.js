@@ -4,9 +4,10 @@ import Liquid from './Liquid';
 import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFoodCategories } from "../../actions/menu";
-import { fetchArticles } from '../../actions/shop'
+import { fetchArticles } from '../../actions/shop';
+import { setLoadingFalse } from '../../actions/message';
 import MenuProducts from './MenuProducts';
-import Loader from '../Loader';
+import CoffeeLoader from '../CoffeeLoader';
 
 import './menu.scss';
 
@@ -20,7 +21,7 @@ function Menu() {
   const [mouseoverSolid, setMouseoverSolid] = useState('')
   
   const { loading } = useSelector(state => state.message);
-  console.log(loading)
+  console.log("loading",loading)
   const liquidRef = useRef()
 
   const categories = useSelector((state) => state.shop.categories.filter(category => category.type_of_product === false))
@@ -64,13 +65,14 @@ function Menu() {
     () => {
       dispatch(fetchFoodCategories())
       dispatch(fetchArticles())
+      setTimeout(() => dispatch(setLoadingFalse()), 4000);
       
     },
     [],
   );
 
   if (loading) {
-    return <Loader />;
+    return <CoffeeLoader />;
   }
 
   return (

@@ -16,7 +16,7 @@ const shopMiddleWare = (store) => (next) => (action) => {
           },
         ).catch(
           () => console.log('error'),
-        ).finally(() => store.dispatch(setLoadingFalse()));
+        );
         next(action);
         break;
     }

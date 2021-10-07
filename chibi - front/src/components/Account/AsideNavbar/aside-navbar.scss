@@ -50,6 +50,12 @@
             padding-left: 0.5rem;
         }
 
+        &:nth-child(4):after { 
+            content: "Adresses";
+            color: vars.$fourth-color;
+            padding-left: 0.5rem;
+        }
+
         &:hover {
             transform: translateX(-65px);
 

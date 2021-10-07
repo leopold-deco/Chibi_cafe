@@ -3,19 +3,15 @@
 
 .auth {
     display: flex;
-    height: 80vh;
     align-items:flex-start;
     justify-content: center;
-    margin-top: 1rem;
 
     &-container-signup {
         width: 40%;
-        margin-top: 1rem;
     }
 
     &-container-login{
         width: 40%;
-        margin-top: 1rem;
     }
 
     

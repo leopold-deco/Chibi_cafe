@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
@@ -40,7 +41,6 @@ const ProductsPage = () => {
           {products.map((product) => (
             <ProductCard key={product.id} {...product} product={product} />
           ))}
-
       </div>
       </>
     );

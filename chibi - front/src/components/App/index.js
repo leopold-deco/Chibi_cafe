@@ -30,7 +30,16 @@ function App() {
       case '/':
         setClassNameBackground('accueil');
         break;
-      case '/compte/:slug':
+      case '/compte/informations':
+        setClassNameBackground('compte');
+        break;
+        case '/compte/favoris':
+        setClassNameBackground('compte');
+        break;
+        case '/compte/commandes':
+        setClassNameBackground('compte');
+        break;
+        case '/compte/adresses':
         setClassNameBackground('compte');
         break;
       case '/compte':
@@ -42,9 +51,23 @@ function App() {
       case '/boutique':
         setClassNameBackground('boutique');
         break;
-      case '/boutique/:slug':
+      case '/boutique/5':
         setClassNameBackground('boutique')
-        break;      
+        break;
+        case '/boutique/6':
+        setClassNameBackground('boutique')
+        break;
+        case '/boutique/7':
+        setClassNameBackground('boutique')
+        break;
+        case '/boutique/formulaire/custom':
+        setClassNameBackground('boutique')
+        break;
+      case '/contact':
+        setClassNameBackground('contactB')
+        break;
+        default:
+          break;      
     }
   }, [location.pathname]);
   console.log(classNameBackground, location)

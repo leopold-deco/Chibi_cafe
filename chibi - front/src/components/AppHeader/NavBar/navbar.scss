@@ -39,7 +39,7 @@
 }
 
 .fa-power-off{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 
     &:hover{
         font-size: 1.8rem;
@@ -50,7 +50,7 @@
 .navlink{
     margin: 0;
     padding: 1.5rem;
-    width: 200px;
+    width: 220px;
     
 }
 
@@ -58,9 +58,9 @@
     background: rgba(238, 140, 190, 0.403);
     border-radius: 1rem;
     color: white;
-    font-size: 1.5rem;
     transition-duration: 0.7s;
-    font-weight: bold; 
+    font-weight: bold;
+    letter-spacing: 3px; 
 }
 
 .isactive{
@@ -68,6 +68,7 @@
     border-radius: 1rem;
     color: white;
     font-weight: bold;
+    letter-spacing: 3px;
 }
 
 .navbar__mobile{
@@ -152,11 +153,13 @@
         width: 180px;
     }
     .navlink:hover{
-        font-size: 1rem;
+        letter-spacing: 3px;
+        font-size: 0.9rem;
     }
 
     .isactive{
-       font-size: 1rem;
+       letter-spacing: 3px;
+       font-size: 0.9rem;
     }
 }
 
@@ -173,6 +176,17 @@
     }
     .navlink{
         width: 100px;
+        font-size: 0.7rem;
+    }
+
+    .navlink:hover{
+        letter-spacing: 2px;
+        font-size: 0.7rem;
+    }
+
+    .isactive{
+       letter-spacing: 2px;
+       font-size: 0.7rem;
     }
 }
 
@@ -192,8 +206,7 @@
             background-repeat:no-repeat;
             background-size: cover;
             z-index: 1;
-            position: static;
-            top: 0;
+            position: sticky;
             width: 100%;
             display: block;
             border-bottom: 2px solid rgb(226, 85, 132);

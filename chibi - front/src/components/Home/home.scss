@@ -1,19 +1,39 @@
+.home{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    background-image: url("https://cdn.pixabay.com/photo/2016/10/07/09/05/blur-1721080_960_720.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+
+}
+
+
+
 .slides{
     width: calc(1000px * 3);
     animation: glisse 20s infinite;
+    margin: 0;
 }
 
 
 .slider{
-    width: 1000px;
+    width: 700px;
     overflow: hidden;
-    margin: 20px auto;
+    margin: 0 auto;
+    border-radius: 0.8rem;
 }
 
 .slide{
     float: left;
-    width: 1000px;
-    height: 55vh;
+    width: 700px;
+    height: 40vh;
 }
 
 .slide>img{
@@ -23,7 +43,6 @@
 
 .home__presentation{
     width: 900px;
-    margin: auto;
     font-size: 1.5rem;
 }
 
@@ -41,26 +60,26 @@
     }
 
     25%{
-        transform: translateX(-1000px);
+        transform: translateX(-700px);
     }
     40%{
-        transform: translateX(-1000px);
+        transform: translateX(-700px);
     }
 
     50%{
-        transform: translateX(-2000px);
+        transform: translateX(-1400px);
     }
 
     60%{
-        transform: translateX(-2000px);
+        transform: translateX(-1400px);
     }
 
     75%{
-        transform: translateX(-1000px);
+        transform: translateX(-700px);
     }
 
     85%{
-        transform: translateX(-1000px);
+        transform: translateX(-700px);
     }
 
     100%{

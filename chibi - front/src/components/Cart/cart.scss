@@ -169,7 +169,7 @@
     .cart{
         position: relative;
         width: 100%;
-        margin: 5rem 0 1rem;
+        
 
 
         &__body{
@@ -275,7 +275,7 @@ display: none;
 
 @media only screen and (max-height: 850px) {
     .cart{
-        margin: 5rem auto 2rem;
+        margin: 1rem auto 2rem;
     }
 
     .cart-container{

@@ -16,4 +16,9 @@
     .header__title{
         display: none;
     }
+
+    .header{
+        position: sticky;
+        top: 0;
+    }
 }

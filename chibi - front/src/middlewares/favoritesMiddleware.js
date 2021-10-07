@@ -23,6 +23,7 @@ const favoritesMiddleware = (store) => (next) => (action) => {
         .then(
           (response) => {
             console.log("favoris ajouter :", response)
+            store.dispatch({type: FETCH_FAVORITES});
           }
         ).catch(
           (error) => console.log("erreur: pas d'ajout en favoris", error)
@@ -65,7 +66,8 @@ const favoritesMiddleware = (store) => (next) => (action) => {
         .then(
           (response) => {
             console.log("response.data de delete :", response.data);
-            store.dispatch(removeFavorites(action.productId));
+            // store.dispatch(removeFavorites(action.productId));
+            store.dispatch({type: FETCH_FAVORITES});
           }
         )
         .catch(

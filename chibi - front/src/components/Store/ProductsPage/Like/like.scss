@@ -1,0 +1,37 @@
+@use "../../../../styles/vars";
+
+.like {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    width: 500px;
+    padding: 15px;
+    position: relative;
+    margin: 100px auto 0;
+    
+    &__icon {
+        cursor: pointer;
+        height: 100px;
+        width: 100px;
+        background-image: url(https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png);
+        position: absolute;
+        top: 100%;
+        left: 92%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        
+        &--anim {
+        animation-name: like__icon--anim;
+        animation-duration: 0.8s;
+        animation-timing-function: steps(28);
+    }
+}
+
+}
+@keyframes like__icon--anim {
+    from {
+        background-position: left;
+    }
+    to {
+        background-position: right;
+    }
+}

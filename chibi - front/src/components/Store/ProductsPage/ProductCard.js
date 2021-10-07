@@ -4,6 +4,7 @@ import { addProductToCart,  } from '../../../actions/shop';
 import { addFavorites } from "../../../actions/favorites";
 import PropTypes from 'prop-types';
 import { calculPrice } from '../../../pipes/calculPrice';
+import Like from './Like';
 
 const ProductCard = ({ product }) => {
   
@@ -38,10 +39,11 @@ const ProductCard = ({ product }) => {
             cardToCart ? <div>{cardToCart.quantity}</div> : ''
           }
           
-          <button
-          className="storeCard__btn"
+          <Like
           onClick={onFavorites}
-          type="button"> Ajouter aux favoris</button>
+          product={product}
+          type="button">
+          </Like>
       </div>
     );
   }

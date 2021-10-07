@@ -1,9 +1,10 @@
 import Input from '../../Input';
+import './new-address.scss';
 
 const NewAddress = ({ newAddress, handleChange, button }) => {
 
     return (
-        <div> 
+        <div className="new-address"> 
             <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
                 value={newAddress.first_name} 
                 handleChange={handleChange}

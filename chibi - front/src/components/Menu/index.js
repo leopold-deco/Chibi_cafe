@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchFoodCategories } from "../../actions/menu";
 import { fetchArticles } from '../../actions/shop'
 import MenuProducts from './MenuProducts';
+import Loader from '../Loader';
 
 import './menu.scss';
 
@@ -18,73 +19,76 @@ function Menu() {
   const [mouseoverLiquid, setMouseoverLiquid] = useState('')
   const [mouseoverSolid, setMouseoverSolid] = useState('')
   
-  
-
+  const { loading } = useSelector(state => state.message);
+  console.log(loading)
   const liquidRef = useRef()
 
-const categories = useSelector((state) => state.shop.categories.filter(category => category.type_of_product === false))
-const products = useSelector((state) => state.shop.products)
+  const categories = useSelector((state) => state.shop.categories.filter(category => category.type_of_product === false))
+  const products = useSelector((state) => state.shop.products)
 
-console.log(liquidRef)
+  console.log(liquidRef)
 
-const findProducts = (target, target2) => {
-   setProducts(products.filter((product) =>  product.category_id === Number(target) || product.category_id === Number(target2)));
-   findCategorie(target, target2)
-   setOpenProducts(true)
-} 
-
-
-const closeMenuProducts = () => {
-  setOpenProducts(false)
-}
+  const findProducts = (target, target2) => {
+    setProducts(products.filter((product) =>  product.category_id === Number(target) || product.category_id === Number(target2)));
+    findCategorie(target, target2)
+    setOpenProducts(true)
+  } 
 
 
-
-const findCategorie = (id, id2) => {
-   setNameCat(categories.find((categorie) => categorie.id === Number(id) || categorie.id === Number(id2)));
-
-}
+  const closeMenuProducts = () => {
+    setOpenProducts(false)
+  }
 
 
 
+  const findCategorie = (id, id2) => {
+    setNameCat(categories.find((categorie) => categorie.id === Number(id) || categorie.id === Number(id2)));
 
-const solids = categories.filter(category => category.state === true);
-const liquids = categories.filter(category => category.state === false);
-
-const menuClassName = seeProducts ? "active" : "inactive";
-const classMenu = seeProducts ? "" : "nonvisible";
-const overlayClasseName = seeProducts ? "overOn" : "";
+  }
 
 
 
-const dispatch = useDispatch()
 
-useEffect(
-  () => {
-    dispatch(fetchFoodCategories())
-    dispatch(fetchArticles())
-    
-  },
-  [],
-);
+  const solids = categories.filter(category => category.state === true);
+  const liquids = categories.filter(category => category.state === false);
+
+  const menuClassName = seeProducts ? "active" : "inactive";
+  const classMenu = seeProducts ? "" : "nonvisible";
+  const overlayClasseName = seeProducts ? "overOn" : "";
 
 
-    return (
-      <>      
-      <div className='menu'>
-        <div className='menu__solid'>
-          <Solid solids={solids} findProducts={findProducts} mouseoverSolid={mouseoverSolid}   setMouseoverSolid={setMouseoverSolid} />
-        </div>
-        <div  className="menu__liquid">
-          <Liquid liquids={liquids} findProducts={findProducts} mouseoverLiquid={mouseoverLiquid}   setMouseoverLiquid={setMouseoverLiquid}/>
-        </div>
-       
-       <MenuProducts products={pageProducts} closeMenuProducts={closeMenuProducts} menuClassName={menuClassName} classMenu={classMenu} {...categorieName}/>
+
+  const dispatch = useDispatch()
+
+  useEffect(
+    () => {
+      dispatch(fetchFoodCategories())
+      dispatch(fetchArticles())
       
+    },
+    [],
+  );
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  return (
+    <>      
+    <div className='menu'>
+      <div className='menu__solid'>
+        <Solid solids={solids} findProducts={findProducts} mouseoverSolid={mouseoverSolid}   setMouseoverSolid={setMouseoverSolid} />
       </div>
-      <div onClick={() => setOpenProducts(false)} className={`menu-overlay ${overlayClasseName}`}></div>
-      </>
-    );
+      <div  className="menu__liquid">
+        <Liquid liquids={liquids} findProducts={findProducts} mouseoverLiquid={mouseoverLiquid}   setMouseoverLiquid={setMouseoverLiquid}/>
+      </div>
+      
+      <MenuProducts products={pageProducts} closeMenuProducts={closeMenuProducts} menuClassName={menuClassName} classMenu={classMenu} {...categorieName}/>
+    
+    </div>
+    <div onClick={() => setOpenProducts(false)} className={`menu-overlay ${overlayClasseName}`}></div>
+    </>
+  );
 }
   
 export default Menu;

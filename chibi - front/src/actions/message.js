@@ -6,3 +6,27 @@ export const setMessage = (message) => (
     message
   }
 );
+
+export const SET_LOADING_TRUE = 'SET_LOADING_TRUE';
+
+export const setLoadingTrue = () => (
+  {
+    type: SET_LOADING_TRUE,
+  }
+);
+
+export const SET_LOADING_FALSE = 'SET_LOADING_FALSE';
+
+export const setLoadingFalse = () => (
+  {
+    type: SET_LOADING_FALSE,
+  }
+);
+
+export const SET_LOADING_STORE_FALSE = 'SET_LOADING_STORE_FALSE';
+
+export const setLoadingStoreFalse = () => (
+  {
+    type: SET_LOADING_STORE_FALSE,
+  }
+);

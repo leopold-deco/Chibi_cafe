@@ -4,6 +4,7 @@ import { useState } from 'react';
 import AsideNavbar from '../AsideNavbar';
 import Form from '../Form';
 import Input from '../../Input';
+import InputRadio from '../../InputRadio';
 import Button from '../../Button';
 
 import './informations.scss';
@@ -48,7 +49,7 @@ const Informations = () => {
             <h2>Mes informations personnelles</h2>
             <div className="gender">
                 <div>
-                    <Input type="radio" name="gender" id="genderFemale"
+                    <InputRadio type="radio" name="gender" id="genderFemale"
                         value="false"
                         handleChange={handleChange}
                         checked={gender === false}
@@ -56,7 +57,7 @@ const Informations = () => {
                     <label htmlFor="genderFemale">Madame</label>
                 </div>
                 <div>
-                    <Input type="radio" name="gender" id="genderMale"  
+                    <InputRadio type="radio" name="gender" id="genderMale"  
                         value="true"
                         handleChange={handleChange}
                         checked={gender === true}
@@ -118,7 +119,7 @@ const Informations = () => {
                 />
             </div>
 
-            <Button>S'inscrire</Button>
+            <Button>Modifier</Button>
             <p style={{color: "green"}}>{message}</p>
         </Form>
     </div>

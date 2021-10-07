@@ -22,7 +22,7 @@ const Login = ({ to }) => {
 
     return (
         <Form handleSubmit={handleSubmitForm}>
-            <h2 className="signupTitle">Connexion</h2>
+            <h2 className="login-title center">Connexion</h2>
             <Input 
                 type="email" 
                 name="mail" 
@@ -39,7 +39,7 @@ const Login = ({ to }) => {
                 value={password} 
                 handleChange={setPassword}
             />
-            <Button className="logBtn">Se connecter</Button>
+            <Button>Se connecter</Button>
             
 
         </Form>

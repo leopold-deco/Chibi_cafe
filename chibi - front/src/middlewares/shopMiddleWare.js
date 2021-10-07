@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { FETCH_ARTICLES, FETCH_CATEGORIES, PRICE_CHECK,  saveArticles, saveCategories } from '../actions/shop';
 
-import { setMessage } from '../actions/message';
+import { setMessage, setLoadingFalse } from '../actions/message';
 
 
 const shopMiddleWare = (store) => (next) => (action) => {
@@ -16,7 +16,7 @@ const shopMiddleWare = (store) => (next) => (action) => {
           },
         ).catch(
           () => console.log('error'),
-        );
+        ).finally(() => store.dispatch(setLoadingFalse()));
         next(action);
         break;
     }

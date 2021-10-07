@@ -30,7 +30,7 @@ function Account() {
             <div className={loginClassName}>
               <Login to='/' />
               <div className={modConnectClasse}>
-                <h2 className="signupTitle">Nouveau Client ?</h2>
+                <h2 className="center">Nouveau Client ?</h2>
                 <button onClick={openSignupForm} className="clientBtn">Créer un Compte</button>
             </div> 
             </div>

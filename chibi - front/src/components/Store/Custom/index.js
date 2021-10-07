@@ -2,6 +2,7 @@ import { useState } from 'react';
 import emailjs from 'emailjs-com';
 
 import Input from '../../Input';
+import InputRadio from '../../InputRadio';
 import Button from '../../Button';
 import custom3 from '../../../assets/custom/custom3.jpg';
 import './custom.scss';
@@ -84,19 +85,19 @@ function Custom({ className, closeForm }) {
             <div className="custom__center__two">
               <h3 className="custom__center__two__title">Etape 2 : Sélectionnez la taille de vos sablés :</h3>
               <div className="custom__center__two__radio">
-                <Input className="custom__center__two__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="small" />
+                <InputRadio className="custom__center__two__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="small" />
                 <label className="custom__center__two__radio__label" htmlFor="small">Petit</label>
                 <p className="custom__center__two__radio__description">(5cm)</p>
               </div>
 
               <div className="custom__center__two__radio">
-                <Input className="custom__center__two__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="medium" />
+                <InputRadio className="custom__center__two__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="medium" />
                 <label className="custom__center__center__radio__label" htmlFor="medium">Moyen</label>
                 <p className="custom__center__two__radio__description">(10cm)</p>
               </div>
 
               <div className="custom__center__two__radio">
-                <Input className="custom__center__two__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="large" />
+                <InputRadio className="custom__center__two__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="large" />
                 <label className="custom__center__two__radio__label" htmlFor="large">Grand</label>
                 <p className="custom__center__two__radio__description">(15cm)</p>
               </div>

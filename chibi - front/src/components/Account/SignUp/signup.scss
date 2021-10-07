@@ -3,25 +3,6 @@
     justify-content: space-evenly;
 }
 
-.radioIn{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.radioIn>.input{
-    width: 15px;
-    margin-left: 25px;
-}
-h2{
-    text-align: center;
-}
-
-
-.signupBtn>Button{
-    width: 100%;
-}
-
 .address {
     display: flex;
 
@@ -53,7 +34,7 @@ h2{
     width: 10px;
 }
 
-h2{
+.signup-title{
     font-size: 1.2rem;
 }
 }

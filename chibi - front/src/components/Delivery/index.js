@@ -69,7 +69,7 @@ const Delivery = () => {
                     label={["Livraison à votre adresse", "Livraison à une nouvelle adresse"]}
                     id={["userAddress", "newAddress"]}
                     handleChange={handleChange}
-                    isNewAddress={isNewAddress}
+                    checked={isNewAddress}
                     newAddress={newAddress}
                     handleChangeNewAddress={handleChangeNewAddress}
                     userAddress={userAddress}

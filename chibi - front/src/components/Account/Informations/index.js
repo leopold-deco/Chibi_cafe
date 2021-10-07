@@ -118,7 +118,7 @@ const Informations = () => {
                 />
             </div>
 
-            <Button>S'inscrire</Button>
+            <Button>Modifier</Button>
             <p style={{color: "green"}}>{message}</p>
         </Form>
     </div>

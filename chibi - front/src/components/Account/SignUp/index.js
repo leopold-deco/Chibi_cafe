@@ -28,16 +28,17 @@ const SignUp = ({ closeSignupForm }) => {
         dispatch(signup(firstname, lastname, mail, password, passwordConfirm, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender));
         setMessage("Inscription terminée! Veuillez vous connecter.");
     }
-    console.log(gender)
+
     return (
         <Form handleSubmit={verifyPasswordAndSubmit}> 
-            <h2>Inscription</h2>
+            <h2 className="signup-title center">Inscription</h2>
             <div className="gender">
                 <BooleanCheckbox 
                     label={["Madame", "Monsieur"]}
                     id={["femaleGender", "maleGender"]}
                     handleChange={setGender}
                     state={gender}
+                    checked={gender}
                 />
             </div>
 
@@ -89,7 +90,7 @@ const SignUp = ({ closeSignupForm }) => {
                     handleChange={setCity}
                 />
             </div>
-            <div className="signupBtn" onClick={closeSignupForm}>
+            <div  onClick={closeSignupForm}>
             <Button >S'inscrire</Button>
             </div>
             <p style={{color: "green"}}>{message}</p>

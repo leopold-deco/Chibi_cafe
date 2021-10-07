@@ -3,7 +3,7 @@ import UserAddress from '../Delivery/UserAddress';
 import NewAddress from '../Delivery/NewAddress';
 
 const Delivery = ({ 
-    label, id, handleChange, isNewAddress, newAddress, handleChangeNewAddress, userAddress, setUserAddress
+    label, id, handleChange, checked, newAddress, handleChangeNewAddress, userAddress, setUserAddress
 }) => {
     const stringToBoolean = (value) => {
         if (value && typeof value === "string") {
@@ -23,11 +23,11 @@ const Delivery = ({
                 { value: false, label: label[0], id: id[0] },
                 { value: true, label: label[1], id: id[1] }
             ].map((option) => (
-                <div key={option.id} className="delivery__elements">
+                <div key={option.id}>
                     <input type="radio" name="deliveryAddress" id={option.id}
                         value={option.value}
                         onChange={onRadioChange}
-                        checked={isNewAddress === option.value}
+                        checked={checked === option.value}
                         />
                     <label htmlFor={option.id}>{option.label}</label>
                     {option.id === "userAddress" &&  

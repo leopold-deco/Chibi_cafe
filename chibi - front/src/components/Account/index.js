@@ -3,7 +3,6 @@ import Login from './Login';
 import { useState } from 'react';
 
 import './account.scss';
-import AccountBackground from '../AccountBackground';
 
 function Account() {
   const [openSignForm, setOpenSignForm] = useState(false)
@@ -23,7 +22,6 @@ function Account() {
   }
 
     return (
-      <AccountBackground>
         <div className="auth">
           <div className={signUpclassName}>
             <SignUp closeSignupForm={closeSignupForm}/>
@@ -36,7 +34,6 @@ function Account() {
           </div> 
           </div>
         </div>
-      </AccountBackground>
     );
 }
   

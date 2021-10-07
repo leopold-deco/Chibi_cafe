@@ -30,9 +30,21 @@ function App() {
       case '/':
         setClassNameBackground('accueil');
         break;
-      case '/compte/informations':
+      case '/compte/:slug':
         setClassNameBackground('compte');
         break;
+      case '/compte':
+        setClassNameBackground('compte');
+        break;
+      case '/panier':
+        setClassNameBackground('panier');
+        break;
+      case '/boutique':
+        setClassNameBackground('boutique');
+        break;
+      case '/boutique/:slug':
+        setClassNameBackground('boutique')
+        break;      
     }
   }, [location.pathname]);
   console.log(classNameBackground, location)

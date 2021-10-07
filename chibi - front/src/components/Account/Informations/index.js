@@ -9,7 +9,6 @@ import Button from '../../Button';
 
 import './informations.scss';
 import { setUserField, updateUser, updatePassword } from '../../../actions/auth';
-import AccountBackground from '../../AccountBackground';
 
 const Informations = () => {
     const dispatch = useDispatch();

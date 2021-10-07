@@ -29,7 +29,7 @@ const mouseleaver = () => {
  return   (
     <div onMouseLeave={mouseleaver} onMouseEnter={onMouseOver}  onClick={(e) => findProducts(e.target.id, e.target.className)} id={`${id}`} style={mystyle} 
      className={`liquid__categories ${category_name} ${newClassName} `}>
-        <h2 className={`${id}`} style={{marginTop: '2rem'}} >{category_name}</h2>
+        <h2 className={`${id}`} style={{marginTop: '2rem', textAlign: 'center'}} >{category_name}</h2>
         
     </div>
 );

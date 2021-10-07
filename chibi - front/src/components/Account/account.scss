@@ -3,8 +3,9 @@
 
 .auth {
     display: flex;
-    align-items:flex-start;
+    align-items:center;
     justify-content: center;
+    height: 70vh;
 
     &-container-signup {
         width: 40%;
@@ -97,11 +98,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .auth{
-        align-items: center;
-        height: 80vh;
-        margin-top: 0;
-    }
 
     .auth-container-login{
         width: 90%;

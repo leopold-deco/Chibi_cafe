@@ -15,6 +15,10 @@ const AsideNavbar = () => (
         <NavLink className="aside-navbar__link" activeClassName="aside-navbar__link--active" exact to="/compte/commandes">
         <ion-icon name="cart-sharp"></ion-icon>
         </NavLink>
+
+        <NavLink className="aside-navbar__link" activeClassName="aside-navbar__link--active" exact to="/compte/adresses">
+        <ion-icon name="cart-sharp"></ion-icon>
+        </NavLink>
     </div>
 );
 

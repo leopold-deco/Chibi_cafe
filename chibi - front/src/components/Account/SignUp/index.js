@@ -3,14 +3,13 @@ import PropTypes from 'prop-types'
 import Form from '../Form';
 import Input from '../../Input';
 import Button from '../../Button';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../../../actions/auth';
 import { useState } from 'react';
 import BooleanCheckbox from '../../BooleanCheckbox';
 
 const SignUp = ({ closeSignupForm }) => {
     const dispatch = useDispatch();
-    const [message, setMessage] = useState("");
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [mail, setMail] = useState('');
@@ -24,13 +23,15 @@ const SignUp = ({ closeSignupForm }) => {
     const [city, setCity] = useState('');
     const [gender, setGender] = useState(false);
     
+    const { message } = useSelector(state => state.message);
+
     const verifyPasswordAndSubmit = () => {
         dispatch(signup(firstname, lastname, mail, password, passwordConfirm, birthdayDate, phoneNumber, streetNumber, nameOfTheRoad, postalCode, city, gender));
-        setMessage("Inscription terminée! Veuillez vous connecter.");
     }
 
     return (
         <Form handleSubmit={verifyPasswordAndSubmit}> 
+            <p className="center" style={{color: "green"}}>{message}</p>
             <h2 className="signup-title center">Inscription</h2>
             <div className="gender">
                 <BooleanCheckbox 
@@ -93,7 +94,7 @@ const SignUp = ({ closeSignupForm }) => {
             <div  onClick={closeSignupForm}>
             <Button >S'inscrire</Button>
             </div>
-            <p style={{color: "green"}}>{message}</p>
+
         </Form>
     );
 };

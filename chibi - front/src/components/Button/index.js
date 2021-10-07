@@ -7,7 +7,7 @@ const Button = ({ children, handleClick, type, disabled }) => {
     return (
         <button 
             type={type} 
-            className='button' 
+            className='basic-button' 
             onClick={handleClick}
             onMouseEnter={() => {
                 setAnimation('animation');
@@ -18,7 +18,7 @@ const Button = ({ children, handleClick, type, disabled }) => {
             disabled={disabled}
         >
             {children}
-            <img className={`button__animation ${animation}`} src={bread} />
+            <img className={`basic-button__animation ${animation}`} src={bread} />
         </button>
     );
 };

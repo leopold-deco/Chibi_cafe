@@ -4,6 +4,8 @@ import {
   connectUser, getAddresses, ADD_NEW_ADDRESS, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES, EDIT_ADDRESS, DELETE_ADDRESS
 } from '../actions/auth';
 
+import { setMessage } from '../actions/message';
+
 const axiosInstance = axios.create({
   baseURL: 'https://chibi-api.herokuapp.com',
 });
@@ -60,8 +62,7 @@ const userMiddleware = (store) => (next) => (action) => {
       ).then(
         (response) => {
           console.log(response)
-          //store.dispatch(connectUser(response.data));
-          //axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
+          store.dispatch(setMessage(response.data));
         },
       ).catch(
         (error) => console.log('error', error),
@@ -124,8 +125,7 @@ const userMiddleware = (store) => (next) => (action) => {
           actualPassword: action.actualPassword,
         },
       ).then((response) => {
-        // localStorage.setItem("user", JSON.stringify(response.data));
-        console.log(response);
+        console.log("update password",response);
       },
       ).catch(
         (error) => console.log('error', error),

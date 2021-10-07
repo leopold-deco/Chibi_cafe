@@ -8,6 +8,7 @@ import Content from "../Content";
 
 import './favorites.scss';
 import { Redirect } from 'react-router-dom';
+import AccountBackground from '../AccountBackground';
 
 const Favorites = () => {
     const dispatch = useDispatch();
@@ -28,14 +29,16 @@ const Favorites = () => {
         return <Redirect to="/compte" />
     }
     return (
-        <div className="favorites">
-            <AsideNavbar />
-            <Content
-            title="Mes produits favoris"
-            text="Ma sélection de produits favoris"
-            products={favorites}
-            />
-        </div>
+        <AccountBackground>
+            <div className="favorites">
+                <AsideNavbar />
+                <Content
+                title="Mes produits favoris"
+                text="Ma sélection de produits favoris"
+                products={favorites}
+                />
+            </div>
+        </AccountBackground>
         
     
     );

@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 /* eslint-disable react-hooks/exhaustive-deps */
 import './App.scss';
 import AppHeader from '../AppHeader';

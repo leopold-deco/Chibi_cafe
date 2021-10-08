@@ -6,6 +6,7 @@ const nodemailer = require('nodemailer');
 var dayjs = require('dayjs');
 require('dayjs/locale/fr');
 const pug = require('pug');
+const pugEngine = require('nodemailer-pug-engine');
 
 const oderController = {
 
@@ -69,10 +70,10 @@ const oderController = {
                 },
             });
 
-            transporter.use('compile', pug({
-                viewEngine: 'pug',
-                viewPath: './views/'
-            }));
+            transporter.use('compile', pugEngine({
+                templateDir: "../public/views/mail.pug",
+                pretty: true
+            }));chibi-api/app/public/views/mail.pug
 
             const mailOrderDate = dayjs().locale('fr').format('DD MMMM YYYY');
             var mailOptions = {

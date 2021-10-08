@@ -31,6 +31,7 @@ const userController = {
             //VERIFICATION D'EMAIL
 
             const user = await User.findOneMail(result.mail);
+            console.log("user", user);
             if(user) {
                 response.status(200).json('Email déjà utilisé');
             }

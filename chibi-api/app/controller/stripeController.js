@@ -9,9 +9,9 @@ const stripeController = {
         try {
             const {cart, id} = request.body;
             const priceTTC = await checkPrice(cart);
-            priceTTC.toFixed(2);
+            
             const payment = await stripe.paymentIntents.create({
-                  amount: priceTTC*100,
+                  amount: Math.round(priceTTC*100),
                   currency: "eur",
                   payment_method: id,
                   confirm: true

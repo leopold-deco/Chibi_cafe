@@ -31,11 +31,15 @@ const userController = {
             //VERIFICATION D'EMAIL
 
             const user = await User.findOneMail(result.mail);
-            if(user) response.status(200).json('Email déjà utilisé');
+            if(user) {
+                response.status(200).json('Email déjà utilisé');
+            }
 
             // GESTION DU MOT DE PASSE
 
-            if(result.password !== result.passwordConfirm) response.status(200).json('Veuillez entrer deux mot de passe identiques'); 
+            if(result.password !== result.passwordConfirm){
+                response.status(200).json('Veuillez entrer deux mot de passe identiques'); 
+            }
 
             const userPassword = result.password;
             const salt = bcrypt.genSaltSync(saltRounds);

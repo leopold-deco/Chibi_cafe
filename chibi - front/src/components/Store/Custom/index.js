@@ -120,11 +120,12 @@ function Custom({ className, closeForm }) {
 
             <div className="custom__bottom__submit">
               <textarea  value={message} onChange={(e) => setMessage(e.target.value)} className="custom__bottom__submit__text" placeholder="Votre Message"></textarea>
+            </div>
 
-              <Button className="custom__bottom__button" type="button">Demander un devis</Button>
+            <div className="custom__bottom__validate">
+              <Button className="custom__bottom__validate__button" type="button">Demander un devis</Button>
             </div>
           </div>
-
       </form>
     </>
   );

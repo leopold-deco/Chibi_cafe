@@ -25,7 +25,7 @@ function Home() {
       <div className="home__presentation">
         <p>CHIBI CAFE est un coffee shop / salon de thé situé en plein coeur de Paris.<br />
           <br />
-          Nous vous proposons des cafés et thés de spécialité, des déclinaisons de pâtisseries et des boissons colorés.
+          Nous vous proposons des cafés et thés de spécialité, des déclinaisons de pâtisseries et des boissons colorées.
           Une épicerie fine proposant un large choix de produits sucrés.</p>
       </div>
       </div>

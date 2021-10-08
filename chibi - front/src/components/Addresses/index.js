@@ -46,9 +46,9 @@ function Addresses() {
             <div className="addresses">
                 <AsideNavbar />
                 <div className="addresses__container">
-                    <button style={{flexBasis:"22%"}} type="button" className="modal-toggle" onClick={toggle}>
+                    <Button type="button" handleClick={toggle}>
                     Ajouter une adresse
-                    </button>
+                    </Button>
                     {isShowing && 
                         <div className="modal-overlay">
                         <div className="modal-wrapper">

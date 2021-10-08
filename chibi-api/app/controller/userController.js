@@ -33,13 +33,13 @@ const userController = {
             const user = await User.findOneMail(result.mail);
             console.log("user", user);
             if(user) {
-                response.status(200).json('Email déjà utilisé');
+               return response.status(200).json('Email déjà utilisé');
             }
 
             // GESTION DU MOT DE PASSE
 
             if(result.password !== result.passwordConfirm){
-                response.status(200).json('Veuillez entrer deux mot de passe identiques'); 
+               return response.status(200).json('Veuillez entrer deux mot de passe identiques'); 
             }
 
             const userPassword = result.password;

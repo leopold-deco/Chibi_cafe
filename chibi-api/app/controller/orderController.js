@@ -79,7 +79,7 @@ const oderController = {
                 from: 'chibi.test3@gmail.com', 
                   to: userInfo.mail,
                  subject: `Récapitulatif de commande n° ${createdOrder.id} sur CHIBI`, 
-                 template: 'mail.handlebars'
+                 template: 'mail'
                 };
                 transporter.sendMail(mailOptions, function(error, info){
                     if (error) {

@@ -51,7 +51,7 @@ function Menu() {
     () => {
       dispatch(fetchFoodCategories())
       dispatch(fetchArticles())
-      setTimeout(() => setLoading(false), 4000);
+      setTimeout(() => setLoading(false), 2000);
       
     },
     [],

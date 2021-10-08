@@ -4,7 +4,7 @@ const Address = require('../models/Address');
 const checkPrice = require('../function/checkPrice');
 const nodemailer = require('nodemailer');
 var dayjs = require('dayjs');
-
+require('dayjs/locale/fr');
 
 const oderController = {
 

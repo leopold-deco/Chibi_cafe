@@ -6,6 +6,7 @@ const nodemailer = require('nodemailer');
 var dayjs = require('dayjs');
 require('dayjs/locale/fr');
 const hbs = require('nodemailer-express-handlebars');
+const path = require('path');
 
 const oderController = {
 
@@ -70,7 +71,7 @@ const oderController = {
 
             transporter.use('compile', hbs({
                 viewEngine: 'express-handlebars',
-                viewPath: '../public/views/'
+                viewPath: path.resolve('../public/views/')
             }));
 
             const mailOrderDate = dayjs().locale('fr').format('DD MMMM YYYY');
@@ -78,7 +79,7 @@ const oderController = {
                 from: 'chibi.test3@gmail.com', 
                   to: userInfo.mail,
                  subject: `Récapitulatif de commande n° ${createdOrder.id} sur CHIBI`, 
-                 template: 'mail'
+                 template: 'mail.handlebars'
                 };
                 transporter.sendMail(mailOptions, function(error, info){
                     if (error) {

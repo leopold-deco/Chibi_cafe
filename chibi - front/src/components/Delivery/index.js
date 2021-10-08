@@ -6,7 +6,8 @@ import { useHistory } from 'react-router';
 import BooleanCheckbox from '../BooleanCheckbox';
 import { setDeliveryAddress, setDeliveryRadio } from '../../actions/delivery';
 import { Redirect } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { GET_USER_ADDRESSES } from '../../actions/auth';
 
 const Delivery = () => {
     const dispatch = useDispatch();
@@ -56,6 +57,10 @@ const Delivery = () => {
     const handleChange = (value) => {
         dispatch(setDeliveryRadio(value, "isNewAddress"));
     };
+
+    useEffect(() => {
+        dispatch({type: GET_USER_ADDRESSES});
+    }, []);
 
     if (!isLoggedIn) {
         return <Redirect to="/compte" />

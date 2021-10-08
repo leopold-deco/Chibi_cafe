@@ -1,11 +1,19 @@
+@use '../../styles/vars';
+
 .addresses {
     display: flex;
     padding: 2rem;
+
+
 
     &__container {
         padding: 2rem;
         display: flex;
         gap: 2rem;
         flex-wrap: wrap;
+        box-shadow: vars.$box-shadow;
+        background: vars.$tertiary-color;
+        border-radius: 0.75rem;
+        margin: auto;
     }
 }

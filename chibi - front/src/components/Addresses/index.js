@@ -2,11 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import NewAddress from '../Delivery/NewAddress';
 import './addresses.scss';
 import useModal from "../../hooks/useModal";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { addNewAddress, editAddress, deleteAddress } from '../../actions/auth';
 import Button from '../Button';
 import FormEditAddress from './FormEditAddress';
 import AsideNavbar from '../Account/AsideNavbar';
+import { GET_USER_ADDRESSES } from '../../actions/auth';
 
 function Addresses() {
     const dispatch = useDispatch();
@@ -41,13 +42,16 @@ function Addresses() {
         dispatch(deleteAddress(address))
     };
 
+    useEffect(() => {
+        dispatch({type: GET_USER_ADDRESSES});
+    }, []);
 
     return (
             <div className="addresses">
                 <AsideNavbar />
                 <div className="addresses__container">
                     <Button type="button" handleClick={toggle}>
-                    Ajouter une adresse
+                        Ajouter une adresse
                     </Button>
                     {isShowing && 
                         <div className="modal-overlay">

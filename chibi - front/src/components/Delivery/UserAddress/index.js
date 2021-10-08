@@ -7,13 +7,13 @@ const UserAddress = ({ userAddress, setUserAddress}) => {
     const { user } = useSelector(state => state.auth);
     const userAddressesStore = useSelector(state => state.auth.userAddresses);
     const { isShowing, toggle } = useModal();
-
+    console.log(userAddressesStore)
     return (
         <div>
             <FormInputDisabled data={userAddress ? userAddress : user} 
                 button={false}
             />
-            {userAddressesStore &&
+            {userAddressesStore.length > 0 &&
                 <>
                     <button style={{marginTop: "1rem", marginBottom: "1rem"}} type="button" className="modal-toggle" onClick={toggle}>
                         Choisir une autre adresse de livraison

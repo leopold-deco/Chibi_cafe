@@ -5,8 +5,7 @@ const checkPrice = require('../function/checkPrice');
 const nodemailer = require('nodemailer');
 var dayjs = require('dayjs');
 require('dayjs/locale/fr');
-const pug = require('pug');
-const { pugEngine } = require("nodemailer-pug-engine");
+const hbs = require('nodemailer-express-handlebars');
 
 const oderController = {
 
@@ -69,9 +68,8 @@ const oderController = {
                 },
             });
 
-            transporter.use('compile', pugEngine({
-                // templateDir: "/chibi-api/app/public/views"
-                viewEngine: 'pugEngine',
+            transporter.use('compile', hbs({
+                viewEngine: 'express-handlebars',
                 viewPath: '../public/views'
             }));
 

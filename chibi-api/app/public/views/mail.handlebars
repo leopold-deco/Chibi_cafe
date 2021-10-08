@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/mail.css">
+</head>
+<body>
+    <h1>CHIBI CAFE</h1>
+  <p>Cet email tient lieu de confirmation pour votre paiement de {{deliveryInfo.total}}€, effectué le {{mailOrderDate}} sur la boutique Chibi Cafe.</p>
+  <p>La commande sera livré au {{deliveryInfo.street_number}} {{deliveryInfo.name_of_the_road}} {{deliveryInfo.postal_code}} {{deliveryInfo.city}}</p>
+  <p>Merci de votre commande {{deliveryInfo.first_name}}</p>
+</body>
+</html>

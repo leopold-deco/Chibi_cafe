@@ -62,22 +62,24 @@ const Delivery = () => {
     }
     
     return (
-        <Form handleSubmit={verifyIsNewAddressAndStore}> 
-            <h2>Livraison</h2>
-            <div className="delivery">
-                <BooleanCheckbox 
-                    label={["Livraison à votre adresse", "Livraison à une nouvelle adresse"]}
-                    id={["userAddress", "newAddress"]}
-                    handleChange={handleChange}
-                    checked={isNewAddress}
-                    newAddress={newAddress}
-                    handleChangeNewAddress={handleChangeNewAddress}
-                    userAddress={userAddress}
-                    setUserAddress={setUserAddress}
-                />
-            </div>
-            <Button type="submit">Paiement</Button>
-        </Form>
+        <div className="delivery-container">
+            <Form handleSubmit={verifyIsNewAddressAndStore}> 
+                <h2>Livraison</h2>
+                <div className="delivery">
+                    <BooleanCheckbox 
+                        label={["Livraison à votre adresse", "Livraison à une nouvelle adresse"]}
+                        id={["userAddress", "newAddress"]}
+                        handleChange={handleChange}
+                        checked={isNewAddress}
+                        newAddress={newAddress}
+                        handleChangeNewAddress={handleChangeNewAddress}
+                        userAddress={userAddress}
+                        setUserAddress={setUserAddress}
+                    />
+                </div>
+                <Button type="submit">Paiement</Button>
+            </Form>
+        </div>
     );
 };
 

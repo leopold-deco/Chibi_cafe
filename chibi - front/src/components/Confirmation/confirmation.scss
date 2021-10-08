@@ -1,8 +1,8 @@
 @use '../../styles/vars';
 
 .confirmation {
-    width: 40rem;
-    margin: 2rem auto;
+    width: 60rem;
+    margin: auto;
     border-radius: vars.$border-radius;
     padding: 4rem;
 }
@@ -16,6 +16,7 @@
 }
 
 #progressbar li {
+    z-index: 1;
     list-style-type: none;
     font-size: 13px;
     width: 33.33%;
@@ -73,7 +74,7 @@
     left: 0%;
     right: 0%;
     top: 15px;
-    z-index: -1
+    z-index: -1;
 }
 
 #progressbar li:nth-child(2):after {

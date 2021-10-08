@@ -15,7 +15,7 @@ const UserAddress = ({ userAddress, setUserAddress}) => {
             />
             {userAddressesStore &&
                 <>
-                    <button type="button" className="modal-toggle" onClick={toggle}>
+                    <button style={{marginTop: "1rem", marginBottom: "1rem"}} type="button" className="modal-toggle" onClick={toggle}>
                         Choisir une autre adresse de livraison
                     </button>
                     {isShowing && 

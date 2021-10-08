@@ -55,7 +55,6 @@ const oderController = {
             }
             
             // ENVOIE DU MAIL DE CONFIRMATION 
-            // console.log(userInfo);
             const transporter = nodemailer.createTransport({
                 host:'smtp.gmail.com',
                  port: 465,  //25,
@@ -71,7 +70,9 @@ const oderController = {
             });
 
             transporter.use('compile', pugEngine({
-                templateDir: "/chibi-api/app/public/views",
+                // templateDir: "/chibi-api/app/public/views"
+                viewEngine: 'pugEngine',
+                viewPath: '../public/views'
             }));
 
             const mailOrderDate = dayjs().locale('fr').format('DD MMMM YYYY');

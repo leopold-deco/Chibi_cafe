@@ -72,7 +72,6 @@ const oderController = {
 
             transporter.use('compile', pugEngine({
                 templateDir: "../public/views/mail.pug",
-                pretty: true
             }));
 
             const mailOrderDate = dayjs().locale('fr').format('DD MMMM YYYY');

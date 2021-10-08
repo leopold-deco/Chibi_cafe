@@ -21,16 +21,19 @@ const userMiddleware = (store) => (next) => (action) => {
           },
         ).then(
           (response) => {
+            console.log(response)
             if (response.data.token) {
               console.log("login",response)
               localStorage.setItem("user", JSON.stringify(response.data.user));
               localStorage.setItem("token", JSON.stringify(response.data.token));
               store.dispatch(connectUser(response.data));
               store.dispatch({type: GET_USER_ADDRESSES});
+            } else {
+              
             }
           },
         ).catch(
-          () => console.log('error'),
+          (error) => console.log('error', error),
         );
         next(action);
         break;

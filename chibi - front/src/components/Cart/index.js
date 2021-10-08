@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./cart.scss";
 import CartItem from "./cartItem";
 import { calculPrice } from "../../pipes/calculPrice";

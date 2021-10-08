@@ -17,7 +17,6 @@ const ProductsPage = () => {
 
   const products = useSelector((state) => state.shop.products.filter((product) => product.category_id === Number(slug)));
 
-  console.log(products)
 
   const cart = useSelector((state) => state.shop.cart)
   const category = cats.find((categorie) => categorie.id === Number(slug));

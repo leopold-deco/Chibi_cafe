@@ -67,6 +67,9 @@ function App() {
       case '/contact':
         setClassNameBackground('contactB')
         break;
+      case '/menu':
+        setClassNameBackground('menuB')
+        break;
         default:
           break;      
     }

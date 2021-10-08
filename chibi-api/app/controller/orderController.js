@@ -68,7 +68,7 @@ const oderController = {
                 },
             });
 
-            const mailOrderDate = dayjs((createdOrder.order_date).locale('fr').format('DD MMMM YYYY'));
+            const mailOrderDate = dayjs((createdOrder.order_date).format('DD MMMM YYYY'));
             var mailOptions = {
                 from: 'chibi.test3@gmail.com', 
                   to: userInfo.mail,

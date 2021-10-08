@@ -59,8 +59,10 @@ const Delivery = () => {
     };
 
     useEffect(() => {
-        dispatch({type: GET_USER_ADDRESSES});
-    }, []);
+        if (isLoggedIn) {
+            dispatch({type: GET_USER_ADDRESSES});
+        }
+    }, [isLoggedIn]);
 
     if (!isLoggedIn) {
         return <Redirect to="/compte" />

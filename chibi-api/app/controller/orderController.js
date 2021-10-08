@@ -71,7 +71,7 @@ const oderController = {
 
             transporter.use('compile', hbs({
                 viewEngine: 'express-handlebars',
-                viewPath: path.resolve('/chibi-api/app/public/views/')
+                viewPath: '../public/views/'
             }));
 
             const mailOrderDate = dayjs().locale('fr').format('DD MMMM YYYY');

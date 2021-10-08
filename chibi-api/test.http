@@ -70,14 +70,17 @@ Content-Type: application/json
 {
     "state":{
         "delivery": {
-        "isNewAddress": true,
-        "first_name": "aba",
-        "last_name": "obo",
-        "phone_number": "0214521478",
-        "street_number": "5",
-        "name_of_the_road": "rue de bagnolet",
-        "postal_code": "75020",
-        "city": "paris"
+            "deliveryAddress":{
+                "isNewAddress": true,
+                "first_name": "aba",
+                "last_name": "obo",
+                "phone_number": "0214521478",
+                "street_number": "5",
+                "name_of_the_road": "rue de bagnolet",
+                "postal_code": "75020",
+                "city": "paris"
+            },
+            "isNewAddress": false
         },
 
         "auth":{

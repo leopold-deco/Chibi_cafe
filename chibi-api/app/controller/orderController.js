@@ -71,7 +71,7 @@ const oderController = {
             });
 
             transporter.use('compile', pugEngine({
-                templateDir: "../public/views",
+                templateDir: "/chibi-api/app/public/views",
             }));
 
             const mailOrderDate = dayjs().locale('fr').format('DD MMMM YYYY');

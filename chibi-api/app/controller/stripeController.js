@@ -16,13 +16,11 @@ const stripeController = {
                   payment_method: id,
                   confirm: true
                 });
-                console.log("payment", payment);
             response.json({
                 message: "Paiement validé",
                 success: true
               });
         } catch (error) {
-            console.log('Error', error);
             response.json({
                 message: "Paiement décliné",
                 success: false

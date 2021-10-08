@@ -55,7 +55,7 @@ const oderController = {
             }
             
             // ENVOIE DU MAIL DE CONFIRMATION 
-            console.log(userInfo);
+            // console.log(userInfo);
             const transporter = nodemailer.createTransport({
                 host:'smtp.gmail.com',
                  port: 465,  //25,

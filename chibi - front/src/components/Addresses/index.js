@@ -7,7 +7,6 @@ import { addNewAddress, editAddress, deleteAddress } from '../../actions/auth';
 import Button from '../Button';
 import FormEditAddress from './FormEditAddress';
 import AsideNavbar from '../Account/AsideNavbar';
-import AccountBackground from '../AccountBackground';
 
 function Addresses() {
     const dispatch = useDispatch();
@@ -44,7 +43,6 @@ function Addresses() {
 
 
     return (
-        <AccountBackground>
             <div className="addresses">
                 <AsideNavbar />
                 <div className="addresses__container">
@@ -83,7 +81,6 @@ function Addresses() {
                     ))}
                 </div>
             </div>
-        </AccountBackground>
     );
 }
   

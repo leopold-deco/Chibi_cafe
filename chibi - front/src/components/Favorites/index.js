@@ -8,7 +8,6 @@ import Content from "../Content";
 
 import './favorites.scss';
 import { Redirect } from 'react-router-dom';
-import AccountBackground from '../AccountBackground';
 
 const Favorites = () => {
     const dispatch = useDispatch();
@@ -29,7 +28,6 @@ const Favorites = () => {
         return <Redirect to="/compte" />
     }
     return (
-        <AccountBackground>
             <div className="favorites">
                 <AsideNavbar />
                 <Content
@@ -38,7 +36,6 @@ const Favorites = () => {
                 products={favorites}
                 />
             </div>
-        </AccountBackground>
         
     
     );

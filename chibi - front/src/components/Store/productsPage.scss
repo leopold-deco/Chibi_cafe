@@ -1,31 +1,66 @@
+@use '../../styles/vars';
+
+
 .store-container{
     display: flex;
+    max-width: 850px;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
     flex-wrap: wrap;
-    margin: 2rem auto;
     align-items: center;
-    height: 50vh;
-    max-width: 2000px;
+    margin:1.5rem auto;
+
+
 }
 
 .storeCard{
+    position: relative;
     display: flex;
     flex-direction: column;
-    // gap: 5rem;
-    flex-basis: 25%;
+    gap: 0.5rem;
+    width: 210px;
+    height: 250px;
     align-items: center;
-    border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 1rem;
+    border: 1px solid vars.$tertiary-color;
+    box-shadow: vars.$box-shadow;
 
     &__name{
-        margin-top: 1rem;
+        margin-top: 0.5rem;
+        font-size: 1rem;
     }
 
     &__price{
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 
+    &__img{
+        width: 100px;
+        height: 100px;
+    }
+
+    &__modale{
+        position: absolute;
+        opacity: 0;
+        right: 25px;
+        bottom: 45px;
+        font-size: 1.5rem;
+        color: #f02759;
+        font-weight: bold;
+
+    }
+
+}
+
+
+.modaleAnim{
+    bottom: 45px;
+    bottom: 150px;
+    transform: rotate(360deg);
+    transition: all .5s ease-in-out;
+    animation: modaledisparition 6s;
+    
+    
 }
 
 .storeCard> button{
@@ -45,8 +80,8 @@
 
 .productsPage__title{
     text-align: center;
-    margin-top: 2rem;
-    font-size: 1.8rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
 }
 
 @keyframes jump {
@@ -57,3 +92,18 @@
         transform: translateY(5px);
     }
 }
+
+
+@keyframes modaledisparition {
+  
+    0%{
+        opacity: 1;
+    }
+
+
+    100%{
+        opacity: 0;
+    }
+  
+}
+

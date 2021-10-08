@@ -1,13 +1,7 @@
 @use '../../styles/vars';
 
 .contact {
-    background-image: url(../../assets/crepe-contact.jpg);
-    background-position: center;
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 0;
-    height: 100vh;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,6 +90,7 @@
 @media only screen and (max-width: 600px) {
     .contact{
         height: 100vh;
+        
 
         &__container{
             width: 90%;

@@ -11,7 +11,7 @@ const checkPrice = async (cart) => {
             tabCart.push(amount);
             console.log('tabCart ', tabCart);
         }
-        const cartAmount = tabCart.reduce((previousValue, currentValue) => previousValue + currentValue);
+        const cartAmount = tabCart.reduce((previousValue, currentValue) => previousValue + currentValue).toFixed(2);
         console.log('cartAmoutLog : ', cartAmount);
     return cartAmount;
 }

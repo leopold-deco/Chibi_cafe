@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { FETCH_ARTICLES, FETCH_CATEGORIES, PRICE_CHECK,  saveArticles, saveCategories } from '../actions/shop';
 
-import { setMessage, setLoadingFalse } from '../actions/message';
+import { setMessage } from '../actions/message';
 
 
 const shopMiddleWare = (store) => (next) => (action) => {

@@ -6,7 +6,7 @@ const nodemailer = require('nodemailer');
 var dayjs = require('dayjs');
 require('dayjs/locale/fr');
 const pug = require('pug');
-const pugEngine = require('nodemailer-pug-engine');
+const { pugEngine } = require("nodemailer-pug-engine");
 
 const oderController = {
 

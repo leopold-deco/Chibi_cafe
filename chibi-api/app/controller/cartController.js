@@ -5,7 +5,7 @@ const cartController = {
     priceConfirmation: async (request, response) => {
         try {
             console.log("enter");
-            const cart = request.body.shop.cart;
+            const cart = request.body.state.shop.cart;
             console.log("cart :",cart);
             const cartAmount = await checkPrice(cart);
             response.status(200).json(cartAmount);

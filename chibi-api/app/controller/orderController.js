@@ -70,7 +70,7 @@ const oderController = {
 
             transporter.use('compile', hbs({
                 viewEngine: 'express-handlebars',
-                viewPath: '../public/views'
+                viewPath: '../public/views/'
             }));
 
             const mailOrderDate = dayjs().locale('fr').format('DD MMMM YYYY');

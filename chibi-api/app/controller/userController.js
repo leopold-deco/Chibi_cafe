@@ -28,6 +28,11 @@ const userController = {
             
             const result = request.body;
 
+            //VERIFICATION D'EMAIL
+
+            const user = await User.findOneMail(result.mail);
+            if(user) response.status(200).json('Email déjà utilisé');
+
             // GESTION DU MOT DE PASSE
 
             if(result.password !== result.passwordConfirm) response.status(200).json('Veuillez entrer deux mot de passe identiques'); 
@@ -53,7 +58,7 @@ const userController = {
             }
             const newUser = new User(userInfo);
             await newUser.create();
-            response.status(200).json('User créé');
+            response.status(200).json('Inscription réussie');
         } catch (error) {
             response.status(500).send(error.message);
         }

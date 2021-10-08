@@ -4,7 +4,6 @@ import emailjs from 'emailjs-com';
 import Input from '../../Input';
 import InputRadio from '../../InputRadio';
 import Button from '../../Button';
-import imgBackgroundStore from "../../../assets/presentation-sables/background.jpg"
 import custom3 from '../../../assets/custom/custom3.jpg';
 import './custom.scss';
 
@@ -48,7 +47,6 @@ function Custom({ className, closeForm }) {
   return (
     <>
       <form className="custom" onSubmit={handleSubmit}>
-      <img className="custom__img" src={imgBackgroundStore} alt="Image de fond boutique" />
         <h2 className="custom__title">Sablés personnalisables : Suivez les étapes !</h2>
 
         <div className="custom__top">

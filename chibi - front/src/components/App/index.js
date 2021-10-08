@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 /* eslint-disable react-hooks/exhaustive-deps */
 import './App.scss';
 import AppHeader from '../AppHeader';
@@ -33,6 +34,8 @@ function App() {
       case '/compte/informations':
         setClassNameBackground('compte');
         break;
+      case '/boutique':
+        setClassNameBackground('boutique');
     }
   }, [location.pathname]);
   console.log(classNameBackground, location)

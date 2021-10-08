@@ -81,7 +81,6 @@ export default function CheckoutForm() {
   };
 
   const handleFocus = () => {
-    console.log("change")
     setImage(cupcakeClose);
   }
 

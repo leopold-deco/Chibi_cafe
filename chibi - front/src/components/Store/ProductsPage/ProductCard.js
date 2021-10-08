@@ -5,6 +5,7 @@ import { addFavorites } from "../../../actions/favorites";
 import PropTypes from 'prop-types';
 import { calculPrice } from '../../../pipes/calculPrice';
 import Like from './Like';
+import Button from '../../Button';
 
 const ProductCard = ({ product }) => {
   
@@ -37,11 +38,10 @@ const ProductCard = ({ product }) => {
           <img src={product.product_picture} alt={product.product_name} />
           </div>
           <p className="storeCard__price">{calculPrice(Number(product.price_without_taxes), Number(product.taxe))} €</p>
-          <button
+          <Button
           id={product.id}
-          className="storeCard__btn"
-          onClick={onCart} 
-          type="button"> ajouter au panier</button>
+          handleClick={onCart} 
+          type="button"> ajouter au panier</Button>
 
           {
             cardToCart ? <div className={`storeCard__modale ${modaleAnim}`}>{cardToCart.quantity}</div> : ''

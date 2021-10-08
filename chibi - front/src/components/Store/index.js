@@ -12,14 +12,14 @@ import './store.scss';
 import CoffeeLoader from '../CoffeeLoader';
 
 const Store = () => {
-  const [ loading, setLoading ] = useState(true);
+  const [ loading, setLoading ] = useState(false);
   const categories = useSelector((state) => state.shop.categories)
 
   const dispatch = useDispatch();
   useEffect(
     () => {
       dispatch(fetchCategories());
-      setTimeout(() => setLoading(false), 2000);
+      //setTimeout(() => setLoading(false), 1000);
     },
     [],
   );

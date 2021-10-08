@@ -71,7 +71,7 @@ const userMiddleware = (store) => (next) => (action) => {
       break;
     }  
     case UPDATE_USER: {
-      const { user: {
+      const { token, user: {
         id,
         first_name,
         last_name,
@@ -99,6 +99,12 @@ const userMiddleware = (store) => (next) => (action) => {
           principal_postal_code,
           principal_city
         },
+        {
+          credentials: 'include',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        } 
       ).then((response) => {
         localStorage.setItem("user", JSON.stringify(response.data));
         console.log("l'id :");
@@ -112,7 +118,7 @@ const userMiddleware = (store) => (next) => (action) => {
       break;
     }
     case UPDATE_PASSWORD: {
-      const { user: {
+      const { token, user: {
         mail,
       } } = store.getState().auth;
       
@@ -124,6 +130,12 @@ const userMiddleware = (store) => (next) => (action) => {
           passwordConfirm: action.passwordConfirm,
           actualPassword: action.actualPassword,
         },
+        {
+          credentials: 'include',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        } 
       ).then((response) => {
         console.log("update password",response);
       },

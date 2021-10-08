@@ -20,7 +20,7 @@ const CoffeeMachineLoader = () => {
                 <div className="coffee-medium__smoke coffee-medium__smoke-for"></div>
                 <div className="coffee-medium__cup"></div>
             </div>
-            <div class="coffee-footer"></div>
+            <div className="coffee-footer"></div>
         </div>
     );
 };

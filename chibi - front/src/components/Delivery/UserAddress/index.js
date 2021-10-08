@@ -7,7 +7,7 @@ const UserAddress = ({ userAddress, setUserAddress}) => {
     const { user } = useSelector(state => state.auth);
     const userAddressesStore = useSelector(state => state.auth.userAddresses);
     const { isShowing, toggle } = useModal();
-    console.log(userAddressesStore)
+
     return (
         <div>
             <FormInputDisabled data={userAddress ? userAddress : user} 

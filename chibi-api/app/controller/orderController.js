@@ -5,6 +5,7 @@ const checkPrice = require('../function/checkPrice');
 const nodemailer = require('nodemailer');
 var dayjs = require('dayjs');
 require('dayjs/locale/fr');
+const pug = require('pug');
 
 const oderController = {
 
@@ -68,14 +69,17 @@ const oderController = {
                 },
             });
 
+            transporter.use('compile', pug({
+                viewEngine: 'pug',
+                viewPath: './views/'
+            }));
+
             const mailOrderDate = dayjs().locale('fr').format('DD MMMM YYYY');
             var mailOptions = {
                 from: 'chibi.test3@gmail.com', 
                   to: userInfo.mail,
                  subject: `Récapitulatif de commande n° ${createdOrder.id} sur CHIBI`, 
-                  text: `Cet email tient lieu de confirmation pour votre paiement de ${deliveryInfo.total}€, effectué le ${mailOrderDate} sur la boutique Chibi Cafe.
-                         La commande sera livré au ${deliveryInfo.street_number} ${deliveryInfo.name_of_the_road} ${deliveryInfo.postal_code} ${deliveryInfo.city}
-                  Merci de votre commande ${deliveryInfo.first_name}`
+                 template: 'mail'
                 };
                 transporter.sendMail(mailOptions, function(error, info){
                     if (error) {

@@ -213,6 +213,7 @@
 
         &__validate {
             width: 50%;
+            margin: auto;
         }
     }
 }
@@ -269,8 +270,13 @@
             &__submit {
     
                 &__text {
-                    width: 80%;
+                    width: 50%;
                 }
+            }
+
+            &__validate {
+                width: 50%;
+                margin: auto;
             }
         }
     }

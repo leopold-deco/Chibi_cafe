@@ -32,17 +32,9 @@ function App() {
         setClassNameBackground('accueil');
         break;
       case '/compte/informations':
-        setClassNameBackground('compte');
-        break;
-        case '/compte/favoris':
-        setClassNameBackground('compte');
-        break;
-        case '/compte/commandes':
-        setClassNameBackground('compte');
-        break;
-        case '/compte/adresses':
-        setClassNameBackground('compte');
-        break;
+      case '/compte/favoris':
+      case '/compte/commandes':
+      case '/compte/adresses':
       case '/compte':
         setClassNameBackground('compte');
         break;
@@ -74,7 +66,7 @@ function App() {
           break;      
     }
   }, [location.pathname]);
-  console.log(classNameBackground, location)
+
   return (
     <div className={`App ${classNameBackground}`}>
       <AppHeader />

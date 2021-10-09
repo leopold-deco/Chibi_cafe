@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchCategories } from "../../actions/shop";
 
 import presImage from "../../assets/presentation-sables/presentation-sables.png";
@@ -9,18 +9,24 @@ import custom from "../../assets/presentation-sables/custom1.jpg";
 import CategoriesCard from './CategoriesCard';
 import Custom from "./Custom";
 import './store.scss';
+import CoffeeLoader from '../CoffeeLoader';
 
 const Store = () => {
-
+  const [ loading, setLoading ] = useState(false);
   const categories = useSelector((state) => state.shop.categories)
 
   const dispatch = useDispatch();
   useEffect(
     () => {
       dispatch(fetchCategories());
+      //setTimeout(() => setLoading(false), 1000);
     },
     [],
   );
+
+  if (loading) {
+    return <CoffeeLoader />;
+  }
 
     return (
       <div className="container">

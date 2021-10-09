@@ -29,7 +29,12 @@ function Custom({ className, closeForm }) {
         file,
         message,
     }
-    emailjs.send('my_gmail','template_db83b08', templateParams, 'user_ArfWVVGSJEvGb8dc6tTwO')
+    emailjs.send(
+      'my_gmail',
+      'template_554bs9k',
+      templateParams,
+      'user_ArfWVVGSJEvGb8dc6tTwO'
+      )
     .then((response) => {
     console.log('SUCCESS!', response.status, response.text);
     setSendMessage("Votre message a bien été envoyé");
@@ -41,6 +46,9 @@ function Custom({ className, closeForm }) {
     setLastname("");
     setFirstname("");
     setMail("");
+    setSize("");
+    setQuantity("");
+    setFirstname("");
     setMessage("");
   }
 
@@ -86,20 +94,17 @@ function Custom({ className, closeForm }) {
               <h3 className="custom__center__two__title">Etape 2 : Sélectionnez la taille de vos sablés :</h3>
               <div className="custom__center__two__radio">
                 <InputRadio className="custom__center__two__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="small" />
-                <label className="custom__center__two__radio__label" htmlFor="small">Petit</label>
-                <p className="custom__center__two__radio__description">(5cm)</p>
+                <label className="custom__center__two__radio__label" htmlFor="small">Petit (5cm)</label>
               </div>
 
               <div className="custom__center__two__radio">
                 <InputRadio className="custom__center__two__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="medium" />
-                <label className="custom__center__center__radio__label" htmlFor="medium">Moyen</label>
-                <p className="custom__center__two__radio__description">(10cm)</p>
+                <label className="custom__center__center__radio__label" htmlFor="medium">Moyen (10cm)</label>
               </div>
 
               <div className="custom__center__two__radio">
                 <InputRadio className="custom__center__two__radio__input" value={size} handleChange={setSize} type="radio" name="size" id="large" />
-                <label className="custom__center__two__radio__label" htmlFor="large">Grand</label>
-                <p className="custom__center__two__radio__description">(15cm)</p>
+                <label className="custom__center__two__radio__label" htmlFor="large">Grand (15cm)</label>
               </div>
             </div>
 
@@ -123,9 +128,13 @@ function Custom({ className, closeForm }) {
             </div>
 
             <div className="custom__bottom__validate">
-              <Button className="custom__bottom__validate__button" type="button">Demander un devis</Button>
+              <Button type="submit" className="custom__bottom__validate__button">Demander un devis</Button>
             </div>
           </div>
+          
+          <p className="custom__bottom__confirm">
+            {sendMessage}
+          </p>
       </form>
     </>
   );

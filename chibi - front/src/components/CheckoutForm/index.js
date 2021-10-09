@@ -9,12 +9,14 @@ import cupcake from '../../assets/icons/cupcake.png';
 import cupcakeClose from '../../assets/icons/cupcake-close.png';
 import coffee from '../../assets/icons/coffee.png';
 import Button from '../Button';
+import CoffeeLoader from '../CoffeeLoader';
 
 export default function CheckoutForm() {
   const history = useHistory();
   const stripe = useStripe();
   const elements = useElements();
   const [ success, setSuccess ] = useState(false);
+  const [ loading, setLoading ] = useState(false);
   const [ message, setMessage ] = useState('');
   const [ image, setImage ] = useState(cupcake);
   const cart = useSelector(state => state.shop.cart);
@@ -37,13 +39,9 @@ export default function CheckoutForm() {
       card: cardElement,
     });
 
-    if (error) {
-      console.log('[error]', error.message);
-      setMessage(error.message)
-      console.log(error)
-    } else {
-      console.log('[PaymentMethod]', paymentMethod);
+    if (!error) {
       try {
+        console.log('[PaymentMethod]', paymentMethod);
         const { id } = paymentMethod;
         const response = await axios.post("https://chibi-api.herokuapp.com/createCheckoutSession", { 
           cart,
@@ -61,39 +59,51 @@ export default function CheckoutForm() {
             if(responseOrder.data.id) {
               console.log("success", responseOrder);
               localStorage.setItem("lastOrder", JSON.stringify(responseOrder.data));
+
               history.push('/confirmation')
             }
 
           } catch (error) {
             console.log('error', error)
           }
+        } else {
+          console.log(response)
+          setMessage(response.data.message)
         }
       } catch (error) {
         console.log('error', error)
+
       }
+    } else {
+      console.log('[error]', error.message);
+      setMessage(error.message)
     }
   };
 
   const handleFocus = () => {
-    console.log("change")
     setImage(cupcakeClose);
+  }
+
+  if (loading) {
+    return <CoffeeLoader />;
   }
 
   return (
     <div className="checkout">
     {!success ?
       <Form handleSubmit={handleSubmit}>
+        
         <div classname="checkout__message" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: "6rem"}}>
         {message? 
           <>
-            <p className="text-animation">
+            <p className="text-animation" style={{color: 'brown'}}>
               {message}
             </p> 
             <img className="image-animation" src={coffee} /> </>:
           <img style={{width: "6rem"}} src={image} />
         }
         </div>        
-
+        <h2 className="center">Veuillez renseigner votre carte de paiement</h2>
         <fieldset className="checkout__form-group">
           <div className="checkout__form-row">
             <CardElement 

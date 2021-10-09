@@ -6,7 +6,8 @@ import { useHistory } from 'react-router';
 import BooleanCheckbox from '../BooleanCheckbox';
 import { setDeliveryAddress, setDeliveryRadio } from '../../actions/delivery';
 import { Redirect } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { GET_USER_ADDRESSES } from '../../actions/auth';
 
 const Delivery = () => {
     const dispatch = useDispatch();
@@ -57,27 +58,35 @@ const Delivery = () => {
         dispatch(setDeliveryRadio(value, "isNewAddress"));
     };
 
+    useEffect(() => {
+        if (isLoggedIn) {
+            dispatch({type: GET_USER_ADDRESSES});
+        }
+    }, [isLoggedIn]);
+
     if (!isLoggedIn) {
         return <Redirect to="/compte" />
     }
     
     return (
-        <Form handleSubmit={verifyIsNewAddressAndStore}> 
-            <h2>Livraison</h2>
-            <div className="delivery">
-                <BooleanCheckbox 
-                    label={["Livraison à votre adresse", "Livraison à une nouvelle adresse"]}
-                    id={["userAddress", "newAddress"]}
-                    handleChange={handleChange}
-                    checked={isNewAddress}
-                    newAddress={newAddress}
-                    handleChangeNewAddress={handleChangeNewAddress}
-                    userAddress={userAddress}
-                    setUserAddress={setUserAddress}
-                />
-            </div>
-            <Button type="submit">Paiement</Button>
-        </Form>
+        <div className="delivery-container">
+            <Form handleSubmit={verifyIsNewAddressAndStore}> 
+                <h2>Livraison</h2>
+                <div className="delivery">
+                    <BooleanCheckbox 
+                        label={["Livraison à votre adresse", "Livraison à une nouvelle adresse"]}
+                        id={["userAddress", "newAddress"]}
+                        handleChange={handleChange}
+                        checked={isNewAddress}
+                        newAddress={newAddress}
+                        handleChangeNewAddress={handleChangeNewAddress}
+                        userAddress={userAddress}
+                        setUserAddress={setUserAddress}
+                    />
+                </div>
+                <Button type="submit">Paiement</Button>
+            </Form>
+        </div>
     );
 };
 

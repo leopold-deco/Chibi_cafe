@@ -1,33 +1,26 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Solid from './Solid';
 import Liquid from './Liquid';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFoodCategories } from "../../actions/menu";
 import { fetchArticles } from '../../actions/shop';
-import { setLoadingFalse } from '../../actions/message';
 import MenuProducts from './MenuProducts';
 import CoffeeLoader from '../CoffeeLoader';
 
 import './menu.scss';
 
 function Menu() {
-
+  const [ loading, setLoading ] = useState(true);
   const [seeProducts, setOpenProducts] = useState(false)
   const [pageProducts, setProducts] = useState([])
   const [categorieName, setNameCat] = useState([])
 
   const [mouseoverLiquid, setMouseoverLiquid] = useState('')
   const [mouseoverSolid, setMouseoverSolid] = useState('')
-  
-  const { loading } = useSelector(state => state.message);
-  console.log("loading",loading)
-  const liquidRef = useRef()
 
   const categories = useSelector((state) => state.shop.categories.filter(category => category.type_of_product === false))
   const products = useSelector((state) => state.shop.products)
-
-  console.log(liquidRef)
 
   const findProducts = (target, target2) => {
     setProducts(products.filter((product) =>  product.category_id === Number(target) || product.category_id === Number(target2)));
@@ -40,15 +33,10 @@ function Menu() {
     setOpenProducts(false)
   }
 
-
-
   const findCategorie = (id, id2) => {
     setNameCat(categories.find((categorie) => categorie.id === Number(id) || categorie.id === Number(id2)));
 
   }
-
-
-
 
   const solids = categories.filter(category => category.state === true);
   const liquids = categories.filter(category => category.state === false);
@@ -57,15 +45,13 @@ function Menu() {
   const classMenu = seeProducts ? "" : "nonvisible";
   const overlayClasseName = seeProducts ? "overOn" : "";
 
-
-
   const dispatch = useDispatch()
 
   useEffect(
     () => {
       dispatch(fetchFoodCategories())
       dispatch(fetchArticles())
-      setTimeout(() => dispatch(setLoadingFalse()), 4000);
+      setTimeout(() => setLoading(false), 2000);
       
     },
     [],

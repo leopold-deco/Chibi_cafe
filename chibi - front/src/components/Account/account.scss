@@ -144,4 +144,13 @@
    }
 
 
+   @media only screen and (max-height: 700px) {
+   .auth{
+       height: 70vh;
+   }
 
+   .basic-input{
+    padding: 0.3rem;
+}
+
+   }

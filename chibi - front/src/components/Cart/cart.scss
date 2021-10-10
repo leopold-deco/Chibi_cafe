@@ -27,6 +27,7 @@
 
 .cart__body{
     display: flex;
+    border: 2px solid rgb(223, 217, 219);
     flex-direction: column;
     width: 70%;
     padding: 2%;
@@ -110,6 +111,7 @@
 .cart__ender{
     position: sticky;
     top: 20px;
+    border: 2px solid rgb(223, 217, 219);
     display: flex;
     width: 30%;
     align-items: center;

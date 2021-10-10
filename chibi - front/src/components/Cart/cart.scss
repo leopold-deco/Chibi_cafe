@@ -273,6 +273,11 @@ display: none;
 
 }
 
+@media only screen and (max-width: 350px) {
+    .cart__ender__footer{
+        width: 60%;
+    }
+}
 
 
 

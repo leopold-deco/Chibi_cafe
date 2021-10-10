@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { 
-  connectUser, getAddresses, ADD_NEW_ADDRESS, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES, EDIT_ADDRESS, DELETE_ADDRESS, GET_ORDERS
+  connectUser, getAddresses, saveOrders, ADD_NEW_ADDRESS, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES, EDIT_ADDRESS, DELETE_ADDRESS, GET_ORDERS
 } from '../actions/auth';
 
 import { setMessage } from '../actions/message';
@@ -281,7 +281,10 @@ const userMiddleware = (store) => (next) => (action) => {
           headers: { "Authorization": `Bearer ${token}` }
         }
       ).then((response) => {
-        console.log("add orders", response)
+        if(response.data.length) {
+          localStorage.setItem("orders", JSON.stringify(response.data));
+          store.dispatch(saveOrders(response.data));
+        }
       },
       ).catch(
         (error) => console.log('error', error),

@@ -1,4 +1,4 @@
-import { CONNECT_USER, LOGOUT, REGISTER_USER, SET_USER_FIELD, GET_ADDRESSES } from '../actions/auth';
+import { CONNECT_USER, LOGOUT, REGISTER_USER, SET_USER_FIELD, GET_ADDRESSES, SAVE_ORDERS } from '../actions/auth';
 
 const user = JSON.parse(localStorage.getItem("user"));
 const userAddresses = JSON.parse(localStorage.getItem("userAddresses"));
@@ -42,7 +42,7 @@ const auth = (state = initialState, action = {}) => {
         ...state,
         userAddresses: action.data
       }
-    case GET_ORDERS:
+    case SAVE_ORDERS:
       return {
         ...state,
         orders: action.data

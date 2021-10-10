@@ -1,5 +1,11 @@
 @use '../../../styles/vars';
 
+.aside-navbar-container {
+    display: flex;
+    padding: 2rem;
+    height: 80vh;
+}
+
 .aside-navbar {
     display: flex;
     flex-direction: column;

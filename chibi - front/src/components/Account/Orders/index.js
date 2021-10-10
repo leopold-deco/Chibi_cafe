@@ -13,12 +13,13 @@ const Orders = () => {
     console.log(orders);
     return (
         <AsideNavbar>
-            <div>
+            <div className="orders">
                 <h2>Mes commandes</h2>
-                <div></div>
-                {orders && orders.map(order => (
-                    <TrackOrder order={order} />
-                ))}
+                <div className="orders__list">
+                    {orders && orders.map(order => (
+                        <TrackOrder order={order} />
+                    ))}
+                </div>
             </div>
         </AsideNavbar>
 

@@ -1,4 +1,14 @@
 .orders {
-    display: flex;
+    overflow-y: scroll;
     padding: 2rem;
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+
+        &>div {
+            flex-basis: 40%;
+        }
+    }
 }

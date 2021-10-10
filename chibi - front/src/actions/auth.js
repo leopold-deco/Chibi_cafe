@@ -121,3 +121,5 @@ export const deleteAddress = (address) => (
     address
   }
 );
+
+export const GET_ORDERS = 'GET_ORDERS';

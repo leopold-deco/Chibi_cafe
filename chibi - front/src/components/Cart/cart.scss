@@ -200,13 +200,13 @@
             display: none;
         }
 
-        &__footer Button{
-            padding: 0.5rem;
-            margin-bottom: 1.1rem;
+        &__footer{
+            width: 75%;
+            padding: 0.5rem
         }
 
     }
-  
+
     .cart__body__legend div{
         font-size: 0.7rem;
     }

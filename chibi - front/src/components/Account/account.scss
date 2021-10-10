@@ -36,6 +36,10 @@
     }
 }
 
+.center{
+    font-size: 1rem;
+}
+
 .clientBtn{
     margin-top: 1rem;
     padding: 1.20rem;
@@ -77,12 +81,14 @@
         }
     }
 
+
+
     .isClient{
         width: 80%;
         box-shadow: vars.$box-shadow;
         background: vars.$tertiary-color;
         margin: auto;
-        padding: 3rem;
+        padding: 1.5rem;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -105,7 +111,7 @@
 @media only screen and (max-width: 600px) {
 
     .auth-container-login{
-        width: 90%;
+        width: 95%;
     }
 }
 

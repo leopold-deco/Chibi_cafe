@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'react-redux';
 import NewAddress from '../Delivery/NewAddress';
 import './addresses.scss';

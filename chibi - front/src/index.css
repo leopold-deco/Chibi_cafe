@@ -148,10 +148,10 @@ a {
   color: inherit;
 }
 
-label,
+/* label,
 button {
   cursor: pointer;
-}
+} */
 
 input,
 button {

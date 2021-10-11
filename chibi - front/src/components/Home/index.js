@@ -1,9 +1,10 @@
 import './home.scss';
+import Carousels from '../Carousels';
 
 function Home() {
   return (
     <div className="home">
-        <div className="slider">
+        {/* <div className="slider">
           <div className="slides">
             <div className="slide">
               <img src="https://images.pexels.com/photos/290975/pexels-photo-290975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="café" />
@@ -15,7 +16,8 @@ function Home() {
             <img src="https://images.pexels.com/photos/2934200/pexels-photo-2934200.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="sablés" />
             </div>
           </div>
-        </div>
+        </div> */}
+        <Carousels />
       <div className="presentation">
       <div className="presentation__img">
         <img src="https://cdn.stocksnap.io/img-thumbs/960w/tables-chairs_WUM7VBAPS8.jpg" alt="café" />

@@ -3,6 +3,15 @@
     justify-content: space-evenly;
 }
 
+.names {
+    display: flex;
+    gap: 0.5rem;
+
+    &>div {
+        flex-basis: 50%;
+    }
+}
+
 .address {
     display: flex;
 

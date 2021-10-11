@@ -1,6 +1,7 @@
 import SignUp from './SignUp';
 import Login from './Login';
 import { useState } from 'react';
+import Button from '../Button';
 
 import './account.scss';
 
@@ -30,7 +31,7 @@ function Account() {
             <Login to='/' />
             <div className={modConnectClasse}>
               <h2 className="center">Nouveau Client ?</h2>
-              <button onClick={openSignupForm} className="clientBtn">Créer un Compte</button>
+              <Button handleClick={openSignupForm}>Créer un Compte</Button>
           </div> 
           </div>
         </div>

@@ -42,15 +42,16 @@ const SignUp = ({ closeSignupForm }) => {
                     checked={gender}
                 />
             </div>
-
-            <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
-                value={firstname} 
-                handleChange={setFirstname}
-            />
-            <Input type="text" name="last_name" id="last_name" placeholder="Nom" 
-                value={lastname} 
-                handleChange={setLastname}
-            />
+            <div className="names">
+                <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
+                    value={firstname} 
+                    handleChange={setFirstname}
+                />
+                <Input type="text" name="last_name" id="last_name" placeholder="Nom" 
+                    value={lastname} 
+                    handleChange={setLastname}
+                />
+            </div>
             <Input type="email" name="mail" id="mail" placeholder="Email"
                 value={mail} 
                 handleChange={setMail}

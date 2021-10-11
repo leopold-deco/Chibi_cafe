@@ -32,13 +32,6 @@
     }
 }
 
-.clientBtn{
-    margin-top: 1rem;
-    padding: 1.20rem;
-    border-radius: 0.75rem;
-    border: none;
-    background-color: #85dcec;
-}
 
 @media only screen and (max-width: 1350px) {
     .auth-container-signup{  
@@ -46,10 +39,10 @@
     
 }
 
-.auth-container-login{
-    width: 45%;
+    .auth-container-login{
+        width: 45%;
 
-}
+    }
 
 }
 

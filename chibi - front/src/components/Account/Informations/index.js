@@ -43,7 +43,8 @@ const Informations = () => {
     }
 
     return (
-        <AsideNavbar>
+        <div className="informations">
+        <AsideNavbar />
                 <Form handleSubmit={handleSubmitForm}> 
                     <h2>Mes informations personnelles</h2>
                     <div className="gender">
@@ -124,7 +125,7 @@ const Informations = () => {
                     <Button>Modifier</Button>
                     <p style={{color: "green"}}>{message}</p>
                 </Form>
-        </AsideNavbar>
+            </div>
     );
 }
 

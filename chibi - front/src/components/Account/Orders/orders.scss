@@ -1,14 +1,24 @@
+@use '../../../styles/vars';
+
 .orders {
     overflow-y: scroll;
-    padding: 2rem;
+    background-color: vars.$tertiary-color;
+    border-radius: vars.$border-radius;
+
+    &__title {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-left: 1rem;
+    }
 
     &__list {
         display: flex;
         flex-wrap: wrap;
-        gap: 2rem;
+        gap: 1rem;
+        justify-content: space-between;
 
         &>div {
-            flex-basis: 40%;
+            flex-basis: 30%;
         }
     }
 }

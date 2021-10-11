@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import emailjs from 'emailjs-com';
 
 import { useState } from 'react';
+import useModal from "../../../hooks/useModal";
 
 import './form.scss';
 
@@ -14,6 +15,7 @@ const Form = ({ className, closeForm }) => {
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState(""); 
     const [sendMessage, setSendMessage] = useState("");
+    const { isShowing, toggle } = useModal();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -80,12 +82,30 @@ const Form = ({ className, closeForm }) => {
                 <label className="message__label">Message</label>
                 <textarea  value={message} onChange={(e) => setMessage(e.target.value)} className="message__text"  placeholder="Votre Message"></textarea>
 
-                <Button className="message__button" type="submit">Envoyer</Button>
+                <Button handleClick={toggle} className="message__button" type="submit">Envoyer</Button>
+                {isShowing && 
+                <div className="modal-overlay">
+                    <div className="modal-wrapper">
+                        <div className="modal">
+                            <div className="modal-header">
+                                <p>
+                                    {sendMessage}
+                                </p>
+                                <button
+                                type="button"
+                                className="modal-close-button"
+                                onClick={toggle}
+                                >
+                                <span>&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
             </div>
 
-            <p>
-            {sendMessage}
-            </p>
+            
         </form>
         
         </>

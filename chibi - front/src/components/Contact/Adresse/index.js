@@ -1,5 +1,5 @@
 import localisation from "../../../assets/localisation.png";
-
+import Map from '../../Map';
 import './adresse.scss';
 
 const Adresse = () => (
@@ -23,7 +23,7 @@ const Adresse = () => (
         </div>
     </div>
     <div className="adresse__img">
-    <img className="img" src={localisation} alt="map img"/>
+        <Map />
     </div>
     </>
 );

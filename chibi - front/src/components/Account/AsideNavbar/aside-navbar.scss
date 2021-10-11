@@ -2,10 +2,8 @@
 
 .aside-navbar-container {
     display: flex;
-    width: 25%;
-    height: 60vh;
-    position: fixed;
-    top: 25%;
+    padding: 2rem;
+    height: 70vh;
 }
 
 .aside-navbar {
@@ -111,6 +109,7 @@ ion-icon {
     .aside-navbar-container {
         flex-direction: column;
         align-items: center;
+        padding: 0;
     }
     
     .aside-navbar {

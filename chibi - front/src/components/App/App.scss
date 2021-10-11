@@ -8,7 +8,11 @@ body {
   background-size: cover;
 }
 
+a {
+  cursor: url(../../assets/pawpanda.png), auto;
+}
 .App{
+  cursor: url(../../assets/pawpanda.png), auto;
   position:relative;
   min-height: 100vh;
   width: 100%;
@@ -28,14 +32,17 @@ body {
 }
 
 .accueil {
-  background-image: url("../../assets/accueil7.jpg");
+  background-image: url("../../assets/accueil.jpg");
 }
 
 .compte {
-  background-image: url("../../assets/account/account.jpg");
+  filter : blur(2px) contrast(80%);
+  background-image: url("../../assets/account1.jpg");
+  background-position: center;
 }
 
 .boutique {
+  filter : blur(2px) contrast(80%);
   background-image: url("../../assets/presentation-sables/background.jpg");
 }
 

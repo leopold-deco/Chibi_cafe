@@ -12,17 +12,16 @@ const Orders = () => {
     useEffect(() => dispatch({type: GET_ORDERS}), []);
     console.log(orders);
     return (
-    <div className="orders">
-        
+        <AsideNavbar>
+            <div className="orders">
                 <h2 className="orders__title">Mes commandes</h2>
-                <AsideNavbar />
                 <div className="orders__list">
                     {orders && orders.map(order => (
                         <TrackOrder order={order} />
                     ))}
                 </div>
             </div>
-
+        </AsideNavbar>
     );
 };
 

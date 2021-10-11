@@ -48,10 +48,8 @@ function Addresses() {
     }, []);
 
     return (
-        
+        <AsideNavbar>
             <div className="addresses">
-            <AsideNavbar />
-            <div className="addresses__container">
                 <Button type="button" handleClick={toggle}>
                     Ajouter une adresse
                 </Button>
@@ -85,8 +83,8 @@ function Addresses() {
                         userAddressStore={address}
                     />
                 ))}
-                </div>
             </div>
+        </AsideNavbar>
     );
 }
   

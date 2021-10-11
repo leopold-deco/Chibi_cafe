@@ -43,8 +43,8 @@ const Informations = () => {
     }
 
     return (
-        <div className="informations">
-        <AsideNavbar />
+        <AsideNavbar>
+            <div className="informations" style={{width: '80%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                 <Form handleSubmit={handleSubmitForm}> 
                     <h2>Mes informations personnelles</h2>
                     <div className="gender">
@@ -126,6 +126,7 @@ const Informations = () => {
                     <p style={{color: "green"}}>{message}</p>
                 </Form>
             </div>
+        </AsideNavbar>
     );
 }
 

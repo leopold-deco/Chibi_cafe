@@ -85,7 +85,7 @@ const oderController = {
                   to: userInfo.mail,
                  subject: `Récapitulatif de commande n° ${createdOrder.id} sur CHIBI`, 
                  template: `mail`,
-                 context: {                  // <=
+                 context: {
                     deliveryInfo,
                     mailOrderDate
                   }
@@ -114,7 +114,6 @@ const oderController = {
             response.status(500).send(error.message);
         }
     }
-
 }
 
 module.exports = oderController;

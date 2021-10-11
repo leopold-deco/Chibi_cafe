@@ -9,17 +9,8 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
-// const corsOptions ={
-//     origin:'https://chibi-cafe.netlify.app',
-//     credentials:true,
-//     optionSuccessStatus:200
-// }
-// app.engine('handlebars', exphbs());
-// app.set('view engine', 'handlebars');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use('public', express.static('public'));
-// app.use(express.static('./public'));
 app.use(cors({'Access-Control-Allow-Origin': '*',}));
 app.use(router);
 

@@ -7,7 +7,6 @@ import { fetchCategories } from "../../actions/shop";
 import presImage from "../../assets/presentation-sables/presentation-sables.png";
 import custom from "../../assets/presentation-sables/custom1.jpg";
 import CategoriesCard from './CategoriesCard';
-import Custom from "./Custom";
 import './store.scss';
 import CoffeeLoader from '../CoffeeLoader';
 

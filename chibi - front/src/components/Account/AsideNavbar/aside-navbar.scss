@@ -99,16 +99,25 @@ ion-icon {
 
 @media only screen and (max-width: 680px) {
     .aside-navbar {
-        width: 80%;
+        width: 100%;
         margin-left: 5rem;
         margin-right: 5rem;
-        margin-bottom: 1.3rem;
+        margin-bottom: 0.5rem;
         padding: 0.5rem;
         flex-direction: row;
+
+        &__link:hover{
+            transform: translateX(0);
+
+            &:after{
+                opacity: 0;
+                transform: perspective(0) scale(0) ;
+            }
+        }
     }
 
     ion-icon {
-        width: 3rem;
+        font-size: 30px;
     }
 }
 
@@ -137,7 +146,13 @@ ion-icon {
 
 @media only screen and (max-width: 320px) {
     ion-icon {
-        width: 1.3rem;
+        font-size: 20px;
         
     }
+
+    .aside-navbar{
+        margin-bottom: 0.2rem;
+    }
+
+    
 }

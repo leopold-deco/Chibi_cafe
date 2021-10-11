@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_FOODS, FETCH_FOODCATEGORIES, saveFoods, saveFoodCategories } from '../actions/menu';
+import {  FETCH_FOODCATEGORIES,  saveFoodCategories } from '../actions/menu';
 
 
 

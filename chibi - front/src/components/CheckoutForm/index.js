@@ -99,8 +99,8 @@ export default function CheckoutForm() {
             <p className="text-animation" style={{color: 'brown'}}>
               {message}
             </p> 
-            <img className="image-animation" src={coffee} /> </>:
-          <img style={{width: "6rem"}} src={image} />
+            <img className="image-animation" src={coffee} alt="anim-img"/> </>:
+          <img style={{width: "6rem"}} src={image} alt="cupcake"/>
         }
         </div>        
         <h2 className="center">Veuillez renseigner votre carte de paiement</h2>

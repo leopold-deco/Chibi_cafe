@@ -18,7 +18,7 @@ const Button = ({ children, handleClick, type, disabled }) => {
             disabled={disabled}
         >
             {children}
-            <img className={`basic-button__animation ${animation}`} src={bread} />
+            <img className={`basic-button__animation ${animation}`} src={bread} alt="button-chibi" />
         </button>
     );
 };

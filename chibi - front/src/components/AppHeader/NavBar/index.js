@@ -57,11 +57,19 @@ function NavBar({ cartCount }) {
         </div>
       </div>
       <div className="navbar__mobile">
+      {isLoggedIn?
+      <NavLink className="navlink"   exact to="/compte/informations">
+        <div >
+        <i className="fas fa-user"></i>
+        </div>
+        </NavLink>
+        :    
       <NavLink className="navbar__mobile__accountIcon" to="/compte">
       <div >
       <i className="fas fa-user"></i>
       </div>
       </NavLink>
+      }
       <div className="navbar__mobile__title">
       <h4> Chibi</h4>
       </div>

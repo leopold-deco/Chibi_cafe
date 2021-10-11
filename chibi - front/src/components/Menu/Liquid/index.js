@@ -1,6 +1,5 @@
 
 import LiquidCats from '../LiquidCats';
-import { useRef, useState } from 'react';
 import PropTypes from 'prop-types'
 import './liquid.scss';
 

@@ -68,7 +68,8 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <div className={`App ${classNameBackground}`}>
+    <div className="App">
+    <div className={`background ${classNameBackground}`}></div>
       <AppHeader />
       <Switch>
         <Route path="/" exact>

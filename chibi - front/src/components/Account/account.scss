@@ -5,6 +5,10 @@
     display: flex;
     align-items:center;
     justify-content: center;
+    width: 90%;
+    margin: auto;
+    height: 80vh;
+
     padding: 2rem;
     padding-bottom: 4rem;
 
@@ -30,6 +34,10 @@
     &--close{
         display: none;
     }
+}
+
+.center{
+    font-size: 1rem;
 }
 
 .clientBtn{
@@ -73,12 +81,14 @@
         }
     }
 
+
+
     .isClient{
         width: 80%;
         box-shadow: vars.$box-shadow;
         background: vars.$tertiary-color;
         margin: auto;
-        padding: 3rem;
+        padding: 1.5rem;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -101,7 +111,7 @@
 @media only screen and (max-width: 600px) {
 
     .auth-container-login{
-        width: 90%;
+        width: 95%;
     }
 }
 
@@ -142,4 +152,13 @@
    }
 
 
+   @media only screen and (max-height: 700px) {
+   .auth{
+       height: 70vh;
+   }
 
+   .basic-input{
+    padding: 0.3rem;
+}
+
+   }

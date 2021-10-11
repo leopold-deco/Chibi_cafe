@@ -32,10 +32,13 @@ body {
 }
 
 .compte {
-  background-image: url("../../assets/account/account.jpg");
+  filter : blur(2px) contrast(80%);
+  background-image: url("../../assets/account1.jpg");
+  background-position: center;
 }
 
 .boutique {
+  filter : blur(2px) contrast(80%);
   background-image: url("../../assets/presentation-sables/background.jpg");
 }
 

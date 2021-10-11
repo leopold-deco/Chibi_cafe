@@ -1,5 +1,6 @@
 import './home.scss';
 import Carousels from '../Carousels';
+import cafe from '../../assets/coffeeshop.jpg';
 
 function Home() {
   return (
@@ -20,14 +21,14 @@ function Home() {
         <Carousels />
       <div className="presentation">
       <div className="presentation__img">
-        <img src="https://cdn.stocksnap.io/img-thumbs/960w/tables-chairs_WUM7VBAPS8.jpg" alt="café" />
+        <img src={cafe} alt="café" />
         </div>
       
 
       <div className="home__presentation">
-        <p>CHIBI CAFE est un coffee shop / salon de thé situé en plein coeur de Paris.<br />
-          <br />
-          Nous vous proposons des cafés et thés de spécialité, des déclinaisons de pâtisseries et des boissons colorées.
+        <p>CHIBI CAFE est un coffee shop / salon de thé situé en plein coeur de Paris.</p>
+          
+        <p>  Nous vous proposons des cafés et thés de spécialité, des déclinaisons de pâtisseries et des boissons colorées.
           Une épicerie fine proposant un large choix de produits sucrés.</p>
       </div>
       </div>

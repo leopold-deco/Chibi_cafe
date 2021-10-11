@@ -10,41 +10,53 @@
 
 
 .slides{
-    width: calc(700px * 3);
+    width: calc(350px * 3);
     animation: glisse 20s infinite;
     margin: 0;
 }
 
 
 .slider{
-    width: 700px;
+    border-radius: 50%;
+    width: 350px;
     overflow: hidden;
-    margin: 1.5rem auto;
-    border:solid 15px rgb(197, 182, 182);
-    border: outset 15px rgb(197, 182, 182);
-    
+    margin: 3.5rem auto 1.5rem auto;
+    border: solid 2px rgba(240, 248, 255, 0.507);
 }
 
 .slide{
+    border-radius: 50%;
     float: left;
-    width: 700px;
-    height: 40vh;
+    width: 350px;
+    height: 30vh;
 }
 
 .slide>img{
+    border-radius: 50%;
     width: 100%;
     height: 100%;
 }
 
 .home__presentation{
-    width: 40%;
+    line-height: 32px;
+    width: 60%;
     font-size: 1.5rem;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & p:first-child {
+        margin-bottom: 1rem;
+    }
 }
 
 
 .presentation__img{
     width: 400px;
+
+    &>img {
+        border-radius: 0.75rem;
+    }
 }
 
 .presentation{
@@ -52,7 +64,7 @@
     justify-content: center;
     gap: 3rem;
     width: 70%;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 0.75rem;
     background-color: rgba(240, 248, 255, 0.507);
 }
@@ -70,16 +82,16 @@
 
 @media only screen and (max-height: 1000px) {
     .slides{
-        width: calc(550px * 3);
+        width: calc(270px * 3);
     }
 
     .slider{
-        width: 550px;
+        width: 270px;
     }
 
     .slide{
-        width: 550px;
-        height: 35vh;
+        width: 270px;
+        height: 25vh;
     }
 
 
@@ -113,8 +125,6 @@
     .slider{
        margin-top: 0;
        width: 400px;
-       border:solid 7px rgb(197, 182, 182);
-    border: outset 7px rgb(197, 182, 182);
     }
     .slide{
         width: 400px;
@@ -231,26 +241,26 @@
     }
 
     25%{
-        transform: translateX(-33.334%);
+        transform: translateX(-33.333333333333333333333333333333333333333333%);
     }
     40%{
-        transform: translateX(-33.334%);
+        transform: translateX(-33.333333333333333333333333333333333333333333%);
     }
 
     50%{
-        transform: translateX(-66.668%);
+        transform: translateX(-66.666666666666666666666666666666666666666666%);
     }
 
     60%{
-        transform: translateX(-66.668%);
+        transform: translateX(-66.666666666666666666666666666666666666666666%);
     }
 
     75%{
-        transform: translateX(-33.334%);
+        transform: translateX(-33.333333333333333333333333333333333333333333%);
     }
 
     85%{
-        transform: translateX(-33.334%);
+        transform: translateX(-33.333333333333333333333333333333333333333333%);
     }
 
     100%{

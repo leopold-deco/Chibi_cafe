@@ -1,16 +1,23 @@
 @use '../../../styles/vars';
 
 .orders {
-    width: 80%;
+    width: 100%;
     overflow-y: scroll;
-    background-color: vars.$tertiary-color;
+    
+
+    &__list{
+        width: 60%;
+        background-color: vars.$tertiary-color;
     border-radius: vars.$border-radius;
     padding: 1rem;
-    margin: 0 auto;
+    margin: auto;
+    margin-bottom: 3.5rem;
+    }
 
     &__title {
         padding-bottom: 1rem;
-        margin-left: 1rem;
+        text-align: center;
+        margin-top: 1rem;
     }
 
     &__list {

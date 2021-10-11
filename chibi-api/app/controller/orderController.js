@@ -70,8 +70,13 @@ const oderController = {
             });
 
             transporter.use('compile', hbs({
-                viewEngine: 'express-handlebars',
-                viewPath: '../public/views/'
+                viewEngine: {
+                    extName: ".handlebars",
+                    partialsDir: path.resolve(__dirname, "..","public","views"),
+                    defaultLayout: false,
+                  },
+                  viewPath: path.resolve(__dirname, "..","public","views"),
+                  extName: ".handlebars",
             }));
 
             const mailOrderDate = dayjs().locale('fr').format('DD MMMM YYYY');
@@ -79,7 +84,11 @@ const oderController = {
                 from: 'chibi.test3@gmail.com', 
                   to: userInfo.mail,
                  subject: `Récapitulatif de commande n° ${createdOrder.id} sur CHIBI`, 
-                 template: 'mail'
+                 template: `mail`,
+                 context: {                  // <=
+                    deliveryInfo,
+                    mailOrderDate
+                  }
                 };
                 transporter.sendMail(mailOptions, function(error, info){
                     if (error) {

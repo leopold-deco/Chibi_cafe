@@ -18,8 +18,8 @@ const port = process.env.PORT || 3000;
 // app.set('view engine', 'handlebars');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use('public', express.static('public'));
-app.use(express.static('./public'));
+// app.use('public', express.static('public'));
+// app.use(express.static('./public'));
 app.use(cors({'Access-Control-Allow-Origin': '*',}));
 app.use(router);
 

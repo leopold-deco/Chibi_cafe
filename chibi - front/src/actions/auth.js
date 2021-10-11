@@ -121,3 +121,14 @@ export const deleteAddress = (address) => (
     address
   }
 );
+
+export const GET_ORDERS = 'GET_ORDERS';
+
+export const SAVE_ORDERS = 'SAVE_ORDERS';
+
+export const saveOrders = (data) => (
+  {
+    type: SAVE_ORDERS,
+    data
+  }
+);

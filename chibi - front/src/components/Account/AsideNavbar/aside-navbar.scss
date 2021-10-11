@@ -1,5 +1,11 @@
 @use '../../../styles/vars';
 
+.aside-navbar-container {
+    display: flex;
+    padding: 2rem;
+    height: 80vh;
+}
+
 .aside-navbar {
     display: flex;
     flex-direction: column;
@@ -8,6 +14,7 @@
     background-color: vars.$tertiary-color;
     width: 12rem;
     padding: 1rem;
+    margin-right: 1rem;
     gap: 2rem;
     border-radius: vars.$border-radius;
     box-shadow: vars.$box-shadow;
@@ -76,6 +83,7 @@ ion-icon {
 }
 
 @media only screen and (max-width: 1120px) {
+
     .aside-navbar {
         width: 10rem;
     }
@@ -98,6 +106,11 @@ ion-icon {
 }
 
 @media only screen and (max-width: 680px) {
+    .aside-navbar-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
     .aside-navbar {
         width: 80%;
         margin-left: 5rem;

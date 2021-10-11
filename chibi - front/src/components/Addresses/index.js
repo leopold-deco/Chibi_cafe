@@ -47,44 +47,43 @@ function Addresses() {
     }, []);
 
     return (
-            <div className="addresses">
-                <AsideNavbar />
-                <div className="addresses__container">
-                    <Button type="button" handleClick={toggle}>
-                        Ajouter une adresse
-                    </Button>
-                    {isShowing && 
-                        <div className="modal-overlay">
-                        <div className="modal-wrapper">
-                            <div className="modal">
-                            <div className="modal-header">
-                                <h4>Nouvelle Adresse</h4>
-                                <button
-                                type="button"
-                                className="modal-close-button"
-                                onClick={toggle}
-                                >
-                                <span>&times;</span>
-                                </button>
-                            </div>
-                            <div className="modal-flex">
-                            <NewAddress newAddress={newAddress} handleChange={handleChangeNewAddress}
-                                button={<Button handleClick={handleClickAdd}>Ajouter</Button>}
-                            />
-                            </div>
-                            </div>
+        <AsideNavbar>
+            <div className="addresses__container">
+                <Button type="button" handleClick={toggle}>
+                    Ajouter une adresse
+                </Button>
+                {isShowing && 
+                    <div className="modal-overlay">
+                    <div className="modal-wrapper">
+                        <div className="modal">
+                        <div className="modal-header">
+                            <h4>Nouvelle Adresse</h4>
+                            <button
+                            type="button"
+                            className="modal-close-button"
+                            onClick={toggle}
+                            >
+                            <span>&times;</span>
+                            </button>
                         </div>
-                        </div>
-                    }
-                    {userAddresses && userAddresses.map(address => (
-                        <FormEditAddress key={address.id} 
-                            handleClickEdit={handleClickEdit}
-                            handleClickDelete={handleClickDelete}
-                            userAddressStore={address}
+                        <div className="modal-flex">
+                        <NewAddress newAddress={newAddress} handleChange={handleChangeNewAddress}
+                            button={<Button handleClick={handleClickAdd}>Ajouter</Button>}
                         />
-                    ))}
-                </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                }
+                {userAddresses && userAddresses.map(address => (
+                    <FormEditAddress key={address.id} 
+                        handleClickEdit={handleClickEdit}
+                        handleClickDelete={handleClickDelete}
+                        userAddressStore={address}
+                    />
+                ))}
             </div>
+        </AsideNavbar>
     );
 }
   

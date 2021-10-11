@@ -42,15 +42,16 @@ const SignUp = ({ closeSignupForm }) => {
                     checked={gender}
                 />
             </div>
-
-            <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
-                value={firstname} 
-                handleChange={setFirstname}
-            />
-            <Input type="text" name="last_name" id="last_name" placeholder="Nom" 
-                value={lastname} 
-                handleChange={setLastname}
-            />
+            <div className="names">
+                <Input type="text" name="first_name" id="first_name" placeholder="Prénom"                 
+                    value={firstname} 
+                    handleChange={setFirstname}
+                />
+                <Input type="text" name="last_name" id="last_name" placeholder="Nom" 
+                    value={lastname} 
+                    handleChange={setLastname}
+                />
+            </div>
             <Input type="email" name="mail" id="mail" placeholder="Email"
                 value={mail} 
                 handleChange={setMail}
@@ -63,14 +64,16 @@ const SignUp = ({ closeSignupForm }) => {
                 value={passwordConfirm} 
                 handleChange={setPasswordConfirm}
             />
-            <Input type="date" id="birthday_date" name="birthday_date" 
-                value={birthdayDate} 
-                handleChange={setBirthdayDate}
-            />
-            <Input type="tel" id="phone_number" name="phone_number" placeholder="Numéro de mobile" 
-                value={phoneNumber} 
-                handleChange={setPhoneNumber}
-            />
+            <div className="names">
+                <Input type="date" id="birthday_date" name="birthday_date" 
+                    value={birthdayDate} 
+                    handleChange={setBirthdayDate}
+                />
+                <Input type="tel" id="phone_number" name="phone_number" placeholder="Numéro de mobile" 
+                    value={phoneNumber} 
+                    handleChange={setPhoneNumber}
+                />
+            </div>
             <div className="address">
                 <Input type="number" id="street_number" name="street_number" placeholder="N° de rue"
                     value={streetNumber} 

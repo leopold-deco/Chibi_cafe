@@ -28,15 +28,14 @@ const Favorites = () => {
         return <Redirect to="/compte" />
     }
     return (
-            
-        <AsideNavbar>
+        <div className="favorites">   
+        <AsideNavbar />
             <Content
             title="Mes produits favoris"
             text="Ma sélection de produits favoris"
             products={favorites}
             />
-        </AsideNavbar>
-        
+        </div> 
     
     );
 };

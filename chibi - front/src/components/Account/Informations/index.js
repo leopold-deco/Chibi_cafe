@@ -91,14 +91,16 @@ const Informations = () => {
                         value={passwordConfirm} 
                         handleChange={setPasswordConfirm}
                     />
-                    <Input type="date" id="birthday_date" name="birthday_date" 
-                        value={birthday_date} 
-                        handleChange={handleChange}
-                    />
-                    <Input type="tel" id="phone_number" name="phone_number" placeholder="Numéro de mobile" 
-                        value={phone_number} 
-                        handleChange={handleChange}
-                    />
+                    <div className="names">
+                        <Input type="date" id="birthday_date" name="birthday_date" 
+                            value={birthday_date} 
+                            handleChange={handleChange}
+                        />
+                        <Input type="tel" id="phone_number" name="phone_number" placeholder="Numéro de mobile" 
+                            value={phone_number} 
+                            handleChange={handleChange}
+                        />
+                    </div>
                     <div className="address">
                         <Input type="text" id="principal_street_number" name="principal_street_number" placeholder="N° de rue"
                             value={principal_street_number} 

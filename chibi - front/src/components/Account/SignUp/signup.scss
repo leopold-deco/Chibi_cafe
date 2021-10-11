@@ -12,6 +12,13 @@
     }
 }
 
+@media only screen and (max-width: 1200px) {
+    .names {
+        flex-direction: column;
+        flex-basis: 100%;
+    }
+}
+
 .address {
     display: flex;
 

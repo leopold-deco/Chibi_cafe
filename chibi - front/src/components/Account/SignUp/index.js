@@ -64,14 +64,16 @@ const SignUp = ({ closeSignupForm }) => {
                 value={passwordConfirm} 
                 handleChange={setPasswordConfirm}
             />
-            <Input type="date" id="birthday_date" name="birthday_date" 
-                value={birthdayDate} 
-                handleChange={setBirthdayDate}
-            />
-            <Input type="tel" id="phone_number" name="phone_number" placeholder="Numéro de mobile" 
-                value={phoneNumber} 
-                handleChange={setPhoneNumber}
-            />
+            <div className="names">
+                <Input type="date" id="birthday_date" name="birthday_date" 
+                    value={birthdayDate} 
+                    handleChange={setBirthdayDate}
+                />
+                <Input type="tel" id="phone_number" name="phone_number" placeholder="Numéro de mobile" 
+                    value={phoneNumber} 
+                    handleChange={setPhoneNumber}
+                />
+            </div>
             <div className="address">
                 <Input type="number" id="street_number" name="street_number" placeholder="N° de rue"
                     value={streetNumber} 

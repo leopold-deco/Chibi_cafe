@@ -59,13 +59,17 @@ function App() {
       case '/contact':
         setClassNameBackground('contactB')
         break;
+      case '/menu':
+        setClassNameBackground('menuB')
+        break;
         default:
           break;      
     }
   }, [location.pathname]);
 
   return (
-    <div className={`App ${classNameBackground}`}>
+    <div className="App">
+    <div className={`background ${classNameBackground}`}></div>
       <AppHeader />
       <Switch>
         <Route path="/" exact>

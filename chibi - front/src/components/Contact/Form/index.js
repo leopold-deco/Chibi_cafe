@@ -23,7 +23,12 @@ const Form = ({ className, closeForm }) => {
             mail,
             message,
         }
-        emailjs.send('my_gmail','template_db83b08', templateParams, 'user_ArfWVVGSJEvGb8dc6tTwO')
+        emailjs.send(
+            'my_gmail',
+            'template_db83b08',
+            templateParams,
+            'user_ArfWVVGSJEvGb8dc6tTwO'
+            )
         .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
         setSendMessage("Votre message a bien été envoyé");

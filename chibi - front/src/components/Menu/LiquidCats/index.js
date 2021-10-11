@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import './liquidcats.scss';
 
 const LiquidCats = ({ category_name, category_picture, id, findProducts, setMouseoverLiquid, mouseoverLiquid, newClassName }) => {

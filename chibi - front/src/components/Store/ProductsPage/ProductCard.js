@@ -22,8 +22,8 @@ const ProductCard = ({ product }) => {
 
   const onCart = () => {
     dispatch(addProductToCart(product));
-    setTimeout(() => setModalAnim("modaleAnim"), 500);
-     setTimeout(() => setModalAnim(""), 4000);
+    setTimeout(() => setModalAnim("modaleAnim"), 100);
+     setModalAnim("");
     
   }
 

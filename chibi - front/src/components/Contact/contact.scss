@@ -20,8 +20,8 @@
         width: 70%;
         max-width: 2000px;
         gap: 2rem;
-        max-height: 70vh;
-        margin-top: 5rem;
+        height: 70vh;
+        margin-top: 1rem;
 
         &-left {
             display: flex;
@@ -70,6 +70,18 @@
     }
 }
 
+
+@media only screen and (max-width: 1200px) {
+
+    .contact__container{
+        width: 95%;
+    }
+    }
+    
+
+
+
+
 @media only screen and (max-width: 850px) {
     .contact__container{
         flex-direction: column;
@@ -89,7 +101,7 @@
 
 @media only screen and (max-width: 600px) {
     .contact{
-        height: 100vh;
+        height: 80vh;
         
 
         &__container{
@@ -136,6 +148,7 @@
 }
 
 
+
 @keyframes jump {
     0% {
         transform: translateY(3px);
@@ -147,3 +160,41 @@
 
 
 
+@media only screen and (max-height: 550px) {
+    .contact{
+      height: 130vh;
+      margin-bottom: 2rem;
+      align-items: flex-start;
+
+      &__container{
+         height: 100vh;
+      }
+    }
+   }
+
+
+   @media only screen and (max-height: 450px) {
+    .contact{
+      height: 140vh;
+      margin-bottom: 2rem;
+      align-items: flex-start;
+
+      &__container{
+         height: 120vh;
+      }
+    }
+   }
+
+
+
+   @media only screen and (max-height: 380px) {
+    .contact{
+      height: 170vh;
+      margin-bottom: 2rem;
+      align-items: flex-start;
+
+      &__container{
+         height: 150vh;
+      }
+    }
+   }

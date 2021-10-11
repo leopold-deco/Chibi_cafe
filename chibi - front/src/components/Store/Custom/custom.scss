@@ -15,8 +15,8 @@
     }
 
     &__top {
-        width: 325px;
-        height: 310px;
+        width: 300px;
+        height: 275px;
         margin: auto;
         
         &__card {
@@ -67,7 +67,7 @@
 
                 &__description {
                     padding: 1rem;
-                    font-size: 1rem;
+                    font-size: 0.9rem;
                 }
             }
         }
@@ -84,7 +84,8 @@
             display: flex;
             flex-direction: column;
             padding: 1rem;
-            background-color: #e8af7b;
+            background-image: url(../../../assets/custom/steps-background.jpg);
+            background-size: cover;
             box-shadow: vars.$box-shadow;
             border: vars.$border;
             border-radius: 20px;
@@ -92,7 +93,7 @@
             height: 270px;
 
             &__title {
-                color: vars.$tertiary-color;
+                color: #9c5b42;
             }
 
             &__identity {
@@ -102,7 +103,6 @@
 
                 &__label {
                     margin-top: 0.5rem;
-                    // margin-bottom: 00.5rem;
                 }
             }
         }
@@ -113,7 +113,8 @@
             justify-content: center;
             flex-direction: column;
             padding: 1rem;
-            background-color: #e8af7b;
+            background-image: url(../../../assets/custom/steps-background.jpg);
+            background-size: cover;
             box-shadow: vars.$box-shadow;
             border: vars.$border;
             border-radius: 20px;
@@ -121,7 +122,7 @@
             height: 270px;
             
             &__title {
-                color: vars.$tertiary-color;
+                color: #9c5b42;
                 font-weight: bold;
                 margin-bottom: 2rem;
             }
@@ -142,7 +143,8 @@
             justify-content: center;
             flex-direction: column;
             padding: 1rem;
-            background-color: #e8af7b;
+            background-image: url(../../../assets/custom/steps-background.jpg);
+            background-size: cover;
             box-shadow: vars.$box-shadow;
             border: vars.$border;
             border-radius: 20px;
@@ -150,8 +152,8 @@
             height: 270px;
 
             &__title {
-                color: vars.$tertiary-color;;
-                margin-bottom: 2rem;
+                color: #9c5b42;
+                margin-bottom: 3rem;
             }
         }
 
@@ -161,7 +163,8 @@
             justify-content: center;
             flex-direction: column;
             padding: 1rem;
-            background-color: #e8af7b;
+            background-image: url(../../../assets/custom/steps-background.jpg);
+            background-size: cover;
             box-shadow: vars.$box-shadow;
             border: vars.$border;
             border-radius: 20px;
@@ -169,9 +172,8 @@
             height: 270px;
 
             &__title {
-                color: vars.$tertiary-color;;
-                margin-bottom: 2rem;
-                    
+                color: #9c5b42;
+                margin-bottom: 3rem;
             }
 
         }
@@ -180,21 +182,25 @@
     }
     
     &__bottom {
+        display: flex;
+        flex-direction: column;
         width: 100%;
-        bottom: 70px;
+        bottom: 5rem;
 
         &__submit {
             display: flex;
-            align-items: center;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
             width: 50%;
-            padding-bottom: 4rem;
+            padding-bottom: 2rem;
             margin: auto;
     
             &__text {
             width: 100%;
             height: 150px;
             margin-top: 5px;
+            margin-bottom: 1rem;
             background-color: #f8f8f8;
             outline: none;
             padding: vars.$halfGutter;
@@ -205,48 +211,95 @@
             letter-spacing: 1px;
             }
         }
+
+        &__validate {
+            width: 50%;
+            margin: 0 auto 5rem;
+        }
+
+        // &__confirm {
+        //     bottom: 70px;
+        //     position: absolute;
+        //     margin: 2rem;
+        //     padding: 1rem;
+        //     border: vars.$border;
+        //     border-radius: 20px;
+        //     color: #3ab12b;
+        //     background-color: rgb(255, 253, 253);
+        // }
     }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1185px) {
     .custom {
         
         &__top {
             display: none;
         }
 
-        &__one {
-            font-size: 1.2rem;
-            flex-direction: column;
-            text-align: center;
-    
-            &__two {
-                align-items: center;
-                margin-top: 2rem;
-            }
-    
-            &__three {
-                &__number {
-                    margin-top: 2rem;
-                }
-            }
+        &__center {
+            flex-wrap: wrap;
 
-            &__four {
-                
-                &__choice {
-                    margin-top: 2rem;
-                }
+            &__one {
+                font-size: 1.1rem;
+                flex-direction: column;
+                text-align: center;
+                width: 220px;
+                height: 300px;
             }
+                &__two {
+                    align-items: center;
+                    width: 220px;
+                    height: 300px;
+                }
+        
+                &__three {
+                    justify-content: space-around;
+                    width: 220px;
+                    height: 300px;
+
+                    &__number {
+                        margin-top: 2rem;
+                    }
+                }
+    
+                &__four {
+                    justify-content: space-around;
+                    width: 220px;
+                    height: 300px;
+
+                    &__choice {
+                        margin-top: 2rem;
+                    }
+                }
+        
+
         }
 
         &__bottom {
-            bottom: 90px;
+            bottom: 70px;
+
+            &__submit {
+                width: 50%;
+    
+                &__text {
+                }
+            }
+
+            &__validate {
+                width: 50%;
+                margin: auto;
+            }
         }
     }
 }
 
 @media screen and (max-width: 600px) {
     .custom {
+
+        &__title {
+            margin: 1rem;
+        }
         
         &__top {
             padding: 5rem;
@@ -254,6 +307,51 @@
 
         &__bottom {
             bottom: 90px;
+        }
+    }
+}
+
+@media screen and (max-width: 435px) {
+    .custom {
+
+        &__center {
+
+            &__one {
+                width: 200px;
+                height: 280px;
+            }
+
+            &__two {
+                width: 200px;
+                height: 280px;
+
+                &__title {
+                    margin-bottom: 2rem;
+                }
+            }
+
+            &__three {
+                width: 200px;
+                height: 280px;
+                justify-content: space-between;
+                margin: 0;
+            }
+
+            &__four {
+                width: 200px;
+                height: 280px;
+            }
+        }
+
+        &__bottom {
+
+            &__submit {
+                width: 60%;
+            }
+
+            &__validate {
+                width: 60%;
+            }
         }
     }
 }

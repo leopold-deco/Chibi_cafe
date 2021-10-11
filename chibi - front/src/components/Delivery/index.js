@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './delivery.scss';
 import Form from '../Account/Form';
 import Button from '../Button';

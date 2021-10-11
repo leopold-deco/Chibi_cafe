@@ -5,6 +5,9 @@
     display: flex;
     align-items:center;
     justify-content: center;
+    width: 90%;
+    margin: auto;
+    height: 80vh;
 
     padding: 2rem;
     padding-bottom: 4rem;
@@ -33,9 +36,9 @@
     }
 }
 
-.center{
-    font-size: 1rem;
-}
+// .center{
+//     font-size: 1rem;
+// }
 
 .clientBtn{
     margin-top: 1rem;

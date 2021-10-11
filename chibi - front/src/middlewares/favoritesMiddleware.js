@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { ADD_FAVORITES, FETCH_FAVORITES, saveFavorites, DELETE_FAVORITES, removeFavorites } from '../actions/favorites';
+import { ADD_FAVORITES, FETCH_FAVORITES, saveFavorites, DELETE_FAVORITES } from '../actions/favorites';
 
 const axiosInstance = axios.create({
   baseURL: 'https://chibi-api.herokuapp.com',

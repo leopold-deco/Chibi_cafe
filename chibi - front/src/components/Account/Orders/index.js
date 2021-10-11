@@ -13,8 +13,9 @@ const Orders = () => {
     console.log(orders);
     return (
     <div className="orders">
-        <AsideNavbar />
+        
                 <h2 className="orders__title">Mes commandes</h2>
+                <AsideNavbar />
                 <div className="orders__list">
                     {orders && orders.map(order => (
                         <TrackOrder order={order} />

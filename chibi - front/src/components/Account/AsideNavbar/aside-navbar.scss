@@ -1,13 +1,17 @@
 @use '../../../styles/vars';
 
+.aside-navbar-container {
+    display: flex;
+    width: 25%;
+    height: 60vh;
+    position: fixed;
+    top: 25%;
+}
 
 .aside-navbar {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: fixed;
-    top: 22%;
-    height: 70vh;
     align-items: center;
     background-color: vars.$tertiary-color;
     width: 12rem;

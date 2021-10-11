@@ -1,12 +1,14 @@
 @use '../../../styles/vars';
 
 .orders {
+    width: 80%;
     overflow-y: scroll;
     background-color: vars.$tertiary-color;
     border-radius: vars.$border-radius;
+    padding: 1rem;
+    margin: 0 auto;
 
     &__title {
-        padding-top: 1rem;
         padding-bottom: 1rem;
         margin-left: 1rem;
     }

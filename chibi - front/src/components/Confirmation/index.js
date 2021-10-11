@@ -1,9 +1,12 @@
+import { useEffect } from 'react';
 import TrackOrder from '../TrackOrder';
 import './confirmation.scss';
 
 export default function Confirmation() {
-    const lastOrder = JSON.parse(localStorage.getItem("lastOrder"));
-    const user = JSON.parse(localStorage.getItem("user"));
+  const lastOrder = JSON.parse(localStorage.getItem("lastOrder"));
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  useEffect(localStorage.removeItem("cart"), []);
     
   return (
     <div className="confirmation">

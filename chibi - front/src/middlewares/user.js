@@ -43,6 +43,7 @@ const userMiddleware = (store) => (next) => (action) => {
       localStorage.removeItem("user");
       localStorage.removeItem("deliveryAddress");
       localStorage.removeItem("userAddresses");
+      localStorage.removeItem("favorites");
       next(action);
       break;
     case SIGNUP: {

@@ -12,8 +12,8 @@ const Orders = () => {
     useEffect(() => dispatch({type: GET_ORDERS}), []);
     console.log(orders);
     return (
-    <div className="orders">
-        <AsideNavbar />
+        <AsideNavbar>
+            <div className="orders">
                 <h2 className="orders__title">Mes commandes</h2>
                 <div className="orders__list">
                     {orders && orders.map(order => (
@@ -21,11 +21,7 @@ const Orders = () => {
                     ))}
                 </div>
             </div>
-<<<<<<< HEAD
-
-=======
         </AsideNavbar>
->>>>>>> claudie
     );
 };
 

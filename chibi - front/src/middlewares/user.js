@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { 
-  connectUser, getAddresses, ADD_NEW_ADDRESS, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES, EDIT_ADDRESS, DELETE_ADDRESS
+  connectUser, getAddresses, saveOrders, ADD_NEW_ADDRESS, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES, EDIT_ADDRESS, DELETE_ADDRESS, GET_ORDERS
 } from '../actions/auth';
 
 import { setMessage } from '../actions/message';
@@ -242,7 +242,7 @@ const userMiddleware = (store) => (next) => (action) => {
       const { token, user: {
         id,
       } } = store.getState().auth;
-      console.log("action.address",action.address)
+
       axiosInstance.delete(
         `/address/${action.address.id}`,
         {
@@ -262,6 +262,28 @@ const userMiddleware = (store) => (next) => (action) => {
         if(response.data) {
           console.log("supprimé",response.data)
           store.dispatch({type: GET_USER_ADDRESSES});
+        }
+      },
+      ).catch(
+        (error) => console.log('error', error),
+      );
+      next(action);
+      break;
+    }
+    case GET_ORDERS: {
+      const { token, user: {
+        id,
+      } } = store.getState().auth;
+
+      axiosInstance.get(
+        `/accountOrder/${id}`,
+        {
+          headers: { "Authorization": `Bearer ${token}` }
+        }
+      ).then((response) => {
+        if(response.data.length) {
+          localStorage.setItem("orders", JSON.stringify(response.data));
+          store.dispatch(saveOrders(response.data));
         }
       },
       ).catch(

@@ -63,8 +63,10 @@ const FormEditAddress = ({ userAddressStore, handleClickEdit, handleClickDelete 
                     required={false}
                 />
             </div>
-            <Button handleClick={() => handleClickEdit(userAddress)}>Modifier</Button>
-            <Button handleClick={() => handleClickDelete(userAddress)}>Supprimer</Button>
+            <div className="names">
+                <Button handleClick={() => handleClickEdit(userAddress)}>Modifier</Button>
+                <Button handleClick={() => handleClickDelete(userAddress)}>Supprimer</Button>
+            </div>
         </div>
     );
 };

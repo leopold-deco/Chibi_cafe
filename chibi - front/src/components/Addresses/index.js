@@ -49,7 +49,7 @@ function Addresses() {
 
     return (
         <AsideNavbar>
-            <div className="addresses__container">
+            <div className="addresses">
                 <Button type="button" handleClick={toggle}>
                     Ajouter une adresse
                 </Button>

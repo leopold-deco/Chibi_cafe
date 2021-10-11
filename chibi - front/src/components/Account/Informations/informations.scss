@@ -1,13 +1,13 @@
 .informations {
     display: flex;
-    padding: 2rem;
     height: 70vh;
 }
 
 
 .informations>.form__auth{
     gap: 0.25rem;
-    width: 40%;
+    width: 50%;
+    max-width: 1000px;
 }
 
 

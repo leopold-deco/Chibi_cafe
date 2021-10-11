@@ -28,7 +28,6 @@ const Favorites = () => {
         return <Redirect to="/compte" />
     }
     return (
-            
         <AsideNavbar>
             <Content
             title="Mes produits favoris"
@@ -36,7 +35,6 @@ const Favorites = () => {
             products={favorites}
             />
         </AsideNavbar>
-        
     
     );
 };

@@ -87,7 +87,7 @@ function NavBar({ cartCount }) {
         <Link className="menu__mobile__link" to="/boutique"><i className="fas fa-store"></i> Boutique</Link>
         <Link className="menu__mobile__link" to="/menu"><i className="fas fa-utensils"></i> Menu</Link>
         <Link className="menu__mobile__link" to="/contact"><i className="fas fa-envelope-square"></i> Contact</Link>
-        {isLoggedIn && <div className="disconnectBtn__mobile"><i onClick={handleClick} className="fas fa-power-off"></i> Se déconnecter</div>}
+        {isLoggedIn && <div onClick={handleClick} className="disconnectBtn__mobile"><i className="fas fa-power-off"></i> Se déconnecter</div>}
       </div>
     </>
     );

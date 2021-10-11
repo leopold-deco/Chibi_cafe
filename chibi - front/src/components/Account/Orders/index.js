@@ -21,7 +21,11 @@ const Orders = () => {
                     ))}
                 </div>
             </div>
+<<<<<<< HEAD
 
+=======
+        </AsideNavbar>
+>>>>>>> claudie
     );
 };
 

@@ -36,6 +36,20 @@
     }
 }
 
+<<<<<<< HEAD
+=======
+.center{
+    font-size: 1rem;
+}
+
+.clientBtn{
+    margin-top: 1rem;
+    padding: 1.20rem;
+    border-radius: 0.75rem;
+    border: none;
+    background-color: #85dcec;
+}
+>>>>>>> 3c927171f66a213858f3bc305378fc4df1a237bc
 
 @media only screen and (max-width: 1350px) {
     .auth-container-signup{  
@@ -70,12 +84,14 @@
         }
     }
 
+
+
     .isClient{
         width: 80%;
         box-shadow: vars.$box-shadow;
         background: vars.$tertiary-color;
         margin: auto;
-        padding: 3rem;
+        padding: 1.5rem;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -98,7 +114,7 @@
 @media only screen and (max-width: 600px) {
 
     .auth-container-login{
-        width: 90%;
+        width: 95%;
     }
 }
 
@@ -139,4 +155,13 @@
    }
 
 
+   @media only screen and (max-height: 700px) {
+   .auth{
+       height: 70vh;
+   }
 
+   .basic-input{
+    padding: 0.3rem;
+}
+
+   }

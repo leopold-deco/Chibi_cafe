@@ -2,7 +2,7 @@ import './checkout-form.scss';
 import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import { useState } from 'react';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Form from '../Account/Form';
 import cupcake from '../../assets/icons/cupcake.png';
@@ -10,8 +10,10 @@ import cupcakeClose from '../../assets/icons/cupcake-close.png';
 import coffee from '../../assets/icons/coffee.png';
 import Button from '../Button';
 import CoffeeLoader from '../CoffeeLoader';
+import { REMOVE_CART } from '../../actions/shop';
 
 export default function CheckoutForm() {
+  const dispatch = useDispatch();
   const history = useHistory();
   const stripe = useStripe();
   const elements = useElements();
@@ -59,7 +61,8 @@ export default function CheckoutForm() {
             if(responseOrder.data.id) {
               console.log("success", responseOrder);
               localStorage.setItem("lastOrder", JSON.stringify(responseOrder.data));
-
+              dispatch({type: REMOVE_CART});
+              localStorage.removeItem("cart");
               history.push('/confirmation')
             }
 

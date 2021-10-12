@@ -11,8 +11,19 @@
 
 .slides{
     width: calc(350px * 3);
-    animation: glisse 20s infinite;
     margin: 0;
+}
+
+.slides1 {
+    animation: glisse1 25s infinite;
+}
+
+.slides2 {
+    animation: glisse2 28s infinite;
+}
+
+.slides3 {
+    animation: glisse3 31s infinite;
 }
 
 
@@ -402,7 +413,7 @@
 
 
 
-@keyframes glisse {
+@keyframes glisse1 {
     0%{
         transform: translateX(0);
     }

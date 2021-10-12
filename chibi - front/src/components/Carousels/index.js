@@ -11,7 +11,7 @@ export default function Carousels() {
     return (
         <div className="carousels">
             <div className="slider">
-                <div className="slides">
+                <div className="slides slides1">
                     <div className="slide">
                     <img src="https://images.pexels.com/photos/290975/pexels-photo-290975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="café" />
                     </div>
@@ -24,7 +24,7 @@ export default function Carousels() {
                 </div>
             </div>
             <div className="slider">
-                <div className="slides">
+                <div className="slides slides2">
                     <div className="slide">
                         <img src={carousel1} alt="café" />
                     </div>
@@ -37,7 +37,7 @@ export default function Carousels() {
                 </div>
             </div>
             <div className="slider last">
-                <div className="slides last">
+                <div className="slides last slides3">
                     <div className="slide">
                     <img src={carousel4} alt="café" />
                     </div>

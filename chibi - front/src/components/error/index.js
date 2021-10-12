@@ -4,9 +4,10 @@ import CoffeeMachineLoader from '../CoffeeMachineLoader';
 function Error() {
     return (
       <div className="error">
-          <h2>404</h2>
+          <h2>Erreur 404</h2>
+          <p>Page introuvable</p>
           <CoffeeMachineLoader />
-          <p>Aller à <a className="error__button" href="/">l'accueil</a></p>
+          <p>Retour à <a className="error__button" href="/">l'accueil</a></p>
       </div>
     );
   }

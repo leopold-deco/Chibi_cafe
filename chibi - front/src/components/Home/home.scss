@@ -15,15 +15,15 @@
 }
 
 .slides1 {
-    animation: glisse1 25s infinite;
+    animation: glisse 25s infinite;
 }
 
 .slides2 {
-    animation: glisse2 28s infinite;
+    animation: glisse 28s infinite;
 }
 
 .slides3 {
-    animation: glisse3 31s infinite;
+    animation: glisse 31s infinite;
 }
 
 
@@ -413,7 +413,7 @@
 
 
 
-@keyframes glisse1 {
+@keyframes glisse {
     0%{
         transform: translateX(0);
     }

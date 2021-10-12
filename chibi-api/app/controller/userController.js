@@ -42,7 +42,7 @@ const userController = {
                return response.status(200).json('Veuillez entrer deux mot de passe identiques'); 
             }
 
-            if(result.phone_number !== 10) {
+            if(result.phone_number > 10 || result.phone_number < 10) {
                 return response.json('veuillez rentrer un numéro de téléphone valide !! Ex: 0123456789');
             }
 

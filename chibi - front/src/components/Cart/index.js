@@ -89,7 +89,7 @@ const Cart = (props) => {
           <div className="modal-wrapper">
               <div className="modal">
                 <div className="modal-header">
-                    <h4>Veuillez vous connecter pour poursuivre la commande</h4>
+                    <h4>Veuillez vous connecter pour poursuivre la commande.</h4>
                     <button
                     type="button"
                     className="modal-close-button"
@@ -99,7 +99,7 @@ const Cart = (props) => {
                     </button>
                 </div>
                 <div className="modal-flex">
-                  <Login to='/livraison' />
+                  <Login to="/livraison"/>
                 </div>
               </div>
           </div>

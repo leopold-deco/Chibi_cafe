@@ -13,7 +13,7 @@ const UserAddress = ({ userAddress, setUserAddress}) => {
             <FormInputDisabled data={userAddress ? userAddress : user} 
                 button={false}
             />
-            {userAddressesStore.length > 0 &&
+            {(userAddressesStore && userAddressesStore.length > 0) &&
                 <>
                     <button 
                         style={{marginTop: "1rem", marginBottom: "1rem", borderRadius: "0.75rem", padding: "0.5rem", border: "solid 0.2px black"}} type="button" className="modal-toggle" onClick={toggle}

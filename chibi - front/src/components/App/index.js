@@ -20,6 +20,7 @@ import Informations from '../Account/Informations';
 import Orders from '../Account/Orders';
 import StripeContainer from '../StripeContainer';
 import Favorites from '../Favorites';
+import Team from '../Team';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -62,8 +63,11 @@ function App() {
       case '/menu':
         setClassNameBackground('menuB')
         break;
-        default:
-          break;      
+      case '/a-propos':
+        setClassNameBackground('teamB')
+        break;
+      default:
+        break;      
     }
   }, [location.pathname]);
 
@@ -116,6 +120,9 @@ function App() {
         </Route>
         <Route path="/boutique/formulaire/custom" exact>
           <Custom />
+        </Route>
+        <Route path="/a-propos" exact>
+          <Team />
         </Route>
         <Route path="/" >
           <Error />

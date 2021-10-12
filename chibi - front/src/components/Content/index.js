@@ -9,7 +9,7 @@ console.log(products);
     
     return (
         <div className='content'>
-            <h1 className="content__title">{title}</h1>
+            <h2 className="content__title">{title}</h2>
             <p className="content__text">{text}</p>
             {products && (
                 <div className="content__list">

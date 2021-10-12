@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { NavLink } from 'react-router-dom';
 
 import logoFacebook from "../../assets/logos/facebook.png";
@@ -31,7 +32,11 @@ const Footer = () => (
       </NavLink>
       </div>
     </div>
-    <a href="/copyright" className="footer__copyright">Copyright</a>
+    <NavLink
+        to="/a-propos"
+      >
+      A propos
+      </NavLink>
     <a href="/mentions-legales" className="footer__mentions">Mentions Légales</a>
   </div>
 );

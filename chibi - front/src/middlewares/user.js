@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { 
-  connectUser, getAddresses, saveOrders, ADD_NEW_ADDRESS, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES, EDIT_ADDRESS, DELETE_ADDRESS, GET_ORDERS
+  connectUser, getAddresses, saveOrders, messageLogin, ADD_NEW_ADDRESS, LOGIN, LOGOUT, SIGNUP, UPDATE_USER, UPDATE_PASSWORD, GET_USER_ADDRESSES, EDIT_ADDRESS, DELETE_ADDRESS, GET_ORDERS
 } from '../actions/auth';
 
 import { setMessage } from '../actions/message';
@@ -28,8 +28,8 @@ const userMiddleware = (store) => (next) => (action) => {
               localStorage.setItem("token", JSON.stringify(response.data.token));
               store.dispatch(connectUser(response.data));
               store.dispatch({type: GET_USER_ADDRESSES});
-            } else {
-              
+            } else if (response.data = "Email ou mot de passe incorrect") {
+              store.dispatch(messageLogin(response.data));
             }
           },
         ).catch(

@@ -132,3 +132,12 @@ export const saveOrders = (data) => (
     data
   }
 );
+
+export const MESSAGE_LOGIN = 'MESSAGE_LOGIN';
+
+export const messageLogin = (data) => (
+  {
+    type: MESSAGE_LOGIN,
+    data
+  }
+);

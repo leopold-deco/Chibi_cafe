@@ -1,6 +1,7 @@
 import Adresse from './Adresse';
 import Form from './Form';
 import { useState } from 'react';
+import Button from '../Button';
 
 import "./contact.scss";
 
@@ -42,11 +43,11 @@ function Contact() {
           </div>
           <div className="mobile-contact">
             <p>Pour nous contacter :</p>
-            <button
-            onClick={openFormContact}
-            type="button" className="mobile-contact-btn">
+            <Button
+            handleClick={openFormContact}
+            type="button">
               cliquez ici
-            </button>
+            </Button>
           </div>
         </div>
         <div onClick={closeForm} className={overlayClass}></div>

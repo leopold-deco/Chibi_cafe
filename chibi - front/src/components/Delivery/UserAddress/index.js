@@ -15,7 +15,9 @@ const UserAddress = ({ userAddress, setUserAddress}) => {
             />
             {userAddressesStore.length > 0 &&
                 <>
-                    <button style={{marginTop: "1rem", marginBottom: "1rem"}} type="button" className="modal-toggle" onClick={toggle}>
+                    <button 
+                        style={{marginTop: "1rem", marginBottom: "1rem", borderRadius: "0.75rem", padding: "0.5rem", border: "solid 0.2px black"}} type="button" className="modal-toggle" onClick={toggle}
+                    >
                         Choisir une autre adresse de livraison
                     </button>
                     {isShowing && 
@@ -25,11 +27,11 @@ const UserAddress = ({ userAddress, setUserAddress}) => {
                             <div className="modal-header">
                                 <h4>Choisir une autre adresse de livraison</h4>
                                 <button
-                                type="button"
-                                className="modal-close-button"
-                                onClick={toggle}
+                                    type="button"
+                                    className="modal-close-button"
+                                    onClick={toggle}
                                 >
-                                <span>&times;</span>
+                                <span style={{fontSize: "3rem"}}>&times;</span>
                                 </button>
                             </div>
                             <div className="modal-flex">

@@ -8,6 +8,16 @@ body {
   background-size: cover;
 }
 
+input[type="radio"]{
+  padding: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+label {
+  cursor: pointer;
+}
+
 a {
   cursor: url(../../assets/pawpanda1.png), auto;
 }

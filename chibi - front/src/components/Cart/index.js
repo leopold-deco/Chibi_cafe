@@ -95,7 +95,7 @@ const Cart = (props) => {
                     className="modal-close-button"
                     onClick={toggle}
                     >
-                    <span>&times;</span>
+                    <span style={{fontSize: "3rem"}}>&times;</span>
                     </button>
                 </div>
                 <div className="modal-flex">

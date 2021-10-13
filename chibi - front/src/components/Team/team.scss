@@ -15,7 +15,7 @@
         display: flex;
         border-radius: 0.75rem;
         background-color: rgba(240, 248, 255, 0.507);
-        width: 50%;
+        width: 70%;
         
         &__card {
             display: flex;
@@ -27,7 +27,7 @@
             
 
             &__img {
-                height: 70%;
+                height: 235px;
                 border-radius: 0.75rem;
                 border: solid 2px rgba(240, 248, 255, 0.507);
                 -webkit-transition: all 0.3s ease;
@@ -36,6 +36,25 @@
                 &:hover{
                     -webkit-transform:scale(1.1);
                     opacity: 1;
+                }
+            }
+
+            &__links {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                &__a {
+                    width: 30%;
+                }
+
+                &__img {
+                    height: 30%;
+                    -webkit-transition: all 0.3s ease;
+
+                &:hover{
+                    -webkit-transform:scale(1.1);
+                }
                 }
             }
         }

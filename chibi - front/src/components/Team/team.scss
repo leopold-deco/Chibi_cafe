@@ -42,10 +42,10 @@
             &__links {
                 display: flex;
                 align-items: center;
-                justify-content: space-around;
+                justify-content: space-evenly;
 
                 &__a {
-                    width: 30%;
+                    width: 20%;
                 }
 
                 &__img {

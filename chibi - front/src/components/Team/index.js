@@ -1,7 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import github from '../../assets/logos/github.png';
 import linkedin from '../../assets/logos/linkedin.png';
-import imgClaudie from '../../assets/team/imgClaudie.jpg'
+import imgClaudie from '../../assets/team/imgClaudie.jpg';
+import imgLeopold from '../../assets/team/imgLeopold.png';
+import imgMathieu from '../../assets/team/imgMathieu.jpg';
+import imgFlorentin from '../../assets/team/imgFlorentin.png';
+import imgRichard from '../../assets/team/imgRichard.jpg';
 import './team.scss';
 
 const Team = () => (
@@ -28,7 +32,7 @@ const Team = () => (
             <div className="team__container__card">
                 <img
                 className="team__container__card__img"
-                src={imgClaudie}
+                src={imgLeopold}
                 />
                 <p className="team__container__card__name">Leopold</p>
                 <p className="team__container__card__description">Lead Dev Back</p>
@@ -45,7 +49,7 @@ const Team = () => (
             <div className="team__container__card">
                 <img
                 className="team__container__card__img"
-                src={imgClaudie}
+                src={imgMathieu}
                 />
                 <p className="team__container__card__name">Mathieu</p>
                 <p className="team__container__card__description">Scrum Master & Dev Front</p>
@@ -62,7 +66,7 @@ const Team = () => (
             <div className="team__container__card">
                 <img
                 className="team__container__card__img"
-                src={imgClaudie}
+                src={imgFlorentin}
                 />
                 <p className="team__container__card__name">Florentin</p>
                 <p className="team__container__card__description">Git Master & Dev Back</p>
@@ -79,7 +83,7 @@ const Team = () => (
             <div className="team__container__card">
                 <img
                 className="team__container__card__img"
-                src={imgClaudie}
+                src={imgRichard}
                 />
                 <p className="team__container__card__name">Richard</p>
                 <p className="team__container__card__description">Product Owner & Dev Front</p>

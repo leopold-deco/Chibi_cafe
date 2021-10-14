@@ -27,15 +27,14 @@
             
 
             &__img {
-                height: 235px;
+                height: 220px;
+                width: 235px;
                 border-radius: 0.75rem;
                 border: solid 2px rgba(240, 248, 255, 0.507);
                 -webkit-transition: all 0.3s ease;
-                opacity: .5;
 
                 &:hover{
                     -webkit-transform:scale(1.1);
-                    opacity: 1;
                 }
             }
 

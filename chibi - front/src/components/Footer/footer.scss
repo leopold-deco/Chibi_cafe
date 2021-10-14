@@ -8,6 +8,10 @@
     bottom: 0;
     margin-top: 2rem;
 
+    &__team:hover {
+        color: white;
+    }
+
     &__image {
         display: flex;
         justify-content: center;

@@ -34,6 +34,7 @@ const Footer = () => (
     </div>
     <NavLink
         to="/a-propos"
+        className="footer__team"
       >
       A propos
       </NavLink>

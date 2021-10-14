@@ -14,17 +14,17 @@ input[type="radio"]{
   margin-top: 1rem;
 }
 
-input, label, button, a, span {
-  cursor: url(../../assets/pawpanda2.png), auto;
+// input, label, button, a, span {
+//   cursor: url(../../assets/pawpanda2.png), auto;
 
-  &:active {
-    cursor: url(../../assets/pawpanda4.png), auto;
-  }
-}
+//   &:active {
+//     cursor: url(../../assets/pawpanda4.png), auto;
+//   }
+// }
 
 
 .App{
-  cursor: url(../../assets/pawpanda2.png), auto;
+  // cursor: url(../../assets/pawpanda2.png), auto;
   position:relative;
   min-height: 100vh;
   width: 100%;

@@ -1,11 +1,13 @@
 import './carousels.scss';
-import carousel1 from '../../assets/carrousel/carrousel1.jpg';
-import carousel2 from '../../assets/carrousel/carrousel2.jpg';
-import carousel3 from '../../assets/carrousel/carrousel3.jpg';
-import carousel4 from '../../assets/carrousel/carrousel4.jpg';
-import carousel5 from '../../assets/carrousel/carrousel5.jpg';
-import carousel6 from '../../assets/carrousel/carrousel6.jpg';
-import carousel7 from '../../assets/carrousel/carrousel7.jpg';
+import carousel1 from '../../assets/carrousel/carrousel11.jpg';
+import carousel2 from '../../assets/carrousel/carrousel22.jpg';
+import carousel3 from '../../assets/carrousel/carrousel33.jpg';
+import carousel4 from '../../assets/carrousel/carrousel44.jpg';
+import carousel5 from '../../assets/carrousel/carrousel55.jpg';
+import carousel6 from '../../assets/carrousel/carrousel66.jpg';
+import carousel7 from '../../assets/carrousel/carrousel77.jpg';
+import carousel8 from '../../assets/carrousel/tasse.jpeg';
+import carousel9 from '../../assets/carrousel/tea.webp';
 
 export default function Carousels() {
     return (
@@ -13,10 +15,10 @@ export default function Carousels() {
             <div className="slider">
                 <div className="slides slides1">
                     <div className="slide">
-                    <img src="https://images.pexels.com/photos/290975/pexels-photo-290975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="café" />
+                    <img src={carousel8} alt="café" />
                     </div>
                     <div className="slide">
-                    <img src="https://cdn.pixabay.com/photo/2015/11/12/17/42/tea-1040677_960_720.jpg" alt="thé et infusion" />
+                    <img src={carousel9} alt="thé et infusion" />
                     </div>
                     <div className="slide">
                     <img src={carousel7} alt="sablés" />
